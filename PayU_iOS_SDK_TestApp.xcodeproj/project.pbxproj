@@ -7,44 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E080E03E1A839FFF0075A672 /* AllPaymentOprionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E080E00E1A839FFF0075A672 /* AllPaymentOprionsView.xib */; };
-		E080E03F1A839FFF0075A672 /* amex.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E00F1A839FFF0075A672 /* amex.png */; };
-		E080E0401A839FFF0075A672 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E0101A839FFF0075A672 /* arrow.png */; };
-		E080E0411A839FFF0075A672 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E0111A839FFF0075A672 /* calendar.png */; };
-		E080E0421A839FFF0075A672 /* card.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E0121A839FFF0075A672 /* card.png */; };
-		E080E0431A839FFF0075A672 /* CardProcessView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E080E0131A839FFF0075A672 /* CardProcessView.xib */; };
-		E080E0441A839FFF0075A672 /* cash_card.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E0141A839FFF0075A672 /* cash_card.png */; };
-		E080E0451A839FFF0075A672 /* checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E0151A839FFF0075A672 /* checkbox.png */; };
-		E080E0461A839FFF0075A672 /* checkbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E0161A839FFF0075A672 /* checkbox@2x.png */; };
-		E080E0471A839FFF0075A672 /* coin.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E0171A839FFF0075A672 /* coin.png */; };
-		E080E0481A839FFF0075A672 /* diner.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E0181A839FFF0075A672 /* diner.png */; };
-		E080E0491A839FFF0075A672 /* discover.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E0191A839FFF0075A672 /* discover.png */; };
-		E080E04A1A839FFF0075A672 /* dropdown.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E01A1A839FFF0075A672 /* dropdown.png */; };
-		E080E04B1A839FFF0075A672 /* dropdown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E01B1A839FFF0075A672 /* dropdown@2x.png */; };
-		E080E04C1A839FFF0075A672 /* EMIOptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E080E01C1A839FFF0075A672 /* EMIOptionView.xib */; };
-		E080E04D1A839FFF0075A672 /* error_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E01D1A839FFF0075A672 /* error_icon.png */; };
-		E080E04E1A839FFF0075A672 /* ic_action_add_person.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E01E1A839FFF0075A672 /* ic_action_add_person.png */; };
-		E080E04F1A839FFF0075A672 /* jcb.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E01F1A839FFF0075A672 /* jcb.png */; };
-		E080E0501A839FFF0075A672 /* laser.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E0201A839FFF0075A672 /* laser.png */; };
-		E080E0511A839FFF0075A672 /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E0211A839FFF0075A672 /* lock.png */; };
-		E080E0521A839FFF0075A672 /* lock2.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E0221A839FFF0075A672 /* lock2.png */; };
-		E080E0531A839FFF0075A672 /* maestro.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E0231A839FFF0075A672 /* maestro.png */; };
-		E080E0541A839FFF0075A672 /* master.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E0241A839FFF0075A672 /* master.png */; };
-		E080E0551A839FFF0075A672 /* payu_money.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E0261A839FFF0075A672 /* payu_money.png */; };
-		E080E0561A839FFF0075A672 /* PayUCardProcessViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E080E0281A839FFF0075A672 /* PayUCardProcessViewController.xib */; };
-		E080E0571A839FFF0075A672 /* PayUCashCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E080E02A1A839FFF0075A672 /* PayUCashCardViewController.xib */; };
-		E080E0581A839FFF0075A672 /* PayUEMIOptionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E080E02C1A839FFF0075A672 /* PayUEMIOptionViewController.xib */; };
-		E080E0591A839FFF0075A672 /* PayUInternetBankingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E080E02E1A839FFF0075A672 /* PayUInternetBankingViewController.xib */; };
-		E080E05A1A839FFF0075A672 /* PayUPaymentOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E080E0301A839FFF0075A672 /* PayUPaymentOptionsViewController.xib */; };
-		E080E05B1A839FFF0075A672 /* PayUPaymentResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E080E0321A839FFF0075A672 /* PayUPaymentResultViewController.xib */; };
-		E080E05C1A839FFF0075A672 /* PayUStoredCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E080E0341A839FFF0075A672 /* PayUStoredCardViewController.xib */; };
-		E080E05D1A839FFF0075A672 /* PreferredPaymentMethodCustomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E080E0361A839FFF0075A672 /* PreferredPaymentMethodCustomeCell.xib */; };
-		E080E05E1A839FFF0075A672 /* store_card.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E0371A839FFF0075A672 /* store_card.png */; };
-		E080E05F1A839FFF0075A672 /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E0381A839FFF0075A672 /* unchecked.png */; };
-		E080E0601A839FFF0075A672 /* unchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E0391A839FFF0075A672 /* unchecked@2x.png */; };
-		E080E0611A839FFF0075A672 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E03A1A839FFF0075A672 /* user.png */; };
-		E080E0621A839FFF0075A672 /* visa.png in Resources */ = {isa = PBXBuildFile; fileRef = E080E03B1A839FFF0075A672 /* visa.png */; };
-		E080E0631A839FFF0075A672 /* libPayU_iOS_SDK_Universal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E080E03D1A839FFF0075A672 /* libPayU_iOS_SDK_Universal.a */; };
 		E0AF71991A823BE900F11785 /* WebViewJavascriptBridge.js.txt in Resources */ = {isa = PBXBuildFile; fileRef = E0AF71971A823BE900F11785 /* WebViewJavascriptBridge.js.txt */; };
 		E0FD41871A306B9300E15211 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E0FD41861A306B9300E15211 /* main.m */; };
 		E0FD418A1A306B9300E15211 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E0FD41891A306B9300E15211 /* AppDelegate.m */; };
@@ -67,54 +29,6 @@
 
 /* Begin PBXFileReference section */
 		E06A67E31A385B7800474668 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
-		E080E00E1A839FFF0075A672 /* AllPaymentOprionsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AllPaymentOprionsView.xib; sourceTree = "<group>"; };
-		E080E00F1A839FFF0075A672 /* amex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amex.png; sourceTree = "<group>"; };
-		E080E0101A839FFF0075A672 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
-		E080E0111A839FFF0075A672 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
-		E080E0121A839FFF0075A672 /* card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card.png; sourceTree = "<group>"; };
-		E080E0131A839FFF0075A672 /* CardProcessView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardProcessView.xib; sourceTree = "<group>"; };
-		E080E0141A839FFF0075A672 /* cash_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cash_card.png; sourceTree = "<group>"; };
-		E080E0151A839FFF0075A672 /* checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox.png; sourceTree = "<group>"; };
-		E080E0161A839FFF0075A672 /* checkbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox@2x.png"; sourceTree = "<group>"; };
-		E080E0171A839FFF0075A672 /* coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin.png; sourceTree = "<group>"; };
-		E080E0181A839FFF0075A672 /* diner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diner.png; sourceTree = "<group>"; };
-		E080E0191A839FFF0075A672 /* discover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discover.png; sourceTree = "<group>"; };
-		E080E01A1A839FFF0075A672 /* dropdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dropdown.png; sourceTree = "<group>"; };
-		E080E01B1A839FFF0075A672 /* dropdown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dropdown@2x.png"; sourceTree = "<group>"; };
-		E080E01C1A839FFF0075A672 /* EMIOptionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EMIOptionView.xib; sourceTree = "<group>"; };
-		E080E01D1A839FFF0075A672 /* error_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = error_icon.png; sourceTree = "<group>"; };
-		E080E01E1A839FFF0075A672 /* ic_action_add_person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_action_add_person.png; sourceTree = "<group>"; };
-		E080E01F1A839FFF0075A672 /* jcb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jcb.png; sourceTree = "<group>"; };
-		E080E0201A839FFF0075A672 /* laser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = laser.png; sourceTree = "<group>"; };
-		E080E0211A839FFF0075A672 /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
-		E080E0221A839FFF0075A672 /* lock2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock2.png; sourceTree = "<group>"; };
-		E080E0231A839FFF0075A672 /* maestro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maestro.png; sourceTree = "<group>"; };
-		E080E0241A839FFF0075A672 /* master.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = master.png; sourceTree = "<group>"; };
-		E080E0251A839FFF0075A672 /* PayU_iOS_SDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayU_iOS_SDK.h; sourceTree = "<group>"; };
-		E080E0261A839FFF0075A672 /* payu_money.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = payu_money.png; sourceTree = "<group>"; };
-		E080E0271A839FFF0075A672 /* PayUCardProcessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUCardProcessViewController.h; sourceTree = "<group>"; };
-		E080E0281A839FFF0075A672 /* PayUCardProcessViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayUCardProcessViewController.xib; sourceTree = "<group>"; };
-		E080E0291A839FFF0075A672 /* PayUCashCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUCashCardViewController.h; sourceTree = "<group>"; };
-		E080E02A1A839FFF0075A672 /* PayUCashCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayUCashCardViewController.xib; sourceTree = "<group>"; };
-		E080E02B1A839FFF0075A672 /* PayUEMIOptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUEMIOptionViewController.h; sourceTree = "<group>"; };
-		E080E02C1A839FFF0075A672 /* PayUEMIOptionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayUEMIOptionViewController.xib; sourceTree = "<group>"; };
-		E080E02D1A839FFF0075A672 /* PayUInternetBankingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUInternetBankingViewController.h; sourceTree = "<group>"; };
-		E080E02E1A839FFF0075A672 /* PayUInternetBankingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayUInternetBankingViewController.xib; sourceTree = "<group>"; };
-		E080E02F1A839FFF0075A672 /* PayUPaymentOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUPaymentOptionsViewController.h; sourceTree = "<group>"; };
-		E080E0301A839FFF0075A672 /* PayUPaymentOptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayUPaymentOptionsViewController.xib; sourceTree = "<group>"; };
-		E080E0311A839FFF0075A672 /* PayUPaymentResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUPaymentResultViewController.h; sourceTree = "<group>"; };
-		E080E0321A839FFF0075A672 /* PayUPaymentResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayUPaymentResultViewController.xib; sourceTree = "<group>"; };
-		E080E0331A839FFF0075A672 /* PayUStoredCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUStoredCardViewController.h; sourceTree = "<group>"; };
-		E080E0341A839FFF0075A672 /* PayUStoredCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayUStoredCardViewController.xib; sourceTree = "<group>"; };
-		E080E0351A839FFF0075A672 /* PreferredPaymentMethodCustomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferredPaymentMethodCustomeCell.h; sourceTree = "<group>"; };
-		E080E0361A839FFF0075A672 /* PreferredPaymentMethodCustomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferredPaymentMethodCustomeCell.xib; sourceTree = "<group>"; };
-		E080E0371A839FFF0075A672 /* store_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = store_card.png; sourceTree = "<group>"; };
-		E080E0381A839FFF0075A672 /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
-		E080E0391A839FFF0075A672 /* unchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "unchecked@2x.png"; sourceTree = "<group>"; };
-		E080E03A1A839FFF0075A672 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
-		E080E03B1A839FFF0075A672 /* visa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = visa.png; sourceTree = "<group>"; };
-		E080E03C1A839FFF0075A672 /* WebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge.h; sourceTree = "<group>"; };
-		E080E03D1A839FFF0075A672 /* libPayU_iOS_SDK_Universal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPayU_iOS_SDK_Universal.a; sourceTree = "<group>"; };
 		E0AF71971A823BE900F11785 /* WebViewJavascriptBridge.js.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WebViewJavascriptBridge.js.txt; sourceTree = "<group>"; };
 		E0FD41811A306B9300E15211 /* PayU_iOS_SDK_TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayU_iOS_SDK_TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FD41851A306B9300E15211 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -136,7 +50,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E080E0631A839FFF0075A672 /* libPayU_iOS_SDK_Universal.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,68 +63,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E080E00C1A839FFF0075A672 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				E080E00D1A839FFF0075A672 /* PayU_iOS_SDK */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		E080E00D1A839FFF0075A672 /* PayU_iOS_SDK */ = {
-			isa = PBXGroup;
-			children = (
-				E080E00E1A839FFF0075A672 /* AllPaymentOprionsView.xib */,
-				E080E00F1A839FFF0075A672 /* amex.png */,
-				E080E0101A839FFF0075A672 /* arrow.png */,
-				E080E0111A839FFF0075A672 /* calendar.png */,
-				E080E0121A839FFF0075A672 /* card.png */,
-				E080E0131A839FFF0075A672 /* CardProcessView.xib */,
-				E080E0141A839FFF0075A672 /* cash_card.png */,
-				E080E0151A839FFF0075A672 /* checkbox.png */,
-				E080E0161A839FFF0075A672 /* checkbox@2x.png */,
-				E080E0171A839FFF0075A672 /* coin.png */,
-				E080E0181A839FFF0075A672 /* diner.png */,
-				E080E0191A839FFF0075A672 /* discover.png */,
-				E080E01A1A839FFF0075A672 /* dropdown.png */,
-				E080E01B1A839FFF0075A672 /* dropdown@2x.png */,
-				E080E01C1A839FFF0075A672 /* EMIOptionView.xib */,
-				E080E01D1A839FFF0075A672 /* error_icon.png */,
-				E080E01E1A839FFF0075A672 /* ic_action_add_person.png */,
-				E080E01F1A839FFF0075A672 /* jcb.png */,
-				E080E0201A839FFF0075A672 /* laser.png */,
-				E080E0211A839FFF0075A672 /* lock.png */,
-				E080E0221A839FFF0075A672 /* lock2.png */,
-				E080E0231A839FFF0075A672 /* maestro.png */,
-				E080E0241A839FFF0075A672 /* master.png */,
-				E080E0251A839FFF0075A672 /* PayU_iOS_SDK.h */,
-				E080E0261A839FFF0075A672 /* payu_money.png */,
-				E080E0271A839FFF0075A672 /* PayUCardProcessViewController.h */,
-				E080E0281A839FFF0075A672 /* PayUCardProcessViewController.xib */,
-				E080E0291A839FFF0075A672 /* PayUCashCardViewController.h */,
-				E080E02A1A839FFF0075A672 /* PayUCashCardViewController.xib */,
-				E080E02B1A839FFF0075A672 /* PayUEMIOptionViewController.h */,
-				E080E02C1A839FFF0075A672 /* PayUEMIOptionViewController.xib */,
-				E080E02D1A839FFF0075A672 /* PayUInternetBankingViewController.h */,
-				E080E02E1A839FFF0075A672 /* PayUInternetBankingViewController.xib */,
-				E080E02F1A839FFF0075A672 /* PayUPaymentOptionsViewController.h */,
-				E080E0301A839FFF0075A672 /* PayUPaymentOptionsViewController.xib */,
-				E080E0311A839FFF0075A672 /* PayUPaymentResultViewController.h */,
-				E080E0321A839FFF0075A672 /* PayUPaymentResultViewController.xib */,
-				E080E0331A839FFF0075A672 /* PayUStoredCardViewController.h */,
-				E080E0341A839FFF0075A672 /* PayUStoredCardViewController.xib */,
-				E080E0351A839FFF0075A672 /* PreferredPaymentMethodCustomeCell.h */,
-				E080E0361A839FFF0075A672 /* PreferredPaymentMethodCustomeCell.xib */,
-				E080E0371A839FFF0075A672 /* store_card.png */,
-				E080E0381A839FFF0075A672 /* unchecked.png */,
-				E080E0391A839FFF0075A672 /* unchecked@2x.png */,
-				E080E03A1A839FFF0075A672 /* user.png */,
-				E080E03B1A839FFF0075A672 /* visa.png */,
-				E080E03C1A839FFF0075A672 /* WebViewJavascriptBridge.h */,
-			);
-			path = PayU_iOS_SDK;
-			sourceTree = "<group>";
-		};
 		E0AF71951A823BE900F11785 /* WebViewJavascriptBridge */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,8 +100,6 @@
 				E0FD41911A306B9300E15211 /* Images.xcassets */,
 				E0FD41931A306B9300E15211 /* LaunchScreen.xib */,
 				E0FD418E1A306B9300E15211 /* Main.storyboard */,
-				E080E00C1A839FFF0075A672 /* include */,
-				E080E03D1A839FFF0075A672 /* libPayU_iOS_SDK_Universal.a */,
 				E0AF71951A823BE900F11785 /* WebViewJavascriptBridge */,
 				E0FD41841A306B9300E15211 /* Supporting Files */,
 			);
@@ -364,47 +213,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E080E04C1A839FFF0075A672 /* EMIOptionView.xib in Resources */,
-				E080E05B1A839FFF0075A672 /* PayUPaymentResultViewController.xib in Resources */,
-				E080E0521A839FFF0075A672 /* lock2.png in Resources */,
-				E080E0601A839FFF0075A672 /* unchecked@2x.png in Resources */,
-				E080E04A1A839FFF0075A672 /* dropdown.png in Resources */,
-				E080E0581A839FFF0075A672 /* PayUEMIOptionViewController.xib in Resources */,
 				E0FD41901A306B9300E15211 /* Main.storyboard in Resources */,
-				E080E0411A839FFF0075A672 /* calendar.png in Resources */,
-				E080E05C1A839FFF0075A672 /* PayUStoredCardViewController.xib in Resources */,
-				E080E05E1A839FFF0075A672 /* store_card.png in Resources */,
-				E080E0451A839FFF0075A672 /* checkbox.png in Resources */,
-				E080E0431A839FFF0075A672 /* CardProcessView.xib in Resources */,
-				E080E0481A839FFF0075A672 /* diner.png in Resources */,
-				E080E04F1A839FFF0075A672 /* jcb.png in Resources */,
-				E080E0421A839FFF0075A672 /* card.png in Resources */,
-				E080E0541A839FFF0075A672 /* master.png in Resources */,
 				E0AF71991A823BE900F11785 /* WebViewJavascriptBridge.js.txt in Resources */,
-				E080E0471A839FFF0075A672 /* coin.png in Resources */,
-				E080E0441A839FFF0075A672 /* cash_card.png in Resources */,
-				E080E03F1A839FFF0075A672 /* amex.png in Resources */,
-				E080E0551A839FFF0075A672 /* payu_money.png in Resources */,
-				E080E04B1A839FFF0075A672 /* dropdown@2x.png in Resources */,
 				E0FD41951A306B9300E15211 /* LaunchScreen.xib in Resources */,
-				E080E0461A839FFF0075A672 /* checkbox@2x.png in Resources */,
-				E080E04D1A839FFF0075A672 /* error_icon.png in Resources */,
-				E080E05F1A839FFF0075A672 /* unchecked.png in Resources */,
-				E080E0611A839FFF0075A672 /* user.png in Resources */,
-				E080E0571A839FFF0075A672 /* PayUCashCardViewController.xib in Resources */,
-				E080E04E1A839FFF0075A672 /* ic_action_add_person.png in Resources */,
-				E080E0591A839FFF0075A672 /* PayUInternetBankingViewController.xib in Resources */,
-				E080E0501A839FFF0075A672 /* laser.png in Resources */,
 				E0FD41921A306B9300E15211 /* Images.xcassets in Resources */,
-				E080E05D1A839FFF0075A672 /* PreferredPaymentMethodCustomeCell.xib in Resources */,
-				E080E0511A839FFF0075A672 /* lock.png in Resources */,
-				E080E0401A839FFF0075A672 /* arrow.png in Resources */,
-				E080E0561A839FFF0075A672 /* PayUCardProcessViewController.xib in Resources */,
-				E080E0491A839FFF0075A672 /* discover.png in Resources */,
-				E080E05A1A839FFF0075A672 /* PayUPaymentOptionsViewController.xib in Resources */,
-				E080E0621A839FFF0075A672 /* visa.png in Resources */,
-				E080E03E1A839FFF0075A672 /* AllPaymentOprionsView.xib in Resources */,
-				E080E0531A839FFF0075A672 /* maestro.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,6 +375,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/PayU_iOS_SDK_TestApp",
 					"$(PROJECT_DIR)",
+					/Developement/iOS,
+					"SDK/gitlab/ios_sdk/Build/Products/Debug-iphonesimulator",
+					/Developement/iOS,
+					"SDK/gitlab/ios_sdk/Build/Products/Release-iphonesimulator",
+					"$(PROJECT_DIR)/PayU_iOS_SDK_TestApp/WebViewJavascriptBridge",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -591,6 +408,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/PayU_iOS_SDK_TestApp",
 					"$(PROJECT_DIR)",
+					/Developement/iOS,
+					"SDK/gitlab/ios_sdk/Build/Products/Debug-iphonesimulator",
+					/Developement/iOS,
+					"SDK/gitlab/ios_sdk/Build/Products/Release-iphonesimulator",
+					"$(PROJECT_DIR)/PayU_iOS_SDK_TestApp/WebViewJavascriptBridge",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
