@@ -12,7 +12,6 @@
 
 
 
-
 @interface ViewController () <UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UITableView *paymentModeTableView;
@@ -27,21 +26,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationItem.title = @"PayU Test App";
-    
     // setting up this class as delegate and dataSource for paymentModeTableView
     _paymentModeTableView.delegate = self;
     _paymentModeTableView.dataSource = self;
     
     //creating a array of option to display.
-    _optionList = @[@"Start SDK"];
-    _headerNames = @[@"Without user defined modes"];
+    _optionList = @[@"Start Payment"/*,@"CC DC NB CASH",@"DC CASH NB CC",@"PAYU_MONEY STORED_CARDS CC",@"Make payment CC",@"Make Payment Stored Card",@"Stored Card",@"Edit Card",@"Delete Card",@"Test Enforce",@"Test Drop Category",@"Test Offer",@"Back Button disabled"*/];
     
-    // after init call
-    // setting notification callbacks for webview payments
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(successFromWebView:) name:PAYMENT_SUCCESS_NOTIFICATION object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(failureFromWebView:) name:PAYMENT_FAILURE_NOTIFICATION object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancelFromWebView:) name:PAYMENT_CANCEL_NOTIFICATION object:nil];
+    _headerNames = @[@"Without user defined modes"/*,@"With user defined modes",@"Use payU fragments", @"Enforce method", @"Drop Category", @"With Offer"*/];
     
+    //NSLog(@"Bundle Object = %@ Path = %@", [NSBundle mainBundle], [[NSBundle mainBundle] pathForResource:@"WebViewJavascriptBridge.js" ofType:@"txt"]);
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(success:) name:@"payment_success_notifications" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(failure:) name:@"payment_failure_notifications" object:nil];
+}
+
+- (void) success:(NSDictionary *)info{
+    NSLog(@"Sucess Dict: %@",info);
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
+- (void) failure:(NSDictionary *)info{
+    NSLog(@"failure Dict: %@",info);
+    [self.navigationController popToRootViewControllerAnimated:YES];
+
 }
 
 - (NSString *) createCheckSumString:(NSString *)input
@@ -51,7 +60,7 @@
     uint8_t digest[CC_SHA512_DIGEST_LENGTH];
     
     // This is an iOS5-specific method.
-    // It takes in the data, data size and then output format, which in this case is an int array.
+    // It takes in the data, how much data, and then output format, which in this case is an int array.
     CC_SHA512(data.bytes, (int)data.length, digest);
     
     NSMutableString* output = [NSMutableString stringWithCapacity:CC_SHA512_DIGEST_LENGTH * 2];
@@ -94,19 +103,17 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
     NSMutableDictionary *paramDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                       @"product",@"productinfo",
                                       @"username",@"firstname",
-                                      [NSNumber numberWithFloat:10.36],@"amount",
+                                      [NSNumber numberWithFloat:1.6],@"amount",
                                       @"email@testsdk.com",@"email",
                                       @"9999999999", @"phone",
                                       @"https://dl.dropboxusercontent.com/s/y911hgtgdkkiy0w/success_iOS.html",@"surl",
                                       @"https://dl.dropboxusercontent.com/s/h6m11xr93mxhfvf/Failure_iOS.html",@"furl",
-                                      [self randomStringWithLength:15],@"txnid", nil];
-    
-    //  To start using save card feature, please provide user_credentials also in the form of merchantKey:userid, to keep it unique for us
-    //                                      merchantKey:userid,@"user_credentials", nil];
-    
+                                      [self randomStringWithLength:15],@"txnid",
+                                      @"ra:ra",@"user_credentials", nil];
     paymentOptionsVC.parameterDict = paramDict;
     paymentOptionsVC.callBackDelegate = self;
-    paymentOptionsVC.appTitle       = @"PayU Test App";
+    paymentOptionsVC.totalAmount  = 1.6;
+    paymentOptionsVC.appTitle       = @"PayU test App";
     
     [self.navigationController pushViewController:paymentOptionsVC animated:YES];
 }
@@ -135,6 +142,21 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
         case 0:
             numberOfRow = 1;
             break;
+        case 1:
+            numberOfRow = 3;
+            break;
+        case 2:
+            numberOfRow = 5;
+            break;
+        case 3:
+            numberOfRow = 1;
+            break;
+        case 4:
+            numberOfRow = 1;
+            break;
+        case 5:
+            numberOfRow = 2;
+            break;
         default:
             break;
     }
@@ -154,6 +176,22 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
         case 0:
             cell.textLabel.text = [_optionList objectAtIndex:indexPath.row];;
             break;
+        case 1:
+            //calculation of array index should be (rows in previos section + row)
+            cell.textLabel.text = [_optionList objectAtIndex:(indexPath.row+1)];
+            break;
+        case 2:
+            cell.textLabel.text = [_optionList objectAtIndex:(indexPath.row+3+1)];
+            break;
+        case 3:
+            cell.textLabel.text = [_optionList objectAtIndex:(indexPath.row+5+3+1)];
+            break;
+        case 4:
+            cell.textLabel.text = [_optionList objectAtIndex:(indexPath.row+1+5+3+1)];
+            break;
+        case 5:
+            cell.textLabel.text = [_optionList objectAtIndex:(indexPath.row+1+1+5+3+1)];
+            break;
         default:
             break;
     }
@@ -169,53 +207,20 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
         case 0:
             [self withoutUserDefinedModeBtnClick];
             break;
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
         default:
             break;
     }
 
-}
-
-#pragma mark - Callbacks from resultview methods
-- (void) successFromWebView:(NSNotification *)notification {
-    if ([[notification object] isKindOfClass:[NSDictionary class]]) {
-        NSDictionary *dictResponse = [notification object];
-        if ([dictResponse objectForKey:@"response"]) {
-            NSLog(@"successFromWebView: response %@", dictResponse);
-        } else {
-            NSLog(@"successFromWebView: Wrong response dictionary");
-        }
-    } else {
-        NSLog(@"successFromWebView: Wrong response dictionary");
-    }
-    [self.navigationController popToRootViewControllerAnimated:true];
-}
-
-- (void) failureFromWebView:(NSNotification *)notification {
-    if ([[notification object] isKindOfClass:[NSDictionary class]]) {
-        NSDictionary *dictResponse = [notification object];
-        if ([dictResponse objectForKey:@"response"]) {
-            NSLog(@"failureFromWebView: response %@", dictResponse);
-        } else {
-            NSLog(@"failureFromWebView: Wrong response dictionary");
-        }
-    } else {
-        NSLog(@"failureFromWebView: Wrong response dictionary");
-    }
-    [self.navigationController popToRootViewControllerAnimated:true];
-}
-
-- (void) cancelFromWebView:(NSNotification *)notification {
-    if ([[notification object] isKindOfClass:[NSDictionary class]]) {
-        NSDictionary *dictResponse = [notification object];
-        if ([dictResponse objectForKey:@"response"]) {
-            NSLog(@"cancelFromWebView: response %@", dictResponse);
-        } else {
-            NSLog(@"cancelFromWebView: Wrong response dictionary");
-        }
-    } else {
-        NSLog(@"cancelFromWebView: Wrong response dictionary");
-    }
-    [self.navigationController popToRootViewControllerAnimated:true];
 }
 
 

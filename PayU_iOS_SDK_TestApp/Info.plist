@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>in.payu.$(PRODUCT_NAME:rfc1034identifier)</string>
+	<string>com.payu.$(PRODUCT_NAME:rfc1034identifier)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -37,9 +37,9 @@
 	<key>command</key>
 	<string>payment_related_details_for_mobile_sdk</string>
 	<key>key</key>
-	<string>gtKFFx</string>
+	<string>smsplus</string>
 	<key>salt</key>
-	<string>eCwWELxi</string>
+	<string>1b1b0</string>
 	<key>var1</key>
 	<string>default</string>
 </dict>
