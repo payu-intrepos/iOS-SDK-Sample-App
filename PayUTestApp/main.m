@@ -1,9 +1,9 @@
 //
 //  main.m
-//  PayU_iOS_SDK_TestApp
+//  PayUTestApp
 //
-//  Created by Suryakant Sharma on 04/12/14.
-//  Copyright (c) 2014 PayU, India. All rights reserved.
+//  Created by Suryakant Sharma on 14/02/15.
+//  Copyright (c) 2015 PayU, India. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

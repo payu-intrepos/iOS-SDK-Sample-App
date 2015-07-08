@@ -35,7 +35,7 @@
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
 	<key>command</key>
-	<string>payment_related_details_for_mobile_sdk</string>
+	<string>get_merchant_ibibo_codes</string>
 	<key>key</key>
 	<string>smsplus</string>
 	<key>salt</key>

@@ -1,19 +1,19 @@
 //
-//  PayU_iOS_SDK_TestAppTests.m
-//  PayU_iOS_SDK_TestAppTests
+//  PayUTestAppTests.m
+//  PayUTestAppTests
 //
-//  Created by Suryakant Sharma on 04/12/14.
-//  Copyright (c) 2014 PayU, India. All rights reserved.
+//  Created by Suryakant Sharma on 14/02/15.
+//  Copyright (c) 2015 PayU, India. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-@interface PayU_iOS_SDK_TestAppTests : XCTestCase
+@interface PayUTestAppTests : XCTestCase
 
 @end
 
-@implementation PayU_iOS_SDK_TestAppTests
+@implementation PayUTestAppTests
 
 - (void)setUp {
     [super setUp];

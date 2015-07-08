@@ -1,0 +1,829 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E022CC641B202EB200487D26 /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E022CC631B202EB200487D26 /* UIViewController+BackButtonHandler.m */; };
+		E0321AC21A8F11D800406554 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E0321AC11A8F11D800406554 /* main.m */; };
+		E0321AC51A8F11D800406554 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E0321AC41A8F11D800406554 /* AppDelegate.m */; };
+		E0321AC81A8F11D800406554 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0321AC71A8F11D800406554 /* ViewController.m */; };
+		E0321ACB1A8F11D800406554 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0321AC91A8F11D800406554 /* Main.storyboard */; };
+		E0321ACD1A8F11D800406554 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E0321ACC1A8F11D800406554 /* Images.xcassets */; };
+		E0321AD01A8F11D800406554 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0321ACE1A8F11D800406554 /* LaunchScreen.xib */; };
+		E0321ADC1A8F11D800406554 /* PayUTestAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E0321ADB1A8F11D800406554 /* PayUTestAppTests.m */; };
+		E05957961B27304700965C8C /* amex.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957471B27304600965C8C /* amex.png */; };
+		E05957971B27304700965C8C /* amex_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957481B27304600965C8C /* amex_logo.png */; };
+		E05957981B27304700965C8C /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957491B27304600965C8C /* arrow.png */; };
+		E05957991B27304700965C8C /* arrow_cb.png in Resources */ = {isa = PBXBuildFile; fileRef = E059574A1B27304600965C8C /* arrow_cb.png */; };
+		E059579A1B27304700965C8C /* axis_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E059574B1B27304600965C8C /* axis_logo.png */; };
+		E059579B1B27304700965C8C /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = E059574C1B27304600965C8C /* calendar.png */; };
+		E059579C1B27304700965C8C /* card.png in Resources */ = {isa = PBXBuildFile; fileRef = E059574D1B27304600965C8C /* card.png */; };
+		E059579D1B27304700965C8C /* cash_card.png in Resources */ = {isa = PBXBuildFile; fileRef = E059574E1B27304600965C8C /* cash_card.png */; };
+		E059579E1B27304700965C8C /* CBAllPaymentOption.xib in Resources */ = {isa = PBXBuildFile; fileRef = E05957501B27304600965C8C /* CBAllPaymentOption.xib */; };
+		E059579F1B27304700965C8C /* CBAllPaymentOption_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = E05957511B27304600965C8C /* CBAllPaymentOption_iPhone6.xib */; };
+		E05957A01B27304700965C8C /* CBAllPaymentOption_iPhone6p.xib in Resources */ = {isa = PBXBuildFile; fileRef = E05957521B27304600965C8C /* CBAllPaymentOption_iPhone6p.xib */; };
+		E05957A11B27304700965C8C /* CBApproveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E05957541B27304600965C8C /* CBApproveView.xib */; };
+		E05957A21B27304700965C8C /* CBApproveView_iPhone6p.xib in Resources */ = {isa = PBXBuildFile; fileRef = E05957551B27304600965C8C /* CBApproveView_iPhone6p.xib */; };
+		E05957A31B27304700965C8C /* CBBankPageLoading.xib in Resources */ = {isa = PBXBuildFile; fileRef = E05957571B27304600965C8C /* CBBankPageLoading.xib */; };
+		E05957A41B27304700965C8C /* CBBankPageLoading_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = E05957581B27304600965C8C /* CBBankPageLoading_iPhone6.xib */; };
+		E05957A51B27304700965C8C /* CBBankPageLoading_iPhone6p.xib in Resources */ = {isa = PBXBuildFile; fileRef = E05957591B27304600965C8C /* CBBankPageLoading_iPhone6p.xib */; };
+		E05957A61B27304700965C8C /* CCBApproveView_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = E059575C1B27304600965C8C /* CCBApproveView_iPhone6.xib */; };
+		E05957A71B27304700965C8C /* citi.png in Resources */ = {isa = PBXBuildFile; fileRef = E059575D1B27304600965C8C /* citi.png */; };
+		E05957A81B27304700965C8C /* coin.png in Resources */ = {isa = PBXBuildFile; fileRef = E059575E1B27304600965C8C /* coin.png */; };
+		E05957A91B27304700965C8C /* CustomActivityIndicator.xib in Resources */ = {isa = PBXBuildFile; fileRef = E05957601B27304600965C8C /* CustomActivityIndicator.xib */; };
+		E05957AA1B27304700965C8C /* diner.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957611B27304600965C8C /* diner.png */; };
+		E05957AB1B27304700965C8C /* discover.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957621B27304600965C8C /* discover.png */; };
+		E05957AC1B27304700965C8C /* error_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957631B27304600965C8C /* error_icon.png */; };
+		E05957AD1B27304700965C8C /* error_large.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957641B27304600965C8C /* error_large.png */; };
+		E05957AE1B27304700965C8C /* hdfc.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957651B27304600965C8C /* hdfc.png */; };
+		E05957AF1B27304700965C8C /* hdfc_bank.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957661B27304600965C8C /* hdfc_bank.png */; };
+		E05957B01B27304700965C8C /* hsbc.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957671B27304600965C8C /* hsbc.png */; };
+		E05957B11B27304700965C8C /* icici.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957681B27304700965C8C /* icici.png */; };
+		E05957B21B27304700965C8C /* icicicc.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957691B27304700965C8C /* icicicc.png */; };
+		E05957B31B27304700965C8C /* icicinet.png in Resources */ = {isa = PBXBuildFile; fileRef = E059576A1B27304700965C8C /* icicinet.png */; };
+		E05957B41B27304700965C8C /* icon_otp.png in Resources */ = {isa = PBXBuildFile; fileRef = E059576B1B27304700965C8C /* icon_otp.png */; };
+		E05957B51B27304700965C8C /* icon_otp_over.png in Resources */ = {isa = PBXBuildFile; fileRef = E059576C1B27304700965C8C /* icon_otp_over.png */; };
+		E05957B61B27304700965C8C /* icon_password.png in Resources */ = {isa = PBXBuildFile; fileRef = E059576D1B27304700965C8C /* icon_password.png */; };
+		E05957B71B27304700965C8C /* icon_password_over.png in Resources */ = {isa = PBXBuildFile; fileRef = E059576E1B27304700965C8C /* icon_password_over.png */; };
+		E05957B81B27304700965C8C /* idbi.png in Resources */ = {isa = PBXBuildFile; fileRef = E059576F1B27304700965C8C /* idbi.png */; };
+		E05957B91B27304700965C8C /* induslogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957701B27304700965C8C /* induslogo.png */; };
+		E05957BA1B27304700965C8C /* jcb.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957711B27304700965C8C /* jcb.png */; };
+		E05957BB1B27304700965C8C /* kotak.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957721B27304700965C8C /* kotak.png */; };
+		E05957BC1B27304700965C8C /* kotaknet.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957731B27304700965C8C /* kotaknet.png */; };
+		E05957BD1B27304700965C8C /* l_icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957741B27304700965C8C /* l_icon1.png */; };
+		E05957BE1B27304700965C8C /* l_icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957751B27304700965C8C /* l_icon2.png */; };
+		E05957BF1B27304700965C8C /* l_icon3.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957761B27304700965C8C /* l_icon3.png */; };
+		E05957C01B27304700965C8C /* l_icon4.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957771B27304700965C8C /* l_icon4.png */; };
+		E05957C11B27304700965C8C /* laser.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957781B27304700965C8C /* laser.png */; };
+		E05957C21B27304700965C8C /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957791B27304700965C8C /* lock.png */; };
+		E05957C31B27304700965C8C /* lock2.png in Resources */ = {isa = PBXBuildFile; fileRef = E059577A1B27304700965C8C /* lock2.png */; };
+		E05957C41B27304700965C8C /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E059577B1B27304700965C8C /* logo.png */; };
+		E05957C51B27304700965C8C /* logo_payu.png in Resources */ = {isa = PBXBuildFile; fileRef = E059577C1B27304700965C8C /* logo_payu.png */; };
+		E05957C61B27304700965C8C /* maestro.png in Resources */ = {isa = PBXBuildFile; fileRef = E059577D1B27304700965C8C /* maestro.png */; };
+		E05957C71B27304700965C8C /* master.png in Resources */ = {isa = PBXBuildFile; fileRef = E059577E1B27304700965C8C /* master.png */; };
+		E05957C81B27304700965C8C /* otp_icon_large.png in Resources */ = {isa = PBXBuildFile; fileRef = E059577F1B27304700965C8C /* otp_icon_large.png */; };
+		E05957C91B27304700965C8C /* otp_icon_over.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957801B27304700965C8C /* otp_icon_over.png */; };
+		E05957CA1B27304700965C8C /* otpicon.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957811B27304700965C8C /* otpicon.png */; };
+		E05957CB1B27304700965C8C /* password_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957821B27304700965C8C /* password_icon.png */; };
+		E05957CC1B27304700965C8C /* password_icon_large.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957831B27304700965C8C /* password_icon_large.png */; };
+		E05957CD1B27304700965C8C /* password_icon_over.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957841B27304700965C8C /* password_icon_over.png */; };
+		E05957CE1B27304700965C8C /* passwordicon.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957851B27304700965C8C /* passwordicon.png */; };
+		E05957CF1B27304700965C8C /* payu_money.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957871B27304700965C8C /* payu_money.png */; };
+		E05957D01B27304700965C8C /* RegenerateOTPView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E05957891B27304700965C8C /* RegenerateOTPView.xib */; };
+		E05957D11B27304700965C8C /* RegenerateOTPView_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = E059578A1B27304700965C8C /* RegenerateOTPView_iPhone6.xib */; };
+		E05957D21B27304700965C8C /* RegenerateOTPView_iPhone6p.xib in Resources */ = {isa = PBXBuildFile; fileRef = E059578B1B27304700965C8C /* RegenerateOTPView_iPhone6p.xib */; };
+		E05957D31B27304700965C8C /* sbi.png in Resources */ = {isa = PBXBuildFile; fileRef = E059578C1B27304700965C8C /* sbi.png */; };
+		E05957D41B27304700965C8C /* sbinet.png in Resources */ = {isa = PBXBuildFile; fileRef = E059578D1B27304700965C8C /* sbinet.png */; };
+		E05957D51B27304700965C8C /* sc.png in Resources */ = {isa = PBXBuildFile; fileRef = E059578E1B27304700965C8C /* sc.png */; };
+		E05957D61B27304700965C8C /* slider.png in Resources */ = {isa = PBXBuildFile; fileRef = E059578F1B27304700965C8C /* slider.png */; };
+		E05957D71B27304700965C8C /* store_card.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957901B27304700965C8C /* store_card.png */; };
+		E05957D81B27304700965C8C /* trusticon.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957911B27304700965C8C /* trusticon.png */; };
+		E05957D91B27304700965C8C /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957921B27304700965C8C /* user.png */; };
+		E05957DA1B27304700965C8C /* visa.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957931B27304700965C8C /* visa.png */; };
+		E05957DB1B27304700965C8C /* yesbank_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E05957941B27304700965C8C /* yesbank_logo.png */; };
+		E05957DC1B27304700965C8C /* libiOSCustomBrowser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E05957951B27304700965C8C /* libiOSCustomBrowser.a */; };
+		E0DA31D11A94C950007910A9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0DA31D01A94C950007910A9 /* SystemConfiguration.framework */; };
+		E0E3403E1B1EDDD1003640BA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E0E3403D1B1EDDD1003640BA /* libz.dylib */; };
+		E0E340431B1EDFC2003640BA /* PayUConnectionHandlerController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E340421B1EDFC2003640BA /* PayUConnectionHandlerController.m */; };
+		E0E3404D1B1EE036003640BA /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E340481B1EE036003640BA /* Reachability.m */; };
+		E0E3404E1B1EE036003640BA /* ReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E3404A1B1EE036003640BA /* ReachabilityManager.m */; };
+		E0E3404F1B1EE036003640BA /* SharedDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E3404C1B1EE036003640BA /* SharedDataManager.m */; };
+		E0E340531B1EE05B003640BA /* PayUPaymentResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E340511B1EE05B003640BA /* PayUPaymentResultViewController.m */; };
+		E0E340541B1EE05B003640BA /* PayUPaymentResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0E340521B1EE05B003640BA /* PayUPaymentResultViewController.xib */; };
+		E0E340571B1EE07B003640BA /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = E0E340561B1EE07B003640BA /* Utils.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E0321AD61A8F11D800406554 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E0321AB41A8F11D700406554 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E0321ABB1A8F11D700406554;
+			remoteInfo = PayUTestApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E022CC621B202EB200487D26 /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
+		E022CC631B202EB200487D26 /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
+		E0321ABC1A8F11D800406554 /* PayUTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayUTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0321AC01A8F11D800406554 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0321AC11A8F11D800406554 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E0321AC31A8F11D800406554 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E0321AC41A8F11D800406554 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E0321AC61A8F11D800406554 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E0321AC71A8F11D800406554 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E0321ACA1A8F11D800406554 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E0321ACC1A8F11D800406554 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E0321ACF1A8F11D800406554 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		E0321AD51A8F11D800406554 /* PayUTestAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PayUTestAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0321ADA1A8F11D800406554 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E0321ADB1A8F11D800406554 /* PayUTestAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PayUTestAppTests.m; sourceTree = "<group>"; };
+		E05957471B27304600965C8C /* amex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amex.png; sourceTree = "<group>"; };
+		E05957481B27304600965C8C /* amex_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amex_logo.png; sourceTree = "<group>"; };
+		E05957491B27304600965C8C /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		E059574A1B27304600965C8C /* arrow_cb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_cb.png; sourceTree = "<group>"; };
+		E059574B1B27304600965C8C /* axis_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = axis_logo.png; sourceTree = "<group>"; };
+		E059574C1B27304600965C8C /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
+		E059574D1B27304600965C8C /* card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card.png; sourceTree = "<group>"; };
+		E059574E1B27304600965C8C /* cash_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cash_card.png; sourceTree = "<group>"; };
+		E059574F1B27304600965C8C /* CBAllPaymentOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAllPaymentOption.h; sourceTree = "<group>"; };
+		E05957501B27304600965C8C /* CBAllPaymentOption.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBAllPaymentOption.xib; sourceTree = "<group>"; };
+		E05957511B27304600965C8C /* CBAllPaymentOption_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBAllPaymentOption_iPhone6.xib; sourceTree = "<group>"; };
+		E05957521B27304600965C8C /* CBAllPaymentOption_iPhone6p.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBAllPaymentOption_iPhone6p.xib; sourceTree = "<group>"; };
+		E05957531B27304600965C8C /* CBApproveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBApproveView.h; sourceTree = "<group>"; };
+		E05957541B27304600965C8C /* CBApproveView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBApproveView.xib; sourceTree = "<group>"; };
+		E05957551B27304600965C8C /* CBApproveView_iPhone6p.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBApproveView_iPhone6p.xib; sourceTree = "<group>"; };
+		E05957561B27304600965C8C /* CBBankPageLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBBankPageLoading.h; sourceTree = "<group>"; };
+		E05957571B27304600965C8C /* CBBankPageLoading.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBBankPageLoading.xib; sourceTree = "<group>"; };
+		E05957581B27304600965C8C /* CBBankPageLoading_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBBankPageLoading_iPhone6.xib; sourceTree = "<group>"; };
+		E05957591B27304600965C8C /* CBBankPageLoading_iPhone6p.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBBankPageLoading_iPhone6p.xib; sourceTree = "<group>"; };
+		E059575A1B27304600965C8C /* CBConnectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBConnectionHandler.h; sourceTree = "<group>"; };
+		E059575B1B27304600965C8C /* CBConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBConstant.h; sourceTree = "<group>"; };
+		E059575C1B27304600965C8C /* CCBApproveView_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCBApproveView_iPhone6.xib; sourceTree = "<group>"; };
+		E059575D1B27304600965C8C /* citi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = citi.png; sourceTree = "<group>"; };
+		E059575E1B27304600965C8C /* coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin.png; sourceTree = "<group>"; };
+		E059575F1B27304600965C8C /* CustomActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomActivityIndicator.h; sourceTree = "<group>"; };
+		E05957601B27304600965C8C /* CustomActivityIndicator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomActivityIndicator.xib; sourceTree = "<group>"; };
+		E05957611B27304600965C8C /* diner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diner.png; sourceTree = "<group>"; };
+		E05957621B27304600965C8C /* discover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discover.png; sourceTree = "<group>"; };
+		E05957631B27304600965C8C /* error_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = error_icon.png; sourceTree = "<group>"; };
+		E05957641B27304600965C8C /* error_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = error_large.png; sourceTree = "<group>"; };
+		E05957651B27304600965C8C /* hdfc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hdfc.png; sourceTree = "<group>"; };
+		E05957661B27304600965C8C /* hdfc_bank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hdfc_bank.png; sourceTree = "<group>"; };
+		E05957671B27304600965C8C /* hsbc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hsbc.png; sourceTree = "<group>"; };
+		E05957681B27304700965C8C /* icici.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icici.png; sourceTree = "<group>"; };
+		E05957691B27304700965C8C /* icicicc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icicicc.png; sourceTree = "<group>"; };
+		E059576A1B27304700965C8C /* icicinet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icicinet.png; sourceTree = "<group>"; };
+		E059576B1B27304700965C8C /* icon_otp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_otp.png; sourceTree = "<group>"; };
+		E059576C1B27304700965C8C /* icon_otp_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_otp_over.png; sourceTree = "<group>"; };
+		E059576D1B27304700965C8C /* icon_password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_password.png; sourceTree = "<group>"; };
+		E059576E1B27304700965C8C /* icon_password_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_password_over.png; sourceTree = "<group>"; };
+		E059576F1B27304700965C8C /* idbi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = idbi.png; sourceTree = "<group>"; };
+		E05957701B27304700965C8C /* induslogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = induslogo.png; sourceTree = "<group>"; };
+		E05957711B27304700965C8C /* jcb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jcb.png; sourceTree = "<group>"; };
+		E05957721B27304700965C8C /* kotak.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kotak.png; sourceTree = "<group>"; };
+		E05957731B27304700965C8C /* kotaknet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kotaknet.png; sourceTree = "<group>"; };
+		E05957741B27304700965C8C /* l_icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = l_icon1.png; sourceTree = "<group>"; };
+		E05957751B27304700965C8C /* l_icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = l_icon2.png; sourceTree = "<group>"; };
+		E05957761B27304700965C8C /* l_icon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = l_icon3.png; sourceTree = "<group>"; };
+		E05957771B27304700965C8C /* l_icon4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = l_icon4.png; sourceTree = "<group>"; };
+		E05957781B27304700965C8C /* laser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = laser.png; sourceTree = "<group>"; };
+		E05957791B27304700965C8C /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
+		E059577A1B27304700965C8C /* lock2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock2.png; sourceTree = "<group>"; };
+		E059577B1B27304700965C8C /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		E059577C1B27304700965C8C /* logo_payu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_payu.png; sourceTree = "<group>"; };
+		E059577D1B27304700965C8C /* maestro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maestro.png; sourceTree = "<group>"; };
+		E059577E1B27304700965C8C /* master.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = master.png; sourceTree = "<group>"; };
+		E059577F1B27304700965C8C /* otp_icon_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otp_icon_large.png; sourceTree = "<group>"; };
+		E05957801B27304700965C8C /* otp_icon_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otp_icon_over.png; sourceTree = "<group>"; };
+		E05957811B27304700965C8C /* otpicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otpicon.png; sourceTree = "<group>"; };
+		E05957821B27304700965C8C /* password_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = password_icon.png; sourceTree = "<group>"; };
+		E05957831B27304700965C8C /* password_icon_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = password_icon_large.png; sourceTree = "<group>"; };
+		E05957841B27304700965C8C /* password_icon_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = password_icon_over.png; sourceTree = "<group>"; };
+		E05957851B27304700965C8C /* passwordicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = passwordicon.png; sourceTree = "<group>"; };
+		E05957861B27304700965C8C /* PayU_CB_SDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayU_CB_SDK.h; sourceTree = "<group>"; };
+		E05957871B27304700965C8C /* payu_money.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = payu_money.png; sourceTree = "<group>"; };
+		E05957881B27304700965C8C /* RegenerateOTPView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegenerateOTPView.h; sourceTree = "<group>"; };
+		E05957891B27304700965C8C /* RegenerateOTPView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegenerateOTPView.xib; sourceTree = "<group>"; };
+		E059578A1B27304700965C8C /* RegenerateOTPView_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegenerateOTPView_iPhone6.xib; sourceTree = "<group>"; };
+		E059578B1B27304700965C8C /* RegenerateOTPView_iPhone6p.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegenerateOTPView_iPhone6p.xib; sourceTree = "<group>"; };
+		E059578C1B27304700965C8C /* sbi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sbi.png; sourceTree = "<group>"; };
+		E059578D1B27304700965C8C /* sbinet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sbinet.png; sourceTree = "<group>"; };
+		E059578E1B27304700965C8C /* sc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sc.png; sourceTree = "<group>"; };
+		E059578F1B27304700965C8C /* slider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider.png; sourceTree = "<group>"; };
+		E05957901B27304700965C8C /* store_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = store_card.png; sourceTree = "<group>"; };
+		E05957911B27304700965C8C /* trusticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trusticon.png; sourceTree = "<group>"; };
+		E05957921B27304700965C8C /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
+		E05957931B27304700965C8C /* visa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = visa.png; sourceTree = "<group>"; };
+		E05957941B27304700965C8C /* yesbank_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yesbank_logo.png; sourceTree = "<group>"; };
+		E05957951B27304700965C8C /* libiOSCustomBrowser.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libiOSCustomBrowser.a; sourceTree = "<group>"; };
+		E0DA31D01A94C950007910A9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E0E3403D1B1EDDD1003640BA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		E0E340411B1EDFC2003640BA /* PayUConnectionHandlerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUConnectionHandlerController.h; sourceTree = "<group>"; };
+		E0E340421B1EDFC2003640BA /* PayUConnectionHandlerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayUConnectionHandlerController.m; sourceTree = "<group>"; };
+		E0E340441B1EDFE2003640BA /* PayUNotificationConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayUNotificationConstant.h; sourceTree = "<group>"; };
+		E0E340451B1EE00B003640BA /* PayUErrorConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayUErrorConstant.h; sourceTree = "<group>"; };
+		E0E340461B1EE01E003640BA /* PayUConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayUConstant.h; sourceTree = "<group>"; };
+		E0E340471B1EE036003640BA /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		E0E340481B1EE036003640BA /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		E0E340491B1EE036003640BA /* ReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachabilityManager.h; sourceTree = "<group>"; };
+		E0E3404A1B1EE036003640BA /* ReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReachabilityManager.m; sourceTree = "<group>"; };
+		E0E3404B1B1EE036003640BA /* SharedDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedDataManager.h; sourceTree = "<group>"; };
+		E0E3404C1B1EE036003640BA /* SharedDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharedDataManager.m; sourceTree = "<group>"; };
+		E0E340501B1EE05B003640BA /* PayUPaymentResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUPaymentResultViewController.h; sourceTree = "<group>"; };
+		E0E340511B1EE05B003640BA /* PayUPaymentResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayUPaymentResultViewController.m; sourceTree = "<group>"; };
+		E0E340521B1EE05B003640BA /* PayUPaymentResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayUPaymentResultViewController.xib; sourceTree = "<group>"; };
+		E0E340551B1EE07B003640BA /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		E0E340561B1EE07B003640BA /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E0321AB91A8F11D700406554 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0E3403E1B1EDDD1003640BA /* libz.dylib in Frameworks */,
+				E0DA31D11A94C950007910A9 /* SystemConfiguration.framework in Frameworks */,
+				E05957DC1B27304700965C8C /* libiOSCustomBrowser.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0321AD21A8F11D800406554 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E022CC611B202E9300487D26 /* ViewController Category */ = {
+			isa = PBXGroup;
+			children = (
+				E022CC621B202EB200487D26 /* UIViewController+BackButtonHandler.h */,
+				E022CC631B202EB200487D26 /* UIViewController+BackButtonHandler.m */,
+			);
+			name = "ViewController Category";
+			sourceTree = "<group>";
+		};
+		E0321AB31A8F11D700406554 = {
+			isa = PBXGroup;
+			children = (
+				E0E3403D1B1EDDD1003640BA /* libz.dylib */,
+				E0DA31D01A94C950007910A9 /* SystemConfiguration.framework */,
+				E0321ABE1A8F11D800406554 /* PayUTestApp */,
+				E0321AD81A8F11D800406554 /* PayUTestAppTests */,
+				E0321ABD1A8F11D800406554 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E0321ABD1A8F11D800406554 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E0321ABC1A8F11D800406554 /* PayUTestApp.app */,
+				E0321AD51A8F11D800406554 /* PayUTestAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E0321ABE1A8F11D800406554 /* PayUTestApp */ = {
+			isa = PBXGroup;
+			children = (
+				E0E340401B1EDFAA003640BA /* Seamless */,
+				E0321AC31A8F11D800406554 /* AppDelegate.h */,
+				E0321AC41A8F11D800406554 /* AppDelegate.m */,
+				E0321AC61A8F11D800406554 /* ViewController.h */,
+				E0321AC71A8F11D800406554 /* ViewController.m */,
+				E0321AC91A8F11D800406554 /* Main.storyboard */,
+				E0321ACC1A8F11D800406554 /* Images.xcassets */,
+				E05957461B27304600965C8C /* iOSCustomBrowser */,
+				E05957951B27304700965C8C /* libiOSCustomBrowser.a */,
+				E0321ACE1A8F11D800406554 /* LaunchScreen.xib */,
+				E0321ABF1A8F11D800406554 /* Supporting Files */,
+			);
+			path = PayUTestApp;
+			sourceTree = "<group>";
+		};
+		E0321ABF1A8F11D800406554 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E0321AC01A8F11D800406554 /* Info.plist */,
+				E0321AC11A8F11D800406554 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E0321AD81A8F11D800406554 /* PayUTestAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				E0321ADB1A8F11D800406554 /* PayUTestAppTests.m */,
+				E0321AD91A8F11D800406554 /* Supporting Files */,
+			);
+			path = PayUTestAppTests;
+			sourceTree = "<group>";
+		};
+		E0321AD91A8F11D800406554 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E0321ADA1A8F11D800406554 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E05957461B27304600965C8C /* iOSCustomBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				E05957471B27304600965C8C /* amex.png */,
+				E05957481B27304600965C8C /* amex_logo.png */,
+				E05957491B27304600965C8C /* arrow.png */,
+				E059574A1B27304600965C8C /* arrow_cb.png */,
+				E059574B1B27304600965C8C /* axis_logo.png */,
+				E059574C1B27304600965C8C /* calendar.png */,
+				E059574D1B27304600965C8C /* card.png */,
+				E059574E1B27304600965C8C /* cash_card.png */,
+				E059574F1B27304600965C8C /* CBAllPaymentOption.h */,
+				E05957501B27304600965C8C /* CBAllPaymentOption.xib */,
+				E05957511B27304600965C8C /* CBAllPaymentOption_iPhone6.xib */,
+				E05957521B27304600965C8C /* CBAllPaymentOption_iPhone6p.xib */,
+				E05957531B27304600965C8C /* CBApproveView.h */,
+				E05957541B27304600965C8C /* CBApproveView.xib */,
+				E05957551B27304600965C8C /* CBApproveView_iPhone6p.xib */,
+				E05957561B27304600965C8C /* CBBankPageLoading.h */,
+				E05957571B27304600965C8C /* CBBankPageLoading.xib */,
+				E05957581B27304600965C8C /* CBBankPageLoading_iPhone6.xib */,
+				E05957591B27304600965C8C /* CBBankPageLoading_iPhone6p.xib */,
+				E059575A1B27304600965C8C /* CBConnectionHandler.h */,
+				E059575B1B27304600965C8C /* CBConstant.h */,
+				E059575C1B27304600965C8C /* CCBApproveView_iPhone6.xib */,
+				E059575D1B27304600965C8C /* citi.png */,
+				E059575E1B27304600965C8C /* coin.png */,
+				E059575F1B27304600965C8C /* CustomActivityIndicator.h */,
+				E05957601B27304600965C8C /* CustomActivityIndicator.xib */,
+				E05957611B27304600965C8C /* diner.png */,
+				E05957621B27304600965C8C /* discover.png */,
+				E05957631B27304600965C8C /* error_icon.png */,
+				E05957641B27304600965C8C /* error_large.png */,
+				E05957651B27304600965C8C /* hdfc.png */,
+				E05957661B27304600965C8C /* hdfc_bank.png */,
+				E05957671B27304600965C8C /* hsbc.png */,
+				E05957681B27304700965C8C /* icici.png */,
+				E05957691B27304700965C8C /* icicicc.png */,
+				E059576A1B27304700965C8C /* icicinet.png */,
+				E059576B1B27304700965C8C /* icon_otp.png */,
+				E059576C1B27304700965C8C /* icon_otp_over.png */,
+				E059576D1B27304700965C8C /* icon_password.png */,
+				E059576E1B27304700965C8C /* icon_password_over.png */,
+				E059576F1B27304700965C8C /* idbi.png */,
+				E05957701B27304700965C8C /* induslogo.png */,
+				E05957711B27304700965C8C /* jcb.png */,
+				E05957721B27304700965C8C /* kotak.png */,
+				E05957731B27304700965C8C /* kotaknet.png */,
+				E05957741B27304700965C8C /* l_icon1.png */,
+				E05957751B27304700965C8C /* l_icon2.png */,
+				E05957761B27304700965C8C /* l_icon3.png */,
+				E05957771B27304700965C8C /* l_icon4.png */,
+				E05957781B27304700965C8C /* laser.png */,
+				E05957791B27304700965C8C /* lock.png */,
+				E059577A1B27304700965C8C /* lock2.png */,
+				E059577B1B27304700965C8C /* logo.png */,
+				E059577C1B27304700965C8C /* logo_payu.png */,
+				E059577D1B27304700965C8C /* maestro.png */,
+				E059577E1B27304700965C8C /* master.png */,
+				E059577F1B27304700965C8C /* otp_icon_large.png */,
+				E05957801B27304700965C8C /* otp_icon_over.png */,
+				E05957811B27304700965C8C /* otpicon.png */,
+				E05957821B27304700965C8C /* password_icon.png */,
+				E05957831B27304700965C8C /* password_icon_large.png */,
+				E05957841B27304700965C8C /* password_icon_over.png */,
+				E05957851B27304700965C8C /* passwordicon.png */,
+				E05957861B27304700965C8C /* PayU_CB_SDK.h */,
+				E05957871B27304700965C8C /* payu_money.png */,
+				E05957881B27304700965C8C /* RegenerateOTPView.h */,
+				E05957891B27304700965C8C /* RegenerateOTPView.xib */,
+				E059578A1B27304700965C8C /* RegenerateOTPView_iPhone6.xib */,
+				E059578B1B27304700965C8C /* RegenerateOTPView_iPhone6p.xib */,
+				E059578C1B27304700965C8C /* sbi.png */,
+				E059578D1B27304700965C8C /* sbinet.png */,
+				E059578E1B27304700965C8C /* sc.png */,
+				E059578F1B27304700965C8C /* slider.png */,
+				E05957901B27304700965C8C /* store_card.png */,
+				E05957911B27304700965C8C /* trusticon.png */,
+				E05957921B27304700965C8C /* user.png */,
+				E05957931B27304700965C8C /* visa.png */,
+				E05957941B27304700965C8C /* yesbank_logo.png */,
+			);
+			path = iOSCustomBrowser;
+			sourceTree = "<group>";
+		};
+		E0E340401B1EDFAA003640BA /* Seamless */ = {
+			isa = PBXGroup;
+			children = (
+				E022CC611B202E9300487D26 /* ViewController Category */,
+				E0E340551B1EE07B003640BA /* Utils.h */,
+				E0E340561B1EE07B003640BA /* Utils.m */,
+				E0E340501B1EE05B003640BA /* PayUPaymentResultViewController.h */,
+				E0E340511B1EE05B003640BA /* PayUPaymentResultViewController.m */,
+				E0E340521B1EE05B003640BA /* PayUPaymentResultViewController.xib */,
+				E0E340471B1EE036003640BA /* Reachability.h */,
+				E0E340481B1EE036003640BA /* Reachability.m */,
+				E0E340491B1EE036003640BA /* ReachabilityManager.h */,
+				E0E3404A1B1EE036003640BA /* ReachabilityManager.m */,
+				E0E3404B1B1EE036003640BA /* SharedDataManager.h */,
+				E0E3404C1B1EE036003640BA /* SharedDataManager.m */,
+				E0E340461B1EE01E003640BA /* PayUConstant.h */,
+				E0E340451B1EE00B003640BA /* PayUErrorConstant.h */,
+				E0E340441B1EDFE2003640BA /* PayUNotificationConstant.h */,
+				E0E340411B1EDFC2003640BA /* PayUConnectionHandlerController.h */,
+				E0E340421B1EDFC2003640BA /* PayUConnectionHandlerController.m */,
+			);
+			name = Seamless;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E0321ABB1A8F11D700406554 /* PayUTestApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0321ADF1A8F11D800406554 /* Build configuration list for PBXNativeTarget "PayUTestApp" */;
+			buildPhases = (
+				E0321AB81A8F11D700406554 /* Sources */,
+				E0321AB91A8F11D700406554 /* Frameworks */,
+				E0321ABA1A8F11D700406554 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PayUTestApp;
+			productName = PayUTestApp;
+			productReference = E0321ABC1A8F11D800406554 /* PayUTestApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E0321AD41A8F11D800406554 /* PayUTestAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E0321AE21A8F11D800406554 /* Build configuration list for PBXNativeTarget "PayUTestAppTests" */;
+			buildPhases = (
+				E0321AD11A8F11D800406554 /* Sources */,
+				E0321AD21A8F11D800406554 /* Frameworks */,
+				E0321AD31A8F11D800406554 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E0321AD71A8F11D800406554 /* PBXTargetDependency */,
+			);
+			name = PayUTestAppTests;
+			productName = PayUTestAppTests;
+			productReference = E0321AD51A8F11D800406554 /* PayUTestAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E0321AB41A8F11D700406554 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "PayU, India";
+				TargetAttributes = {
+					E0321ABB1A8F11D700406554 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					E0321AD41A8F11D800406554 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = E0321ABB1A8F11D700406554;
+					};
+				};
+			};
+			buildConfigurationList = E0321AB71A8F11D700406554 /* Build configuration list for PBXProject "PayUTestApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E0321AB31A8F11D700406554;
+			productRefGroup = E0321ABD1A8F11D800406554 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E0321ABB1A8F11D700406554 /* PayUTestApp */,
+				E0321AD41A8F11D800406554 /* PayUTestAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E0321ABA1A8F11D700406554 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E059579F1B27304700965C8C /* CBAllPaymentOption_iPhone6.xib in Resources */,
+				E05957C31B27304700965C8C /* lock2.png in Resources */,
+				E05957D91B27304700965C8C /* user.png in Resources */,
+				E05957B41B27304700965C8C /* icon_otp.png in Resources */,
+				E05957D81B27304700965C8C /* trusticon.png in Resources */,
+				E0321ACB1A8F11D800406554 /* Main.storyboard in Resources */,
+				E05957A61B27304700965C8C /* CCBApproveView_iPhone6.xib in Resources */,
+				E05957CC1B27304700965C8C /* password_icon_large.png in Resources */,
+				E05957C41B27304700965C8C /* logo.png in Resources */,
+				E05957AE1B27304700965C8C /* hdfc.png in Resources */,
+				E059579C1B27304700965C8C /* card.png in Resources */,
+				E05957D71B27304700965C8C /* store_card.png in Resources */,
+				E05957B61B27304700965C8C /* icon_password.png in Resources */,
+				E05957B51B27304700965C8C /* icon_otp_over.png in Resources */,
+				E05957C91B27304700965C8C /* otp_icon_over.png in Resources */,
+				E05957BC1B27304700965C8C /* kotaknet.png in Resources */,
+				E05957AB1B27304700965C8C /* discover.png in Resources */,
+				E05957AF1B27304700965C8C /* hdfc_bank.png in Resources */,
+				E05957BD1B27304700965C8C /* l_icon1.png in Resources */,
+				E05957C01B27304700965C8C /* l_icon4.png in Resources */,
+				E05957C51B27304700965C8C /* logo_payu.png in Resources */,
+				E05957AA1B27304700965C8C /* diner.png in Resources */,
+				E05957A51B27304700965C8C /* CBBankPageLoading_iPhone6p.xib in Resources */,
+				E05957B21B27304700965C8C /* icicicc.png in Resources */,
+				E059579E1B27304700965C8C /* CBAllPaymentOption.xib in Resources */,
+				E05957D11B27304700965C8C /* RegenerateOTPView_iPhone6.xib in Resources */,
+				E05957DB1B27304700965C8C /* yesbank_logo.png in Resources */,
+				E05957A31B27304700965C8C /* CBBankPageLoading.xib in Resources */,
+				E05957B71B27304700965C8C /* icon_password_over.png in Resources */,
+				E05957A01B27304700965C8C /* CBAllPaymentOption_iPhone6p.xib in Resources */,
+				E05957961B27304700965C8C /* amex.png in Resources */,
+				E05957A91B27304700965C8C /* CustomActivityIndicator.xib in Resources */,
+				E0321AD01A8F11D800406554 /* LaunchScreen.xib in Resources */,
+				E05957CB1B27304700965C8C /* password_icon.png in Resources */,
+				E05957CF1B27304700965C8C /* payu_money.png in Resources */,
+				E05957B81B27304700965C8C /* idbi.png in Resources */,
+				E05957B01B27304700965C8C /* hsbc.png in Resources */,
+				E05957AC1B27304700965C8C /* error_icon.png in Resources */,
+				E059579A1B27304700965C8C /* axis_logo.png in Resources */,
+				E05957971B27304700965C8C /* amex_logo.png in Resources */,
+				E05957D21B27304700965C8C /* RegenerateOTPView_iPhone6p.xib in Resources */,
+				E05957D61B27304700965C8C /* slider.png in Resources */,
+				E05957BF1B27304700965C8C /* l_icon3.png in Resources */,
+				E05957CD1B27304700965C8C /* password_icon_over.png in Resources */,
+				E0321ACD1A8F11D800406554 /* Images.xcassets in Resources */,
+				E05957A41B27304700965C8C /* CBBankPageLoading_iPhone6.xib in Resources */,
+				E05957AD1B27304700965C8C /* error_large.png in Resources */,
+				E05957BE1B27304700965C8C /* l_icon2.png in Resources */,
+				E05957D51B27304700965C8C /* sc.png in Resources */,
+				E05957C81B27304700965C8C /* otp_icon_large.png in Resources */,
+				E05957BB1B27304700965C8C /* kotak.png in Resources */,
+				E05957C71B27304700965C8C /* master.png in Resources */,
+				E05957981B27304700965C8C /* arrow.png in Resources */,
+				E05957C11B27304700965C8C /* laser.png in Resources */,
+				E05957D31B27304700965C8C /* sbi.png in Resources */,
+				E05957CA1B27304700965C8C /* otpicon.png in Resources */,
+				E05957BA1B27304700965C8C /* jcb.png in Resources */,
+				E05957A81B27304700965C8C /* coin.png in Resources */,
+				E05957A21B27304700965C8C /* CBApproveView_iPhone6p.xib in Resources */,
+				E059579D1B27304700965C8C /* cash_card.png in Resources */,
+				E05957B31B27304700965C8C /* icicinet.png in Resources */,
+				E059579B1B27304700965C8C /* calendar.png in Resources */,
+				E05957991B27304700965C8C /* arrow_cb.png in Resources */,
+				E0E340541B1EE05B003640BA /* PayUPaymentResultViewController.xib in Resources */,
+				E05957B91B27304700965C8C /* induslogo.png in Resources */,
+				E05957D41B27304700965C8C /* sbinet.png in Resources */,
+				E05957B11B27304700965C8C /* icici.png in Resources */,
+				E05957D01B27304700965C8C /* RegenerateOTPView.xib in Resources */,
+				E05957A71B27304700965C8C /* citi.png in Resources */,
+				E05957DA1B27304700965C8C /* visa.png in Resources */,
+				E05957CE1B27304700965C8C /* passwordicon.png in Resources */,
+				E05957A11B27304700965C8C /* CBApproveView.xib in Resources */,
+				E05957C21B27304700965C8C /* lock.png in Resources */,
+				E05957C61B27304700965C8C /* maestro.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0321AD31A8F11D800406554 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E0321AB81A8F11D700406554 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0E340571B1EE07B003640BA /* Utils.m in Sources */,
+				E0E3404E1B1EE036003640BA /* ReachabilityManager.m in Sources */,
+				E0E3404F1B1EE036003640BA /* SharedDataManager.m in Sources */,
+				E0321AC81A8F11D800406554 /* ViewController.m in Sources */,
+				E0321AC51A8F11D800406554 /* AppDelegate.m in Sources */,
+				E0321AC21A8F11D800406554 /* main.m in Sources */,
+				E0E340531B1EE05B003640BA /* PayUPaymentResultViewController.m in Sources */,
+				E0E340431B1EDFC2003640BA /* PayUConnectionHandlerController.m in Sources */,
+				E022CC641B202EB200487D26 /* UIViewController+BackButtonHandler.m in Sources */,
+				E0E3404D1B1EE036003640BA /* Reachability.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E0321AD11A8F11D800406554 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0321ADC1A8F11D800406554 /* PayUTestAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E0321AD71A8F11D800406554 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E0321ABB1A8F11D700406554 /* PayUTestApp */;
+			targetProxy = E0321AD61A8F11D800406554 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E0321AC91A8F11D800406554 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E0321ACA1A8F11D800406554 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E0321ACE1A8F11D800406554 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E0321ACF1A8F11D800406554 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E0321ADD1A8F11D800406554 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E0321ADE1A8F11D800406554 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E0321AE01A8F11D800406554 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PayUTestApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PayUTestApp",
+					"$(PROJECT_DIR)/PayUTestApp/include/PayU_iOS_SDK",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7s armv7";
+			};
+			name = Debug;
+		};
+		E0321AE11A8F11D800406554 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PayUTestApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PayUTestApp",
+					"$(PROJECT_DIR)/PayUTestApp/include/PayU_iOS_SDK",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALID_ARCHS = "arm64 armv7s armv7";
+			};
+			name = Release;
+		};
+		E0321AE31A8F11D800406554 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PayUTestAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PayUTestApp.app/PayUTestApp";
+			};
+			name = Debug;
+		};
+		E0321AE41A8F11D800406554 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = PayUTestAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PayUTestApp.app/PayUTestApp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E0321AB71A8F11D700406554 /* Build configuration list for PBXProject "PayUTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0321ADD1A8F11D800406554 /* Debug */,
+				E0321ADE1A8F11D800406554 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E0321ADF1A8F11D800406554 /* Build configuration list for PBXNativeTarget "PayUTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0321AE01A8F11D800406554 /* Debug */,
+				E0321AE11A8F11D800406554 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E0321AE21A8F11D800406554 /* Build configuration list for PBXNativeTarget "PayUTestAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E0321AE31A8F11D800406554 /* Debug */,
+				E0321AE41A8F11D800406554 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E0321AB41A8F11D700406554 /* Project object */;
+}
