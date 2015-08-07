@@ -58,9 +58,9 @@
     _req.HTTPMethod = @"POST";
     NSString *postData = [[NSString alloc]init];
     NSString *txnID = [self randomStringWithLength:15];
-    NSString *hashValue = [NSString stringWithFormat:@"smsplus|%@|1.36|Nokia Lumia 625|Ram|email@testsdk.com|||||||||||1b1b0",txnID];
+    NSString *hashValue = [NSString stringWithFormat:@"0MQaQP|%@|1.36|Nokia Lumia 625|Ram|email@testsdk.com|||||||||||13p0PXZk",txnID];
     
-    postData = [NSString stringWithFormat:@"furl=https://dl.dropboxusercontent.com/s/h6m11xr93mxhfvf/Failure_iOS.html&productinfo=Nokia Lumia 625&phone=9876543210&amount=1.36&firstname=Ram&txnid=%@&key=smsplus&var1=default&command=get_merchant_ibibo_codes&user_credentials=ra:ra&email=email@testsdk.com&surl=https://dl.dropboxusercontent.com/s/y911hgtgdkkiy0w/success_iOS.html&pg=CC&ccnum=%@&ccname=%@&ccexpmon=%@&ccexpyr=%@&bankcode=CC&ccvv=%@&&device_type=2&hash=%@", txnID,_CardNumber.text,_CardName.text,_MM.text,_YY.text,_CVV.text,[self createCheckSumString:hashValue]];
+    postData = [NSString stringWithFormat:@"furl=https://dl.dropboxusercontent.com/s/h6m11xr93mxhfvf/Failure_iOS.html&productinfo=Nokia Lumia 625&phone=9876543210&amount=1.36&firstname=Ram&txnid=%@&key=0MQaQP&var1=default&command=get_merchant_ibibo_codes&user_credentials=ra:ra&email=email@testsdk.com&surl=https://dl.dropboxusercontent.com/s/y911hgtgdkkiy0w/success_iOS.html&pg=CC&ccnum=%@&ccname=%@&ccexpmon=%@&ccexpyr=%@&bankcode=CC&ccvv=%@&&device_type=2&hash=%@", txnID,_CardNumber.text,_CardName.text,_MM.text,_YY.text,_CVV.text,[self createCheckSumString:hashValue]];
     [_req setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     [_req setHTTPBody:[postData dataUsingEncoding:NSUTF8StringEncoding]];
     PVC.theRequest = _req;
