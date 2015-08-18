@@ -25,23 +25,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _OferKey.text = @"offertest@1411";
     self.navigationController.navigationItem.title = @"PayU Test App";
     // setting up this class as delegate and dataSource for paymentModeTableView
     _paymentModeTableView.delegate = self;
     _paymentModeTableView.dataSource = self;
     
     //creating a array of option to display.
-    _optionList = @[@"Without user defined modes"];
+    _optionList = @[@"Start Payment"/*,@"CC DC NB CASH",@"DC CASH NB CC",@"PAYU_MONEY STORED_CARDS CC",@"Make payment CC",@"Make Payment Stored Card",@"Stored Card",@"Edit Card",@"Delete Card",@"Test Enforce",@"Test Drop Category",@"Test Offer",@"Back Button disabled"*/];
     
-    _headerNames = @[@"Without user defined modes"];
+    _headerNames = @[@"Without user defined modes"/*,@"With user defined modes",@"Use payU fragments", @"Enforce method", @"Drop Category", @"With Offer"*/];
     
     //NSLog(@"Bundle Object = %@ Path = %@", [NSBundle mainBundle], [[NSBundle mainBundle] pathForResource:@"WebViewJavascriptBridge.js" ofType:@"txt"]);
     
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(success:) name:@"payment_success_notifications" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(failure:) name:@"payment_failure_notifications" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cancel:) name:@"payu_notifications" object:nil];
-
 }
 
 - (void) success:(NSDictionary *)info{
@@ -52,11 +51,7 @@
 - (void) failure:(NSDictionary *)info{
     NSLog(@"failure Dict: %@",info);
     [self.navigationController popToRootViewControllerAnimated:YES];
-}
 
-- (void) cancel:(NSDictionary *)info{
-    NSLog(@"cancel Dict: %@",info);
-    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (NSString *) createCheckSumString:(NSString *)input
@@ -105,20 +100,21 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
             paymentOptionsVC = [[PayUPaymentOptionsViewController alloc] initWithNibName:@"PayUPaymentOptionsViewController" bundle:nil];
         }
     }
-    
+
     NSMutableDictionary *paramDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                       @"product",@"productinfo",
                                       @"username",@"firstname",
-                                      [NSNumber numberWithFloat:1.36],@"amount",
+                                      [NSNumber numberWithFloat:10.6],@"amount",
                                       @"email@testsdk.com",@"email",
                                       @"9999999999", @"phone",
                                       @"https://dl.dropboxusercontent.com/s/y911hgtgdkkiy0w/success_iOS.html",@"surl",
                                       @"https://dl.dropboxusercontent.com/s/h6m11xr93mxhfvf/Failure_iOS.html",@"furl",
                                       [self randomStringWithLength:15],@"txnid",
+                                      _OferKey.text,@"offer_key",
                                       @"ra:ra",@"user_credentials", nil];
     paymentOptionsVC.parameterDict = paramDict;
     paymentOptionsVC.callBackDelegate = self;
-    paymentOptionsVC.totalAmount  = 1.36;
+    paymentOptionsVC.totalAmount  = 10.6;
     paymentOptionsVC.appTitle       = @"PayU test App";
     
     [self.navigationController pushViewController:paymentOptionsVC animated:YES];

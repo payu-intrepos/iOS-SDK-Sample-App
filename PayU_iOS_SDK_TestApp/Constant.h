@@ -9,11 +9,11 @@
 #ifndef PayU_iOS_SDK_TestApp_Constant_h
 #define PayU_iOS_SDK_TestApp_Constant_h
 
-
-#define     PARAM_KEY               @"gtKFFx"
-#define     PARAM_COMMAND           @"get_merchant_ibibo_codes"
-#define     PARAM_SALT              @"eCwWELxi"
-#define     PARAM_VAR1              @"default"
+//
+//#define     PARAM_KEY               @"gtKFFx"
+//#define     PARAM_COMMAND           @"get_merchant_ibibo_codes"
+//#define     PARAM_SALT              @"eCwWELxi"
+//#define     PARAM_VAR1              @"default"
 
 
 #endif

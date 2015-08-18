@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E0CD43A31B30571500DD86AB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E0CD43A21B30571500DD86AB /* libz.dylib */; };
+		E02040391AE630AC00206A41 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E02040381AE630AC00206A41 /* libz.dylib */; };
 		E0FD41871A306B9300E15211 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E0FD41861A306B9300E15211 /* main.m */; };
 		E0FD418A1A306B9300E15211 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E0FD41891A306B9300E15211 /* AppDelegate.m */; };
 		E0FD418D1A306B9300E15211 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E0FD418C1A306B9300E15211 /* ViewController.m */; };
@@ -28,8 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E00BAB3E1ABC584A0065D58A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E02040381AE630AC00206A41 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		E06A67E31A385B7800474668 /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
-		E0CD43A21B30571500DD86AB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		E0FD41811A306B9300E15211 /* PayU_iOS_SDK_TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayU_iOS_SDK_TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0FD41851A306B9300E15211 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E0FD41861A306B9300E15211 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -50,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0CD43A31B30571500DD86AB /* libz.dylib in Frameworks */,
+				E02040391AE630AC00206A41 /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,7 +68,8 @@
 		E0FD41781A306B9300E15211 = {
 			isa = PBXGroup;
 			children = (
-				E0CD43A21B30571500DD86AB /* libz.dylib */,
+				E02040381AE630AC00206A41 /* libz.dylib */,
+				E00BAB3E1ABC584A0065D58A /* SystemConfiguration.framework */,
 				E0FD41831A306B9300E15211 /* PayU_iOS_SDK_TestApp */,
 				E0FD419D1A306B9400E15211 /* PayU_iOS_SDK_TestAppTests */,
 				E0FD41821A306B9300E15211 /* Products */,
@@ -349,6 +351,7 @@
 		E0FD41A51A306B9400E15211 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -363,17 +366,30 @@
 				INFOPLIST_FILE = PayU_iOS_SDK_TestApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/PayU_iOS_SDK_TestApp";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PayU_iOS_SDK_TestApp",
+					"$(PROJECT_DIR)",
+					/Developement/iOS,
+					"SDK/gitlab/ios_sdk/Build/Products/Debug-iphonesimulator",
+					/Developement/iOS,
+					"SDK/gitlab/ios_sdk/Build/Products/Release-iphonesimulator",
+					"$(PROJECT_DIR)/PayU_iOS_SDK_TestApp/PayU_iOS_SDK",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/PayU_iOS_SDK-ahjdqzyqzxcxpabybqavnzjluehl/Build/Products/Debug-iphoneos",
+				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				VALID_ARCHS = "armv7 armv7s arm64";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_TEMP_DIR)/../UninstalledProducts/include";
 			};
 			name = Debug;
 		};
 		E0FD41A61A306B9400E15211 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -388,11 +404,23 @@
 				INFOPLIST_FILE = PayU_iOS_SDK_TestApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/PayU_iOS_SDK_TestApp";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PayU_iOS_SDK_TestApp",
+					"$(PROJECT_DIR)",
+					/Developement/iOS,
+					"SDK/gitlab/ios_sdk/Build/Products/Debug-iphonesimulator",
+					/Developement/iOS,
+					"SDK/gitlab/ios_sdk/Build/Products/Release-iphonesimulator",
+					"$(PROJECT_DIR)/PayU_iOS_SDK_TestApp/PayU_iOS_SDK",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/PayU_iOS_SDK-ahjdqzyqzxcxpabybqavnzjluehl/Build/Products/Debug-iphoneos",
+				);
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				VALID_ARCHS = "armv7 armv7s arm64";
+				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
+				USER_HEADER_SEARCH_PATHS = "$(PROJECT_TEMP_DIR)/../UninstalledProducts/include";
 			};
 			name = Release;
 		};
