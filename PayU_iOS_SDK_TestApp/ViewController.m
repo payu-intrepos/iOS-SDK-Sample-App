@@ -12,14 +12,18 @@
 
 
 @interface ViewController () <UITableViewDataSource,UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activity;
+@property (weak, nonatomic) IBOutlet UILabel *myEnv;
 
+@property (weak, nonatomic) IBOutlet UILabel *myLabel;
 @property (weak, nonatomic) IBOutlet UITextField *OfferKey;
 @property (nonatomic, strong) IBOutlet UITableView *paymentModeTableView;
 @property (nonatomic, strong) NSArray *optionList;
 @property (nonatomic, strong) NSArray *headerNames;
 @property (nonatomic, strong) NSString *txnID;
 @property (nonatomic, strong) NSDictionary *hashDict;
-@property (nonatomic, strong) UIView *transparentView;
+@property(nonatomic,strong)NSString*myKey;
+@property(nonatomic,strong) UIView *grayView;
 
 typedef void (^urlRequestCompletionBlock)(NSURLResponse *response, NSData *data, NSError *connectionError);
 
@@ -32,6 +36,34 @@ typedef void (^urlRequestCompletionBlock)(NSURLResponse *response, NSData *data,
     [super viewDidLoad];
    
     self.navigationController.navigationItem.title = @"PayU Test App";
+   
+    NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"Info" ofType:@"plist"];
+    NSDictionary *dict = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
+    
+_myKey=[dict valueForKey:@"key"];
+    
+    
+    _myLabel.text=_myKey;
+    
+    if([_myKey isEqualToString:@"gtKFFx" ]||[_myKey isEqualToString:@"smsplus"])
+    {
+    _myEnv.text=@"test";
+    
+    }
+    else if([_myKey isEqualToString:@"0MQaQP"])
+    {
+        _myEnv.text=@"Production";
+    }
+    else
+        _myEnv.text=@"Not PayU key";
+    //
+//    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"Info.plist" ofType:@"plist"];
+//    NSDictionary *plistData = [NSDictionary dictionaryWithContentsOfFile:filePath];
+//    
+  // NSString *name= [[NSBundle mainBundle] objectForInfoDictionaryKey:key];
+    
+
+
     
     // setting up this class as delegate and dataSource for paymentModeTableView
     _paymentModeTableView.delegate = self;
@@ -50,23 +82,30 @@ typedef void (^urlRequestCompletionBlock)(NSURLResponse *response, NSData *data,
     //[self.activityIndicator startAnimating];
     // Get all required hash values
     
-    
+    [self.activity setHidesWhenStopped:YES];
 }
 
 
 - (void) viewWillAppear:(BOOL)animated{
-    _OfferKey.text = @"test123@6622";
     [super viewWillAppear:animated];
+    _OfferKey.text = @"test123@6622";
+    [self.activity startAnimating];
     _txnID = [self randomStringWithLength:17];
-//    _transparentView = [[UIView alloc] initWithFrame:self.view.frame];
-//    _transparentView.backgroundColor = [UIColor grayColor];
-//    _transparentView.alpha = 0.5f;
-//    _transparentView.opaque = NO;
-//    _transparentView.userInteractionEnabled = NO;
-    [self.view addSubview:_transparentView];
+    self.grayView = [[UIView alloc]initWithFrame:self.view.frame];
+    self.grayView.backgroundColor = [UIColor grayColor];
+    self.grayView.alpha = 0.5f;
+    self.grayView.opaque = NO;
+    self.view.userInteractionEnabled=NO;
+    self.grayView.userInteractionEnabled = NO;
+    [self.view addSubview:self.grayView];
+    [self.view bringSubviewToFront:self.grayView];
+    [self.grayView bringSubviewToFront:self.activity];
+    _hashDict =nil;
     [self generateHashFromServer:nil withCompletionBlock:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            //[_transparentView removeFromSuperview];
+            [self.grayView removeFromSuperview];
+            [self.activity stopAnimating];
+            self.view.userInteractionEnabled=YES;
         });
         NSLog(@"-->>Hash has been created = %@",_hashDict);
     }];
@@ -121,7 +160,7 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
     NSMutableDictionary *paramDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:
                                       @"Nokia",@"productinfo",
                                       @"Ram",@"firstname",
-                                      @"1.6",@"amount",
+                                      @"10",@"amount",
                                       @"email@testsdk1.com",@"email",
                                       @"1111111111", @"phone",
                                       @"https://dl.dropboxusercontent.com/s/y911hgtgdkkiy0w/success_iOS.html",@"surl",
@@ -137,7 +176,7 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
                                       ,nil];
     paymentOptionsVC.parameterDict = paramDict;
     paymentOptionsVC.callBackDelegate = self;
-    paymentOptionsVC.totalAmount  = 1.6;
+    paymentOptionsVC.totalAmount  = 10;
     paymentOptionsVC.appTitle     = @"PayU test App";
     
     if(_hashDict)
@@ -156,7 +195,11 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
     
     void(^serverResponseForHashGenerationCallback)(NSURLResponse *response, NSData *data, NSError *error) = completionBlock;
     
-    //NSURL *restURL = [NSURL URLWithString:PAYU_PAYMENT_ALL_AVAILABLE_PAYMENT_OPTION];
+    
+    _hashDict=nil;
+    
+    PayUPaymentOptionsViewController *paymentOptionsVC = nil;
+    
     NSURL *restURL = [NSURL URLWithString:@"https://payu.herokuapp.com/get_hash"];
 
     // create the request
@@ -165,12 +208,7 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
                                                         timeoutInterval:60.0];
     // Specify that it will be a POST request
     theRequest.HTTPMethod = @"POST";
-    
-    //NSString *var1Str = [NSString stringWithFormat:@"{\"amount\":\"%@\",\"txnid\":\"%@\",\"email\":\"%@\",\"productinfo\":\"%@\",\"firstname\":\"%@\",\"udf1\":\"%@\",\"udf2\":\"%@\",\"udf3\":\"%@\",\"udf4\":\"%@\",\"udf5\":\"%@\",\"user_credentials\":\"%@\"}",@"1100.60",_txnID,@"email@testsdk1.com",@"Nokia",@"Ram",@"u1",@"u2",@"u3",@"u4",@"u5",@"ra:ra"];
-//    str = [str stringByReplacingOccurrencesOfString:@" = " withString:@":"];
-    
-    //NSString *postData = [NSString stringWithFormat:@"command=%@&key=%@&hash=%@&var1=%@",@"get_hashes",@"0MQaQP",@"hash",var1Str];
-    NSString *postData = [NSString stringWithFormat:@"offer_key=%@&key=%@&hash=%@&email=%@&amount=%@&firstname=%@&txnid=%@&user_credentials=%@&udf1=u1&udf2=u2&udf3=u3&udf4=u4&udf5=u5&productinfo=%@&phone=%@",_OfferKey.text,@"gtKFFx",@"hash",@"email@testsdk1.com",@"1.6",@"Ram",_txnID,@"ra:ra",@"Nokia",@"1111111111"];
+    NSString *postData = [NSString stringWithFormat:@"offer_key=%@&key=%@&hash=%@&email=%@&amount=%@&firstname=%@&txnid=%@&user_credentials=%@&udf1=u1&udf2=u2&udf3=u3&udf4=u4&udf5=u5&productinfo=%@&phone=%@",_OfferKey.text,@"0MQaQP",@"hash",@"email@testsdk1.com",@"10",@"Ram",_txnID,@"ra:ra",@"Nokia",@"1111111111"];
     
     NSLog(@"-->>Hash generation Post Param = %@",postData);
     
@@ -183,10 +221,12 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
     NSOperationQueue *networkQueue = [[NSOperationQueue alloc] init];
     [NSURLConnection sendAsynchronousRequest:theRequest queue:networkQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         NSError *errorJson = nil;
-        //NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&errorJson];
         _hashDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&errorJson];
-//        NSLog(@"Hash API response : %@",responseDict);
-        //_hashDict = [NSDictionary dictionaryWithDictionary:[responseDict valueForKey:@"result"]];
+        
+        if(_hashDict)
+        {
+            paymentOptionsVC.allHashDict = _hashDict;
+        }
         serverResponseForHashGenerationCallback(response, data,connectionError);
         
     }];
@@ -226,8 +266,13 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
         default:
             break;
     }
+    
+    
+    
     return numberOfRow;
 }
+
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -243,10 +288,13 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
             cell.textLabel.text = [_optionList objectAtIndex:indexPath.row];;
             break;
         case 1:
-            //calculation of array index should be (rows in previos section + row)
+            cell.textLabel.text=@"hi";
+            break;
+        //calculation of array index should be (rows in previos section + row)
             cell.textLabel.text = [_optionList objectAtIndex:(indexPath.row+1)];
             break;
         case 2:
+           
             cell.textLabel.text = [_optionList objectAtIndex:(indexPath.row+3+1)];
             break;
         case 3:
@@ -261,7 +309,7 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ012345
         default:
             break;
     }
-
+    
     return cell;
 }
 
