@@ -7,13 +7,14 @@
 
 
 
-//  Version 2.2.1
+//  Version 2.2.2
 //  Hash mismatch issue resolved
+//  Implemented SURL & FURL data
 
 #import <UIKit/UIKit.h>
 #import "PayU_iOS_SDK.h"
-#import "PayUPaymentOptionsViewController.h"
 @interface ViewController : UIViewController
+
 
 
 @end
