@@ -40,5 +40,10 @@
 	<string>0MQaQP</string>
 	<key>var1</key>
 	<string>default</string>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
 </dict>
 </plist>
