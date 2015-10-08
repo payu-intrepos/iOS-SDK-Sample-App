@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E1EA8221B999CD800F45C2A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1EA8211B999CD800F45C2A /* libz.dylib */; };
+		6E1EA8291B99A19A00F45C2A /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E1EA8281B99A19A00F45C2A /* WebKit.framework */; };
 		E09DE4831B4689C5005ABF43 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E09DE4811B4689C5005ABF43 /* Default.png */; };
 		E09DE4841B4689C5005ABF43 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E09DE4821B4689C5005ABF43 /* Default@2x.png */; };
 		E0FD41871A306B9300E15211 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E0FD41861A306B9300E15211 /* main.m */; };
@@ -29,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E1EA8211B999CD800F45C2A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		6E1EA8281B99A19A00F45C2A /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		E00BAB3E1ABC584A0065D58A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E09DE4811B4689C5005ABF43 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		E09DE4821B4689C5005ABF43 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -52,6 +56,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E1EA8291B99A19A00F45C2A /* WebKit.framework in Frameworks */,
+				6E1EA8221B999CD800F45C2A /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +74,8 @@
 		E0FD41781A306B9300E15211 = {
 			isa = PBXGroup;
 			children = (
+				6E1EA8281B99A19A00F45C2A /* WebKit.framework */,
+				6E1EA8211B999CD800F45C2A /* libz.dylib */,
 				E00BAB3E1ABC584A0065D58A /* SystemConfiguration.framework */,
 				E0FD41831A306B9300E15211 /* PayU_iOS_SDK_TestApp */,
 				E0FD419D1A306B9400E15211 /* PayU_iOS_SDK_TestAppTests */,
@@ -176,10 +184,10 @@
 				TargetAttributes = {
 					E0FD41801A306B9300E15211 = {
 						CreatedOnToolsVersion = 6.0.1;
-						DevelopmentTeam = 3HFD6W97H4;
 					};
 					E0FD41991A306B9400E15211 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = Y5WJ4B7E4Z;
 						TestTargetID = E0FD41801A306B9300E15211;
 					};
 				};
@@ -291,6 +299,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -332,7 +341,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -380,6 +390,7 @@
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.payu.PayU-iOS-SDK-TestApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
@@ -394,7 +405,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "LaunchImage-2";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -417,6 +428,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.payu.PayU-iOS-SDK-TestApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
@@ -428,6 +440,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -447,6 +460,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
