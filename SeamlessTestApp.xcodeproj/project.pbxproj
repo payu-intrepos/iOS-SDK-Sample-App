@@ -1,0 +1,381 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7312656E1BB958AC00250A86 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7312656D1BB958AC00250A86 /* main.m */; };
+		731265711BB958AC00250A86 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 731265701BB958AC00250A86 /* AppDelegate.m */; };
+		731265771BB958AC00250A86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 731265751BB958AC00250A86 /* Main.storyboard */; };
+		731265791BB958AC00250A86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 731265781BB958AC00250A86 /* Assets.xcassets */; };
+		7312657C1BB958AC00250A86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7312657A1BB958AC00250A86 /* LaunchScreen.storyboard */; };
+		731265901BBA92D900250A86 /* PayUSAStartScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7312658F1BBA92D900250A86 /* PayUSAStartScreenViewController.m */; settings = {ASSET_TAGS = (); }; };
+		733040A91BC51ED80011405C /* PayUUIPaymentOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 733040A81BC51ED80011405C /* PayUUIPaymentOptionViewController.m */; settings = {ASSET_TAGS = (); }; };
+		733040AF1BC5288C0011405C /* PayUUICCDCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 733040AE1BC5288C0011405C /* PayUUICCDCViewController.m */; settings = {ASSET_TAGS = (); }; };
+		733040B21BC52B640011405C /* PayUUIPaymentUIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 733040B11BC52B640011405C /* PayUUIPaymentUIWebViewController.m */; settings = {ASSET_TAGS = (); }; };
+		733040B51BC5671D0011405C /* PayUSAGetHashes.m in Sources */ = {isa = PBXBuildFile; fileRef = 733040B41BC5671D0011405C /* PayUSAGetHashes.m */; settings = {ASSET_TAGS = (); }; };
+		735BB21F1BC634E500E58F46 /* iOSDefaultActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 735BB21E1BC634E500E58F46 /* iOSDefaultActivityIndicator.m */; settings = {ASSET_TAGS = (); }; };
+		735BB2221BC658AD00E58F46 /* PayUUINetBankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 735BB2211BC658AD00E58F46 /* PayUUINetBankingViewController.m */; settings = {ASSET_TAGS = (); }; };
+		73A0A8761BCD30F000243B76 /* PayUSAGetTransactionID.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A0A8751BCD30F000243B76 /* PayUSAGetTransactionID.m */; settings = {ASSET_TAGS = (); }; };
+		73D7BCA81BC68B9D00A1F512 /* PayUUIStoredCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73D7BCA71BC68B9D00A1F512 /* PayUUIStoredCardViewController.m */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		731265691BB958AC00250A86 /* SeamlessTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeamlessTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7312656D1BB958AC00250A86 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7312656F1BB958AC00250A86 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		731265701BB958AC00250A86 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		731265761BB958AC00250A86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		731265781BB958AC00250A86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7312657B1BB958AC00250A86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7312657D1BB958AC00250A86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7312658E1BBA92D900250A86 /* PayUSAStartScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUSAStartScreenViewController.h; sourceTree = "<group>"; };
+		7312658F1BBA92D900250A86 /* PayUSAStartScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayUSAStartScreenViewController.m; sourceTree = "<group>"; };
+		733040A71BC51ED80011405C /* PayUUIPaymentOptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUUIPaymentOptionViewController.h; sourceTree = "<group>"; };
+		733040A81BC51ED80011405C /* PayUUIPaymentOptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayUUIPaymentOptionViewController.m; sourceTree = "<group>"; };
+		733040AC1BC522840011405C /* PayUUIConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayUUIConstants.h; sourceTree = "<group>"; };
+		733040AD1BC5288C0011405C /* PayUUICCDCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUUICCDCViewController.h; sourceTree = "<group>"; };
+		733040AE1BC5288C0011405C /* PayUUICCDCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayUUICCDCViewController.m; sourceTree = "<group>"; };
+		733040B01BC52B640011405C /* PayUUIPaymentUIWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUUIPaymentUIWebViewController.h; sourceTree = "<group>"; };
+		733040B11BC52B640011405C /* PayUUIPaymentUIWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayUUIPaymentUIWebViewController.m; sourceTree = "<group>"; };
+		733040B31BC5671D0011405C /* PayUSAGetHashes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUSAGetHashes.h; sourceTree = "<group>"; };
+		733040B41BC5671D0011405C /* PayUSAGetHashes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayUSAGetHashes.m; sourceTree = "<group>"; };
+		735BB21D1BC634E500E58F46 /* iOSDefaultActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSDefaultActivityIndicator.h; sourceTree = "<group>"; };
+		735BB21E1BC634E500E58F46 /* iOSDefaultActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSDefaultActivityIndicator.m; sourceTree = "<group>"; };
+		735BB2201BC658AD00E58F46 /* PayUUINetBankingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUUINetBankingViewController.h; sourceTree = "<group>"; };
+		735BB2211BC658AD00E58F46 /* PayUUINetBankingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayUUINetBankingViewController.m; sourceTree = "<group>"; };
+		73A0A8741BCD30F000243B76 /* PayUSAGetTransactionID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUSAGetTransactionID.h; sourceTree = "<group>"; };
+		73A0A8751BCD30F000243B76 /* PayUSAGetTransactionID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayUSAGetTransactionID.m; sourceTree = "<group>"; };
+		73D7BCA61BC68B9D00A1F512 /* PayUUIStoredCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUUIStoredCardViewController.h; sourceTree = "<group>"; };
+		73D7BCA71BC68B9D00A1F512 /* PayUUIStoredCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayUUIStoredCardViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		731265661BB958AC00250A86 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		731265601BB958AC00250A86 = {
+			isa = PBXGroup;
+			children = (
+				7312656B1BB958AC00250A86 /* SeamlessTestApp */,
+				7312656A1BB958AC00250A86 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7312656A1BB958AC00250A86 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				731265691BB958AC00250A86 /* SeamlessTestApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7312656B1BB958AC00250A86 /* SeamlessTestApp */ = {
+			isa = PBXGroup;
+			children = (
+				7312656F1BB958AC00250A86 /* AppDelegate.h */,
+				731265701BB958AC00250A86 /* AppDelegate.m */,
+				731265751BB958AC00250A86 /* Main.storyboard */,
+				7312658E1BBA92D900250A86 /* PayUSAStartScreenViewController.h */,
+				7312658F1BBA92D900250A86 /* PayUSAStartScreenViewController.m */,
+				733040A71BC51ED80011405C /* PayUUIPaymentOptionViewController.h */,
+				733040A81BC51ED80011405C /* PayUUIPaymentOptionViewController.m */,
+				733040AD1BC5288C0011405C /* PayUUICCDCViewController.h */,
+				733040AE1BC5288C0011405C /* PayUUICCDCViewController.m */,
+				735BB2201BC658AD00E58F46 /* PayUUINetBankingViewController.h */,
+				735BB2211BC658AD00E58F46 /* PayUUINetBankingViewController.m */,
+				73D7BCA61BC68B9D00A1F512 /* PayUUIStoredCardViewController.h */,
+				73D7BCA71BC68B9D00A1F512 /* PayUUIStoredCardViewController.m */,
+				733040B01BC52B640011405C /* PayUUIPaymentUIWebViewController.h */,
+				733040B11BC52B640011405C /* PayUUIPaymentUIWebViewController.m */,
+				733040B31BC5671D0011405C /* PayUSAGetHashes.h */,
+				733040B41BC5671D0011405C /* PayUSAGetHashes.m */,
+				73A0A8741BCD30F000243B76 /* PayUSAGetTransactionID.h */,
+				73A0A8751BCD30F000243B76 /* PayUSAGetTransactionID.m */,
+				733040AC1BC522840011405C /* PayUUIConstants.h */,
+				735BB21D1BC634E500E58F46 /* iOSDefaultActivityIndicator.h */,
+				735BB21E1BC634E500E58F46 /* iOSDefaultActivityIndicator.m */,
+				731265781BB958AC00250A86 /* Assets.xcassets */,
+				7312657A1BB958AC00250A86 /* LaunchScreen.storyboard */,
+				7312657D1BB958AC00250A86 /* Info.plist */,
+				7312656C1BB958AC00250A86 /* Supporting Files */,
+			);
+			path = SeamlessTestApp;
+			sourceTree = "<group>";
+		};
+		7312656C1BB958AC00250A86 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7312656D1BB958AC00250A86 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		731265681BB958AC00250A86 /* SeamlessTestApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 731265801BB958AC00250A86 /* Build configuration list for PBXNativeTarget "SeamlessTestApp" */;
+			buildPhases = (
+				731265651BB958AC00250A86 /* Sources */,
+				731265661BB958AC00250A86 /* Frameworks */,
+				731265671BB958AC00250A86 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SeamlessTestApp;
+			productName = SeamlessTestApp;
+			productReference = 731265691BB958AC00250A86 /* SeamlessTestApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		731265611BB958AC00250A86 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = PayU;
+				TargetAttributes = {
+					731265681BB958AC00250A86 = {
+						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = 4AT8B8QSC8;
+					};
+				};
+			};
+			buildConfigurationList = 731265641BB958AC00250A86 /* Build configuration list for PBXProject "SeamlessTestApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 731265601BB958AC00250A86;
+			productRefGroup = 7312656A1BB958AC00250A86 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				731265681BB958AC00250A86 /* SeamlessTestApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		731265671BB958AC00250A86 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7312657C1BB958AC00250A86 /* LaunchScreen.storyboard in Resources */,
+				731265791BB958AC00250A86 /* Assets.xcassets in Resources */,
+				731265771BB958AC00250A86 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		731265651BB958AC00250A86 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				731265901BBA92D900250A86 /* PayUSAStartScreenViewController.m in Sources */,
+				733040AF1BC5288C0011405C /* PayUUICCDCViewController.m in Sources */,
+				733040A91BC51ED80011405C /* PayUUIPaymentOptionViewController.m in Sources */,
+				733040B51BC5671D0011405C /* PayUSAGetHashes.m in Sources */,
+				733040B21BC52B640011405C /* PayUUIPaymentUIWebViewController.m in Sources */,
+				735BB2221BC658AD00E58F46 /* PayUUINetBankingViewController.m in Sources */,
+				73D7BCA81BC68B9D00A1F512 /* PayUUIStoredCardViewController.m in Sources */,
+				735BB21F1BC634E500E58F46 /* iOSDefaultActivityIndicator.m in Sources */,
+				731265711BB958AC00250A86 /* AppDelegate.m in Sources */,
+				73A0A8761BCD30F000243B76 /* PayUSAGetTransactionID.m in Sources */,
+				7312656E1BB958AC00250A86 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		731265751BB958AC00250A86 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				731265761BB958AC00250A86 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7312657A1BB958AC00250A86 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7312657B1BB958AC00250A86 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7312657E1BB958AC00250A86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7312657F1BB958AC00250A86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		731265811BB958AC00250A86 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				HEADER_SEARCH_PATHS = $SOURCE_ROOT/include;
+				INFOPLIST_FILE = SeamlessTestApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SeamlessTestApp",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.payu.uma;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		731265821BB958AC00250A86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				HEADER_SEARCH_PATHS = $SOURCE_ROOT/include;
+				INFOPLIST_FILE = SeamlessTestApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SeamlessTestApp",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.payu.uma;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		731265641BB958AC00250A86 /* Build configuration list for PBXProject "SeamlessTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7312657E1BB958AC00250A86 /* Debug */,
+				7312657F1BB958AC00250A86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		731265801BB958AC00250A86 /* Build configuration list for PBXNativeTarget "SeamlessTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				731265811BB958AC00250A86 /* Debug */,
+				731265821BB958AC00250A86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 731265611BB958AC00250A86 /* Project object */;
+}

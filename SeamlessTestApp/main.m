@@ -1,9 +1,9 @@
 //
 //  main.m
-//  PayU_iOS_SDK_TestApp
+//  SeamlessTestApp
 //
-//  Created by Suryakant Sharma on 04/12/14.
-//  Copyright (c) 2014 PayU, India. All rights reserved.
+//  Created by Umang Arya on 28/09/15.
+//  Copyright © 2015 PayU. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
