@@ -13,6 +13,9 @@
 		731265791BB958AC00250A86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 731265781BB958AC00250A86 /* Assets.xcassets */; };
 		7312657C1BB958AC00250A86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7312657A1BB958AC00250A86 /* LaunchScreen.storyboard */; };
 		731265901BBA92D900250A86 /* PayUSAStartScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7312658F1BBA92D900250A86 /* PayUSAStartScreenViewController.m */; settings = {ASSET_TAGS = (); }; };
+		73203EEC1BD68C4800803DF3 /* WebViewJavascriptBridge.js.txt in Resources */ = {isa = PBXBuildFile; fileRef = 73203EE81BD68C4800803DF3 /* WebViewJavascriptBridge.js.txt */; settings = {ASSET_TAGS = (); }; };
+		73203EED1BD68C4800803DF3 /* WebViewJavascriptBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 73203EE91BD68C4800803DF3 /* WebViewJavascriptBridge.m */; settings = {ASSET_TAGS = (); }; };
+		73203EEE1BD68C4800803DF3 /* WebViewJavascriptBridgeBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 73203EEB1BD68C4800803DF3 /* WebViewJavascriptBridgeBase.m */; settings = {ASSET_TAGS = (); }; };
 		733040A91BC51ED80011405C /* PayUUIPaymentOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 733040A81BC51ED80011405C /* PayUUIPaymentOptionViewController.m */; settings = {ASSET_TAGS = (); }; };
 		733040AF1BC5288C0011405C /* PayUUICCDCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 733040AE1BC5288C0011405C /* PayUUICCDCViewController.m */; settings = {ASSET_TAGS = (); }; };
 		733040B21BC52B640011405C /* PayUUIPaymentUIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 733040B11BC52B640011405C /* PayUUIPaymentUIWebViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -34,6 +37,11 @@
 		7312657D1BB958AC00250A86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7312658E1BBA92D900250A86 /* PayUSAStartScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUSAStartScreenViewController.h; sourceTree = "<group>"; };
 		7312658F1BBA92D900250A86 /* PayUSAStartScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayUSAStartScreenViewController.m; sourceTree = "<group>"; };
+		73203EE71BD68C4800803DF3 /* WebViewJavascriptBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridge.h; sourceTree = "<group>"; };
+		73203EE81BD68C4800803DF3 /* WebViewJavascriptBridge.js.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WebViewJavascriptBridge.js.txt; sourceTree = "<group>"; };
+		73203EE91BD68C4800803DF3 /* WebViewJavascriptBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridge.m; sourceTree = "<group>"; };
+		73203EEA1BD68C4800803DF3 /* WebViewJavascriptBridgeBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJavascriptBridgeBase.h; sourceTree = "<group>"; };
+		73203EEB1BD68C4800803DF3 /* WebViewJavascriptBridgeBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJavascriptBridgeBase.m; sourceTree = "<group>"; };
 		733040A71BC51ED80011405C /* PayUUIPaymentOptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUUIPaymentOptionViewController.h; sourceTree = "<group>"; };
 		733040A81BC51ED80011405C /* PayUUIPaymentOptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayUUIPaymentOptionViewController.m; sourceTree = "<group>"; };
 		733040AC1BC522840011405C /* PayUUIConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayUUIConstants.h; sourceTree = "<group>"; };
@@ -105,6 +113,7 @@
 				733040AC1BC522840011405C /* PayUUIConstants.h */,
 				735BB21D1BC634E500E58F46 /* iOSDefaultActivityIndicator.h */,
 				735BB21E1BC634E500E58F46 /* iOSDefaultActivityIndicator.m */,
+				73203EE61BD68C4800803DF3 /* WebViewJavascript Bridge */,
 				731265781BB958AC00250A86 /* Assets.xcassets */,
 				7312657A1BB958AC00250A86 /* LaunchScreen.storyboard */,
 				7312657D1BB958AC00250A86 /* Info.plist */,
@@ -119,6 +128,18 @@
 				7312656D1BB958AC00250A86 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		73203EE61BD68C4800803DF3 /* WebViewJavascript Bridge */ = {
+			isa = PBXGroup;
+			children = (
+				73203EE71BD68C4800803DF3 /* WebViewJavascriptBridge.h */,
+				73203EE81BD68C4800803DF3 /* WebViewJavascriptBridge.js.txt */,
+				73203EE91BD68C4800803DF3 /* WebViewJavascriptBridge.m */,
+				73203EEA1BD68C4800803DF3 /* WebViewJavascriptBridgeBase.h */,
+				73203EEB1BD68C4800803DF3 /* WebViewJavascriptBridgeBase.m */,
+			);
+			path = "WebViewJavascript Bridge";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73203EEC1BD68C4800803DF3 /* WebViewJavascriptBridge.js.txt in Resources */,
 				7312657C1BB958AC00250A86 /* LaunchScreen.storyboard in Resources */,
 				731265791BB958AC00250A86 /* Assets.xcassets in Resources */,
 				731265771BB958AC00250A86 /* Main.storyboard in Resources */,
@@ -193,6 +215,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				731265901BBA92D900250A86 /* PayUSAStartScreenViewController.m in Sources */,
+				73203EEE1BD68C4800803DF3 /* WebViewJavascriptBridgeBase.m in Sources */,
+				73203EED1BD68C4800803DF3 /* WebViewJavascriptBridge.m in Sources */,
 				733040AF1BC5288C0011405C /* PayUUICCDCViewController.m in Sources */,
 				733040A91BC51ED80011405C /* PayUUIPaymentOptionViewController.m in Sources */,
 				733040B51BC5671D0011405C /* PayUSAGetHashes.m in Sources */,
