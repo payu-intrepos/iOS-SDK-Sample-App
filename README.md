@@ -1,2 +1,1 @@
-
-iOS sample app demonstrating seamless iOS SDK integration
+iOS SDK Sample app v3.1

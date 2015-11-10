@@ -16,6 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     self.tableViewNetBanking.delegate = self;
     self.tableViewNetBanking.dataSource = self;
     
@@ -83,8 +85,14 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:true];
 //    self.bankCodeForNetBanking.text = @"AXIB";
-    self.paymentTypeForNetBanking.text = PAYMENT_PG_NET_BANKING;
-    
+    if ([self.paymentType isEqual:PAYMENT_PG_CASHCARD]) {
+        self.paymentTypeForNetBanking.text = PAYMENT_PG_CASHCARD;
+        self.VASButton.hidden = true;
+    }
+    else{
+        self.paymentTypeForNetBanking.text = PAYMENT_PG_NET_BANKING;
+        self.VASButton.hidden = false;
+    }
     
 }
 
@@ -107,7 +115,13 @@
 #pragma TableView DataSource and Delegate Methods
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.paymentRelatedDetail.netBankingArray.count;
+    if ([self.paymentType isEqual:PAYMENT_PG_CASHCARD]) {
+        return self.paymentRelatedDetail.cashCardArray.count;
+    }
+    else{
+        return self.paymentRelatedDetail.netBankingArray.count;
+
+    }
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -116,11 +130,24 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CELL_IDENTIFIER_NETBANKING];
     }
     
-    PayUModelNetBanking *modelNetBanking = [PayUModelNetBanking new];
-    modelNetBanking = [self.paymentRelatedDetail.netBankingArray objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = modelNetBanking.bankCode;
-    cell.detailTextLabel.text = modelNetBanking.title;
+    if ([self.paymentType isEqual:PAYMENT_PG_CASHCARD]) {
+        PayUModelCashCard *modelCashCard = [PayUModelCashCard new];
+        modelCashCard = [self.paymentRelatedDetail.cashCardArray objectAtIndex:indexPath.row];
+        
+        cell.textLabel.text = modelCashCard.bankCode;
+        cell.detailTextLabel.text = modelCashCard.title;
+    }
+    else{
+        PayUModelNetBanking *modelNetBanking = [PayUModelNetBanking new];
+        modelNetBanking = [self.paymentRelatedDetail.netBankingArray objectAtIndex:indexPath.row];
+        
+        cell.textLabel.text = modelNetBanking.bankCode;
+        cell.detailTextLabel.text = modelNetBanking.title;
+    }
+    
+    
+
     return cell;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -128,11 +155,16 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    PayUModelNetBanking *modelNetBanking = [PayUModelNetBanking new];
-    modelNetBanking = [self.paymentRelatedDetail.netBankingArray objectAtIndex:indexPath.row];
-
-    self.bankCodeForNetBanking.text = modelNetBanking.bankCode;//@"bankcode";
-//    self.paymentTypeForNetBanking.text = modelNetBanking.//[NSString stringWithFormat:@"%ld",(long)indexPath.row];//@"NB";
+    if ([self.paymentType isEqual:PAYMENT_PG_CASHCARD]) {
+        PayUModelCashCard *modelCashCard = [PayUModelCashCard new];
+        modelCashCard = [self.paymentRelatedDetail.cashCardArray objectAtIndex:indexPath.row];
+        self.bankCodeForNetBanking.text = modelCashCard.bankCode;
+    }
+    else{
+        PayUModelNetBanking *modelNetBanking = [PayUModelNetBanking new];
+        modelNetBanking = [self.paymentRelatedDetail.netBankingArray objectAtIndex:indexPath.row];
+        self.bankCodeForNetBanking.text = modelNetBanking.bankCode;
+    }
 }
 
 - (IBAction)checkVAS:(id)sender {

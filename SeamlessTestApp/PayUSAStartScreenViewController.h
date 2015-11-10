@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import <PayU_iOS_CoreSDK/PayU_iOS_CoreSDK.h>
-#import "PayU_iOS_CoreSDK.h"
+#import "PayUHeader.h"
+
+#define PAYU_SAMPLE_APP_VERSION      @"3.1"
 
 @interface PayUSAStartScreenViewController : UIViewController<UITextFieldDelegate>
 
@@ -29,6 +30,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *textFieldUDF4;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldUDF5;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldUserCredential;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldSalt;
 - (IBAction)startPayment:(id)sender;
 @property (weak, nonatomic) IBOutlet UIScrollView *startScreenScrollView;
 //@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;

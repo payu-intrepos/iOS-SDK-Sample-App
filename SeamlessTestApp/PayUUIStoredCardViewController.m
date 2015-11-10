@@ -14,6 +14,9 @@
 
 @implementation PayUUIStoredCardViewController
 
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.tableViewStoredCard.delegate = self;
@@ -60,7 +63,13 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    self.paymentParam.storedCard = [self.paymentRelatedDetail.storedCardArray objectAtIndex:indexPath.row];
+    PayUModelStoredCard *modelStoredCard = [PayUModelStoredCard new];
+    modelStoredCard = [self.paymentRelatedDetail.storedCardArray objectAtIndex:indexPath.row];
+    self.paymentParam.cardToken = modelStoredCard.cardToken;
+//    self.paymentParam.cardMode = modelStoredCard.cardMode;
+//    self.paymentParam.cardType = modelStoredCard.cardType;
+    self.paymentParam.cardBin = modelStoredCard.cardBin;
+//    self.paymentParam.storedCard = [self.paymentRelatedDetail.storedCardArray objectAtIndex:indexPath.row];
 }
 
 
@@ -100,7 +109,7 @@
 - (IBAction)checkVAS:(id)sender {
     PayUWebServiceResponse *respo = [PayUWebServiceResponse new];
     
-    [respo getVASStatusForCardBinOrBankCode:self.paymentParam.storedCard.cardBin withCompletionBlock:^(id ResponseMessage, NSString *errorMessage, id extraParam) {
+    [respo getVASStatusForCardBinOrBankCode:self.paymentParam.cardBin withCompletionBlock:^(id ResponseMessage, NSString *errorMessage, id extraParam) {
         //
         if (errorMessage == nil) {
             //
@@ -108,9 +117,9 @@
                 PAYUALERT(@"Yeahh", @"Good to Go");
             }
             else{
-                NSString * responseMessage = [NSString new];
-                responseMessage = (NSString *) ResponseMessage;
-                PAYUALERT(@"Down Time Message", responseMessage);
+                NSString * responseData = [NSString new];
+                responseData = [NSString stringWithFormat:@"%@",ResponseMessage];//(NSDictionary *) ResponseMessage;
+                PAYUALERT(@"Down Time Message",responseData);
             }
         }
         else{

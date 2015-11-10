@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import <PayU_iOS_CoreSDK/PayU_iOS_CoreSDK.h>
-#import "PayU_iOS_CoreSDK.h"
+#import "PayUHeader.h"
 #import "PayUUIConstants.h"
 #import "PayUUIPaymentUIWebViewController.h"
 
@@ -24,7 +23,8 @@
 - (IBAction)PayByNetBanking:(id)sender;
 @property (weak, nonatomic) IBOutlet UIView *insideView1;
 @property (nonatomic, strong) PayUCreateRequest *createRequest;
-
+@property (nonatomic, strong) NSString *paymentType;
 - (IBAction)checkVAS:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *VASButton;
 
 @end

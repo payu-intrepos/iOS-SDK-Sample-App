@@ -7,15 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import <PayU_iOS_CoreSDK/PayU_iOS_CoreSDK.h>
-#import "PayU_iOS_CoreSDK.h"
+#import "PayUHeader.h"
 
-@interface PayUUIPaymentOptionViewController : UIViewController
+@interface PayUUIPaymentOptionViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) PayUModelPaymentParams *paymentParam;
 @property (nonatomic, strong) PayUModelPaymentRelatedDetail *paymentRelatedDetail;
-- (IBAction)payByCCDC:(id)sender;
-- (IBAction)payByNetBanking:(id)sender;
-- (IBAction)payByStoredCard:(id)sender;
+//- (IBAction)payByCCDC:(id)sender;
+//- (IBAction)payByNetBanking:(id)sender;
+//- (IBAction)payByStoredCard:(id)sender;
+//- (IBAction)payByPayUMoney:(id)sender;
+//- (IBAction)payByEMI:(id)sender;
+//- (IBAction)payByCashCard:(id)sender;
+@property (weak, nonatomic) IBOutlet UITableView *tableForPaymentOption;
+
 
 @end

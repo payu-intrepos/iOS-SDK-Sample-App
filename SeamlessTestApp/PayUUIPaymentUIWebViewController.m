@@ -8,9 +8,11 @@
 
 #import "PayUUIPaymentUIWebViewController.h"
 #import "WebViewJavascriptBridge.h"
+#import "PayUHeader.h"
 
 @interface PayUUIPaymentUIWebViewController ()
 @property WebViewJavascriptBridge* PayU;
+//@property (strong, nonatomic) CBConnection *CBC;
 
 @end
 
@@ -19,6 +21,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.paymentWebView.delegate = self;
+    
+//    _CBC = [[CBConnection alloc]init:self.view webView:self.paymentWebView];
+//    _CBC.isWKWebView = NO;
+//    _CBC.cbServerID = 0;
+//    // in case if you do not have activity indicator in your App call payUActivityIndicator
+////    [_CBC payUActivityIndicator];
+//    
+//    [_CBC initialSetup];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -48,6 +59,7 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     [self.activityIndicator startAnimating];
+//    [_CBC payUwebView:webView shouldStartLoadWithRequest:request];
     return true;
 }
 - (void)webViewDidStartLoad:(UIWebView *)webView{
@@ -57,6 +69,7 @@
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     [self.activityIndicator stopAnimating];
+//    [_CBC payUwebViewDidFinishLoad:webView];
     NSLog(@"webViewDidFinishLoad URL----->%@",webView.request.URL);
     
 }

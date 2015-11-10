@@ -7,16 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import <PayU_iOS_CoreSDK/PayU_iOS_CoreSDK.h>
-#import "PayU_iOS_CoreSDK.h"
+#import "PayUHeader.h"
 
 #import "PayUUIConstants.h"
 #import "PayUUIPaymentUIWebViewController.h"
 
 @interface PayUUIStoredCardViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 
-@property (strong,nonatomic) PayUModelPaymentParams *paymentParam;
-@property (nonatomic, strong) PayUModelPaymentRelatedDetail *paymentRelatedDetail;
+@property (strong, nonatomic) PayUModelPaymentParams *paymentParam;
+@property (strong, nonatomic) PayUModelPaymentRelatedDetail *paymentRelatedDetail;
 
 @property (weak, nonatomic) IBOutlet UIView *viewInside1;
 @property (weak, nonatomic) IBOutlet UITableView *tableViewStoredCard;

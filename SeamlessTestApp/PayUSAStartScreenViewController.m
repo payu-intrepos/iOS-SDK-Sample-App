@@ -14,13 +14,14 @@
 #import "PayUSAGetTransactionID.h"
 
 @interface PayUSAStartScreenViewController ()
-@property (strong, nonatomic) PayUModelPaymentParams *paymentParamForPassing;
+@property (strong, nonatomic) PayUModelPaymentParams *paymentParam;
 @property (strong, nonatomic) iOSDefaultActivityIndicator *defaultActivityIndicator;
 @property (strong, nonatomic) NSMutableArray *listOfNilKeys;
 @property (strong, nonatomic) NSArray * listofAllKeys;
 @property (strong, nonatomic) PayUWebServiceResponse *webServiceResponse;
 @property (strong, nonatomic) PayUSAGetHashes *getHashesFromServer;
 @property (strong, nonatomic) PayUSAGetTransactionID *getTransactionID;
+@property (strong, nonatomic) UISwitch *switchForSalt;
 
 
 @end
@@ -32,27 +33,30 @@
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap)];
     [self.view addGestureRecognizer:singleTap];
     self.defaultActivityIndicator = [[iOSDefaultActivityIndicator alloc]init];
-    self.paymentParamForPassing = [PayUModelPaymentParams new];
-    self.paymentParamForPassing.key = @"gtKFFx";
-    self.paymentParamForPassing.amount = @"10.0";
-    self.paymentParamForPassing.productInfo = @"Nokia";
-    self.paymentParamForPassing.firstName = @"Ram";
-    self.paymentParamForPassing.email = @"email@testsdk1.com";
-    self.paymentParamForPassing.userCredentials = @"ra:ra";
-    self.paymentParamForPassing.phoneNumber = @"1111111111";
-    self.paymentParamForPassing.SURL = @"https://payu.herokuapp.com/ios_success";
-    self.paymentParamForPassing.FURL = @"https://payu.herokuapp.com/ios_failure";
-    self.paymentParamForPassing.udf1 = @"u1";
-    self.paymentParamForPassing.udf2 = @"u2";
-    self.paymentParamForPassing.udf3 = @"u3";
-    self.paymentParamForPassing.udf4 = @"u4";
-    self.paymentParamForPassing.udf5 = @"u5";
-    self.paymentParamForPassing.Environment = @"1";
-    self.paymentParamForPassing.offerKey = @"offertest@1411";
+    self.paymentParam = [PayUModelPaymentParams new];
+    self.paymentParam.key = @"gtKFFx"; //gtKFFx //0MQaQP
+    self.paymentParam.amount = @"10.0";
+    self.paymentParam.productInfo = @"Nokia";
+    self.paymentParam.firstName = @"Ram";
+    self.paymentParam.email = @"email@testsdk1.com";
+    self.paymentParam.userCredentials = @"ra:ra";
+    self.paymentParam.phoneNumber = @"1111111111";
+    self.paymentParam.SURL = @"https://payu.herokuapp.com/ios_success";
+    self.paymentParam.FURL = @"https://payu.herokuapp.com/ios_failure";
+    self.paymentParam.udf1 = @"u1";
+    self.paymentParam.udf2 = @"u2";
+    self.paymentParam.udf3 = @"u3";
+    self.paymentParam.udf4 = @"u4";
+    self.paymentParam.udf5 = @"u5";
+    self.paymentParam.environment = ENVIRONMENT_MOBILETEST;
+    self.paymentParam.offerKey = @"test123@6622";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataReceived:) name:@"passData" object:nil];
-//    PayUWebServiceResponse *respo = [PayUWebServiceResponse new];
-//    [respo callVASForMobileSDKWithPaymentParam:self.paymentParamForPassing];        //FORVAS1
-
+    
+    for (int counter = 1; counter < 18; counter ++) {
+        UISwitch *tempSwitch = (UISwitch *)[self.startScreenScrollView viewWithTag:counter];
+        tempSwitch.hidden = true;
+//        [(UISwitch *)[self.startScreenScrollView viewWithTag:counter++] setHidden:true];
+    }
 }
 
 
@@ -62,13 +66,6 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
     NSString *message = [NSString stringWithFormat:@"%@",noti.object];
     PAYUALERT(@"Status", message);
-//    
-////    _dataResponse=noti.object;
-//    if(_dataResponse)
-//    {
-//        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Data" message:_dataResponse delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil ];
-//        [alert show];
-//    }
 }
 
 
@@ -76,99 +73,137 @@
     [super viewWillAppear:true];
     self.getTransactionID = [PayUSAGetTransactionID new];
 
-    self.textFieldKey.text = self.paymentParamForPassing.key;
-    self.textFieldAmount.text = self.paymentParamForPassing.amount;
-    self.textFieldProductInfo.text = self.paymentParamForPassing.productInfo;
-    self.textFieldFirstName.text = self.paymentParamForPassing.firstName;
-    self.textFieldEmail.text = self.paymentParamForPassing.email;
+    self.textFieldKey.text = self.paymentParam.key;
+    self.textFieldAmount.text = self.paymentParam.amount;
+    self.textFieldProductInfo.text = self.paymentParam.productInfo;
+    self.textFieldFirstName.text = self.paymentParam.firstName;
+    self.textFieldEmail.text = self.paymentParam.email;
     self.textFieldTransactionID.text = [self.getTransactionID getTransactionIDWithLength:15];
-    self.textFieldUserCredential.text = self.paymentParamForPassing.userCredentials;
-    self.textFieldPhone.text = self.paymentParamForPassing.phoneNumber;
-    self.textFieldSURL.text = self.paymentParamForPassing.SURL;
-    self.textFieldFURL.text = self.paymentParamForPassing.FURL;
-    self.textFieldUDF1.text = self.paymentParamForPassing.udf1;
-    self.textFieldUDF2.text = self.paymentParamForPassing.udf2;
-    self.textFieldUDF3.text = self.paymentParamForPassing.udf3;
-    self.textFieldUDF4.text = self.paymentParamForPassing.udf4;
-    self.textFieldUDF5.text = self.paymentParamForPassing.udf5;
-    self.textFieldEnvironment.text = self.paymentParamForPassing.Environment;
-    self.textFieldOfferKey.text = self.paymentParamForPassing.offerKey;
+    self.textFieldUserCredential.text = self.paymentParam.userCredentials;
+    self.textFieldPhone.text = self.paymentParam.phoneNumber;
+    self.textFieldSURL.text = self.paymentParam.SURL;
+    self.textFieldFURL.text = self.paymentParam.FURL;
+    self.textFieldUDF1.text = self.paymentParam.udf1;
+    self.textFieldUDF2.text = self.paymentParam.udf2;
+    self.textFieldUDF3.text = self.paymentParam.udf3;
+    self.textFieldUDF4.text = self.paymentParam.udf4;
+    self.textFieldUDF5.text = self.paymentParam.udf5;
+    self.textFieldEnvironment.text = self.paymentParam.environment;
+    self.textFieldOfferKey.text = self.paymentParam.offerKey;
     [self registerForKeyboardNotifications];
 }
 
 - (IBAction)startPayment:(id)sender {
-    self.paymentParamForPassing = [PayUModelPaymentParams new];
-    int counter = 1;
-    self.paymentParamForPassing.key = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldKey.text:nil;
-    self.paymentParamForPassing.transactionID = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldTransactionID.text:nil;
-    self.paymentParamForPassing.amount = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldAmount.text:nil;
-    self.paymentParamForPassing.productInfo = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldProductInfo.text:nil;
-    self.paymentParamForPassing.SURL = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldSURL.text:nil;
-    self.paymentParamForPassing.FURL = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldFURL.text:nil;
-    self.paymentParamForPassing.firstName = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldFirstName.text:nil;
-    self.paymentParamForPassing.email = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldEmail.text:nil;
-    self.paymentParamForPassing.phoneNumber = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldPhone.text:nil;
-    self.paymentParamForPassing.Environment = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldEnvironment.text:nil;
-    self.paymentParamForPassing.offerKey = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldOfferKey.text:nil;
-    self.paymentParamForPassing.udf1 = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldUDF1.text:nil;
-    self.paymentParamForPassing.udf2 = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldUDF2.text:nil;
-    self.paymentParamForPassing.udf3 = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldUDF3.text:nil;
-    self.paymentParamForPassing.udf4 = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldUDF4.text:nil;
-    self.paymentParamForPassing.udf5 = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldUDF5.text:nil;
-    self.paymentParamForPassing.userCredentials = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldUserCredential.text:nil;
+    self.paymentParam = [PayUModelPaymentParams new];
+//    int counter = 1;
+//    self.paymentParam.key = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldKey.text:nil;
+//    self.paymentParam.transactionID = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldTransactionID.text:nil;
+//    self.paymentParam.amount = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldAmount.text:nil;
+//    self.paymentParam.productInfo = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldProductInfo.text:nil;
+//    self.paymentParam.SURL = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldSURL.text:nil;
+//    self.paymentParam.FURL = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldFURL.text:nil;
+//    self.paymentParam.firstName = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldFirstName.text:nil;
+//    self.paymentParam.email = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldEmail.text:nil;
+//    self.paymentParam.phoneNumber = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldPhone.text:nil;
+//    self.paymentParam.Environment = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldEnvironment.text:nil;
+//    self.paymentParam.offerKey = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldOfferKey.text:nil;
+//    self.paymentParam.udf1 = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldUDF1.text:nil;
+//    self.paymentParam.udf2 = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldUDF2.text:nil;
+//    self.paymentParam.udf3 = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldUDF3.text:nil;
+//    self.paymentParam.udf4 = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldUDF4.text:nil;
+//    self.paymentParam.udf5 = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldUDF5.text:nil;
+//    self.paymentParam.userCredentials = ((UISwitch *) [self.startScreenScrollView viewWithTag:counter++]).on?self.textFieldUserCredential.text:nil;
 
     
     
     // Use below commented code snippet if using without UISwitch implementation
 
-//    self.paymentParamForPassing.key = self.textFieldKey.text;
-//    self.paymentParamForPassing.transactionID = self.textFieldTransactionID.text;
-//    self.paymentParamForPassing.amount = self.textFieldAmount.text;
-//    self.paymentParamForPassing.productInfo = self.textFieldProductInfo.text;
-//    self.paymentParamForPassing.SURL = self.textFieldSURL.text;
-//    self.paymentParamForPassing.FURL = self.textFieldFURL.text;
-//    self.paymentParamForPassing.firstName = self.textFieldFirstName.text;
-//    self.paymentParamForPassing.email = self.textFieldEmail.text;
-//    self.paymentParamForPassing.phoneNumber = self.textFieldPhone.text;
-//    self.paymentParamForPassing.Environment = self.textFieldEnvironment.text;
-//    self.paymentParamForPassing.offerKey = self.textFieldOfferKey.text;
-//    self.paymentParamForPassing.udf1 = self.textFieldUDF1.text;
-//    self.paymentParamForPassing.udf2 = self.textFieldUDF2.text;
-//    self.paymentParamForPassing.udf3 = self.textFieldUDF3.text;
-//    self.paymentParamForPassing.udf4 = self.textFieldUDF4.text;
-//    self.paymentParamForPassing.udf5 = self.textFieldUDF5.text;
-//    self.paymentParamForPassing.userCredentials = self.textFieldUserCredential.text;
-    
-    
+    self.paymentParam.key = self.textFieldKey.text;
+    self.paymentParam.transactionID = self.textFieldTransactionID.text;
+    self.paymentParam.amount = self.textFieldAmount.text;
+    self.paymentParam.productInfo = self.textFieldProductInfo.text;
+    self.paymentParam.SURL = self.textFieldSURL.text;
+    self.paymentParam.FURL = self.textFieldFURL.text;
+    self.paymentParam.firstName = self.textFieldFirstName.text;
+    self.paymentParam.email = self.textFieldEmail.text;
+    self.paymentParam.phoneNumber = self.textFieldPhone.text;
+    self.paymentParam.environment = self.textFieldEnvironment.text;
+    self.paymentParam.offerKey = self.textFieldOfferKey.text;
+    self.paymentParam.udf1 = self.textFieldUDF1.text;
+    self.paymentParam.udf2 = self.textFieldUDF2.text;
+    self.paymentParam.udf3 = self.textFieldUDF3.text;
+    self.paymentParam.udf4 = self.textFieldUDF4.text;
+    self.paymentParam.udf5 = self.textFieldUDF5.text;
+    self.paymentParam.userCredentials = self.textFieldUserCredential.text;
+
     [self.defaultActivityIndicator startAnimatingActivityIndicatorWithSelfView:self.view];
     self.view.userInteractionEnabled = NO;
     self.getHashesFromServer = [PayUSAGetHashes new];
-    [self.getHashesFromServer generateHashFromServer:self.paymentParamForPassing withCompletionBlock:^(PayUHashes *hashes, NSString *errorString) {
-        if (errorString) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.defaultActivityIndicator stopAnimatingActivityIndicator];
-                PAYUALERT(@"Error", errorString);
-            });
-        }
-        else{
-            self.paymentParamForPassing.hashes = hashes;
+    
+    if (self.switchForSalt.on) {
+                    PayUDontUseThisClass *obj = [PayUDontUseThisClass new];
+        [obj getPayUHashesWithPaymentParam:self.paymentParam merchantSalt:self.textFieldSalt.text withCompletionBlock:^(PayUModelHashes *allHashes, PayUModelHashes *hashString, NSString *errorMessage) {
+            if (errorMessage) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.defaultActivityIndicator stopAnimatingActivityIndicator];
+                    PAYUALERT(@"Error", errorMessage);
+                });
+            }
+            else{
+                self.paymentParam.hashes = allHashes;
                 PayUWebServiceResponse *respo = [PayUWebServiceResponse new];
-                [respo callVASForMobileSDKWithPaymentParam:self.paymentParamForPassing];        //FORVAS1
-            self.webServiceResponse = [PayUWebServiceResponse new];
-            [self.webServiceResponse getPayUPaymentRelatedDetailForMobileSDK:self.paymentParamForPassing withCompletionBlock:^(PayUModelPaymentRelatedDetail *paymentRelatedDetails, NSString *errorMessage, id extraParam) {
-                [self.defaultActivityIndicator stopAnimatingActivityIndicator];
-                if (errorMessage) {
+                [respo callVASForMobileSDKWithPaymentParam:self.paymentParam];        //FORVAS1
+                self.webServiceResponse = [PayUWebServiceResponse new];
+                [self.webServiceResponse getPayUPaymentRelatedDetailForMobileSDK:self.paymentParam withCompletionBlock:^(PayUModelPaymentRelatedDetail *paymentRelatedDetails, NSString *errorMessage, id extraParam) {
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [self.defaultActivityIndicator stopAnimatingActivityIndicator];
+                        if (errorMessage) {
+                            PAYUALERT(@"Error", errorMessage);
+                        }
+                        else{
+                            PayUUIPaymentOptionViewController *paymentOptionVC = [self.storyboard instantiateViewControllerWithIdentifier:VIEW_CONTROLLER_IDENTIFIER_PAYMENT_OPTION];
+                            paymentOptionVC.paymentParam = self.paymentParam;
+                            paymentOptionVC.paymentRelatedDetail = paymentRelatedDetails;
+                            [self.navigationController pushViewController:paymentOptionVC animated:true];
+                        }
+                    });
+                }];
+            }
+        }];
+    }
+    else{
+        [self.getHashesFromServer generateHashFromServer:self.paymentParam withCompletionBlock:^(PayUModelHashes *hashes, NSString *errorString) {
+            if (errorString) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.defaultActivityIndicator stopAnimatingActivityIndicator];
                     PAYUALERT(@"Error", errorString);
-                }
-                else{
+                });
+            }
+            else{
+                self.paymentParam.hashes = hashes;
+                //            __block PayUHashes *hashfromSDK = [PayUHashes new];
+                
+                PayUWebServiceResponse *respo = [PayUWebServiceResponse new];
+                [respo callVASForMobileSDKWithPaymentParam:self.paymentParam];        //FORVAS1
+                self.webServiceResponse = [PayUWebServiceResponse new];
+                [self.webServiceResponse getPayUPaymentRelatedDetailForMobileSDK:self.paymentParam withCompletionBlock:^(PayUModelPaymentRelatedDetail *paymentRelatedDetails, NSString *errorMessage, id extraParam) {
+                    [self.defaultActivityIndicator stopAnimatingActivityIndicator];
+                    if (errorMessage) {
+                        PAYUALERT(@"Error", errorMessage);
+                    }
+                    else{
                         PayUUIPaymentOptionViewController *paymentOptionVC = [self.storyboard instantiateViewControllerWithIdentifier:VIEW_CONTROLLER_IDENTIFIER_PAYMENT_OPTION];
-                        paymentOptionVC.paymentParam = self.paymentParamForPassing;
+                        paymentOptionVC.paymentParam = self.paymentParam;
                         paymentOptionVC.paymentRelatedDetail = paymentRelatedDetails;
                         [self.navigationController pushViewController:paymentOptionVC animated:true];
-                }
-            }];
-        }
-    }];
+                    }
+                }];
+            }
+        }];
+
+    }
+    
 }
 
 
@@ -228,5 +263,12 @@
 }
 
 - (IBAction)switchButtonForNil:(id)sender {
+    self.switchForSalt = (UISwitch *)[self.startScreenScrollView viewWithTag:18];
+
+    if (self.switchForSalt.on) {
+        self.textFieldSalt.hidden = false;
+    }
+    else
+        self.textFieldSalt.hidden = true;
 }
 @end

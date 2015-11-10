@@ -13,7 +13,7 @@
 
 
 -(void) generateHashFromServer:(PayUModelPaymentParams *) paymentParam withCompletionBlock:(hashRequestCompletionBlock)completionBlock{
-    void(^serverResponseForHashGenerationCallback)(PayUHashes *hashes, NSString *errorString) = completionBlock;
+    void(^serverResponseForHashGenerationCallback)(PayUModelHashes *hashes, NSString *errorString) = completionBlock;
     NSURL *hashURL = [NSURL URLWithString:@"https://payu.herokuapp.com/get_hash"];
     // create the request
     NSMutableURLRequest *hashRequest=[NSMutableURLRequest requestWithURL:hashURL
@@ -43,7 +43,7 @@
                 serverResponseForHashGenerationCallback(nil ,error.localizedDescription);
             }//[[hashDictionary valueForKey:@"status"] isEqualToString:@"0"]
             else if([[hashDictionary valueForKey:@"message"] isEqualToString:@"successfully generated hash"]){
-                PayUHashes *payUHashes = [PayUHashes new];
+                PayUModelHashes *payUHashes = [PayUModelHashes new];
                 payUHashes.paymentHash = [hashDictionary valueForKey:@"payment_hash"];
                 payUHashes.paymentRelatedDetailsHash = [hashDictionary valueForKey:@"payment_related_details_for_mobile_sdk_hash"];
                 payUHashes.VASForMobileSDKHash = [hashDictionary valueForKey:@"vas_for_mobile_sdk_hash"];

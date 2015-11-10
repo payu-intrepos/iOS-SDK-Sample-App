@@ -41,6 +41,6 @@
 - (void)callHandler:(NSString*)handlerName data:(id)data;
 - (void)callHandler:(NSString*)handlerName data:(id)data responseCallback:(WVJBResponseCallback)responseCallback;
 
--(void)onHi:(id)data;
+//-(void)onHi:(id)data;
 
 @end

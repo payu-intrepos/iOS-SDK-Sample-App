@@ -7,10 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import <PayU_iOS_CoreSDK/PayU_iOS_CoreSDK.h>
-#import "PayU_iOS_CoreSDK.h"
+#import "PayUHeader.h"
 
-typedef void (^hashRequestCompletionBlock)(PayUHashes *hashes, NSString *errorString);
+typedef void (^hashRequestCompletionBlock)(PayUModelHashes *hashes, NSString *errorString);
 
 @interface PayUSAGetHashes : NSObject
 

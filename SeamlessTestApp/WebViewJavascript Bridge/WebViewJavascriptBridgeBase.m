@@ -16,7 +16,8 @@
 
 static bool logging = false;
 
-+ (void)enableLogging { logging = true; }
++ (void)enableLogging {
+    logging = true; }
 
 -(id)initWithHandler:(WVJBHandler)messageHandler resourceBundle:(NSBundle*)bundle
 {

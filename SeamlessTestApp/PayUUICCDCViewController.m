@@ -13,6 +13,7 @@
 
 @interface PayUUICCDCViewController()
 
+//@property (nonatomic, strong) payumo
 @property (nonatomic, strong) PayUCreateRequest *createRequest;
 @property (nonatomic, strong) PayUValidations *validations;
 @property (strong, nonatomic) PayUWebServiceResponse *webServiceResponse;
@@ -30,7 +31,6 @@
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
-    //    [self keyboardHideShowMethod];
 }
 -(void)dismissKeyboard {
     [self.textFieldCardNumber resignFirstResponder];
@@ -38,6 +38,7 @@
     [self.textFieldExpiryMonth resignFirstResponder];
     [self.textFieldExpiryYear resignFirstResponder];
     [self.textFieldNameOnCard resignFirstResponder];
+    [self.textFieldstoreCardName resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,21 +47,23 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:true];
-    self.textFieldCardNumber.text = @"6069890001361772";
-    self.textFieldExpiryMonth.text = @"12";
-    self.textFieldExpiryYear.text = @"2019";
-    self.textFieldNameOnCard.text = @"Umang";
-    self.textFieldCVV.text = @"123";
+    [self saveStoreCard:nil];
 }
 
 - (IBAction)payByCCDC:(id)sender {
-    self.paymentParam.expYear = self.textFieldExpiryYear.text;
-    self.paymentParam.expMonth = self.textFieldExpiryMonth.text;
+    self.paymentParam.expiryYear = self.textFieldExpiryYear.text;
+    self.paymentParam.expiryMonth = self.textFieldExpiryMonth.text;
     self.paymentParam.nameOnCard = self.textFieldNameOnCard.text;
     self.paymentParam.cardNumber = self.textFieldCardNumber.text;
     self.paymentParam.CVV = self.textFieldCVV.text;
-    self.paymentParam.saveStoreCard = self.textFieldSaveStoreCard.text;
-    self.paymentParam.storeCardName = self.textFieldstoreCardName.text;
+    
+    if (self.switchSaveStoreCard.on) {
+        self.paymentParam.storeCardName = self.textFieldstoreCardName.text;
+    }
+    else{
+        self.paymentParam.storeCardName = nil;
+    }
+    
     self.createRequest = [PayUCreateRequest new];
     [self.createRequest createRequestWithPaymentParam:self.paymentParam forPaymentType:PAYMENT_PG_CCDC withCompletionBlock:^(NSMutableURLRequest *request, NSString *postParam, NSString *error) {
         if (error == nil) {
@@ -80,7 +83,7 @@
 
 - (IBAction)checkCardBrand:(id)sender {
     self.validations = [PayUValidations new];
-    self.textFieldCardBrandName.text = [self.validations getIssuerOfCardNumber:self.textFieldCardNumber.text];
+    self.labelCardBrandName.text = [self.validations getIssuerOfCardNumber:self.textFieldCardNumber.text];
 }
 - (IBAction)checkOffer:(id)sender {
     self.defaultActivityIndicator = [[iOSDefaultActivityIndicator alloc]init];
@@ -92,7 +95,7 @@
         [self.defaultActivityIndicator stopAnimatingActivityIndicator];
         //
         if (errorMessage == nil) {
-            NSString *fullMessage = [NSString stringWithFormat:@"Discount =%@ & Msg = %@",offerStatus.discount,offerStatus.msg];
+            NSString *fullMessage = [NSString stringWithFormat:@"Status =%@ & Discount =%@ & Msg = %@",offerStatus.status,offerStatus.discount,offerStatus.msg];
             PAYUALERT(@"Discount", fullMessage);
         }
         else{
@@ -116,7 +119,7 @@
                 PAYUALERT(@"Yeahh", @"Good to Go");
             }
             else{
-                NSString * responseMessage = [NSString new];
+                NSString * responseMessage;// = [NSString new];
                 responseMessage = (NSString *) ResponseMessage;
                 PAYUALERT(@"Down Time Message", responseMessage);
             }
@@ -125,6 +128,15 @@
             PAYUALERT(@"Error", errorMessage);
         }
     }];
+}
+
+- (IBAction)saveStoreCard:(id)sender {
+    if (self.switchSaveStoreCard.on) {
+        self.textFieldstoreCardName.hidden = false;
+    }
+    else{
+        self.textFieldstoreCardName.hidden = true;
+    }
 }
 
 
