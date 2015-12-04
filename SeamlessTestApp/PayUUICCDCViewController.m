@@ -69,6 +69,8 @@
         if (error == nil) {
             PayUUIPaymentUIWebViewController *webView = [self.storyboard instantiateViewControllerWithIdentifier:VIEW_CONTROLLER_IDENTIFIER_PAYMENT_UIWEBVIEW];
             webView.paymentRequest = request;
+            webView.merchantKey = self.paymentParam.key;
+            webView.txnID = self.paymentParam.transactionID;
             [self.navigationController pushViewController:webView animated:true];
         }
         else{

@@ -102,9 +102,12 @@
 - (void)payByPayUMoney{
 //    PayUUIPaymentUIWebViewController *webView;// = [PayUUIPaymentUIWebViewController new];
     PayUCreateRequest *createRequest = [PayUCreateRequest new];
+
     [createRequest createRequestWithPaymentParam:self.paymentParam forPaymentType:PAYMENT_PG_PAYU_MONEY withCompletionBlock:^(NSMutableURLRequest *request, NSString *postParam, NSString *error) {
         PayUUIPaymentUIWebViewController *webView = [self.storyboard instantiateViewControllerWithIdentifier:VIEW_CONTROLLER_IDENTIFIER_PAYMENT_UIWEBVIEW];
         webView.paymentRequest = request;
+        webView.merchantKey = self.paymentParam.key;
+        webView.txnID = self.paymentParam.transactionID;
         [self.navigationController pushViewController:webView animated:true];
     }];
 }

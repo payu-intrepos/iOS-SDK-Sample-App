@@ -34,7 +34,7 @@
     [self.view addGestureRecognizer:singleTap];
     self.defaultActivityIndicator = [[iOSDefaultActivityIndicator alloc]init];
     self.paymentParam = [PayUModelPaymentParams new];
-    self.paymentParam.key = @"gtKFFx"; //gtKFFx //0MQaQP
+    self.paymentParam.key = @"0MQaQP"; //gtKFFx //0MQaQP
     self.paymentParam.amount = @"10.0";
     self.paymentParam.productInfo = @"Nokia";
     self.paymentParam.firstName = @"Ram";
@@ -48,7 +48,7 @@
     self.paymentParam.udf3 = @"u3";
     self.paymentParam.udf4 = @"u4";
     self.paymentParam.udf5 = @"u5";
-    self.paymentParam.environment = ENVIRONMENT_MOBILETEST;
+    self.paymentParam.environment = ENVIRONMENT_PRODUCTION;
     self.paymentParam.offerKey = @"test123@6622";
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dataReceived:) name:@"passData" object:nil];
     
@@ -118,6 +118,8 @@
     
     // Use below commented code snippet if using without UISwitch implementation
 
+    
+    
     self.paymentParam.key = self.textFieldKey.text;
     self.paymentParam.transactionID = self.textFieldTransactionID.text;
     self.paymentParam.amount = self.textFieldAmount.text;

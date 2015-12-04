@@ -14,5 +14,6 @@
 @property(nonatomic,strong) NSMutableURLRequest *paymentRequest;
 @property (weak, nonatomic) IBOutlet UIWebView *paymentWebView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-
+@property (strong, nonatomic) NSString *merchantKey;
+@property (strong, nonatomic) NSString *txnID;
 @end

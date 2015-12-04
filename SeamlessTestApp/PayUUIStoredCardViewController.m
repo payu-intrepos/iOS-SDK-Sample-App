@@ -78,12 +78,15 @@
 }
 
 - (IBAction)PayBySC:(id)sender {
+
     self.paymentParam.CVV = self.textFieldCVV.text;
     self.createRequest = [PayUCreateRequest new];
     [self.createRequest createRequestWithPaymentParam:self.paymentParam forPaymentType:self.textFieldPaymentTypeForSC.text withCompletionBlock:^(NSMutableURLRequest *request, NSString *postParam, NSString *error) {
         if (error == nil) {
             PayUUIPaymentUIWebViewController *webView = [self.storyboard instantiateViewControllerWithIdentifier:VIEW_CONTROLLER_IDENTIFIER_PAYMENT_UIWEBVIEW];
             webView.paymentRequest = request;
+            webView.merchantKey = self.paymentParam.key;
+            webView.txnID = self.paymentParam.transactionID;
             [self.navigationController pushViewController:webView animated:true];
         }
         else{

@@ -61,6 +61,7 @@
 }
 
 -(void)payByEMI:(id)sender{
+
     self.paymentParam.expiryYear = self.textFieldExpiryYear.text;
     self.paymentParam.expiryMonth = self.textFieldExpiryMonth.text;
     self.paymentParam.nameOnCard = self.textFieldNameOnCard.text;
@@ -71,6 +72,8 @@
         if (error == nil) {
             PayUUIPaymentUIWebViewController *webView = [self.storyboard instantiateViewControllerWithIdentifier:VIEW_CONTROLLER_IDENTIFIER_PAYMENT_UIWEBVIEW];
             webView.paymentRequest = request;
+            webView.merchantKey = self.paymentParam.key;
+            webView.txnID = self.paymentParam.transactionID;
             [self.navigationController pushViewController:webView animated:true];
         }
         else{
