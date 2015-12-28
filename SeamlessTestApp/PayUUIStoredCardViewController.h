@@ -16,11 +16,14 @@
 
 @property (strong, nonatomic) PayUModelPaymentParams *paymentParam;
 @property (strong, nonatomic) PayUModelPaymentRelatedDetail *paymentRelatedDetail;
+@property (nonatomic, strong) NSString *paymentType;
 
 @property (weak, nonatomic) IBOutlet UIView *viewInside1;
 @property (weak, nonatomic) IBOutlet UITableView *tableViewStoredCard;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldCVV;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldPaymentTypeForSC;
+@property (weak, nonatomic) IBOutlet UISwitch *switchForOneTap;
+@property (weak, nonatomic) IBOutlet UILabel *labelEnableOneTap;
 
 @property (nonatomic, strong) PayUCreateRequest *createRequest;
 @property (nonatomic, strong) PayUWebServiceResponse *webServiceResponse;
@@ -28,6 +31,8 @@
 - (IBAction)deleteStoredCard:(id)sender;
 
 - (IBAction)checkVAS:(id)sender;
+-(void)configurePaymentParamWithIndex:(NSInteger) index;
+-(PayUModelPaymentParams *) getPaymentParam;
 
 
 @end

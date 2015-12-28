@@ -8,6 +8,7 @@
 
 #import "PayUUINetBankingViewController.h"
 
+
 @interface PayUUINetBankingViewController ()
 @property (weak,nonatomic) UITextField *textFieldName;
 @end
@@ -97,19 +98,33 @@
 }
 
 - (IBAction)PayByNetBanking:(id)sender {
-    self.paymentParam.bankCode = self.bankCodeForNetBanking.text;
-    self.createRequest = [PayUCreateRequest new];
-    [self.createRequest createRequestWithPaymentParam:self.paymentParam forPaymentType:self.paymentTypeForNetBanking.text withCompletionBlock:^(NSMutableURLRequest *request, NSString *postParam, NSString *error) {
-        if (error == nil) {
-            PayUUIPaymentUIWebViewController *webView = [self.storyboard instantiateViewControllerWithIdentifier:VIEW_CONTROLLER_IDENTIFIER_PAYMENT_UIWEBVIEW];
-            webView.paymentRequest = request;
-            [self.navigationController pushViewController:webView animated:true];
-        }
-        else{
-            [[[UIAlertView alloc] initWithTitle:@"ERROR" message:error delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
-            
-        }
-    }];
+    NSString *bankCode = self.bankCodeForNetBanking.text;
+    
+    self.paymentParam.bankCode = bankCode;
+    
+    if([bankCode isEqualToString:CASH_CARD_CPMC])
+    {
+        PayUUICCDCViewController *ccdcView = [self.storyboard instantiateViewControllerWithIdentifier:VIEW_CONTROLLER_IDENTIFIER_PAYMENT_CCDC];
+        ccdcView.paymentType = PAYMENT_PG_CASHCARD;
+        ccdcView.paymentParam = [self.paymentParam copy];
+        [self.navigationController pushViewController:ccdcView animated:YES];
+    }
+    else
+    {
+        self.createRequest = [PayUCreateRequest new];
+        [self.createRequest createRequestWithPaymentParam:self.paymentParam forPaymentType:self.paymentTypeForNetBanking.text withCompletionBlock:^(NSMutableURLRequest *request, NSString *postParam, NSString *error) {
+            if (error == nil) {
+                PayUUIPaymentUIWebViewController *webView = [self.storyboard instantiateViewControllerWithIdentifier:VIEW_CONTROLLER_IDENTIFIER_PAYMENT_UIWEBVIEW];
+                webView.paymentRequest = request;
+                webView.paymentParam = self.paymentParam;
+                [self.navigationController pushViewController:webView animated:true];
+            }
+            else{
+                [[[UIAlertView alloc] initWithTitle:@"ERROR" message:error delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                
+            }
+        }];
+    }
 }
 
 #pragma TableView DataSource and Delegate Methods

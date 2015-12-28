@@ -20,9 +20,14 @@
 @property (weak, nonatomic) IBOutlet UITextField *textFieldNameOnCard;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldstoreCardName;
 
+@property (nonatomic, strong) NSString *paymentType;
+
 @property (weak, nonatomic) IBOutlet UISwitch *switchSaveStoreCard;
+@property (weak, nonatomic) IBOutlet UISwitch *switchForOneTap;
 
 @property (weak, nonatomic) IBOutlet UILabel *labelCardBrandName;
+
+@property (weak, nonatomic) IBOutlet UILabel *labelOneTap;
 
 - (IBAction)payByCCDC:(id)sender;
 - (IBAction)checkCardBrand:(id)sender;

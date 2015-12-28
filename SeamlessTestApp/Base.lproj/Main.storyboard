@@ -29,7 +29,7 @@
                                             <action selector="PayBySC:" destination="6wJ-XL-cZ5" eventType="touchUpInside" id="fPD-T9-xj9"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HIL-vP-KYd">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CVV" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HIL-vP-KYd">
                                         <rect key="frame" x="128" y="8" width="97" height="30"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -41,13 +41,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CVV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oo-GU-Sqe">
-                                        <rect key="frame" x="86" y="12" width="34" height="21"/>
-                                        <animations/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Payment Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OlT-rH-Uqu">
                                         <rect key="frame" x="11" y="50" width="109" height="21"/>
                                         <animations/>
@@ -73,6 +66,17 @@
                                             <action selector="checkVAS:" destination="6wJ-XL-cZ5" eventType="touchUpInside" id="pQ7-TZ-SRc"/>
                                         </connections>
                                     </button>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="WZy-jt-25E">
+                                        <rect key="frame" x="29" y="80" width="51" height="31"/>
+                                        <animations/>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enable One Tap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eE6-pI-PIR">
+                                        <rect key="frame" x="99" y="85" width="121" height="21"/>
+                                        <animations/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -130,6 +134,8 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="labelEnableOneTap" destination="eE6-pI-PIR" id="0M7-Xw-3db"/>
+                        <outlet property="switchForOneTap" destination="WZy-jt-25E" id="6PE-Xc-DM2"/>
                         <outlet property="tableViewStoredCard" destination="sga-FD-EC7" id="esL-fh-KGM"/>
                         <outlet property="textFieldCVV" destination="HIL-vP-KYd" id="eoA-1r-tVv"/>
                         <outlet property="textFieldPaymentTypeForSC" destination="0gF-te-vhN" id="wMn-an-VbY"/>
@@ -183,20 +189,20 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="kaV-CS-b7c">
-                                <rect key="frame" x="92" y="199" width="51" height="31"/>
+                                <rect key="frame" x="26" y="199" width="51" height="31"/>
                                 <animations/>
                                 <connections>
                                     <action selector="saveStoreCard:" destination="hiF-iO-ABE" eventType="valueChanged" id="lU0-ON-JL0"/>
                                 </connections>
                             </switch>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="StoreCard Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DIX-lI-ESD">
-                                <rect key="frame" x="175" y="200" width="125" height="30"/>
+                                <rect key="frame" x="99" y="200" width="125" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S3u-Vq-jBy">
-                                <rect key="frame" x="135" y="244" width="50" height="30"/>
+                                <rect key="frame" x="244" y="199" width="50" height="30"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Pay"/>
@@ -238,6 +244,17 @@
                                     <action selector="checkVAS:" destination="hiF-iO-ABE" eventType="touchUpInside" id="6bU-2p-Aj8"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enable One Tap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5HS-OM-8a5">
+                                <rect key="frame" x="26" y="243" width="183" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="SZc-WH-nkX">
+                                <rect key="frame" x="175" y="238" width="51" height="31"/>
+                                <animations/>
+                            </switch>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -246,6 +263,8 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="labelCardBrandName" destination="gXG-ro-ah2" id="qnm-tH-fVv"/>
+                        <outlet property="labelOneTap" destination="5HS-OM-8a5" id="pZv-jN-xBX"/>
+                        <outlet property="switchForOneTap" destination="SZc-WH-nkX" id="u9X-C8-r5v"/>
                         <outlet property="switchSaveStoreCard" destination="kaV-CS-b7c" id="5b0-0j-Bgz"/>
                         <outlet property="textFieldCVV" destination="WiV-su-kNl" id="tpi-5O-TOb"/>
                         <outlet property="textFieldCardNumber" destination="wJm-bN-iIj" id="Uxz-5g-SR5"/>
@@ -612,7 +631,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W2y-qQ-8RT">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="720"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nNd-P2-oBe">
                                                 <rect key="frame" x="8" y="11" width="130" height="21"/>
@@ -741,9 +760,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Btp-vZ-YUE">
-                                                <rect key="frame" x="128" y="679" width="64" height="30"/>
+                                                <rect key="frame" x="128" y="756" width="80" height="30"/>
                                                 <animations/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                 <state key="normal" title="Start"/>
                                                 <connections>
                                                     <action selector="startPayment:" destination="nhs-6i-0eh" eventType="touchUpInside" id="SBN-CA-hfB"/>
@@ -1037,11 +1056,25 @@
                                                     <action selector="switchButtonForNil:" destination="nhs-6i-0eh" eventType="valueChanged" id="zDn-3Q-K4o"/>
                                                 </connections>
                                             </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EnableOneTap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYX-6P-C0B">
+                                                <rect key="frame" x="8" y="679" width="130" height="21"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" tag="19" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sBU-NM-68L">
+                                                <rect key="frame" x="136" y="674" width="51" height="31"/>
+                                                <animations/>
+                                                <connections>
+                                                    <action selector="switchButtonForNil:" destination="nhs-6i-0eh" eventType="valueChanged" id="5zX-1Z-lcl"/>
+                                                </connections>
+                                            </switch>
                                         </subviews>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="720" id="g5P-7B-SXV"/>
+                                            <constraint firstAttribute="height" constant="800" id="g5P-7B-SXV"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1142,7 +1175,7 @@
         <!--Navigation Controller-->
         <scene sceneID="k2d-aB-0Kp">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="um1-7R-gXy" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="PayUNavigationController" storyboardIdentifier="PayUNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="um1-7R-gXy" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CEb-x3-tf6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

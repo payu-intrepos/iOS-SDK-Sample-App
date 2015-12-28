@@ -52,10 +52,12 @@
 }
 
 -(void)stopAnimatingActivityIndicator{
-    [self.spinner stopAnimating];
-    [self.grayView setHidden:true];
-//    [self.superView]
-    self.superView.userInteractionEnabled = YES;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.spinner stopAnimating];
+        [self.grayView setHidden:true];
+        self.superView.userInteractionEnabled = YES;
+    });
+
 }
 
 
