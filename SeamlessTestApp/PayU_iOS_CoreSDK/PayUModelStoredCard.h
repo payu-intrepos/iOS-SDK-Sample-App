@@ -12,7 +12,7 @@
 
 @property (nonatomic, strong) NSString * cardBin;
 @property (nonatomic, strong) NSString * cardBrand;
-@property (nonatomic, strong) NSString * cardCVV;
+@property (nonatomic, strong) NSString * oneTapFlag;
 @property (nonatomic, strong) NSString * cardMode;
 @property (nonatomic, strong) NSString * cardName;
 @property (nonatomic, strong) NSString * cardNo;

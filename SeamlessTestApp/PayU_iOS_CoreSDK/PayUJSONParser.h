@@ -6,6 +6,10 @@
 //  Copyright © 2015 PayU. All rights reserved.
 //
 
+/*
+ This class is used to parse JSON
+ */
+
 #import <Foundation/Foundation.h>
 #import "PayUModelPaymentRelatedDetail.h"
 #import "PayUModelOfferStatus.h"
@@ -20,7 +24,7 @@ typedef void (^completionBlockForJSONParserForDeleteStoredCard)(NSString * delet
 -(void)JSONParserforOfferStatus:(id) JSON withCompletionBlock:(completionBlockForJSONParserForOfferStatus) paramCompletionBlock;
 
 
--(void)JSONParserforPaymentRelatedDetailForMobileSDK:(id) JSON withCompletionBlock:(completionBlockForJSONParserforPaymentRelatedDetailForMobileSDK) paramCompletionBlock;
+-(void)JSONParserforPaymentRelatedDetailForMobileSDK:(id) JSON andOneTapTokenDictionary:(NSDictionary *) OneTapTokenDictionary withCompletionBlock:(completionBlockForJSONParserforPaymentRelatedDetailForMobileSDK) paramCompletionBlock;
 
 -(void)JSONParserForDeleteStoredCard:(id) JSON withCompletionBlock:(completionBlockForJSONParserForDeleteStoredCard) paramCompletionBlock;
 

@@ -16,6 +16,7 @@
 #define     VIEW_CONTROLLER_IDENTIFIER_PAYMENT_NET_BANKING      @"PaymentNBVC"
 #define     VIEW_CONTROLLER_IDENTIFIER_PAYMENT_STORED_CARD      @"PaymentSCVC"
 #define     VIEW_CONTROLLER_IDENTIFIER_PAYMENT_EMI              @"PaymentEMIVC"
+#define     NAVIGATION_CONTROLLER_IDENTIFIER                    @"PayUNavigationController"
 
 #define     CELL_IDENTIFIER_PAYMENT_OPTION                      @"PaymentOptionCell"
 #define     CELL_IDENTIFIER_NETBANKING                          @"NetBankingCell"
@@ -24,6 +25,7 @@
 #define     CELL_IDENTIFIER_EMI_DURATION                        @"EMIDurationCell"
 
 
-#define     PAYUALERT(T,M)                  {[[[UIAlertView alloc] initWithTitle:T message:M delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];}
+#define     PAYUALERT(T,M)                                      dispatch_async(dispatch_get_main_queue(), ^{[[[UIAlertView alloc] initWithTitle:T message:M delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];});
+//{[[[UIAlertView alloc] initWithTitle:T message:M delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];}
 
 #endif /* PayUUIConstants_h */

@@ -57,27 +57,59 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if ([[self.paymentRelatedDetail.availablePaymentOptionsArray objectAtIndex:indexPath.row]  isEqual: PAYMENT_OPTION_STOREDCARD]) {
+    if ([[self.paymentRelatedDetail.availablePaymentOptionsArray objectAtIndex:indexPath.row]  isEqual: PAYMENT_PG_ONE_TAP_STOREDCARD]) {
+        [self payByOneTapStoredCard];
+    }
+    if ([[self.paymentRelatedDetail.availablePaymentOptionsArray objectAtIndex:indexPath.row]  isEqual: PAYMENT_PG_STOREDCARD]) {
         [self payByStoredCard];
     }
-    if ([[self.paymentRelatedDetail.availablePaymentOptionsArray objectAtIndex:indexPath.row]  isEqual: PAYMENT_OPTION_CCDC]) {
+    if ([[self.paymentRelatedDetail.availablePaymentOptionsArray objectAtIndex:indexPath.row]  isEqual: PAYMENT_PG_CCDC]) {
         [self payByCCDC];
     }
-    if ([[self.paymentRelatedDetail.availablePaymentOptionsArray objectAtIndex:indexPath.row]  isEqual: PAYMENT_OPTION_NETBANKING]) {
+    if ([[self.paymentRelatedDetail.availablePaymentOptionsArray objectAtIndex:indexPath.row]  isEqual: PAYMENT_PG_NET_BANKING]) {
         [self payByNetBanking];
     }
-    if ([[self.paymentRelatedDetail.availablePaymentOptionsArray objectAtIndex:indexPath.row]  isEqual: PAYMENT_OPTION_CASHCARD]) {
+    if ([[self.paymentRelatedDetail.availablePaymentOptionsArray objectAtIndex:indexPath.row]  isEqual: PAYMENT_PG_CASHCARD]) {
         [self payByCashCard];
     }
-    if ([[self.paymentRelatedDetail.availablePaymentOptionsArray objectAtIndex:indexPath.row]  isEqual: PAYMENT_OPTION_EMI]) {
+    if ([[self.paymentRelatedDetail.availablePaymentOptionsArray objectAtIndex:indexPath.row]  isEqual: PAYMENT_PG_EMI]) {
         [self payByEMI];
     }
-    if ([[self.paymentRelatedDetail.availablePaymentOptionsArray objectAtIndex:indexPath.row]  isEqual: PAYMENT_OPTION_PAYUMONEY]) {
+    if ([[self.paymentRelatedDetail.availablePaymentOptionsArray objectAtIndex:indexPath.row]  isEqual: PAYMENT_PG_PAYU_MONEY]) {
         [self payByPayUMoney];
     }
 }
 
+-(void)payByOneTapStoredCard{
+    PayUUIStoredCardViewController *SCVC = [self.storyboard instantiateViewControllerWithIdentifier:VIEW_CONTROLLER_IDENTIFIER_PAYMENT_STORED_CARD];
+    SCVC.paymentType = PAYMENT_PG_ONE_TAP_STOREDCARD;
+    SCVC.paymentParam = [self.paymentParam copy];
+    SCVC.paymentRelatedDetail = self.paymentRelatedDetail;
 
+    if (self.paymentRelatedDetail.oneTapStoredCardArray.count == 1) {
+
+        [SCVC configurePaymentParamWithIndex:0];
+//        [SCVC PayBySC:nil];
+        PayUCreateRequest *createRequest = [PayUCreateRequest new];
+        
+        [createRequest createRequestWithPaymentParam:[SCVC getPaymentParam] forPaymentType:PAYMENT_PG_ONE_TAP_STOREDCARD withCompletionBlock:^(NSMutableURLRequest *request, NSString *postParam, NSString *error) {
+            NSLog(@"Post Param of SC%@",postParam);
+            if (error == nil) {
+                PayUUIPaymentUIWebViewController *webView = [self.storyboard instantiateViewControllerWithIdentifier:VIEW_CONTROLLER_IDENTIFIER_PAYMENT_UIWEBVIEW];
+                webView.paymentRequest = request;
+                webView.paymentParam = self.paymentParam;
+                [self.navigationController pushViewController:webView animated:true];
+            }
+            else{
+                [[[UIAlertView alloc] initWithTitle:@"ERROR" message:error delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil] show];
+                
+            }
+        }];
+    }
+    else{
+        [self.navigationController pushViewController:SCVC animated:true];
+    }
+}
 
 - (void)payByCCDC{
     PayUUICCDCViewController *CCDCVC = [self.storyboard instantiateViewControllerWithIdentifier:VIEW_CONTROLLER_IDENTIFIER_PAYMENT_CCDC];
@@ -102,12 +134,10 @@
 - (void)payByPayUMoney{
 //    PayUUIPaymentUIWebViewController *webView;// = [PayUUIPaymentUIWebViewController new];
     PayUCreateRequest *createRequest = [PayUCreateRequest new];
-
     [createRequest createRequestWithPaymentParam:self.paymentParam forPaymentType:PAYMENT_PG_PAYU_MONEY withCompletionBlock:^(NSMutableURLRequest *request, NSString *postParam, NSString *error) {
         PayUUIPaymentUIWebViewController *webView = [self.storyboard instantiateViewControllerWithIdentifier:VIEW_CONTROLLER_IDENTIFIER_PAYMENT_UIWEBVIEW];
         webView.paymentRequest = request;
-        webView.merchantKey = self.paymentParam.key;
-        webView.txnID = self.paymentParam.transactionID;
+        webView.paymentParam = self.paymentParam;
         [self.navigationController pushViewController:webView animated:true];
     }];
 }
@@ -125,5 +155,8 @@
     NBVC.paymentRelatedDetail = self.paymentRelatedDetail;
     NBVC.paymentType = PAYMENT_PG_CASHCARD;
     [self.navigationController pushViewController:NBVC animated:true];
+}
+-(void)dealloc{
+    NSLog(@"Inside Dealloc of PaymentOption");
 }
 @end

@@ -6,6 +6,10 @@
 //  Copyright (c) 2015 PayU, India. All rights reserved.
 //
 
+/*
+ This class is used to handle WebServices
+ */
+
 #import <Foundation/Foundation.h>
 
 #define ATTRIBUTE_ALLOC __attribute__((unavailable("alloc not available, call sharedSingletonInstance instead")))

@@ -6,6 +6,10 @@
 //  Copyright (c) 2015 PayU, India. All rights reserved.
 //
 
+/*
+ This class is used to send device analytics data.
+ */
+
 #import <Foundation/Foundation.h>
 
 @interface PayUFileManager : NSObject

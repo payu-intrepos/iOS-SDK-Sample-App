@@ -10,6 +10,7 @@
 #import "PayUHeader.h"
 #import "PayUUIConstants.h"
 #import "PayUUIPaymentUIWebViewController.h"
+#import "PayUUICCDCViewController.h"
 
 @interface PayUUINetBankingViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 

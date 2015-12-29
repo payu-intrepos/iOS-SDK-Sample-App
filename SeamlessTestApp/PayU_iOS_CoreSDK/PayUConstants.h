@@ -28,30 +28,34 @@
 #define KEY_MERCHANT_ID @"merchant_key"
 #define KEY_TXNID @"txnid"
 
-//SERVER_ID Constants
-#define ENVIRONMENT_PRODUCTION              @"Production"
-#define ENVIRONMENT_MOBILETEST              @"MobileTest"
-#define ENVIRONMENT_MOBILEDEV               @"MobileDev"
-
-// 0 for production server, 1 for Mobile Test server, 2 for Dev server
-#define CB_ANALYTICS_SERVER_ID ENVIRONMENT_MOBILETEST
-
-// 0 if pointing to payu production server, 1 for test server
-#define TEST_SERVER 0
-
 #define ANALYTICS_PRODUCTION_URL                @"https://secure.payu.in/merchant/"
 #define ANALYTICS_MOBILE_DEV_URL                @"https://mobiledev.payu.in/merchant/"
 #define ANALYTICS_MOBILE_TEST_URL               @"https://mobiletest.payu.in/merchant/"
 
+//SERVER_ID Constants
+//#define ENVIRONMENT_PRODUCTION              @"Production"
+//#define ENVIRONMENT_MOBILETEST              @"MobileTest"
+//#define ENVIRONMENT_MOBILEDEV               @"MobileDev"
+
+// 0 for production server, 1 for Mobile Test server, 2 for Dev server
+#define CB_ANALYTICS_SERVER_ID ENVIRONMENT_MOBILETEST
+
 #define PAYU_PAYMENT_PRODUCTION_URL                             @"https://secure.payu.in/_payment"
 #define PAYU_PAYMENT_MOBILETEST_URL                             @"https://mobiletest.payu.in/_payment"
+#define PAYU_PAYMENT_MOBILEDEV_URL                              @"https://mobiledev.payu.in/_payment"
+#define PAYU_PAYMENT_DEMOTEST_URL                               @"https://demotest.payu.in/_payment"
+
 
 #define PAYU_WEBSERVICE_PRODUCTION_URL                          @"https://info.payu.in/merchant/postservice.php?form=2"
 #define PAYU_WEBSERVICE_MOBILETEST_URL                          @"https://mobiletest.payu.in/merchant/postservice?form=2"
+#define PAYU_WEBSERVICE_MOBILEDEV_URL                           @"https://mobiledev.payu.in/merchant/postservice?form=2"
+#define PAYU_WEBSERVICE_DEMOTEST_URL                            @"https://demotest.payu.in/merchant/postservice?form=2"
+
 
 #define ENVIRONMENT_PRODUCTION                                  @"Production"
 #define ENVIRONMENT_MOBILETEST                                  @"MobileTest"
-
+#define ENVIRONMENT_MOBILEDEV                                   @"MobileDev"
+#define ENVIRONMENT_DEMOTEST                                    @"DemoTest"
 
 //Errors
 //Mandatory params error list
@@ -104,13 +108,13 @@
 
 #define ERROR_CVV_IS_MISSING                                    @"CVV is missing, "
 #define ERROR_CVV_LENGTH_SHOULD_BE_4_FOR_AMEX                   @"CVV length should be 4 for AMEX, "
-#define ERROR_CVV_LENGTH_SHOULD_BE_3_FOR_NON_AMEX               @"CVV length should be 3 for NON-AMEX, "
+#define ERROR_CVV_LENGTH_SHOULD_BE_3_FOR_NON_AMEX               @"CVV length should be 3, "
 #define ERROR_CVV_IS_NON_NUMERIC                                @"CVV is non-numeric, "
 
 #define ERROR_SAVE_STORECARD_FLAG_IS_INVALID                    @"Save StoredCard flag is invalid, "
 
-#define ERROR_ENVIRONMENT_IS_MISSING                            @"Production or test environment is missing, "
-#define ERROR_ENVIRONMENT_INVALID                               @"Environment Should be 0 or 1, "
+#define ERROR_ENVIRONMENT_IS_MISSING                            @"Environment is missing, "
+#define ERROR_ENVIRONMENT_INVALID                               @"Invalid Environment, "
 
 #define ERROR_BANK_CODE_IS_MISSING                              @"Bank Code is missing, "
 
@@ -118,9 +122,13 @@
 
 #define ERROR_OFFER_KEY_IS_MISSING                              @"Offer Key is missing, "
 
-#define ERROR_STORED_CARD_TOKEN_IS_MISSING                      @"Stored card token is missing, "
+#define ERROR_STORED_CARD_TOKEN_IS_MISSING                      @"Stored card not selected, "
 #define ERROR_STORED_CARD_TYPE_IS_MISSING                       @"Stored card type is missing, "
 #define ERROR_STORED_CARD_MODE_IS_MISSING                       @"Stored card mode is missing, "
+
+#define ERROR_ONE_TAP_STORED_CARD_TOKEN_MISSING                 @"Stored card Dictionary missing, "
+#define ERROR_ONE_TAP_MERCHANY_HASH_IS_MISSING                  @"Merchant hash is missing, "
+#define ERROR_ONE_TAP_CARD_CVV_MISSING                          @"This is not OneTap Card, "
 
 #define ERROR_USER_CREDENTIAL_IS_MISSING                        @"User credentials is missing, "
 
@@ -143,13 +151,6 @@
 
 // Payment Type
 
-#define     PAYMENT_PG_NET_BANKING                              @"NB"
-#define     PAYMENT_PG_CCDC                                     @"CC"
-#define     PAYMENT_PG_STOREDCARD                               @"SC"
-#define     PAYMENT_PG_EMI                                      @"EMI"
-#define     PAYMENT_PG_CASHCARD                                 @"CASH"
-#define     PAYMENT_PG_PAYU_MONEY                               @"wallet"
-
 #define     PAYMENT_PG_INVALID                                  @"Invalid payment method, "
 
 
@@ -157,8 +158,6 @@
 // Set values
 
 #define MINIMUM_AMOUNT                                          @"0.1"
-#define MAXIMUM_YEAR_LIMIT                                      @"100"
-
 
 
 // Commands for webservice
@@ -253,8 +252,8 @@
 #define     PARAM_STORE_CARD                                    @"store_card"
 #define     PARAM_STORE_CARD_NAME                               @"card_name"
 #define     PARAM_BANK_CODE_CCDC                                @"CC"
-
-
+#define     PARAM_ONE_CLICK_CHECKOUT                            @"one_click_checkout"
+#define     PARAM_CARD_MERCHANT_PARAM                           @"card_merchant_param"
 #define     KEY_IBIBOCODES                                      @"ibiboCodes"
 #define     KEY_USERCARDS                                       @"userCards"
 #define     KEY_NETBANKING                                      @"netbanking"
@@ -323,12 +322,23 @@
 
 // Available Payment Option
 
-#define     PAYMENT_OPTION_STOREDCARD                           @"Stored Card"
-#define     PAYMENT_OPTION_CCDC                                 @"Credit Card/Debit Card"
-#define     PAYMENT_OPTION_NETBANKING                           @"NetBanking"
-#define     PAYMENT_OPTION_CASHCARD                             @"Cash Card"
-#define     PAYMENT_OPTION_EMI                                  @"EMI"
-#define     PAYMENT_OPTION_PAYUMONEY                            @"PayU Money"
+#define     PAYMENT_PG_ONE_TAP_STOREDCARD                       @"One Tap Stored Card"
+#define     PAYMENT_PG_STOREDCARD                               @"Stored Card"
+#define     PAYMENT_PG_CCDC                                     @"Credit Card/Debit Card"
+#define     PAYMENT_PG_NET_BANKING                              @"NetBanking"
+#define     PAYMENT_PG_CASHCARD                                 @"Cash Card"
+#define     PAYMENT_PG_EMI                                      @"EMI"
+#define     PAYMENT_PG_PAYU_MONEY                               @"PayU Money"
+
+
+// PG Type
+
+#define     PG_NET_BANKING                                      @"NB"
+#define     PG_CCDC                                             @"CC"
+#define     PG_EMI                                              @"EMI"
+#define     PG_CASHCARD                                         @"CASH"
+#define     PG_PAYU_MONEY                                       @"wallet"
+
 
 // Issuer Collections
 #define     ISSUER_LASER                                        @"LASER"
@@ -344,6 +354,10 @@
 #define     ISSUER_JCB                                          @"JCB"
 
 #define     DEFAULT_CARD_NAME                                   @"PayUUser"
+
+#define     CASH_CARD_CPMC                                      @"CPMC"
+
+#define     NO_INTERNET_CONNECTION                              @"Seems you are not connected to internet"
 
 #ifdef DEBUG
 #   define NSLog(...) NSLog(__VA_ARGS__)

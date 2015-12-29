@@ -6,6 +6,10 @@
 //  Copyright © 2015 PayU. All rights reserved.
 //
 
+/*
+ This class is used to get WebRequest for webservice and payment
+ */
+
 #import <Foundation/Foundation.h>
 #import "PayUConstants.h"
 #import "PayUModelPaymentParams.h"

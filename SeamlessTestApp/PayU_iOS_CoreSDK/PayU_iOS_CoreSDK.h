@@ -15,7 +15,7 @@
 #import "PayUModelOfferStatus.h"
 #import "PayUModelStoredCard.h"
 #import "PayUDontUseThisClass.h"
+#import "PayUWebViewResponse.h"
 
-
-#define     PayU_SDK_Version         @"3.2"
+#define     PayU_SDK_Version         @"3.3"
 

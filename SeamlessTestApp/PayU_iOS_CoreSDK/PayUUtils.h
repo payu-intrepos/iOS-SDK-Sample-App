@@ -27,4 +27,5 @@ typedef void (^completionBlockForWebServiceResponse)(id JSON ,NSString *errorMes
 + (NSString *) platformType;
 +(NSString *)prepareDeviceAnalyticsStringWithArray:(NSArray *)arr;
 +(NSString *)getAnalyticsServerUrl;
+
 @end

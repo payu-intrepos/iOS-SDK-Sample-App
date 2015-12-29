@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PayUHeader.h"
 
 
-@interface PayUUIPaymentUIWebViewController : UIViewController<UIWebViewDelegate>
-
-@property(nonatomic,strong) NSMutableURLRequest *paymentRequest;
-@property (weak, nonatomic) IBOutlet UIWebView *paymentWebView;
+@interface PayUUIPaymentUIWebViewController : UIViewController<UIWebViewDelegate, PayUSDKWebViewResponseDelegate>
+//@interface PayUUIPaymentUIWebViewController : UIViewController<UIWebViewDelegate>
+@property(nonatomic,strong) NSURLRequest *paymentRequest;
+@property (strong,nonatomic) PayUModelPaymentParams *paymentParam;
+@property (unsafe_unretained, nonatomic) IBOutlet UIWebView *paymentWebView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (strong, nonatomic) NSString *merchantKey;
-@property (strong, nonatomic) NSString *txnID;
+
 @end

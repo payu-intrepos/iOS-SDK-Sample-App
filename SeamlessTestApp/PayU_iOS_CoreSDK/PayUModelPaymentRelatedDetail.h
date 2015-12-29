@@ -14,8 +14,9 @@
 
 @interface PayUModelPaymentRelatedDetail : NSObject
 
-@property (nonatomic, strong) NSArray *netBankingArray;
+@property (nonatomic, strong) NSArray *oneTapStoredCardArray;
 @property (nonatomic, strong) NSArray *storedCardArray;
+@property (nonatomic, strong) NSArray *netBankingArray;
 @property (nonatomic, strong) NSArray *cashCardArray;
 @property (nonatomic, strong) NSArray *EMIArray;
 

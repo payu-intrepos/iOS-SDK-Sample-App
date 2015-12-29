@@ -6,6 +6,10 @@
 //  Copyright © 2015 PayU. All rights reserved.
 //
 
+/*
+PayUValidation Class helps in validating payment params
+*/
+
 #import <Foundation/Foundation.h>
 #import "PayUModelPaymentParams.h"
 
@@ -14,6 +18,7 @@
 
 -(NSMutableString *)validateMandatoryParamsForPayment: (PayUModelPaymentParams *) paymentParam;
 -(NSMutableString *)validateMandatoryParamsForPaymentHashGeneration: (PayUModelPaymentParams *) paymentParam;
+-(NSMutableString *)validateOneTapParam: (PayUModelPaymentParams *) paymentParam;
 -(NSMutableString *)validateStoredCardParams: (PayUModelPaymentParams *) paymentParam;
 -(NSString *)validateNetbankingParams: (PayUModelPaymentParams *) paymentParam;
 -(NSMutableString *)validateCCDCParams: (PayUModelPaymentParams *) paymentParam;
