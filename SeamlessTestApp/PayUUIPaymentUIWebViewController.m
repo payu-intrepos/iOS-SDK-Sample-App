@@ -44,8 +44,8 @@
     self.showActivityIndicator = NO;
     self.CBC = [[CBConnection alloc] init:self.view webView:self.paymentWebView];
     self.CBC.isWKWebView = NO;
-    self.CBC.cbServerID = CB_ENVIRONMENT_SDKTEST;
-    self.CBC.analyticsServerID = CB_ENVIRONMENT_SDKTEST;
+    self.CBC.cbServerID = CB_ENVIRONMENT_PRODUCTION;
+    self.CBC.analyticsServerID = CB_ENVIRONMENT_PRODUCTION;
     self.CBC.merchantKey = self.paymentParam.key;
     self.CBC.txnID = self.paymentParam.transactionID;
     self.CBC.isAutoOTPSelect = YES;
