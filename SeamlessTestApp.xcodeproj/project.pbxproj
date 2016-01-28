@@ -7,128 +7,105 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		731077CC1C1AA8E50016110D /* libPayU_iOS_CoreSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 731077B11C1AA8E50016110D /* libPayU_iOS_CoreSDK.a */; settings = {ASSET_TAGS = (); }; };
-		731077CD1C1AA8E50016110D /* PayUSDKInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 731077C51C1AA8E50016110D /* PayUSDKInfo.plist */; settings = {ASSET_TAGS = (); }; };
 		7312656E1BB958AC00250A86 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7312656D1BB958AC00250A86 /* main.m */; };
 		731265711BB958AC00250A86 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 731265701BB958AC00250A86 /* AppDelegate.m */; };
 		731265771BB958AC00250A86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 731265751BB958AC00250A86 /* Main.storyboard */; };
 		731265791BB958AC00250A86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 731265781BB958AC00250A86 /* Assets.xcassets */; };
 		7312657C1BB958AC00250A86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7312657A1BB958AC00250A86 /* LaunchScreen.storyboard */; };
-		731265901BBA92D900250A86 /* PayUSAStartScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7312658F1BBA92D900250A86 /* PayUSAStartScreenViewController.m */; settings = {ASSET_TAGS = (); }; };
-		733040A91BC51ED80011405C /* PayUUIPaymentOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 733040A81BC51ED80011405C /* PayUUIPaymentOptionViewController.m */; settings = {ASSET_TAGS = (); }; };
-		733040AF1BC5288C0011405C /* PayUUICCDCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 733040AE1BC5288C0011405C /* PayUUICCDCViewController.m */; settings = {ASSET_TAGS = (); }; };
-		733040B21BC52B640011405C /* PayUUIPaymentUIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 733040B11BC52B640011405C /* PayUUIPaymentUIWebViewController.m */; settings = {ASSET_TAGS = (); }; };
-		733040B51BC5671D0011405C /* PayUSAGetHashes.m in Sources */ = {isa = PBXBuildFile; fileRef = 733040B41BC5671D0011405C /* PayUSAGetHashes.m */; settings = {ASSET_TAGS = (); }; };
-		73442E211BEAF9F200715B03 /* PayUSAOneTapToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 73442E201BEAF9F200715B03 /* PayUSAOneTapToken.m */; settings = {ASSET_TAGS = (); }; };
-		735BB21F1BC634E500E58F46 /* iOSDefaultActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 735BB21E1BC634E500E58F46 /* iOSDefaultActivityIndicator.m */; settings = {ASSET_TAGS = (); }; };
-		735BB2221BC658AD00E58F46 /* PayUUINetBankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 735BB2211BC658AD00E58F46 /* PayUUINetBankingViewController.m */; settings = {ASSET_TAGS = (); }; };
-		7375404A1C218B4800D261B2 /* amex.png in Resources */ = {isa = PBXBuildFile; fileRef = 73753FF21C218B4800D261B2 /* amex.png */; settings = {ASSET_TAGS = (); }; };
-		7375404B1C218B4800D261B2 /* amex_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 73753FF31C218B4800D261B2 /* amex_logo.png */; settings = {ASSET_TAGS = (); }; };
-		7375404C1C218B4800D261B2 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 73753FF41C218B4800D261B2 /* arrow.png */; settings = {ASSET_TAGS = (); }; };
-		7375404D1C218B4800D261B2 /* arrow_cb.png in Resources */ = {isa = PBXBuildFile; fileRef = 73753FF51C218B4800D261B2 /* arrow_cb.png */; settings = {ASSET_TAGS = (); }; };
-		7375404E1C218B4800D261B2 /* axis_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 73753FF61C218B4800D261B2 /* axis_logo.png */; settings = {ASSET_TAGS = (); }; };
-		7375404F1C218B4800D261B2 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 73753FF71C218B4800D261B2 /* calendar.png */; settings = {ASSET_TAGS = (); }; };
-		737540501C218B4800D261B2 /* card.png in Resources */ = {isa = PBXBuildFile; fileRef = 73753FF81C218B4800D261B2 /* card.png */; settings = {ASSET_TAGS = (); }; };
-		737540511C218B4800D261B2 /* cash_card.png in Resources */ = {isa = PBXBuildFile; fileRef = 73753FF91C218B4800D261B2 /* cash_card.png */; settings = {ASSET_TAGS = (); }; };
-		737540521C218B4800D261B2 /* CBAllPaymentOption.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73753FFB1C218B4800D261B2 /* CBAllPaymentOption.xib */; settings = {ASSET_TAGS = (); }; };
-		737540531C218B4800D261B2 /* CBAllPaymentOption_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73753FFC1C218B4800D261B2 /* CBAllPaymentOption_iPhone6.xib */; settings = {ASSET_TAGS = (); }; };
-		737540541C218B4800D261B2 /* CBAllPaymentOption_iPhone6p.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73753FFD1C218B4800D261B2 /* CBAllPaymentOption_iPhone6p.xib */; settings = {ASSET_TAGS = (); }; };
-		737540551C218B4800D261B2 /* CBApproveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73753FFF1C218B4800D261B2 /* CBApproveView.xib */; settings = {ASSET_TAGS = (); }; };
-		737540561C218B4800D261B2 /* CBApproveView_iPhone6p.xib in Resources */ = {isa = PBXBuildFile; fileRef = 737540001C218B4800D261B2 /* CBApproveView_iPhone6p.xib */; settings = {ASSET_TAGS = (); }; };
-		737540571C218B4800D261B2 /* CBBankPageLoading.xib in Resources */ = {isa = PBXBuildFile; fileRef = 737540021C218B4800D261B2 /* CBBankPageLoading.xib */; settings = {ASSET_TAGS = (); }; };
-		737540581C218B4800D261B2 /* CBBankPageLoading_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 737540031C218B4800D261B2 /* CBBankPageLoading_iPhone6.xib */; settings = {ASSET_TAGS = (); }; };
-		737540591C218B4800D261B2 /* CBBankPageLoading_iPhone6p.xib in Resources */ = {isa = PBXBuildFile; fileRef = 737540041C218B4800D261B2 /* CBBankPageLoading_iPhone6p.xib */; settings = {ASSET_TAGS = (); }; };
-		7375405A1C218B4800D261B2 /* CBCustomActivityIndicator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 737540091C218B4800D261B2 /* CBCustomActivityIndicator.xib */; settings = {ASSET_TAGS = (); }; };
-		7375405B1C218B4800D261B2 /* CCBApproveView_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 737540101C218B4800D261B2 /* CCBApproveView_iPhone6.xib */; settings = {ASSET_TAGS = (); }; };
-		7375405C1C218B4800D261B2 /* citi.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540111C218B4800D261B2 /* citi.png */; settings = {ASSET_TAGS = (); }; };
-		7375405D1C218B4800D261B2 /* coin.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540121C218B4800D261B2 /* coin.png */; settings = {ASSET_TAGS = (); }; };
-		7375405E1C218B4800D261B2 /* diner.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540131C218B4800D261B2 /* diner.png */; settings = {ASSET_TAGS = (); }; };
-		7375405F1C218B4800D261B2 /* discover.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540141C218B4800D261B2 /* discover.png */; settings = {ASSET_TAGS = (); }; };
-		737540601C218B4800D261B2 /* error_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540151C218B4800D261B2 /* error_icon.png */; settings = {ASSET_TAGS = (); }; };
-		737540611C218B4800D261B2 /* error_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540161C218B4800D261B2 /* error_large.png */; settings = {ASSET_TAGS = (); }; };
-		737540621C218B4800D261B2 /* hdfc.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540181C218B4800D261B2 /* hdfc.png */; settings = {ASSET_TAGS = (); }; };
-		737540631C218B4800D261B2 /* hdfc_bank.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540191C218B4800D261B2 /* hdfc_bank.png */; settings = {ASSET_TAGS = (); }; };
-		737540641C218B4800D261B2 /* hsbc.png in Resources */ = {isa = PBXBuildFile; fileRef = 7375401A1C218B4800D261B2 /* hsbc.png */; settings = {ASSET_TAGS = (); }; };
-		737540651C218B4800D261B2 /* icici.png in Resources */ = {isa = PBXBuildFile; fileRef = 7375401B1C218B4800D261B2 /* icici.png */; settings = {ASSET_TAGS = (); }; };
-		737540661C218B4800D261B2 /* icicicc.png in Resources */ = {isa = PBXBuildFile; fileRef = 7375401C1C218B4800D261B2 /* icicicc.png */; settings = {ASSET_TAGS = (); }; };
-		737540671C218B4800D261B2 /* icicinet.png in Resources */ = {isa = PBXBuildFile; fileRef = 7375401D1C218B4800D261B2 /* icicinet.png */; settings = {ASSET_TAGS = (); }; };
-		737540681C218B4800D261B2 /* icon_otp.png in Resources */ = {isa = PBXBuildFile; fileRef = 7375401E1C218B4800D261B2 /* icon_otp.png */; settings = {ASSET_TAGS = (); }; };
-		737540691C218B4800D261B2 /* icon_otp_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 7375401F1C218B4800D261B2 /* icon_otp_over.png */; settings = {ASSET_TAGS = (); }; };
-		7375406A1C218B4800D261B2 /* icon_password.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540201C218B4800D261B2 /* icon_password.png */; settings = {ASSET_TAGS = (); }; };
-		7375406B1C218B4800D261B2 /* icon_password_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540211C218B4800D261B2 /* icon_password_over.png */; settings = {ASSET_TAGS = (); }; };
-		7375406C1C218B4800D261B2 /* idbi.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540221C218B4800D261B2 /* idbi.png */; settings = {ASSET_TAGS = (); }; };
-		7375406D1C218B4800D261B2 /* induslogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540231C218B4800D261B2 /* induslogo.png */; settings = {ASSET_TAGS = (); }; };
-		7375406E1C218B4800D261B2 /* jcb.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540241C218B4800D261B2 /* jcb.png */; settings = {ASSET_TAGS = (); }; };
-		7375406F1C218B4800D261B2 /* kotak.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540251C218B4800D261B2 /* kotak.png */; settings = {ASSET_TAGS = (); }; };
-		737540701C218B4800D261B2 /* kotaknet.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540261C218B4800D261B2 /* kotaknet.png */; settings = {ASSET_TAGS = (); }; };
-		737540711C218B4800D261B2 /* l_icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540271C218B4800D261B2 /* l_icon1.png */; settings = {ASSET_TAGS = (); }; };
-		737540721C218B4800D261B2 /* l_icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540281C218B4800D261B2 /* l_icon2.png */; settings = {ASSET_TAGS = (); }; };
-		737540731C218B4800D261B2 /* l_icon3.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540291C218B4800D261B2 /* l_icon3.png */; settings = {ASSET_TAGS = (); }; };
-		737540741C218B4800D261B2 /* l_icon4.png in Resources */ = {isa = PBXBuildFile; fileRef = 7375402A1C218B4800D261B2 /* l_icon4.png */; settings = {ASSET_TAGS = (); }; };
-		737540751C218B4800D261B2 /* laser.png in Resources */ = {isa = PBXBuildFile; fileRef = 7375402B1C218B4800D261B2 /* laser.png */; settings = {ASSET_TAGS = (); }; };
-		737540761C218B4800D261B2 /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 7375402C1C218B4800D261B2 /* lock.png */; settings = {ASSET_TAGS = (); }; };
-		737540771C218B4800D261B2 /* lock2.png in Resources */ = {isa = PBXBuildFile; fileRef = 7375402D1C218B4800D261B2 /* lock2.png */; settings = {ASSET_TAGS = (); }; };
-		737540781C218B4800D261B2 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7375402E1C218B4800D261B2 /* logo.png */; settings = {ASSET_TAGS = (); }; };
-		737540791C218B4800D261B2 /* logo_payu.png in Resources */ = {isa = PBXBuildFile; fileRef = 7375402F1C218B4800D261B2 /* logo_payu.png */; settings = {ASSET_TAGS = (); }; };
-		7375407A1C218B4800D261B2 /* maestro.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540301C218B4800D261B2 /* maestro.png */; settings = {ASSET_TAGS = (); }; };
-		7375407B1C218B4800D261B2 /* master.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540311C218B4800D261B2 /* master.png */; settings = {ASSET_TAGS = (); }; };
-		7375407C1C218B4800D261B2 /* otp_icon_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540321C218B4800D261B2 /* otp_icon_large.png */; settings = {ASSET_TAGS = (); }; };
-		7375407D1C218B4800D261B2 /* otp_icon_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540331C218B4800D261B2 /* otp_icon_over.png */; settings = {ASSET_TAGS = (); }; };
-		7375407E1C218B4800D261B2 /* otpicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540341C218B4800D261B2 /* otpicon.png */; settings = {ASSET_TAGS = (); }; };
-		7375407F1C218B4800D261B2 /* password_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540351C218B4800D261B2 /* password_icon.png */; settings = {ASSET_TAGS = (); }; };
-		737540801C218B4800D261B2 /* password_icon_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540361C218B4800D261B2 /* password_icon_large.png */; settings = {ASSET_TAGS = (); }; };
-		737540811C218B4800D261B2 /* password_icon_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540371C218B4800D261B2 /* password_icon_over.png */; settings = {ASSET_TAGS = (); }; };
-		737540821C218B4800D261B2 /* passwordicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540381C218B4800D261B2 /* passwordicon.png */; settings = {ASSET_TAGS = (); }; };
-		737540831C218B4800D261B2 /* payu_money.png in Resources */ = {isa = PBXBuildFile; fileRef = 7375403A1C218B4800D261B2 /* payu_money.png */; settings = {ASSET_TAGS = (); }; };
-		737540841C218B4800D261B2 /* PayUCBInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7375403B1C218B4800D261B2 /* PayUCBInfo.plist */; settings = {ASSET_TAGS = (); }; };
-		737540851C218B4800D261B2 /* RegenerateOTPView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7375403D1C218B4800D261B2 /* RegenerateOTPView.xib */; settings = {ASSET_TAGS = (); }; };
-		737540861C218B4800D261B2 /* RegenerateOTPView_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7375403E1C218B4800D261B2 /* RegenerateOTPView_iPhone6.xib */; settings = {ASSET_TAGS = (); }; };
-		737540871C218B4800D261B2 /* RegenerateOTPView_iPhone6p.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7375403F1C218B4800D261B2 /* RegenerateOTPView_iPhone6p.xib */; settings = {ASSET_TAGS = (); }; };
-		737540881C218B4800D261B2 /* sbi.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540401C218B4800D261B2 /* sbi.png */; settings = {ASSET_TAGS = (); }; };
-		737540891C218B4800D261B2 /* sbinet.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540411C218B4800D261B2 /* sbinet.png */; settings = {ASSET_TAGS = (); }; };
-		7375408A1C218B4800D261B2 /* sc.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540421C218B4800D261B2 /* sc.png */; settings = {ASSET_TAGS = (); }; };
-		7375408B1C218B4800D261B2 /* slider.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540431C218B4800D261B2 /* slider.png */; settings = {ASSET_TAGS = (); }; };
-		7375408C1C218B4800D261B2 /* store_card.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540441C218B4800D261B2 /* store_card.png */; settings = {ASSET_TAGS = (); }; };
-		7375408D1C218B4800D261B2 /* trusticon.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540451C218B4800D261B2 /* trusticon.png */; settings = {ASSET_TAGS = (); }; };
-		7375408E1C218B4800D261B2 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540461C218B4800D261B2 /* user.png */; settings = {ASSET_TAGS = (); }; };
-		7375408F1C218B4800D261B2 /* visa.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540471C218B4800D261B2 /* visa.png */; settings = {ASSET_TAGS = (); }; };
-		737540901C218B4800D261B2 /* yesbank_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 737540481C218B4800D261B2 /* yesbank_logo.png */; settings = {ASSET_TAGS = (); }; };
-		737540911C218B4800D261B2 /* libiOSCustomBrowser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 737540491C218B4800D261B2 /* libiOSCustomBrowser.a */; settings = {ASSET_TAGS = (); }; };
-		73A0A8761BCD30F000243B76 /* PayUSAGetTransactionID.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A0A8751BCD30F000243B76 /* PayUSAGetTransactionID.m */; settings = {ASSET_TAGS = (); }; };
-		73A343391BE099DE00139F32 /* PayUUIEMIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A343381BE099DE00139F32 /* PayUUIEMIViewController.m */; settings = {ASSET_TAGS = (); }; };
-		73B1D36A1C1077F1008AB1EA /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B1D3691C1077F1008AB1EA /* UIViewController+BackButtonHandler.m */; settings = {ASSET_TAGS = (); }; };
-		73D7BCA81BC68B9D00A1F512 /* PayUUIStoredCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73D7BCA71BC68B9D00A1F512 /* PayUUIStoredCardViewController.m */; settings = {ASSET_TAGS = (); }; };
+		731265901BBA92D900250A86 /* PayUSAStartScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7312658F1BBA92D900250A86 /* PayUSAStartScreenViewController.m */; };
+		733040A91BC51ED80011405C /* PayUUIPaymentOptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 733040A81BC51ED80011405C /* PayUUIPaymentOptionViewController.m */; };
+		733040AF1BC5288C0011405C /* PayUUICCDCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 733040AE1BC5288C0011405C /* PayUUICCDCViewController.m */; };
+		733040B21BC52B640011405C /* PayUUIPaymentUIWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 733040B11BC52B640011405C /* PayUUIPaymentUIWebViewController.m */; };
+		733040B51BC5671D0011405C /* PayUSAGetHashes.m in Sources */ = {isa = PBXBuildFile; fileRef = 733040B41BC5671D0011405C /* PayUSAGetHashes.m */; };
+		73442E211BEAF9F200715B03 /* PayUSAOneTapToken.m in Sources */ = {isa = PBXBuildFile; fileRef = 73442E201BEAF9F200715B03 /* PayUSAOneTapToken.m */; };
+		735BB21F1BC634E500E58F46 /* iOSDefaultActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 735BB21E1BC634E500E58F46 /* iOSDefaultActivityIndicator.m */; };
+		735BB2221BC658AD00E58F46 /* PayUUINetBankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 735BB2211BC658AD00E58F46 /* PayUUINetBankingViewController.m */; };
+		73A0A8761BCD30F000243B76 /* PayUSAGetTransactionID.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A0A8751BCD30F000243B76 /* PayUSAGetTransactionID.m */; };
+		73A343391BE099DE00139F32 /* PayUUIEMIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73A343381BE099DE00139F32 /* PayUUIEMIViewController.m */; };
+		73B1D36A1C1077F1008AB1EA /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B1D3691C1077F1008AB1EA /* UIViewController+BackButtonHandler.m */; };
+		73D7BCA81BC68B9D00A1F512 /* PayUUIStoredCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73D7BCA71BC68B9D00A1F512 /* PayUUIStoredCardViewController.m */; };
+		73DE16B51C58D0FD00783703 /* amex.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16581C58D0FD00783703 /* amex.png */; };
+		73DE16B61C58D0FD00783703 /* amex_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16591C58D0FD00783703 /* amex_logo.png */; };
+		73DE16B71C58D0FD00783703 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE165A1C58D0FD00783703 /* arrow.png */; };
+		73DE16B81C58D0FD00783703 /* arrow_cb.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE165B1C58D0FD00783703 /* arrow_cb.png */; };
+		73DE16B91C58D0FD00783703 /* axis.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE165C1C58D0FD00783703 /* axis.png */; };
+		73DE16BA1C58D0FD00783703 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE165D1C58D0FD00783703 /* calendar.png */; };
+		73DE16BB1C58D0FD00783703 /* card.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE165E1C58D0FD00783703 /* card.png */; };
+		73DE16BC1C58D0FD00783703 /* cash_card.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE165F1C58D0FD00783703 /* cash_card.png */; };
+		73DE16BD1C58D0FD00783703 /* CBAllPaymentOption.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16611C58D0FD00783703 /* CBAllPaymentOption.xib */; };
+		73DE16BE1C58D0FD00783703 /* CBAllPaymentOption_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16621C58D0FD00783703 /* CBAllPaymentOption_iPhone6.xib */; };
+		73DE16BF1C58D0FD00783703 /* CBAllPaymentOption_iPhone6p.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16631C58D0FD00783703 /* CBAllPaymentOption_iPhone6p.xib */; };
+		73DE16C01C58D0FD00783703 /* CBApproveView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16651C58D0FD00783703 /* CBApproveView.xib */; };
+		73DE16C11C58D0FD00783703 /* CBApproveView_iPhone6p.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16661C58D0FD00783703 /* CBApproveView_iPhone6p.xib */; };
+		73DE16C21C58D0FD00783703 /* CBBankPageLoading.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16681C58D0FD00783703 /* CBBankPageLoading.xib */; };
+		73DE16C31C58D0FD00783703 /* CBBankPageLoading_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16691C58D0FD00783703 /* CBBankPageLoading_iPhone6.xib */; };
+		73DE16C41C58D0FD00783703 /* CBBankPageLoading_iPhone6p.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73DE166A1C58D0FD00783703 /* CBBankPageLoading_iPhone6p.xib */; };
+		73DE16C51C58D0FD00783703 /* CBCustomActivityIndicator.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73DE166F1C58D0FD00783703 /* CBCustomActivityIndicator.xib */; };
+		73DE16C61C58D0FD00783703 /* CBPassowrdWithIncorrectOTPView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16721C58D0FD00783703 /* CBPassowrdWithIncorrectOTPView.xib */; };
+		73DE16C71C58D0FD00783703 /* CBRegisterOption.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16761C58D0FD00783703 /* CBRegisterOption.xib */; };
+		73DE16C81C58D0FD00783703 /* CCBApproveView_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73DE167A1C58D0FD00783703 /* CCBApproveView_iPhone6.xib */; };
+		73DE16C91C58D0FD00783703 /* citi.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE167B1C58D0FD00783703 /* citi.png */; };
+		73DE16CA1C58D0FD00783703 /* coin.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE167C1C58D0FD00783703 /* coin.png */; };
+		73DE16CB1C58D0FD00783703 /* diner.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE167D1C58D0FD00783703 /* diner.png */; };
+		73DE16CC1C58D0FD00783703 /* discover.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE167E1C58D0FD00783703 /* discover.png */; };
+		73DE16CD1C58D0FD00783703 /* error_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE167F1C58D0FD00783703 /* error_icon.png */; };
+		73DE16CE1C58D0FD00783703 /* error_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16801C58D0FD00783703 /* error_large.png */; };
+		73DE16CF1C58D0FD00783703 /* hdfc.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16821C58D0FD00783703 /* hdfc.png */; };
+		73DE16D01C58D0FD00783703 /* hdfc_bank.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16831C58D0FD00783703 /* hdfc_bank.png */; };
+		73DE16D11C58D0FD00783703 /* hsbc.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16841C58D0FD00783703 /* hsbc.png */; };
+		73DE16D21C58D0FD00783703 /* icici.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16851C58D0FD00783703 /* icici.png */; };
+		73DE16D31C58D0FD00783703 /* icicicc.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16861C58D0FD00783703 /* icicicc.png */; };
+		73DE16D41C58D0FD00783703 /* icicinet.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16871C58D0FD00783703 /* icicinet.png */; };
+		73DE16D51C58D0FD00783703 /* icon_otp.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16881C58D0FD00783703 /* icon_otp.png */; };
+		73DE16D61C58D0FD00783703 /* icon_otp_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16891C58D0FD00783703 /* icon_otp_over.png */; };
+		73DE16D71C58D0FD00783703 /* icon_password.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE168A1C58D0FD00783703 /* icon_password.png */; };
+		73DE16D81C58D0FD00783703 /* icon_password_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE168B1C58D0FD00783703 /* icon_password_over.png */; };
+		73DE16D91C58D0FD00783703 /* idbi.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE168C1C58D0FD00783703 /* idbi.png */; };
+		73DE16DA1C58D0FD00783703 /* induslogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE168D1C58D0FD00783703 /* induslogo.png */; };
+		73DE16DB1C58D0FD00783703 /* jcb.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE168E1C58D0FD00783703 /* jcb.png */; };
+		73DE16DC1C58D0FD00783703 /* kotak.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE168F1C58D0FD00783703 /* kotak.png */; };
+		73DE16DD1C58D0FD00783703 /* kotaknet.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16901C58D0FD00783703 /* kotaknet.png */; };
+		73DE16DE1C58D0FD00783703 /* l_icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16911C58D0FD00783703 /* l_icon1.png */; };
+		73DE16DF1C58D0FD00783703 /* l_icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16921C58D0FD00783703 /* l_icon2.png */; };
+		73DE16E01C58D0FD00783703 /* l_icon3.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16931C58D0FD00783703 /* l_icon3.png */; };
+		73DE16E11C58D0FD00783703 /* l_icon4.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16941C58D0FD00783703 /* l_icon4.png */; };
+		73DE16E21C58D0FD00783703 /* laser.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16951C58D0FD00783703 /* laser.png */; };
+		73DE16E31C58D0FD00783703 /* lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16961C58D0FD00783703 /* lock.png */; };
+		73DE16E41C58D0FD00783703 /* lock2.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16971C58D0FD00783703 /* lock2.png */; };
+		73DE16E51C58D0FD00783703 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16981C58D0FD00783703 /* logo.png */; };
+		73DE16E61C58D0FD00783703 /* logo_payu.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16991C58D0FD00783703 /* logo_payu.png */; };
+		73DE16E71C58D0FD00783703 /* maestro.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE169A1C58D0FD00783703 /* maestro.png */; };
+		73DE16E81C58D0FD00783703 /* master.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE169B1C58D0FD00783703 /* master.png */; };
+		73DE16E91C58D0FD00783703 /* otp_icon_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE169C1C58D0FD00783703 /* otp_icon_large.png */; };
+		73DE16EA1C58D0FD00783703 /* otp_icon_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE169D1C58D0FD00783703 /* otp_icon_over.png */; };
+		73DE16EB1C58D0FD00783703 /* otpicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE169E1C58D0FD00783703 /* otpicon.png */; };
+		73DE16EC1C58D0FD00783703 /* password_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE169F1C58D0FD00783703 /* password_icon.png */; };
+		73DE16ED1C58D0FD00783703 /* password_icon_large.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16A01C58D0FD00783703 /* password_icon_large.png */; };
+		73DE16EE1C58D0FD00783703 /* password_icon_over.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16A11C58D0FD00783703 /* password_icon_over.png */; };
+		73DE16EF1C58D0FD00783703 /* passwordicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16A21C58D0FD00783703 /* passwordicon.png */; };
+		73DE16F01C58D0FD00783703 /* payu_money.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16A41C58D0FD00783703 /* payu_money.png */; };
+		73DE16F11C58D0FD00783703 /* PayUCBInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16A51C58D0FD00783703 /* PayUCBInfo.plist */; };
+		73DE16F21C58D0FD00783703 /* RegenerateOTPView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16A71C58D0FD00783703 /* RegenerateOTPView.xib */; };
+		73DE16F31C58D0FD00783703 /* RegenerateOTPView_iPhone6.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16A81C58D0FD00783703 /* RegenerateOTPView_iPhone6.xib */; };
+		73DE16F41C58D0FD00783703 /* RegenerateOTPView_iPhone6p.xib in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16A91C58D0FD00783703 /* RegenerateOTPView_iPhone6p.xib */; };
+		73DE16F51C58D0FD00783703 /* reload_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16AA1C58D0FD00783703 /* reload_icon.png */; };
+		73DE16F61C58D0FD00783703 /* sbi.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16AB1C58D0FD00783703 /* sbi.png */; };
+		73DE16F71C58D0FD00783703 /* sbinet.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16AC1C58D0FD00783703 /* sbinet.png */; };
+		73DE16F81C58D0FD00783703 /* sc.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16AD1C58D0FD00783703 /* sc.png */; };
+		73DE16F91C58D0FD00783703 /* slider.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16AE1C58D0FD00783703 /* slider.png */; };
+		73DE16FA1C58D0FD00783703 /* store_card.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16AF1C58D0FD00783703 /* store_card.png */; };
+		73DE16FB1C58D0FD00783703 /* trusticon.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16B01C58D0FD00783703 /* trusticon.png */; };
+		73DE16FC1C58D0FD00783703 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16B11C58D0FD00783703 /* user.png */; };
+		73DE16FD1C58D0FD00783703 /* visa.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16B21C58D0FD00783703 /* visa.png */; };
+		73DE16FE1C58D0FD00783703 /* yesbank_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 73DE16B31C58D0FD00783703 /* yesbank_logo.png */; };
+		73DE16FF1C58D0FD00783703 /* libiOSCustomBrowser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73DE16B41C58D0FD00783703 /* libiOSCustomBrowser.a */; };
+		73DE171B1C58D11600783703 /* libPayU_iOS_CoreSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73DE17001C58D11500783703 /* libPayU_iOS_CoreSDK.a */; };
+		73DE171C1C58D11600783703 /* PayUSDKInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 73DE17141C58D11600783703 /* PayUSDKInfo.plist */; };
 		73E9FD211C0712D200033AF3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73E9FD201C0712D200033AF3 /* SystemConfiguration.framework */; };
 		73E9FD231C0718E400033AF3 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 73E9FD221C0718E400033AF3 /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		731077B11C1AA8E50016110D /* libPayU_iOS_CoreSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPayU_iOS_CoreSDK.a; sourceTree = "<group>"; };
-		731077B31C1AA8E50016110D /* CoreTelephony.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTelephony.h; sourceTree = "<group>"; };
-		731077B41C1AA8E50016110D /* PayU_iOS_CoreSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayU_iOS_CoreSDK.h; sourceTree = "<group>"; };
-		731077B51C1AA8E50016110D /* PayUConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUConstants.h; sourceTree = "<group>"; };
-		731077B61C1AA8E50016110D /* PayUCreatePostParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUCreatePostParam.h; sourceTree = "<group>"; };
-		731077B71C1AA8E50016110D /* PayUCreateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUCreateRequest.h; sourceTree = "<group>"; };
-		731077B81C1AA8E50016110D /* PayUDontUseThisClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUDontUseThisClass.h; sourceTree = "<group>"; };
-		731077B91C1AA8E50016110D /* PayUFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUFileManager.h; sourceTree = "<group>"; };
-		731077BA1C1AA8E50016110D /* PayUJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUJSONParser.h; sourceTree = "<group>"; };
-		731077BB1C1AA8E50016110D /* PayUModelCashCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelCashCard.h; sourceTree = "<group>"; };
-		731077BC1C1AA8E50016110D /* PayUModelEMI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelEMI.h; sourceTree = "<group>"; };
-		731077BD1C1AA8E50016110D /* PayUModelHashes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelHashes.h; sourceTree = "<group>"; };
-		731077BE1C1AA8E50016110D /* PayUModelNetBanking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelNetBanking.h; sourceTree = "<group>"; };
-		731077BF1C1AA8E50016110D /* PayUModelOfferStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelOfferStatus.h; sourceTree = "<group>"; };
-		731077C01C1AA8E50016110D /* PayUModelPaymentParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelPaymentParams.h; sourceTree = "<group>"; };
-		731077C11C1AA8E50016110D /* PayUModelPaymentRelatedDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelPaymentRelatedDetail.h; sourceTree = "<group>"; };
-		731077C21C1AA8E50016110D /* PayUModelStoredCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelStoredCard.h; sourceTree = "<group>"; };
-		731077C31C1AA8E50016110D /* PayUReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUReachability.h; sourceTree = "<group>"; };
-		731077C41C1AA8E50016110D /* PayUReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUReachabilityManager.h; sourceTree = "<group>"; };
-		731077C51C1AA8E50016110D /* PayUSDKInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PayUSDKInfo.plist; sourceTree = "<group>"; };
-		731077C61C1AA8E50016110D /* PayUSharedDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUSharedDataManager.h; sourceTree = "<group>"; };
-		731077C71C1AA8E50016110D /* PayUUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUUtils.h; sourceTree = "<group>"; };
-		731077C81C1AA8E50016110D /* PayUValidations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUValidations.h; sourceTree = "<group>"; };
-		731077C91C1AA8E50016110D /* PayUWebServiceResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUWebServiceResponse.h; sourceTree = "<group>"; };
-		731077CA1C1AA8E50016110D /* PayUWebViewResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUWebViewResponse.h; sourceTree = "<group>"; };
-		731077CB1C1AA8E50016110D /* PayUWSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUWSManager.h; sourceTree = "<group>"; };
 		731265691BB958AC00250A86 /* SeamlessTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeamlessTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7312656D1BB958AC00250A86 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7312656F1BB958AC00250A86 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -154,94 +131,6 @@
 		735BB21E1BC634E500E58F46 /* iOSDefaultActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSDefaultActivityIndicator.m; sourceTree = "<group>"; };
 		735BB2201BC658AD00E58F46 /* PayUUINetBankingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUUINetBankingViewController.h; sourceTree = "<group>"; };
 		735BB2211BC658AD00E58F46 /* PayUUINetBankingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PayUUINetBankingViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		73753FF21C218B4800D261B2 /* amex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amex.png; sourceTree = "<group>"; };
-		73753FF31C218B4800D261B2 /* amex_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amex_logo.png; sourceTree = "<group>"; };
-		73753FF41C218B4800D261B2 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
-		73753FF51C218B4800D261B2 /* arrow_cb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_cb.png; sourceTree = "<group>"; };
-		73753FF61C218B4800D261B2 /* axis_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = axis_logo.png; sourceTree = "<group>"; };
-		73753FF71C218B4800D261B2 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
-		73753FF81C218B4800D261B2 /* card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card.png; sourceTree = "<group>"; };
-		73753FF91C218B4800D261B2 /* cash_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cash_card.png; sourceTree = "<group>"; };
-		73753FFA1C218B4800D261B2 /* CBAllPaymentOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAllPaymentOption.h; sourceTree = "<group>"; };
-		73753FFB1C218B4800D261B2 /* CBAllPaymentOption.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBAllPaymentOption.xib; sourceTree = "<group>"; };
-		73753FFC1C218B4800D261B2 /* CBAllPaymentOption_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBAllPaymentOption_iPhone6.xib; sourceTree = "<group>"; };
-		73753FFD1C218B4800D261B2 /* CBAllPaymentOption_iPhone6p.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBAllPaymentOption_iPhone6p.xib; sourceTree = "<group>"; };
-		73753FFE1C218B4800D261B2 /* CBApproveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBApproveView.h; sourceTree = "<group>"; };
-		73753FFF1C218B4800D261B2 /* CBApproveView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBApproveView.xib; sourceTree = "<group>"; };
-		737540001C218B4800D261B2 /* CBApproveView_iPhone6p.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBApproveView_iPhone6p.xib; sourceTree = "<group>"; };
-		737540011C218B4800D261B2 /* CBBankPageLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBBankPageLoading.h; sourceTree = "<group>"; };
-		737540021C218B4800D261B2 /* CBBankPageLoading.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBBankPageLoading.xib; sourceTree = "<group>"; };
-		737540031C218B4800D261B2 /* CBBankPageLoading_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBBankPageLoading_iPhone6.xib; sourceTree = "<group>"; };
-		737540041C218B4800D261B2 /* CBBankPageLoading_iPhone6p.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBBankPageLoading_iPhone6p.xib; sourceTree = "<group>"; };
-		737540051C218B4800D261B2 /* CBConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBConnection.h; sourceTree = "<group>"; };
-		737540061C218B4800D261B2 /* CBConnectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBConnectionHandler.h; sourceTree = "<group>"; };
-		737540071C218B4800D261B2 /* CBConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBConstant.h; sourceTree = "<group>"; };
-		737540081C218B4800D261B2 /* CBCustomActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCustomActivityIndicator.h; sourceTree = "<group>"; };
-		737540091C218B4800D261B2 /* CBCustomActivityIndicator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBCustomActivityIndicator.xib; sourceTree = "<group>"; };
-		7375400A1C218B4800D261B2 /* CBFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBFileManager.h; sourceTree = "<group>"; };
-		7375400B1C218B4800D261B2 /* CBReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBReachability.h; sourceTree = "<group>"; };
-		7375400C1C218B4800D261B2 /* CBReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBReachabilityManager.h; sourceTree = "<group>"; };
-		7375400D1C218B4800D261B2 /* CBUtile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBUtile.h; sourceTree = "<group>"; };
-		7375400E1C218B4800D261B2 /* CBWKConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBWKConnection.h; sourceTree = "<group>"; };
-		7375400F1C218B4800D261B2 /* CBWSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBWSManager.h; sourceTree = "<group>"; };
-		737540101C218B4800D261B2 /* CCBApproveView_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCBApproveView_iPhone6.xib; sourceTree = "<group>"; };
-		737540111C218B4800D261B2 /* citi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = citi.png; sourceTree = "<group>"; };
-		737540121C218B4800D261B2 /* coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin.png; sourceTree = "<group>"; };
-		737540131C218B4800D261B2 /* diner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diner.png; sourceTree = "<group>"; };
-		737540141C218B4800D261B2 /* discover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discover.png; sourceTree = "<group>"; };
-		737540151C218B4800D261B2 /* error_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = error_icon.png; sourceTree = "<group>"; };
-		737540161C218B4800D261B2 /* error_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = error_large.png; sourceTree = "<group>"; };
-		737540171C218B4800D261B2 /* GZip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZip.h; sourceTree = "<group>"; };
-		737540181C218B4800D261B2 /* hdfc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hdfc.png; sourceTree = "<group>"; };
-		737540191C218B4800D261B2 /* hdfc_bank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hdfc_bank.png; sourceTree = "<group>"; };
-		7375401A1C218B4800D261B2 /* hsbc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hsbc.png; sourceTree = "<group>"; };
-		7375401B1C218B4800D261B2 /* icici.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icici.png; sourceTree = "<group>"; };
-		7375401C1C218B4800D261B2 /* icicicc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icicicc.png; sourceTree = "<group>"; };
-		7375401D1C218B4800D261B2 /* icicinet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icicinet.png; sourceTree = "<group>"; };
-		7375401E1C218B4800D261B2 /* icon_otp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_otp.png; sourceTree = "<group>"; };
-		7375401F1C218B4800D261B2 /* icon_otp_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_otp_over.png; sourceTree = "<group>"; };
-		737540201C218B4800D261B2 /* icon_password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_password.png; sourceTree = "<group>"; };
-		737540211C218B4800D261B2 /* icon_password_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_password_over.png; sourceTree = "<group>"; };
-		737540221C218B4800D261B2 /* idbi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = idbi.png; sourceTree = "<group>"; };
-		737540231C218B4800D261B2 /* induslogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = induslogo.png; sourceTree = "<group>"; };
-		737540241C218B4800D261B2 /* jcb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jcb.png; sourceTree = "<group>"; };
-		737540251C218B4800D261B2 /* kotak.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kotak.png; sourceTree = "<group>"; };
-		737540261C218B4800D261B2 /* kotaknet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kotaknet.png; sourceTree = "<group>"; };
-		737540271C218B4800D261B2 /* l_icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = l_icon1.png; sourceTree = "<group>"; };
-		737540281C218B4800D261B2 /* l_icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = l_icon2.png; sourceTree = "<group>"; };
-		737540291C218B4800D261B2 /* l_icon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = l_icon3.png; sourceTree = "<group>"; };
-		7375402A1C218B4800D261B2 /* l_icon4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = l_icon4.png; sourceTree = "<group>"; };
-		7375402B1C218B4800D261B2 /* laser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = laser.png; sourceTree = "<group>"; };
-		7375402C1C218B4800D261B2 /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
-		7375402D1C218B4800D261B2 /* lock2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock2.png; sourceTree = "<group>"; };
-		7375402E1C218B4800D261B2 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
-		7375402F1C218B4800D261B2 /* logo_payu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_payu.png; sourceTree = "<group>"; };
-		737540301C218B4800D261B2 /* maestro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maestro.png; sourceTree = "<group>"; };
-		737540311C218B4800D261B2 /* master.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = master.png; sourceTree = "<group>"; };
-		737540321C218B4800D261B2 /* otp_icon_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otp_icon_large.png; sourceTree = "<group>"; };
-		737540331C218B4800D261B2 /* otp_icon_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otp_icon_over.png; sourceTree = "<group>"; };
-		737540341C218B4800D261B2 /* otpicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otpicon.png; sourceTree = "<group>"; };
-		737540351C218B4800D261B2 /* password_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = password_icon.png; sourceTree = "<group>"; };
-		737540361C218B4800D261B2 /* password_icon_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = password_icon_large.png; sourceTree = "<group>"; };
-		737540371C218B4800D261B2 /* password_icon_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = password_icon_over.png; sourceTree = "<group>"; };
-		737540381C218B4800D261B2 /* passwordicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = passwordicon.png; sourceTree = "<group>"; };
-		737540391C218B4800D261B2 /* PayU_CB_SDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayU_CB_SDK.h; sourceTree = "<group>"; };
-		7375403A1C218B4800D261B2 /* payu_money.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = payu_money.png; sourceTree = "<group>"; };
-		7375403B1C218B4800D261B2 /* PayUCBInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PayUCBInfo.plist; sourceTree = "<group>"; };
-		7375403C1C218B4800D261B2 /* RegenerateOTPView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegenerateOTPView.h; sourceTree = "<group>"; };
-		7375403D1C218B4800D261B2 /* RegenerateOTPView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegenerateOTPView.xib; sourceTree = "<group>"; };
-		7375403E1C218B4800D261B2 /* RegenerateOTPView_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegenerateOTPView_iPhone6.xib; sourceTree = "<group>"; };
-		7375403F1C218B4800D261B2 /* RegenerateOTPView_iPhone6p.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegenerateOTPView_iPhone6p.xib; sourceTree = "<group>"; };
-		737540401C218B4800D261B2 /* sbi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sbi.png; sourceTree = "<group>"; };
-		737540411C218B4800D261B2 /* sbinet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sbinet.png; sourceTree = "<group>"; };
-		737540421C218B4800D261B2 /* sc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sc.png; sourceTree = "<group>"; };
-		737540431C218B4800D261B2 /* slider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider.png; sourceTree = "<group>"; };
-		737540441C218B4800D261B2 /* store_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = store_card.png; sourceTree = "<group>"; };
-		737540451C218B4800D261B2 /* trusticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trusticon.png; sourceTree = "<group>"; };
-		737540461C218B4800D261B2 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
-		737540471C218B4800D261B2 /* visa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = visa.png; sourceTree = "<group>"; };
-		737540481C218B4800D261B2 /* yesbank_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yesbank_logo.png; sourceTree = "<group>"; };
-		737540491C218B4800D261B2 /* libiOSCustomBrowser.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libiOSCustomBrowser.a; sourceTree = "<group>"; };
 		7376148F1BE343ED00B26617 /* PayUHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayUHeader.h; sourceTree = "<group>"; };
 		73A0A8741BCD30F000243B76 /* PayUSAGetTransactionID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUSAGetTransactionID.h; sourceTree = "<group>"; };
 		73A0A8751BCD30F000243B76 /* PayUSAGetTransactionID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayUSAGetTransactionID.m; sourceTree = "<group>"; };
@@ -251,6 +140,125 @@
 		73B1D3691C1077F1008AB1EA /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
 		73D7BCA61BC68B9D00A1F512 /* PayUUIStoredCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUUIStoredCardViewController.h; sourceTree = "<group>"; };
 		73D7BCA71BC68B9D00A1F512 /* PayUUIStoredCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = PayUUIStoredCardViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		73DE16581C58D0FD00783703 /* amex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amex.png; sourceTree = "<group>"; };
+		73DE16591C58D0FD00783703 /* amex_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = amex_logo.png; sourceTree = "<group>"; };
+		73DE165A1C58D0FD00783703 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		73DE165B1C58D0FD00783703 /* arrow_cb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_cb.png; sourceTree = "<group>"; };
+		73DE165C1C58D0FD00783703 /* axis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = axis.png; sourceTree = "<group>"; };
+		73DE165D1C58D0FD00783703 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
+		73DE165E1C58D0FD00783703 /* card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = card.png; sourceTree = "<group>"; };
+		73DE165F1C58D0FD00783703 /* cash_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cash_card.png; sourceTree = "<group>"; };
+		73DE16601C58D0FD00783703 /* CBAllPaymentOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAllPaymentOption.h; sourceTree = "<group>"; };
+		73DE16611C58D0FD00783703 /* CBAllPaymentOption.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBAllPaymentOption.xib; sourceTree = "<group>"; };
+		73DE16621C58D0FD00783703 /* CBAllPaymentOption_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBAllPaymentOption_iPhone6.xib; sourceTree = "<group>"; };
+		73DE16631C58D0FD00783703 /* CBAllPaymentOption_iPhone6p.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBAllPaymentOption_iPhone6p.xib; sourceTree = "<group>"; };
+		73DE16641C58D0FD00783703 /* CBApproveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBApproveView.h; sourceTree = "<group>"; };
+		73DE16651C58D0FD00783703 /* CBApproveView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBApproveView.xib; sourceTree = "<group>"; };
+		73DE16661C58D0FD00783703 /* CBApproveView_iPhone6p.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBApproveView_iPhone6p.xib; sourceTree = "<group>"; };
+		73DE16671C58D0FD00783703 /* CBBankPageLoading.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBBankPageLoading.h; sourceTree = "<group>"; };
+		73DE16681C58D0FD00783703 /* CBBankPageLoading.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBBankPageLoading.xib; sourceTree = "<group>"; };
+		73DE16691C58D0FD00783703 /* CBBankPageLoading_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBBankPageLoading_iPhone6.xib; sourceTree = "<group>"; };
+		73DE166A1C58D0FD00783703 /* CBBankPageLoading_iPhone6p.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBBankPageLoading_iPhone6p.xib; sourceTree = "<group>"; };
+		73DE166B1C58D0FD00783703 /* CBConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBConnection.h; sourceTree = "<group>"; };
+		73DE166C1C58D0FD00783703 /* CBConnectionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBConnectionHandler.h; sourceTree = "<group>"; };
+		73DE166D1C58D0FD00783703 /* CBConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBConstant.h; sourceTree = "<group>"; };
+		73DE166E1C58D0FD00783703 /* CBCustomActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCustomActivityIndicator.h; sourceTree = "<group>"; };
+		73DE166F1C58D0FD00783703 /* CBCustomActivityIndicator.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBCustomActivityIndicator.xib; sourceTree = "<group>"; };
+		73DE16701C58D0FD00783703 /* CBFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBFileManager.h; sourceTree = "<group>"; };
+		73DE16711C58D0FD00783703 /* CBPassowrdWithIncorrectOTPView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBPassowrdWithIncorrectOTPView.h; sourceTree = "<group>"; };
+		73DE16721C58D0FD00783703 /* CBPassowrdWithIncorrectOTPView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBPassowrdWithIncorrectOTPView.xib; sourceTree = "<group>"; };
+		73DE16731C58D0FD00783703 /* CBReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBReachability.h; sourceTree = "<group>"; };
+		73DE16741C58D0FD00783703 /* CBReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBReachabilityManager.h; sourceTree = "<group>"; };
+		73DE16751C58D0FD00783703 /* CBRegisterOption.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBRegisterOption.h; sourceTree = "<group>"; };
+		73DE16761C58D0FD00783703 /* CBRegisterOption.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBRegisterOption.xib; sourceTree = "<group>"; };
+		73DE16771C58D0FD00783703 /* CBUtile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBUtile.h; sourceTree = "<group>"; };
+		73DE16781C58D0FD00783703 /* CBWKConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBWKConnection.h; sourceTree = "<group>"; };
+		73DE16791C58D0FD00783703 /* CBWSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBWSManager.h; sourceTree = "<group>"; };
+		73DE167A1C58D0FD00783703 /* CCBApproveView_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CCBApproveView_iPhone6.xib; sourceTree = "<group>"; };
+		73DE167B1C58D0FD00783703 /* citi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = citi.png; sourceTree = "<group>"; };
+		73DE167C1C58D0FD00783703 /* coin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coin.png; sourceTree = "<group>"; };
+		73DE167D1C58D0FD00783703 /* diner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diner.png; sourceTree = "<group>"; };
+		73DE167E1C58D0FD00783703 /* discover.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discover.png; sourceTree = "<group>"; };
+		73DE167F1C58D0FD00783703 /* error_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = error_icon.png; sourceTree = "<group>"; };
+		73DE16801C58D0FD00783703 /* error_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = error_large.png; sourceTree = "<group>"; };
+		73DE16811C58D0FD00783703 /* GZip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZip.h; sourceTree = "<group>"; };
+		73DE16821C58D0FD00783703 /* hdfc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hdfc.png; sourceTree = "<group>"; };
+		73DE16831C58D0FD00783703 /* hdfc_bank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hdfc_bank.png; sourceTree = "<group>"; };
+		73DE16841C58D0FD00783703 /* hsbc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hsbc.png; sourceTree = "<group>"; };
+		73DE16851C58D0FD00783703 /* icici.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icici.png; sourceTree = "<group>"; };
+		73DE16861C58D0FD00783703 /* icicicc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icicicc.png; sourceTree = "<group>"; };
+		73DE16871C58D0FD00783703 /* icicinet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icicinet.png; sourceTree = "<group>"; };
+		73DE16881C58D0FD00783703 /* icon_otp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_otp.png; sourceTree = "<group>"; };
+		73DE16891C58D0FD00783703 /* icon_otp_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_otp_over.png; sourceTree = "<group>"; };
+		73DE168A1C58D0FD00783703 /* icon_password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_password.png; sourceTree = "<group>"; };
+		73DE168B1C58D0FD00783703 /* icon_password_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_password_over.png; sourceTree = "<group>"; };
+		73DE168C1C58D0FD00783703 /* idbi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = idbi.png; sourceTree = "<group>"; };
+		73DE168D1C58D0FD00783703 /* induslogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = induslogo.png; sourceTree = "<group>"; };
+		73DE168E1C58D0FD00783703 /* jcb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jcb.png; sourceTree = "<group>"; };
+		73DE168F1C58D0FD00783703 /* kotak.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kotak.png; sourceTree = "<group>"; };
+		73DE16901C58D0FD00783703 /* kotaknet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kotaknet.png; sourceTree = "<group>"; };
+		73DE16911C58D0FD00783703 /* l_icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = l_icon1.png; sourceTree = "<group>"; };
+		73DE16921C58D0FD00783703 /* l_icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = l_icon2.png; sourceTree = "<group>"; };
+		73DE16931C58D0FD00783703 /* l_icon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = l_icon3.png; sourceTree = "<group>"; };
+		73DE16941C58D0FD00783703 /* l_icon4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = l_icon4.png; sourceTree = "<group>"; };
+		73DE16951C58D0FD00783703 /* laser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = laser.png; sourceTree = "<group>"; };
+		73DE16961C58D0FD00783703 /* lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock.png; sourceTree = "<group>"; };
+		73DE16971C58D0FD00783703 /* lock2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lock2.png; sourceTree = "<group>"; };
+		73DE16981C58D0FD00783703 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		73DE16991C58D0FD00783703 /* logo_payu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_payu.png; sourceTree = "<group>"; };
+		73DE169A1C58D0FD00783703 /* maestro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maestro.png; sourceTree = "<group>"; };
+		73DE169B1C58D0FD00783703 /* master.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = master.png; sourceTree = "<group>"; };
+		73DE169C1C58D0FD00783703 /* otp_icon_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otp_icon_large.png; sourceTree = "<group>"; };
+		73DE169D1C58D0FD00783703 /* otp_icon_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otp_icon_over.png; sourceTree = "<group>"; };
+		73DE169E1C58D0FD00783703 /* otpicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = otpicon.png; sourceTree = "<group>"; };
+		73DE169F1C58D0FD00783703 /* password_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = password_icon.png; sourceTree = "<group>"; };
+		73DE16A01C58D0FD00783703 /* password_icon_large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = password_icon_large.png; sourceTree = "<group>"; };
+		73DE16A11C58D0FD00783703 /* password_icon_over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = password_icon_over.png; sourceTree = "<group>"; };
+		73DE16A21C58D0FD00783703 /* passwordicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = passwordicon.png; sourceTree = "<group>"; };
+		73DE16A31C58D0FD00783703 /* PayU_CB_SDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayU_CB_SDK.h; sourceTree = "<group>"; };
+		73DE16A41C58D0FD00783703 /* payu_money.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = payu_money.png; sourceTree = "<group>"; };
+		73DE16A51C58D0FD00783703 /* PayUCBInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PayUCBInfo.plist; sourceTree = "<group>"; };
+		73DE16A61C58D0FD00783703 /* RegenerateOTPView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegenerateOTPView.h; sourceTree = "<group>"; };
+		73DE16A71C58D0FD00783703 /* RegenerateOTPView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegenerateOTPView.xib; sourceTree = "<group>"; };
+		73DE16A81C58D0FD00783703 /* RegenerateOTPView_iPhone6.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegenerateOTPView_iPhone6.xib; sourceTree = "<group>"; };
+		73DE16A91C58D0FD00783703 /* RegenerateOTPView_iPhone6p.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegenerateOTPView_iPhone6p.xib; sourceTree = "<group>"; };
+		73DE16AA1C58D0FD00783703 /* reload_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload_icon.png; sourceTree = "<group>"; };
+		73DE16AB1C58D0FD00783703 /* sbi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sbi.png; sourceTree = "<group>"; };
+		73DE16AC1C58D0FD00783703 /* sbinet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sbinet.png; sourceTree = "<group>"; };
+		73DE16AD1C58D0FD00783703 /* sc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sc.png; sourceTree = "<group>"; };
+		73DE16AE1C58D0FD00783703 /* slider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider.png; sourceTree = "<group>"; };
+		73DE16AF1C58D0FD00783703 /* store_card.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = store_card.png; sourceTree = "<group>"; };
+		73DE16B01C58D0FD00783703 /* trusticon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trusticon.png; sourceTree = "<group>"; };
+		73DE16B11C58D0FD00783703 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
+		73DE16B21C58D0FD00783703 /* visa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = visa.png; sourceTree = "<group>"; };
+		73DE16B31C58D0FD00783703 /* yesbank_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yesbank_logo.png; sourceTree = "<group>"; };
+		73DE16B41C58D0FD00783703 /* libiOSCustomBrowser.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libiOSCustomBrowser.a; sourceTree = "<group>"; };
+		73DE17001C58D11500783703 /* libPayU_iOS_CoreSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPayU_iOS_CoreSDK.a; sourceTree = "<group>"; };
+		73DE17021C58D11600783703 /* CoreTelephony.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTelephony.h; sourceTree = "<group>"; };
+		73DE17031C58D11600783703 /* PayU_iOS_CoreSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayU_iOS_CoreSDK.h; sourceTree = "<group>"; };
+		73DE17041C58D11600783703 /* PayUConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUConstants.h; sourceTree = "<group>"; };
+		73DE17051C58D11600783703 /* PayUCreatePostParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUCreatePostParam.h; sourceTree = "<group>"; };
+		73DE17061C58D11600783703 /* PayUCreateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUCreateRequest.h; sourceTree = "<group>"; };
+		73DE17071C58D11600783703 /* PayUDontUseThisClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUDontUseThisClass.h; sourceTree = "<group>"; };
+		73DE17081C58D11600783703 /* PayUFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUFileManager.h; sourceTree = "<group>"; };
+		73DE17091C58D11600783703 /* PayUJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUJSONParser.h; sourceTree = "<group>"; };
+		73DE170A1C58D11600783703 /* PayUModelCashCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelCashCard.h; sourceTree = "<group>"; };
+		73DE170B1C58D11600783703 /* PayUModelEMI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelEMI.h; sourceTree = "<group>"; };
+		73DE170C1C58D11600783703 /* PayUModelHashes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelHashes.h; sourceTree = "<group>"; };
+		73DE170D1C58D11600783703 /* PayUModelNetBanking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelNetBanking.h; sourceTree = "<group>"; };
+		73DE170E1C58D11600783703 /* PayUModelOfferStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelOfferStatus.h; sourceTree = "<group>"; };
+		73DE170F1C58D11600783703 /* PayUModelPaymentParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelPaymentParams.h; sourceTree = "<group>"; };
+		73DE17101C58D11600783703 /* PayUModelPaymentRelatedDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelPaymentRelatedDetail.h; sourceTree = "<group>"; };
+		73DE17111C58D11600783703 /* PayUModelStoredCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelStoredCard.h; sourceTree = "<group>"; };
+		73DE17121C58D11600783703 /* PayUReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUReachability.h; sourceTree = "<group>"; };
+		73DE17131C58D11600783703 /* PayUReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUReachabilityManager.h; sourceTree = "<group>"; };
+		73DE17141C58D11600783703 /* PayUSDKInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PayUSDKInfo.plist; sourceTree = "<group>"; };
+		73DE17151C58D11600783703 /* PayUSharedDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUSharedDataManager.h; sourceTree = "<group>"; };
+		73DE17161C58D11600783703 /* PayUUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUUtils.h; sourceTree = "<group>"; };
+		73DE17171C58D11600783703 /* PayUValidations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUValidations.h; sourceTree = "<group>"; };
+		73DE17181C58D11600783703 /* PayUWebServiceResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUWebServiceResponse.h; sourceTree = "<group>"; };
+		73DE17191C58D11600783703 /* PayUWebViewResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUWebViewResponse.h; sourceTree = "<group>"; };
+		73DE171A1C58D11600783703 /* PayUWSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUWSManager.h; sourceTree = "<group>"; };
 		73E9FD201C0712D200033AF3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		73E9FD221C0718E400033AF3 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -261,47 +269,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				73E9FD231C0718E400033AF3 /* libz.tbd in Frameworks */,
-				737540911C218B4800D261B2 /* libiOSCustomBrowser.a in Frameworks */,
-				731077CC1C1AA8E50016110D /* libPayU_iOS_CoreSDK.a in Frameworks */,
 				73E9FD211C0712D200033AF3 /* SystemConfiguration.framework in Frameworks */,
+				73DE171B1C58D11600783703 /* libPayU_iOS_CoreSDK.a in Frameworks */,
+				73DE16FF1C58D0FD00783703 /* libiOSCustomBrowser.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		731077B21C1AA8E50016110D /* PayU_iOS_CoreSDK */ = {
-			isa = PBXGroup;
-			children = (
-				731077B31C1AA8E50016110D /* CoreTelephony.h */,
-				731077B41C1AA8E50016110D /* PayU_iOS_CoreSDK.h */,
-				731077B51C1AA8E50016110D /* PayUConstants.h */,
-				731077B61C1AA8E50016110D /* PayUCreatePostParam.h */,
-				731077B71C1AA8E50016110D /* PayUCreateRequest.h */,
-				731077B81C1AA8E50016110D /* PayUDontUseThisClass.h */,
-				731077B91C1AA8E50016110D /* PayUFileManager.h */,
-				731077BA1C1AA8E50016110D /* PayUJSONParser.h */,
-				731077BB1C1AA8E50016110D /* PayUModelCashCard.h */,
-				731077BC1C1AA8E50016110D /* PayUModelEMI.h */,
-				731077BD1C1AA8E50016110D /* PayUModelHashes.h */,
-				731077BE1C1AA8E50016110D /* PayUModelNetBanking.h */,
-				731077BF1C1AA8E50016110D /* PayUModelOfferStatus.h */,
-				731077C01C1AA8E50016110D /* PayUModelPaymentParams.h */,
-				731077C11C1AA8E50016110D /* PayUModelPaymentRelatedDetail.h */,
-				731077C21C1AA8E50016110D /* PayUModelStoredCard.h */,
-				731077C31C1AA8E50016110D /* PayUReachability.h */,
-				731077C41C1AA8E50016110D /* PayUReachabilityManager.h */,
-				731077C51C1AA8E50016110D /* PayUSDKInfo.plist */,
-				731077C61C1AA8E50016110D /* PayUSharedDataManager.h */,
-				731077C71C1AA8E50016110D /* PayUUtils.h */,
-				731077C81C1AA8E50016110D /* PayUValidations.h */,
-				731077C91C1AA8E50016110D /* PayUWebServiceResponse.h */,
-				731077CA1C1AA8E50016110D /* PayUWebViewResponse.h */,
-				731077CB1C1AA8E50016110D /* PayUWSManager.h */,
-			);
-			path = PayU_iOS_CoreSDK;
-			sourceTree = "<group>";
-		};
 		731265601BB958AC00250A86 = {
 			isa = PBXGroup;
 			children = (
@@ -327,14 +303,14 @@
 				73B1D3671C1077F1008AB1EA /* UIViewController Category */,
 				731265701BB958AC00250A86 /* AppDelegate.m */,
 				731265751BB958AC00250A86 /* Main.storyboard */,
+				73DE17001C58D11500783703 /* libPayU_iOS_CoreSDK.a */,
+				73DE17011C58D11600783703 /* PayU_iOS_CoreSDK */,
+				73DE16571C58D0FD00783703 /* iOSCustomBrowser */,
+				73DE16B41C58D0FD00783703 /* libiOSCustomBrowser.a */,
 				7312658E1BBA92D900250A86 /* PayUSAStartScreenViewController.h */,
 				7312658F1BBA92D900250A86 /* PayUSAStartScreenViewController.m */,
 				733040A71BC51ED80011405C /* PayUUIPaymentOptionViewController.h */,
 				733040A81BC51ED80011405C /* PayUUIPaymentOptionViewController.m */,
-				73753FF11C218B4800D261B2 /* iOSCustomBrowser */,
-				737540491C218B4800D261B2 /* libiOSCustomBrowser.a */,
-				731077B11C1AA8E50016110D /* libPayU_iOS_CoreSDK.a */,
-				731077B21C1AA8E50016110D /* PayU_iOS_CoreSDK */,
 				733040AE1BC5288C0011405C /* PayUUICCDCViewController.m */,
 				733040AD1BC5288C0011405C /* PayUUICCDCViewController.h */,
 				735BB2201BC658AD00E58F46 /* PayUUINetBankingViewController.h */,
@@ -371,100 +347,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		73753FF11C218B4800D261B2 /* iOSCustomBrowser */ = {
-			isa = PBXGroup;
-			children = (
-				73753FF21C218B4800D261B2 /* amex.png */,
-				73753FF31C218B4800D261B2 /* amex_logo.png */,
-				73753FF41C218B4800D261B2 /* arrow.png */,
-				73753FF51C218B4800D261B2 /* arrow_cb.png */,
-				73753FF61C218B4800D261B2 /* axis_logo.png */,
-				73753FF71C218B4800D261B2 /* calendar.png */,
-				73753FF81C218B4800D261B2 /* card.png */,
-				73753FF91C218B4800D261B2 /* cash_card.png */,
-				73753FFA1C218B4800D261B2 /* CBAllPaymentOption.h */,
-				73753FFB1C218B4800D261B2 /* CBAllPaymentOption.xib */,
-				73753FFC1C218B4800D261B2 /* CBAllPaymentOption_iPhone6.xib */,
-				73753FFD1C218B4800D261B2 /* CBAllPaymentOption_iPhone6p.xib */,
-				73753FFE1C218B4800D261B2 /* CBApproveView.h */,
-				73753FFF1C218B4800D261B2 /* CBApproveView.xib */,
-				737540001C218B4800D261B2 /* CBApproveView_iPhone6p.xib */,
-				737540011C218B4800D261B2 /* CBBankPageLoading.h */,
-				737540021C218B4800D261B2 /* CBBankPageLoading.xib */,
-				737540031C218B4800D261B2 /* CBBankPageLoading_iPhone6.xib */,
-				737540041C218B4800D261B2 /* CBBankPageLoading_iPhone6p.xib */,
-				737540051C218B4800D261B2 /* CBConnection.h */,
-				737540061C218B4800D261B2 /* CBConnectionHandler.h */,
-				737540071C218B4800D261B2 /* CBConstant.h */,
-				737540081C218B4800D261B2 /* CBCustomActivityIndicator.h */,
-				737540091C218B4800D261B2 /* CBCustomActivityIndicator.xib */,
-				7375400A1C218B4800D261B2 /* CBFileManager.h */,
-				7375400B1C218B4800D261B2 /* CBReachability.h */,
-				7375400C1C218B4800D261B2 /* CBReachabilityManager.h */,
-				7375400D1C218B4800D261B2 /* CBUtile.h */,
-				7375400E1C218B4800D261B2 /* CBWKConnection.h */,
-				7375400F1C218B4800D261B2 /* CBWSManager.h */,
-				737540101C218B4800D261B2 /* CCBApproveView_iPhone6.xib */,
-				737540111C218B4800D261B2 /* citi.png */,
-				737540121C218B4800D261B2 /* coin.png */,
-				737540131C218B4800D261B2 /* diner.png */,
-				737540141C218B4800D261B2 /* discover.png */,
-				737540151C218B4800D261B2 /* error_icon.png */,
-				737540161C218B4800D261B2 /* error_large.png */,
-				737540171C218B4800D261B2 /* GZip.h */,
-				737540181C218B4800D261B2 /* hdfc.png */,
-				737540191C218B4800D261B2 /* hdfc_bank.png */,
-				7375401A1C218B4800D261B2 /* hsbc.png */,
-				7375401B1C218B4800D261B2 /* icici.png */,
-				7375401C1C218B4800D261B2 /* icicicc.png */,
-				7375401D1C218B4800D261B2 /* icicinet.png */,
-				7375401E1C218B4800D261B2 /* icon_otp.png */,
-				7375401F1C218B4800D261B2 /* icon_otp_over.png */,
-				737540201C218B4800D261B2 /* icon_password.png */,
-				737540211C218B4800D261B2 /* icon_password_over.png */,
-				737540221C218B4800D261B2 /* idbi.png */,
-				737540231C218B4800D261B2 /* induslogo.png */,
-				737540241C218B4800D261B2 /* jcb.png */,
-				737540251C218B4800D261B2 /* kotak.png */,
-				737540261C218B4800D261B2 /* kotaknet.png */,
-				737540271C218B4800D261B2 /* l_icon1.png */,
-				737540281C218B4800D261B2 /* l_icon2.png */,
-				737540291C218B4800D261B2 /* l_icon3.png */,
-				7375402A1C218B4800D261B2 /* l_icon4.png */,
-				7375402B1C218B4800D261B2 /* laser.png */,
-				7375402C1C218B4800D261B2 /* lock.png */,
-				7375402D1C218B4800D261B2 /* lock2.png */,
-				7375402E1C218B4800D261B2 /* logo.png */,
-				7375402F1C218B4800D261B2 /* logo_payu.png */,
-				737540301C218B4800D261B2 /* maestro.png */,
-				737540311C218B4800D261B2 /* master.png */,
-				737540321C218B4800D261B2 /* otp_icon_large.png */,
-				737540331C218B4800D261B2 /* otp_icon_over.png */,
-				737540341C218B4800D261B2 /* otpicon.png */,
-				737540351C218B4800D261B2 /* password_icon.png */,
-				737540361C218B4800D261B2 /* password_icon_large.png */,
-				737540371C218B4800D261B2 /* password_icon_over.png */,
-				737540381C218B4800D261B2 /* passwordicon.png */,
-				737540391C218B4800D261B2 /* PayU_CB_SDK.h */,
-				7375403A1C218B4800D261B2 /* payu_money.png */,
-				7375403B1C218B4800D261B2 /* PayUCBInfo.plist */,
-				7375403C1C218B4800D261B2 /* RegenerateOTPView.h */,
-				7375403D1C218B4800D261B2 /* RegenerateOTPView.xib */,
-				7375403E1C218B4800D261B2 /* RegenerateOTPView_iPhone6.xib */,
-				7375403F1C218B4800D261B2 /* RegenerateOTPView_iPhone6p.xib */,
-				737540401C218B4800D261B2 /* sbi.png */,
-				737540411C218B4800D261B2 /* sbinet.png */,
-				737540421C218B4800D261B2 /* sc.png */,
-				737540431C218B4800D261B2 /* slider.png */,
-				737540441C218B4800D261B2 /* store_card.png */,
-				737540451C218B4800D261B2 /* trusticon.png */,
-				737540461C218B4800D261B2 /* user.png */,
-				737540471C218B4800D261B2 /* visa.png */,
-				737540481C218B4800D261B2 /* yesbank_logo.png */,
-			);
-			path = iOSCustomBrowser;
-			sourceTree = "<group>";
-		};
 		73B1D3671C1077F1008AB1EA /* UIViewController Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -472,6 +354,137 @@
 				73B1D3691C1077F1008AB1EA /* UIViewController+BackButtonHandler.m */,
 			);
 			path = "UIViewController Category";
+			sourceTree = "<group>";
+		};
+		73DE16571C58D0FD00783703 /* iOSCustomBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				73DE16581C58D0FD00783703 /* amex.png */,
+				73DE16591C58D0FD00783703 /* amex_logo.png */,
+				73DE165A1C58D0FD00783703 /* arrow.png */,
+				73DE165B1C58D0FD00783703 /* arrow_cb.png */,
+				73DE165C1C58D0FD00783703 /* axis.png */,
+				73DE165D1C58D0FD00783703 /* calendar.png */,
+				73DE165E1C58D0FD00783703 /* card.png */,
+				73DE165F1C58D0FD00783703 /* cash_card.png */,
+				73DE16601C58D0FD00783703 /* CBAllPaymentOption.h */,
+				73DE16611C58D0FD00783703 /* CBAllPaymentOption.xib */,
+				73DE16621C58D0FD00783703 /* CBAllPaymentOption_iPhone6.xib */,
+				73DE16631C58D0FD00783703 /* CBAllPaymentOption_iPhone6p.xib */,
+				73DE16641C58D0FD00783703 /* CBApproveView.h */,
+				73DE16651C58D0FD00783703 /* CBApproveView.xib */,
+				73DE16661C58D0FD00783703 /* CBApproveView_iPhone6p.xib */,
+				73DE16671C58D0FD00783703 /* CBBankPageLoading.h */,
+				73DE16681C58D0FD00783703 /* CBBankPageLoading.xib */,
+				73DE16691C58D0FD00783703 /* CBBankPageLoading_iPhone6.xib */,
+				73DE166A1C58D0FD00783703 /* CBBankPageLoading_iPhone6p.xib */,
+				73DE166B1C58D0FD00783703 /* CBConnection.h */,
+				73DE166C1C58D0FD00783703 /* CBConnectionHandler.h */,
+				73DE166D1C58D0FD00783703 /* CBConstant.h */,
+				73DE166E1C58D0FD00783703 /* CBCustomActivityIndicator.h */,
+				73DE166F1C58D0FD00783703 /* CBCustomActivityIndicator.xib */,
+				73DE16701C58D0FD00783703 /* CBFileManager.h */,
+				73DE16711C58D0FD00783703 /* CBPassowrdWithIncorrectOTPView.h */,
+				73DE16721C58D0FD00783703 /* CBPassowrdWithIncorrectOTPView.xib */,
+				73DE16731C58D0FD00783703 /* CBReachability.h */,
+				73DE16741C58D0FD00783703 /* CBReachabilityManager.h */,
+				73DE16751C58D0FD00783703 /* CBRegisterOption.h */,
+				73DE16761C58D0FD00783703 /* CBRegisterOption.xib */,
+				73DE16771C58D0FD00783703 /* CBUtile.h */,
+				73DE16781C58D0FD00783703 /* CBWKConnection.h */,
+				73DE16791C58D0FD00783703 /* CBWSManager.h */,
+				73DE167A1C58D0FD00783703 /* CCBApproveView_iPhone6.xib */,
+				73DE167B1C58D0FD00783703 /* citi.png */,
+				73DE167C1C58D0FD00783703 /* coin.png */,
+				73DE167D1C58D0FD00783703 /* diner.png */,
+				73DE167E1C58D0FD00783703 /* discover.png */,
+				73DE167F1C58D0FD00783703 /* error_icon.png */,
+				73DE16801C58D0FD00783703 /* error_large.png */,
+				73DE16811C58D0FD00783703 /* GZip.h */,
+				73DE16821C58D0FD00783703 /* hdfc.png */,
+				73DE16831C58D0FD00783703 /* hdfc_bank.png */,
+				73DE16841C58D0FD00783703 /* hsbc.png */,
+				73DE16851C58D0FD00783703 /* icici.png */,
+				73DE16861C58D0FD00783703 /* icicicc.png */,
+				73DE16871C58D0FD00783703 /* icicinet.png */,
+				73DE16881C58D0FD00783703 /* icon_otp.png */,
+				73DE16891C58D0FD00783703 /* icon_otp_over.png */,
+				73DE168A1C58D0FD00783703 /* icon_password.png */,
+				73DE168B1C58D0FD00783703 /* icon_password_over.png */,
+				73DE168C1C58D0FD00783703 /* idbi.png */,
+				73DE168D1C58D0FD00783703 /* induslogo.png */,
+				73DE168E1C58D0FD00783703 /* jcb.png */,
+				73DE168F1C58D0FD00783703 /* kotak.png */,
+				73DE16901C58D0FD00783703 /* kotaknet.png */,
+				73DE16911C58D0FD00783703 /* l_icon1.png */,
+				73DE16921C58D0FD00783703 /* l_icon2.png */,
+				73DE16931C58D0FD00783703 /* l_icon3.png */,
+				73DE16941C58D0FD00783703 /* l_icon4.png */,
+				73DE16951C58D0FD00783703 /* laser.png */,
+				73DE16961C58D0FD00783703 /* lock.png */,
+				73DE16971C58D0FD00783703 /* lock2.png */,
+				73DE16981C58D0FD00783703 /* logo.png */,
+				73DE16991C58D0FD00783703 /* logo_payu.png */,
+				73DE169A1C58D0FD00783703 /* maestro.png */,
+				73DE169B1C58D0FD00783703 /* master.png */,
+				73DE169C1C58D0FD00783703 /* otp_icon_large.png */,
+				73DE169D1C58D0FD00783703 /* otp_icon_over.png */,
+				73DE169E1C58D0FD00783703 /* otpicon.png */,
+				73DE169F1C58D0FD00783703 /* password_icon.png */,
+				73DE16A01C58D0FD00783703 /* password_icon_large.png */,
+				73DE16A11C58D0FD00783703 /* password_icon_over.png */,
+				73DE16A21C58D0FD00783703 /* passwordicon.png */,
+				73DE16A31C58D0FD00783703 /* PayU_CB_SDK.h */,
+				73DE16A41C58D0FD00783703 /* payu_money.png */,
+				73DE16A51C58D0FD00783703 /* PayUCBInfo.plist */,
+				73DE16A61C58D0FD00783703 /* RegenerateOTPView.h */,
+				73DE16A71C58D0FD00783703 /* RegenerateOTPView.xib */,
+				73DE16A81C58D0FD00783703 /* RegenerateOTPView_iPhone6.xib */,
+				73DE16A91C58D0FD00783703 /* RegenerateOTPView_iPhone6p.xib */,
+				73DE16AA1C58D0FD00783703 /* reload_icon.png */,
+				73DE16AB1C58D0FD00783703 /* sbi.png */,
+				73DE16AC1C58D0FD00783703 /* sbinet.png */,
+				73DE16AD1C58D0FD00783703 /* sc.png */,
+				73DE16AE1C58D0FD00783703 /* slider.png */,
+				73DE16AF1C58D0FD00783703 /* store_card.png */,
+				73DE16B01C58D0FD00783703 /* trusticon.png */,
+				73DE16B11C58D0FD00783703 /* user.png */,
+				73DE16B21C58D0FD00783703 /* visa.png */,
+				73DE16B31C58D0FD00783703 /* yesbank_logo.png */,
+			);
+			path = iOSCustomBrowser;
+			sourceTree = "<group>";
+		};
+		73DE17011C58D11600783703 /* PayU_iOS_CoreSDK */ = {
+			isa = PBXGroup;
+			children = (
+				73DE17021C58D11600783703 /* CoreTelephony.h */,
+				73DE17031C58D11600783703 /* PayU_iOS_CoreSDK.h */,
+				73DE17041C58D11600783703 /* PayUConstants.h */,
+				73DE17051C58D11600783703 /* PayUCreatePostParam.h */,
+				73DE17061C58D11600783703 /* PayUCreateRequest.h */,
+				73DE17071C58D11600783703 /* PayUDontUseThisClass.h */,
+				73DE17081C58D11600783703 /* PayUFileManager.h */,
+				73DE17091C58D11600783703 /* PayUJSONParser.h */,
+				73DE170A1C58D11600783703 /* PayUModelCashCard.h */,
+				73DE170B1C58D11600783703 /* PayUModelEMI.h */,
+				73DE170C1C58D11600783703 /* PayUModelHashes.h */,
+				73DE170D1C58D11600783703 /* PayUModelNetBanking.h */,
+				73DE170E1C58D11600783703 /* PayUModelOfferStatus.h */,
+				73DE170F1C58D11600783703 /* PayUModelPaymentParams.h */,
+				73DE17101C58D11600783703 /* PayUModelPaymentRelatedDetail.h */,
+				73DE17111C58D11600783703 /* PayUModelStoredCard.h */,
+				73DE17121C58D11600783703 /* PayUReachability.h */,
+				73DE17131C58D11600783703 /* PayUReachabilityManager.h */,
+				73DE17141C58D11600783703 /* PayUSDKInfo.plist */,
+				73DE17151C58D11600783703 /* PayUSharedDataManager.h */,
+				73DE17161C58D11600783703 /* PayUUtils.h */,
+				73DE17171C58D11600783703 /* PayUValidations.h */,
+				73DE17181C58D11600783703 /* PayUWebServiceResponse.h */,
+				73DE17191C58D11600783703 /* PayUWebViewResponse.h */,
+				73DE171A1C58D11600783703 /* PayUWSManager.h */,
+			);
+			path = PayU_iOS_CoreSDK;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -532,81 +545,84 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				737540531C218B4800D261B2 /* CBAllPaymentOption_iPhone6.xib in Resources */,
-				737540771C218B4800D261B2 /* lock2.png in Resources */,
-				737540681C218B4800D261B2 /* icon_otp.png in Resources */,
-				731077CD1C1AA8E50016110D /* PayUSDKInfo.plist in Resources */,
-				7375408C1C218B4800D261B2 /* store_card.png in Resources */,
-				737540501C218B4800D261B2 /* card.png in Resources */,
-				737540801C218B4800D261B2 /* password_icon_large.png in Resources */,
-				737540781C218B4800D261B2 /* logo.png in Resources */,
-				737540621C218B4800D261B2 /* hdfc.png in Resources */,
-				737540591C218B4800D261B2 /* CBBankPageLoading_iPhone6p.xib in Resources */,
-				7375406A1C218B4800D261B2 /* icon_password.png in Resources */,
-				737540691C218B4800D261B2 /* icon_otp_over.png in Resources */,
-				7375407D1C218B4800D261B2 /* otp_icon_over.png in Resources */,
-				737540701C218B4800D261B2 /* kotaknet.png in Resources */,
-				7375405F1C218B4800D261B2 /* discover.png in Resources */,
-				737540631C218B4800D261B2 /* hdfc_bank.png in Resources */,
-				737540871C218B4800D261B2 /* RegenerateOTPView_iPhone6p.xib in Resources */,
-				737540881C218B4800D261B2 /* sbi.png in Resources */,
-				737540711C218B4800D261B2 /* l_icon1.png in Resources */,
-				737540741C218B4800D261B2 /* l_icon4.png in Resources */,
-				737540791C218B4800D261B2 /* logo_payu.png in Resources */,
-				7375405E1C218B4800D261B2 /* diner.png in Resources */,
-				737540521C218B4800D261B2 /* CBAllPaymentOption.xib in Resources */,
-				737540891C218B4800D261B2 /* sbinet.png in Resources */,
-				737540661C218B4800D261B2 /* icicicc.png in Resources */,
-				737540571C218B4800D261B2 /* CBBankPageLoading.xib in Resources */,
-				737540851C218B4800D261B2 /* RegenerateOTPView.xib in Resources */,
-				7375408D1C218B4800D261B2 /* trusticon.png in Resources */,
-				737540541C218B4800D261B2 /* CBAllPaymentOption_iPhone6p.xib in Resources */,
-				7375406B1C218B4800D261B2 /* icon_password_over.png in Resources */,
-				7375404A1C218B4800D261B2 /* amex.png in Resources */,
+				73DE16E51C58D0FD00783703 /* logo.png in Resources */,
+				73DE16C71C58D0FD00783703 /* CBRegisterOption.xib in Resources */,
+				73DE16EB1C58D0FD00783703 /* otpicon.png in Resources */,
+				73DE16E91C58D0FD00783703 /* otp_icon_large.png in Resources */,
+				73DE16CA1C58D0FD00783703 /* coin.png in Resources */,
+				73DE16C31C58D0FD00783703 /* CBBankPageLoading_iPhone6.xib in Resources */,
+				73DE16C11C58D0FD00783703 /* CBApproveView_iPhone6p.xib in Resources */,
+				73DE16D81C58D0FD00783703 /* icon_password_over.png in Resources */,
+				73DE16C81C58D0FD00783703 /* CCBApproveView_iPhone6.xib in Resources */,
+				73DE16E11C58D0FD00783703 /* l_icon4.png in Resources */,
+				73DE171C1C58D11600783703 /* PayUSDKInfo.plist in Resources */,
+				73DE16DE1C58D0FD00783703 /* l_icon1.png in Resources */,
+				73DE16FC1C58D0FD00783703 /* user.png in Resources */,
+				73DE16C01C58D0FD00783703 /* CBApproveView.xib in Resources */,
+				73DE16B91C58D0FD00783703 /* axis.png in Resources */,
+				73DE16F51C58D0FD00783703 /* reload_icon.png in Resources */,
+				73DE16DD1C58D0FD00783703 /* kotaknet.png in Resources */,
+				73DE16FB1C58D0FD00783703 /* trusticon.png in Resources */,
+				73DE16F31C58D0FD00783703 /* RegenerateOTPView_iPhone6.xib in Resources */,
+				73DE16F91C58D0FD00783703 /* slider.png in Resources */,
+				73DE16C51C58D0FD00783703 /* CBCustomActivityIndicator.xib in Resources */,
+				73DE16D21C58D0FD00783703 /* icici.png in Resources */,
+				73DE16BB1C58D0FD00783703 /* card.png in Resources */,
+				73DE16D91C58D0FD00783703 /* idbi.png in Resources */,
+				73DE16D51C58D0FD00783703 /* icon_otp.png in Resources */,
+				73DE16F41C58D0FD00783703 /* RegenerateOTPView_iPhone6p.xib in Resources */,
+				73DE16EA1C58D0FD00783703 /* otp_icon_over.png in Resources */,
+				73DE16E71C58D0FD00783703 /* maestro.png in Resources */,
 				7312657C1BB958AC00250A86 /* LaunchScreen.storyboard in Resources */,
-				7375404E1C218B4800D261B2 /* axis_logo.png in Resources */,
-				7375404B1C218B4800D261B2 /* amex_logo.png in Resources */,
-				7375407F1C218B4800D261B2 /* password_icon.png in Resources */,
-				737540831C218B4800D261B2 /* payu_money.png in Resources */,
-				7375406C1C218B4800D261B2 /* idbi.png in Resources */,
-				7375408A1C218B4800D261B2 /* sc.png in Resources */,
-				737540641C218B4800D261B2 /* hsbc.png in Resources */,
-				737540601C218B4800D261B2 /* error_icon.png in Resources */,
-				7375408E1C218B4800D261B2 /* user.png in Resources */,
+				73DE16CE1C58D0FD00783703 /* error_large.png in Resources */,
+				73DE16B71C58D0FD00783703 /* arrow.png in Resources */,
 				731265791BB958AC00250A86 /* Assets.xcassets in Resources */,
-				737540581C218B4800D261B2 /* CBBankPageLoading_iPhone6.xib in Resources */,
-				737540731C218B4800D261B2 /* l_icon3.png in Resources */,
-				737540811C218B4800D261B2 /* password_icon_over.png in Resources */,
-				7375404C1C218B4800D261B2 /* arrow.png in Resources */,
-				737540561C218B4800D261B2 /* CBApproveView_iPhone6p.xib in Resources */,
-				737540611C218B4800D261B2 /* error_large.png in Resources */,
-				737540721C218B4800D261B2 /* l_icon2.png in Resources */,
-				7375407C1C218B4800D261B2 /* otp_icon_large.png in Resources */,
-				7375406F1C218B4800D261B2 /* kotak.png in Resources */,
-				737540861C218B4800D261B2 /* RegenerateOTPView_iPhone6.xib in Resources */,
-				7375407B1C218B4800D261B2 /* master.png in Resources */,
-				737540511C218B4800D261B2 /* cash_card.png in Resources */,
-				737540841C218B4800D261B2 /* PayUCBInfo.plist in Resources */,
-				737540751C218B4800D261B2 /* laser.png in Resources */,
-				737540901C218B4800D261B2 /* yesbank_logo.png in Resources */,
-				7375407E1C218B4800D261B2 /* otpicon.png in Resources */,
-				7375406E1C218B4800D261B2 /* jcb.png in Resources */,
-				7375404F1C218B4800D261B2 /* calendar.png in Resources */,
-				7375404D1C218B4800D261B2 /* arrow_cb.png in Resources */,
+				73DE16D61C58D0FD00783703 /* icon_otp_over.png in Resources */,
+				73DE16CC1C58D0FD00783703 /* discover.png in Resources */,
+				73DE16ED1C58D0FD00783703 /* password_icon_large.png in Resources */,
+				73DE16FE1C58D0FD00783703 /* yesbank_logo.png in Resources */,
+				73DE16D71C58D0FD00783703 /* icon_password.png in Resources */,
+				73DE16EC1C58D0FD00783703 /* password_icon.png in Resources */,
+				73DE16F21C58D0FD00783703 /* RegenerateOTPView.xib in Resources */,
+				73DE16D41C58D0FD00783703 /* icicinet.png in Resources */,
+				73DE16E01C58D0FD00783703 /* l_icon3.png in Resources */,
+				73DE16BC1C58D0FD00783703 /* cash_card.png in Resources */,
+				73DE16C41C58D0FD00783703 /* CBBankPageLoading_iPhone6p.xib in Resources */,
+				73DE16BA1C58D0FD00783703 /* calendar.png in Resources */,
+				73DE16EF1C58D0FD00783703 /* passwordicon.png in Resources */,
+				73DE16BF1C58D0FD00783703 /* CBAllPaymentOption_iPhone6p.xib in Resources */,
+				73DE16D01C58D0FD00783703 /* hdfc_bank.png in Resources */,
+				73DE16B51C58D0FD00783703 /* amex.png in Resources */,
+				73DE16E61C58D0FD00783703 /* logo_payu.png in Resources */,
+				73DE16E41C58D0FD00783703 /* lock2.png in Resources */,
+				73DE16E81C58D0FD00783703 /* master.png in Resources */,
+				73DE16DB1C58D0FD00783703 /* jcb.png in Resources */,
+				73DE16FD1C58D0FD00783703 /* visa.png in Resources */,
+				73DE16F01C58D0FD00783703 /* payu_money.png in Resources */,
+				73DE16BD1C58D0FD00783703 /* CBAllPaymentOption.xib in Resources */,
+				73DE16BE1C58D0FD00783703 /* CBAllPaymentOption_iPhone6.xib in Resources */,
 				731265771BB958AC00250A86 /* Main.storyboard in Resources */,
-				737540671C218B4800D261B2 /* icicinet.png in Resources */,
-				7375405A1C218B4800D261B2 /* CBCustomActivityIndicator.xib in Resources */,
-				7375408B1C218B4800D261B2 /* slider.png in Resources */,
-				7375405D1C218B4800D261B2 /* coin.png in Resources */,
-				7375405C1C218B4800D261B2 /* citi.png in Resources */,
-				7375406D1C218B4800D261B2 /* induslogo.png in Resources */,
-				737540651C218B4800D261B2 /* icici.png in Resources */,
-				737540551C218B4800D261B2 /* CBApproveView.xib in Resources */,
-				737540821C218B4800D261B2 /* passwordicon.png in Resources */,
-				7375405B1C218B4800D261B2 /* CCBApproveView_iPhone6.xib in Resources */,
-				737540761C218B4800D261B2 /* lock.png in Resources */,
-				7375408F1C218B4800D261B2 /* visa.png in Resources */,
-				7375407A1C218B4800D261B2 /* maestro.png in Resources */,
+				73DE16F81C58D0FD00783703 /* sc.png in Resources */,
+				73DE16DA1C58D0FD00783703 /* induslogo.png in Resources */,
+				73DE16C21C58D0FD00783703 /* CBBankPageLoading.xib in Resources */,
+				73DE16C91C58D0FD00783703 /* citi.png in Resources */,
+				73DE16E21C58D0FD00783703 /* laser.png in Resources */,
+				73DE16CB1C58D0FD00783703 /* diner.png in Resources */,
+				73DE16EE1C58D0FD00783703 /* password_icon_over.png in Resources */,
+				73DE16FA1C58D0FD00783703 /* store_card.png in Resources */,
+				73DE16C61C58D0FD00783703 /* CBPassowrdWithIncorrectOTPView.xib in Resources */,
+				73DE16D11C58D0FD00783703 /* hsbc.png in Resources */,
+				73DE16CF1C58D0FD00783703 /* hdfc.png in Resources */,
+				73DE16F61C58D0FD00783703 /* sbi.png in Resources */,
+				73DE16B61C58D0FD00783703 /* amex_logo.png in Resources */,
+				73DE16DC1C58D0FD00783703 /* kotak.png in Resources */,
+				73DE16F11C58D0FD00783703 /* PayUCBInfo.plist in Resources */,
+				73DE16B81C58D0FD00783703 /* arrow_cb.png in Resources */,
+				73DE16E31C58D0FD00783703 /* lock.png in Resources */,
+				73DE16CD1C58D0FD00783703 /* error_icon.png in Resources */,
+				73DE16DF1C58D0FD00783703 /* l_icon2.png in Resources */,
+				73DE16F71C58D0FD00783703 /* sbinet.png in Resources */,
+				73DE16D31C58D0FD00783703 /* icicicc.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

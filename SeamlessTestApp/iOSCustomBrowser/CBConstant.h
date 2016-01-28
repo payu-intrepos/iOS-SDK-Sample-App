@@ -14,6 +14,10 @@
 #define MERCHANT_ID              @"gtKFFx"
 //#define SDK_CODE                 @"20.0"
 
+#define CB_PRODUCTION_URL_WKWEBVIEW        @"https://secure.payu.in/js/sdk_js/v3/"
+#define CB_PRODUCTION_URL_UIWEBVIEW        @"https://secure.payu.in/js/sdk_js/v4/"
+#define CB_MOBILE_DEV_URL_WKWEBVIEW        @"https://mobiledev.payu.in/js/sdk_js/v3/"
+#define CB_MOBILE_DEV_URL_UIWEBVIEW        @"https://mobiledev.payu.in/js/sdk_js/v4/"
 #define CB_TEST_URL_WKWEBVIEW              @"https://test.payu.in/js/sdk_js/v3/"
 #define CB_TEST_URL_UIWEBVIEW              @"https://test.payu.in/js/sdk_js/v4/"
 #define CB_MOBILE_TEST_URL_WKWEBVIEW       @"https://mobiletest.payu.in/js/sdk_js/v3/"
@@ -24,11 +28,10 @@
 #define CB_CB_TEST_URL_UIWEBVIEW           @"https://cbtest.payu.in/js/sdk_js/v4/"
 #define CB_DEMO_TEST_URL_WKWEBVIEW         @"https://demotest.payu.in/js/sdk_js/v3/"
 #define CB_DEMO_TEST_URL_UIWEBVIEW         @"https://demotest.payu.in/js/sdk_js/v4/"
-#define CB_PRODUCTION_URL_WKWEBVIEW        @"https://secure.payu.in/js/sdk_js/v3/"
-#define CB_PRODUCTION_URL_UIWEBVIEW        @"https://secure.payu.in/js/sdk_js/v4/"
 
 #define CB_RETRY_PAYMENT_OPTION_URL        @"https://secure.payu.in/_payment_options"
 
+#define CB_ANALYTICS_TEST_URL              @"https://test.payu.in/merchant/"
 #define CB_ANALYTICS_PRODUCTION_URL        @"https://secure.payu.in/merchant/"
 #define CB_ANALYTICS_MOBILE_DEV_URL        @"https://mobiledev.payu.in/merchant/"
 #define CB_ANALYTICS_MOBILE_TEST_URL       @"https://mobiletest.payu.in/merchant/"
@@ -37,8 +40,6 @@
 #define CB_ANALYTICS_DEMO_TEST_URL         @"https://demotest.payu.in/merchant/"
 
 //#define CB_MOBILE_TEST_URL(msg)  [CBConnectionHandler getBaseUrl:(msg)]
-
-#define ALog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 
 #define SCREEN_WIDTH  [[ UIScreen mainScreen ] bounds ].size.width
 
@@ -50,6 +51,7 @@
 #define INCORRECT_OTP               @"incorrectOTP"
 #define CLOSE                       @"close"
 #define CLOSE_LOADER                @"closeLoader"
+#define REGISTER_OPTION             @"registerOption"
 
 #define RETRY_OTP                   @"retryOTP"
 #define REGERERATE                  @"regenerate"
@@ -89,6 +91,10 @@
 #define KEY_TRXN_STATUS @"trxn_status"
 #define KEY_LAST_URL @"last_url"
 
+#define KEY_M_EURL @"m_retry_error"
+//#define KEY_MAGIC_RETRY @"magic_retry"
+#define KEY_MR_USER_INPUT @"m_retry_input"
+
 #define KEY_DETECT_OTP @"detect_otp"
 
 #define KEY_BANK_NAME @"bank"
@@ -117,6 +123,9 @@
 #define VAL_ALL_OPTION_VIEW @"all_option_view"
 #define VAL_REGENERATE_CLICKED @"regenerate_click"
 
+#define VAL_SHOW_M_RETRY @"show_m_retry"
+#define VAL_CLICK_M_RETRY @"click_m_retry"
+
 //CB_SERVER_ID Constants
 #define CB_ENVIRONMENT_PRODUCTION              @"Production"
 #define CB_ENVIRONMENT_MOBILETEST              @"MobileTest"
@@ -128,9 +137,9 @@
 
 // logging on/off
 #ifdef DEBUG
-#   define NSLog(...) NSLog(__VA_ARGS__)
+#define PayULog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 #else
-#   define NSLog(...)
+#define PayULog(...)
 #endif
 
 
@@ -138,6 +147,10 @@
 #define  PG_URL_LIST            @"pgUrlList"
 #define INFO_DICT_RESPONSE      @"response"
 
+//Constants for Magic Retry
+#define IS_MR_ENABLED @"isMREnabled"
+#define IS_MR_WINDOW_SHOWN @"isMRWindowShown"
+#define MR_ERROR_CODE @"mrErrorCode"
 
 /*
  

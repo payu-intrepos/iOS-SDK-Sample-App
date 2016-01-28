@@ -25,6 +25,9 @@
  POSSIBILITY OF SUCH DAMAGE.
  */
 
+/**
+ * This class is used to get network related information.
+ */
 #import <Foundation/Foundation.h>
 #import <SystemConfiguration/SystemConfiguration.h>
 

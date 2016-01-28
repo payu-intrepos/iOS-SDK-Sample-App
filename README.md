@@ -1,1 +1,0 @@
-iOS SDK Sample app v3.3

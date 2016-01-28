@@ -36,7 +36,7 @@
     [self.view addGestureRecognizer:singleTap];
     self.defaultActivityIndicator = [[iOSDefaultActivityIndicator alloc]init];
     self.paymentParam = [PayUModelPaymentParams new];
-    self.paymentParam.key = @"0MQaQP";
+    self.paymentParam.key = @"0MQaQP";//@"smsplus";//@"obScKz";//@"DXOF8m"; //gtKFFx //0MQaQP //DXOF8m //2Hl5U0En //PqvxqV//obScKz
     self.paymentParam.amount = @"10.0";
     self.paymentParam.productInfo = @"Nokia";
     self.paymentParam.firstName = @"Ram";

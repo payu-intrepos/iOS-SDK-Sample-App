@@ -49,6 +49,7 @@
     self.CBC.merchantKey = self.paymentParam.key;
     self.CBC.txnID = self.paymentParam.transactionID;
     self.CBC.isAutoOTPSelect = YES;
+    self.CBC.isMagicRetry = YES;
     self.CBC.cbWebViewResponseDelegate = self;
     [self.CBC payUActivityIndicator];
     [self.CBC initialSetup];
@@ -56,6 +57,7 @@
     if (self.CBC == nil) {
         [self configurePayUResponse];
     }
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -118,10 +120,9 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:@"paymentResponse" object:[NSMutableData dataWithData:response ]];
 }
 
--(void)PayUConnectionError:(id)notification{
-    self.alertView = [[UIAlertView alloc]initWithTitle:@"Network Error" message:@"Seems you are not connected to internet" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-    self.alertView.tag = 501;
-    [self.alertView show];
+-(void) PayUConnectionError:(NSDictionary *)notification
+{
+    //    PAYUALERT([notification objectForKey:IS_MR_ENABLED], [notification objectForKey:IS_MR_WINDOW_SHOWN]);
 }
 
 -(void)startActivityIndicator{
@@ -138,19 +139,16 @@
 
 -(BOOL) navigationShouldPopOnBackButton
 {
-    self.alertView = [[UIAlertView alloc]initWithTitle:@"Confirmation" message:@"Do you want to cancel this transaction?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
-    self.alertView.tag = 502;
+    self.alertView = [[UIAlertView alloc]initWithTitle:@"Confirmation" message:@"Do you want to cancel this transaction?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil] ;
     [self.alertView show];
     return NO;
 }
 
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    if((buttonIndex==1 && alertView.tag ==502 )) {
+    if(buttonIndex==1) {
         [self.navigationController popToRootViewControllerAnimated:true];
     }
 }
-
-
 
 @end
