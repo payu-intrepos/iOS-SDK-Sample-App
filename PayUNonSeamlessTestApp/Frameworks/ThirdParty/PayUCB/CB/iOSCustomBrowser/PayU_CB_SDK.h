@@ -9,6 +9,7 @@
 #ifndef iOSCustomeBrowser_PayU_CB_SDK_h
 #define iOSCustomeBrowser_PayU_CB_SDK_h
 
+#define cbVersion @"4.3"
 #import "CBAllPaymentOption.h"
 #import "CBConnectionHandler.h"
 #import "CBWKConnection.h"
