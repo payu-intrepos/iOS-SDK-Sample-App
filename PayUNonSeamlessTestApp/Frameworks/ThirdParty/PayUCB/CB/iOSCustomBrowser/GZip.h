@@ -14,18 +14,9 @@
 
 @interface NSData (GZip)
 
-- (NSData *)gzippedDataWithCompressionLevel:(float)level;
-
-/*!
- * This method compress the NSData.
- * @return [obj]                            [NSDara type]
- * @see    [gzippedDataWithCompressionLevel]
- */
-- (NSData *)gzippedData;
-
 /*!
  * This method unzips the NSData.
- * @return [obj]    [NSDara type]
+ * @return [obj]    [NSData type]
  */
 - (NSData *)gunzippedData;
 

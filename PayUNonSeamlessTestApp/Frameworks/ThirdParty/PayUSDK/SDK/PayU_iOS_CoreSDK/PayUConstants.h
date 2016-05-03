@@ -12,7 +12,7 @@
 //Device Analytics constants
 #define DEVICE_ANALYTICS @"DeviceAnalytics"
 #define ANALYTICS_TIMEOUT_INTERVAL 5
-#define KEY_DADATA_SENT @"deviceAnalyticsDataSent"
+//#define KEY_DADATA_SENT @"deviceAnalyticsDataSent"
 #define DA_URL_PATH @"mobileWebService.php"
 #define iOS_MANUFACTURER         @"apple"
 
@@ -28,17 +28,10 @@
 #define KEY_MERCHANT_ID @"merchant_key"
 #define KEY_TXNID @"txnid"
 
-#define ANALYTICS_PRODUCTION_URL                @"https://secure.payu.in/merchant/"
+#define ANALYTICS_PRODUCTION_URL                @"https://info.payu.in/merchant/"
 #define ANALYTICS_MOBILE_DEV_URL                @"https://mobiledev.payu.in/merchant/"
 #define ANALYTICS_MOBILE_TEST_URL               @"https://mobiletest.payu.in/merchant/"
-
-//SERVER_ID Constants
-//#define ENVIRONMENT_PRODUCTION              @"Production"
-//#define ENVIRONMENT_MOBILETEST              @"MobileTest"
-//#define ENVIRONMENT_MOBILEDEV               @"MobileDev"
-
-// 0 for production server, 1 for Mobile Test server, 2 for Dev server
-#define CB_ANALYTICS_SERVER_ID ENVIRONMENT_MOBILETEST
+#define ANALYTICS_DEMOTEST_URL                  @"https://demotest.payu.in/merchant/"
 
 #define PAYU_PAYMENT_PRODUCTION_URL                             @"https://secure.payu.in/_payment"
 #define PAYU_PAYMENT_MOBILETEST_URL                             @"https://mobiletest.payu.in/_payment"
@@ -67,7 +60,7 @@
 #define ERROR_AMOUNT_IS_MISSING                                 @"Amount is missing, "
 #define ERROR_AMOUNT_IS_NONNUMERIC                              @"Amount is non-numeric, "
 #define ERROR_AMOUNT_CONTAIN_MORE_THAN_ONE_DECIMAL              @"Amount contain more than one decimal, "
-#define ERROR_AMOUNT_IS_LESS_THAN_MINIMUM_AMOUNT                @"Amount is less than minimum amount"
+#define ERROR_AMOUNT_IS_LESS_THAN_MINIMUM_AMOUNT                @"Amount is less than minimum amount, "
 
 
 #define ERROR_PRODUCTINFO_IS_MISSING                            @"Product Info is missing, "
@@ -82,9 +75,9 @@
 #define ERROR_PHONENUMBER_IS_MISSING                            @"Phone number is missing, "
 #define ERROR_PHONENUMBER_GREATER_THAN_50                       @"Phone number greater than 50 character, "
 
-#define ERROR_SURL_IS_MISSING                                   @"SURL is missing, "
+#define ERROR_IS_MISSING                                        @"is missing, "
 
-#define ERROR_FURL_IS_MISSING                                   @"FURL is missing, "
+#define ERROR_IS_INVALID                                        @"is invalid, "
 
 #define ERROR_HASH_IS_MISSING                                   @"hash is missing, "
 
@@ -97,7 +90,7 @@
 #define ERROR_EXPIRY_YEAR_IS_NONNUMERIC                         @"Expiry year is non-numeric, "
 #define ERROR_EXPIRY_YEAR_LESSER_THAN_CURRENT_YEAR              @"Expiry year can't be less than current year, "
 
-#define ERROR_EXPIRY_YEAR_LENGTH_GREATER_THAN_5                 @"Expiry year length greater than 5 digit, "
+#define ERROR_EXPIRY_YEAR_LENGTH_GREATER_THAN_4                 @"Expiry year length greater than 4 digit, "
 
 #define ERROR_NAME_ON_CARD_IS_MISSING                           @"Name on card is missing, "
 
@@ -133,6 +126,7 @@
 #define ERROR_ONE_TAP_CARD_CVV_MISSING                          @"This is not OneTap Card, "
 
 #define ERROR_USER_CREDENTIAL_IS_MISSING                        @"User credentials is missing, "
+#define ERROR_USER_CREDENTIAL_IS_INVALID                        @"Invalid User credentials, "
 
 #define ERROR_VAS_INVALID_CARDBIN_OR_BANKCODE                   @"Invalid cardbin or bank code"
 #define ERROR_VAS_API_NOT_CALLED                                @"VAS API not called"
@@ -142,6 +136,10 @@
 #define ERROR_EMI_MODE_IS_MISSING                               @"EMI mode is missing, "
 
 #define ERROR_CASH_CARD_IS_MISSING                              @"Cash Card is missing, "
+
+#define ERROR_INVALID_JSON                                      @"Invalid JSON"
+
+#define ERROR_MEMORY_ISSUE                                      @"Memory Issue"
 
 //#define ERROR_FREE                                            @"Error free"
 
@@ -171,9 +169,12 @@
 #define COMMAND_VAS_FOR_MOBILE_SDK                              @"vas_for_mobile_sdk"
 #define COMMAND_EDIT_USER_CARD                                  @"edit_user_card"
 #define COMMAND_SAVE_USER_CARD                                  @"save_user_card"
-#define COMMAND_GET_USER_CARD                                   @"get_user_cards"
-
-
+#define COMMAND_GET_USER_CARDS                                  @"get_user_cards"
+#define COMMAND_GET_EMI_AMOUNT_ACCORDING_TO_INTEREST            @"getEmiAmountAccordingToInterest"
+#define COMMAND_VERIFY_PAYMENT                                  @"verify_payment"
+#define COMMAND_DELETE_ONE_TAP_TOKEN                            @"delete_one_tap_token"
+#define COMMAND_CHECK_IS_DOMESTIC                               @"check_isDomestic"
+#define COMMAND_GET_TRANSACTION_INFO                            @"get_transaction_info"
 
 
 #define     PARAM_COMMAND                                       @"command"
@@ -334,6 +335,27 @@
 #define     KEY_ISSUINGBANKDOWNBINS                             @"issuingBankDownBins"
 #define     KEY_bins_arr                                        @"bins_arr"
 
+// Keys for Verify Transaction Parsing
+#define     KEY_TRANSACTION_DETAILS                             @"transaction_details"
+#define     KEY_MERCHANT_UTR                                    @"Merchant_UTR"
+#define     KEY_PG_TYPE                                         @"PG_TYPE"
+#define     KEY_SETTLED_AT                                      @"Settled_At"
+#define     KEY_ADDEDON                                         @"addedon"
+#define     KEY_ADDITIONAL_CHARGES                              @"additional_charges"
+#define     KEY_AMT                                             @"amt"
+#define     KEY_BANK_REF_NUM                                    @"bank_ref_num"
+#define     KEY_BANKCODE                                        @"bankcode"
+#define     KEY_DISC                                            @"disc"
+#define     KEY_ERROR_MESSAGE                                   @"error_Message"
+#define     KEY_FIELD9                                          @"field9"
+#define     KEY_MIHPAYID                                        @"mihpayid"
+#define     KEY_MODE                                            @"mode"
+#define     KEY_NET_AMOUNT_DEBIT                                @"net_amount_debit"
+#define     KEY_REQUEST_ID                                      @"request_id"
+#define     KEY_TRANSACTION_AMOUNT                              @"transaction_amount"
+#define     KEY_UNMAPPEDSTATUS                                  @"unmappedstatus"
+
+
 // Available Payment Option
 
 #define     PAYMENT_PG_ONE_TAP_STOREDCARD                       @"One Tap Stored Card"
@@ -356,6 +378,42 @@
 // getOfferDetail callback dictionary key
 #define     KEY_POST_PARAM                                      @"PostParam"
 #define     KEY_JSON_RESPONSE                                   @"JsonResponse"
+
+// getEMIAmountAccordingToInterest
+#define     KEY_EMIBANKINTEREST                                 @"emiBankInterest"
+#define     KEY_BANKRATE                                        @"bankRate"
+#define     KEY_BANKCHARGE                                      @"bankCharge"
+#define     KEY_EMI_VALUE                                       @"emi_value"
+#define     KEY_EMI_INTEREST_PAID                               @"emi_interest_paid"
+
+// Check_isDomestic API parsing elements
+
+#define     KEY_CARDCATEGORY                                    @"cardCategory"
+#define     KEY_CARDTYPE                                        @"cardType"
+
+// GetTransactionInfo API parsing elements
+#define     KEY_TRANSACTION_DETAILS_INFO                        @"Transaction_details"
+#define     KEY_ACTION                                          @"action"
+#define     KEY_BANK_NAME                                       @"bank_name"
+#define     KEY_BANK_REF_NO                                     @"bank_ref_no"
+#define     KEY_CARDTYPE_INFO                                   @"cardtype"
+#define     KEY_FAILURE_REASON                                  @"failure_reason"
+#define     KEY_FIELD2                                          @"field2"
+#define     KEY_IBIBO_CODE                                      @"ibibo_code"
+#define     KEY_ID                                              @"id"
+#define     KEY_IP                                              @"ip"
+#define     KEY_ISSUING_BANK                                    @"issuing_bank"
+#define     KEY_MER_SERVICE_FEE                                 @"mer_service_fee"
+#define     KEY_MER_SERVICE_TAX                                 @"mer_service_tax"
+#define     KEY_MERCHANTNAME                                    @"merchantname"
+#define     KEY_PAYMENT_GATEWAY                                 @"payment_gateway"
+#define     KEY_PG_MID                                          @"pg_mid"
+#define     KEY_TRANSACTION_FEE                                 @"transaction_fee"
+
+// SaveUserCard & EditUserCard API parsing elements
+#define     KEY_CARDTOKEN                                       @"cardToken"
+#define     KEY_CARD_LABEL                                      @"card_label"
+#define     KEY_CARD_NUMBER                                     @"card_number"
 
 // Issuer Collections
 #define     ISSUER_LASER                                        @"LASER"

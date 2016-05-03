@@ -12,7 +12,7 @@
 
 typedef void (^hashRequestCompletionBlock)(PayUModelHashes *hashes, NSString *errorString);
 typedef void (^completionBlockForGetOneTapToken)(NSDictionary *CardTokenAndOneTapToken, NSString *errorString);
-typedef void (^completionBlockForDeleteOneTapToken)(NSString *message, NSString *errorString);
+typedef void (^completionBlockForSaveOneTapToken)(NSString *message, NSString *errorString);
 
 @interface PUSAHelperClass : NSObject
 
@@ -20,7 +20,7 @@ typedef void (^completionBlockForDeleteOneTapToken)(NSString *message, NSString 
 
 +(void)getOneTapTokenDictionaryFromServerWithPaymentParam:(PayUModelPaymentParams *)paymentParam CompletionBlock:(completionBlockForGetOneTapToken)completionBlock;
 
-+(void)saveOneTapTokenForMerchantKey:(NSString *) key withCardToken:(NSString *) cardToken withUserCredential:(NSString *) userCred andMerchantHash:(NSString *) merchantHash withCompletionBlock: (completionBlockForDeleteOneTapToken) completionBlock;
++(void)saveOneTapTokenForMerchantKey:(NSString *) key withCardToken:(NSString *) cardToken withUserCredential:(NSString *) userCred andMerchantHash:(NSString *) merchantHash withCompletionBlock: (completionBlockForSaveOneTapToken) completionBlock;
 
 +(NSString *) getTransactionIDWithLength:(int) len;
 

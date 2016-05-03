@@ -81,7 +81,7 @@ typedef void (^completionBlockForWebServiceResponse)(id JSON ,NSString *errorMes
 +(NSString *)prepareDeviceAnalyticsStringWithArray:(NSArray *)arr;
 
 /*!
- * This method is used to get the Analytics Server url based on CB_ANALYTICS_SERVER_ID value in PayUconstants.h
+ * This method is used to get the Analytics Server url
  * @return  [analyticsServerUrl]        [NSString type]
  */
 +(NSString *)getAnalyticsServerUrl;
@@ -107,7 +107,7 @@ typedef void (^completionBlockForWebServiceResponse)(id JSON ,NSString *errorMes
  * @see     [reachabilityForInternetConnection - PayUReachability]
  * @see     [currentReachabilityStatus - PayUReachability]
  */
-+ (NSString*)currentReachabilityString;
++ (NSString*)currentReachabilitySource;
 
 /*!
  * This method returns sorted array bases on key parameter.
@@ -123,4 +123,10 @@ typedef void (^completionBlockForWebServiceResponse)(id JSON ,NSString *errorMes
  * @return [param] [NSString type]
  */
 +(NSString *)passEmptyStringFornilValues:(NSString *) param;
+
+
++(NSDictionary *)createDictWithPostParam:(NSString *) postParam andJSON:(id) JSON;
+
++(BOOL)isKindOfNSDictionary:(id) dict;
+
 @end

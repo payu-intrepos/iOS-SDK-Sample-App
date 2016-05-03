@@ -70,20 +70,20 @@ NSString *const URLStoreMerchantHash = @"https://payu.herokuapp.com/store_mercha
     
     [PUUIWSManager getWebServiceResponse:[PUUIWSManager getURLRequestWithPostParam:postParam withURL:[NSURL URLWithString:URLGetHash]] withCompletionBlock:^(id JSON, NSString *errorMessage, id extraParam) {
         if (JSON) {
-            if([[JSON valueForKey:@"message"] isEqualToString:@"successfully generated hash"]){
+            if([[JSON objectForKey:@"message"] isEqualToString:@"successfully generated hash"]){
                 PayUModelHashes *payUHashes = [PayUModelHashes new];
-                payUHashes.paymentHash = [JSON valueForKey:@"payment_hash"];
-                payUHashes.paymentRelatedDetailsHash = [JSON valueForKey:@"payment_related_details_for_mobile_sdk_hash"];
-                payUHashes.VASForMobileSDKHash = [JSON valueForKey:@"vas_for_mobile_sdk_hash"];
-                payUHashes.deleteUserCardHash = [JSON valueForKey:@"delete_user_card_hash"];
-                payUHashes.editUserCardHash = [JSON valueForKey:@"edit_user_card_hash"];
-                payUHashes.saveUserCardHash = [JSON valueForKey:@"save_user_card_hash"];
-                payUHashes.getUserCardHash = [JSON valueForKey:@"get_user_cards_hash"];
-                payUHashes.offerHash = [JSON valueForKey:@"check_offer_status_hash"];
+                payUHashes.paymentHash = [JSON objectForKey:@"payment_hash"];
+                payUHashes.paymentRelatedDetailsHash = [JSON objectForKey:@"payment_related_details_for_mobile_sdk_hash"];
+                payUHashes.VASForMobileSDKHash = [JSON objectForKey:@"vas_for_mobile_sdk_hash"];
+                payUHashes.deleteUserCardHash = [JSON objectForKey:@"delete_user_card_hash"];
+                payUHashes.editUserCardHash = [JSON objectForKey:@"edit_user_card_hash"];
+                payUHashes.saveUserCardHash = [JSON objectForKey:@"save_user_card_hash"];
+                payUHashes.getUserCardHash = [JSON objectForKey:@"get_user_cards_hash"];
+                payUHashes.offerHash = [JSON objectForKey:@"check_offer_status_hash"];
                 serverResponseForHashGenerationCallback(payUHashes ,nil);
             }
             else{
-                serverResponseForHashGenerationCallback(nil,[JSON valueForKey:@"message"]);
+                serverResponseForHashGenerationCallback(nil,[JSON objectForKey:@"message"]);
             }
             
         }
@@ -118,8 +118,8 @@ NSString *const URLStoreMerchantHash = @"https://payu.herokuapp.com/store_mercha
     NSLog(@"PostParam for getOneTapTokenDictionary %@",postParam);
     [PUUIWSManager getWebServiceResponse:[PUUIWSManager getURLRequestWithPostParam:postParam withURL:[NSURL URLWithString:URLGetMerchantHash]] withCompletionBlock:^(id JSON, NSString *errorMessage, id extraParam) {
         if (JSON) {
-            if([[JSON valueForKey:@"message"] isEqualToString:@"Merchant hash fetched successfully"]){
-                NSArray *arrayOfData = [JSON valueForKey:@"data"];
+            if([[JSON objectForKey:@"message"] isEqualToString:@"Merchant hash fetched successfully"]){
+                NSArray *arrayOfData = [JSON objectForKey:@"data"];
                 NSMutableDictionary *dictOfCardToken = [NSMutableDictionary new];
                 for (NSArray * eachToken in arrayOfData) {
                     NSDictionary * dict = [NSDictionary dictionaryWithObjectsAndKeys:[eachToken objectAtIndex:1],[eachToken objectAtIndex:0], nil];
@@ -128,7 +128,7 @@ NSString *const URLStoreMerchantHash = @"https://payu.herokuapp.com/store_mercha
                 callBackForGetOneTapTokenDictionary(dictOfCardToken,nil);
             }
             else{
-                callBackForGetOneTapTokenDictionary(nil,[JSON valueForKey:@"message"]);
+                callBackForGetOneTapTokenDictionary(nil,[JSON objectForKey:@"message"]);
             }
         }
         else{
@@ -137,7 +137,7 @@ NSString *const URLStoreMerchantHash = @"https://payu.herokuapp.com/store_mercha
     }];
 }
 
-+(void)saveOneTapTokenForMerchantKey:(NSString *) key withCardToken:(NSString *) cardToken withUserCredential:(NSString *) userCred andMerchantHash:(NSString *) merchantHash withCompletionBlock: (completionBlockForDeleteOneTapToken) completionBlock{
++(void)saveOneTapTokenForMerchantKey:(NSString *) key withCardToken:(NSString *) cardToken withUserCredential:(NSString *) userCred andMerchantHash:(NSString *) merchantHash withCompletionBlock: (completionBlockForSaveOneTapToken) completionBlock{
     void(^callBackForSaveOneTapToken)(NSString *message, NSString *errorString) = completionBlock;
     
     NSString *postParam = [NSString stringWithFormat:@"merchant_key=%@&user_credentials=%@&card_token=%@&merchant_hash=%@)",key,userCred,cardToken,merchantHash];
@@ -146,57 +146,17 @@ NSString *const URLStoreMerchantHash = @"https://payu.herokuapp.com/store_mercha
     
     [PUUIWSManager getWebServiceResponse:[PUUIWSManager getURLRequestWithPostParam:postParam withURL:[NSURL URLWithString:URLStoreMerchantHash]] withCompletionBlock:^(id JSON, NSString *errorMessage, id extraParam) {
         if (JSON) {
-            if([[JSON valueForKey:@"message"] isEqualToString:@"Card token and merchant hash successfully added"]){
-                callBackForSaveOneTapToken([JSON valueForKey:@"message"],nil);
+            if([[JSON objectForKey:@"message"] isEqualToString:@"Card token and merchant hash successfully added"]){
+                callBackForSaveOneTapToken([JSON objectForKey:@"message"],nil);
             }
             else{
-                callBackForSaveOneTapToken(nil,[JSON valueForKey:@"message"]);
+                callBackForSaveOneTapToken(nil,[JSON objectForKey:@"message"]);
             }
         }
         else{
             callBackForSaveOneTapToken(nil ,errorMessage);
         }
     }];
-    
-    
-    
-    //
-    //
-    //    NSURL *URL = [NSURL URLWithString:URLStoreMerchantHash];
-    //    // create the request
-    //    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:URL
-    //                                                         cachePolicy:NSURLRequestUseProtocolCachePolicy
-    //                                                     timeoutInterval:60.0];
-    //    // Specify that it will be a POST request
-    //    request.HTTPMethod = @"POST";
-    //    NSString *postParam = [NSString stringWithFormat:@"merchant_key=%@&user_credentials=%@&card_token=%@&merchant_hash=%@)",key,userCred,cardToken,merchantHash];
-    //    //set request content type we MUST set this value.
-    //    [request setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
-    //    //set post data of request
-    //    [request setHTTPBody:[postParam dataUsingEncoding:NSUTF8StringEncoding]];
-    //
-    //    NSURLSession *session = [NSURLSession sharedSession];
-    //    [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-    //        if (error) {
-    //            callBackForSaveOneTapToken(nil,error.localizedDescription);
-    //        }
-    //        else{
-    //            NSDictionary *hashDictionary = [NSDictionary new];
-    //            NSError *serializationError;
-    //            hashDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&serializationError];
-    //            if (serializationError) {
-    //                callBackForSaveOneTapToken(nil,serializationError.localizedDescription);
-    //            }
-    //            else if ([[hashDictionary valueForKey:@"message"] isEqual:@"Card token and merchant hash successfully added"]){
-    //                callBackForSaveOneTapToken([hashDictionary valueForKey:@"message"],nil);
-    //            }
-    //            else{
-    //                callBackForSaveOneTapToken(nil,[hashDictionary valueForKey:@"message"]);
-    //            }
-    //        }
-    //    }] resume];
-    
-    
 }
 
 @end

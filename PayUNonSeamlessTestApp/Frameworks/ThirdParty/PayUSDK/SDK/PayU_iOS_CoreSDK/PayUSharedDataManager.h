@@ -22,5 +22,6 @@
 @property (nonatomic, strong) NSString *errorMessageForVAS;
 @property (nonatomic, strong) id JSONForVAS;
 @property (nonatomic, strong) NSString *postParam;
+@property (nonatomic, strong) NSString *OfferPaymentType;
 
 @end

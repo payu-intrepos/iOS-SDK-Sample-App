@@ -33,8 +33,7 @@
  * @see    [validateTransactionID]
  * @see    [validateAmount]
  * @see    [validateProductInfo]
- * @see    [validateSURL]
- * @see    [validateFURL]
+ * @see    [validateSURLFURL]
  * @see    [validateFirstName]
  * @see    [validateEmail]
  */
@@ -156,7 +155,27 @@
  */
 -(NSString *)validateOfferKey:(NSString *) offerKey;
 
+/*!
+ * This method validates key.
+ * @param  [key]               [NSString type]
+ * @return [errorString]       [NSString type]
+ */
+-(NSString *)validateKey:(NSString *) key;
 
+/*!
+ * This method validates TransactionID.
+ * @param  [transactionID]       [NSString type]
+ * @return [errorString]         [NSString type]
+ */
+-(NSString *)validateTransactionID:(NSString *) transactionID;
+
+/*!
+ * This method validates TransactionID seprated by Pipe symbol.
+ * @param  [transactionID]       [NSString type]
+ * @return [errorString]         [NSString type]
+ * @see    [validateTransactionID]
+ */
+-(NSMutableString *)validatePipedTransactionID:(NSString *) transactionID;
 //Card Validations
 
 /*!
@@ -237,5 +256,56 @@
  */
 -(NSMutableString *)validateOfferDetailsParam:(PayUModelPaymentParams *) paymentParam;
 
+/*!
+ * This method validates amount.
+ * @param  [amount]            [NSString type]
+ * @return [errorString]       [NSString type]
+ */
+-(NSString *)validateAmount:(NSString *) amount;
+
+/*!
+ * This method validate EMIAmountAccordingToInterest Params and returns error string.
+ * @param  [paymentParam]                  [PayUModelPaymentParams type]
+ * @return [errorString]                   [NSMutableString type]
+ * @see    [validateKey]
+ * @see    [validateHash]
+ * @see    [validateEnvironment]
+ * @see    [validateAmount]
+ */
+- (NSMutableString *)validateEMIAmountAccordingToInterestParams:(PayUModelPaymentParams *) paymentParam;
+
+/*!
+ * This method validate GetUserCards Params and returns error string.
+ * @param  [paymentParam]                  [PayUModelPaymentParams type]
+ * @return [errorString]                   [NSMutableString type]
+ * @see    [validateKey]
+ * @see    [validateHash]
+ * @see    [validateEnvironment]
+ * @see    [validateUserCredentials]
+ */
+- (NSMutableString *)validateGetUserCardsParam:(PayUModelPaymentParams *) paymentParam;
+
+/*!
+ * This method validate VerifyPaymentAPI Params and returns error string.
+ * @param  [paymentParam]                  [PayUModelPaymentParams type]
+ * @return [errorString]                   [NSMutableString type]
+ * @see    [validateKey]
+ * @see    [validateHash]
+ * @see    [validateEnvironment]
+ * @see    [validatePipedTransactionID]
+ */
+-(NSMutableString *)validateVerifyPaymentParam:(PayUModelPaymentParams *) paymentParam;
+
+-(NSMutableString *)validateEditUserCardParam:(PayUModelPaymentParams *) paymentParam;
+
+-(NSMutableString *)validateDeleteOneTapTokenParam:(PayUModelPaymentParams *) paymentParam;
+
+-(NSMutableString *)validateCheckIsDomesticParam:(PayUModelPaymentParams *) paymentParam;
+
+-(NSMutableString *)validateGetTransactionInfoParam:(PayUModelPaymentParams *) paymentParam;
+
+-(NSMutableString *)validateSaveUserCardParam:(PayUModelPaymentParams *) paymentParam;
+
+-(NSString *)validateCardNumberForCheckIsDomestic:(NSString *) cardNumber;
 
 @end

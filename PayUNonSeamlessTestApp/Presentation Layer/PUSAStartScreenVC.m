@@ -11,8 +11,15 @@
 #import "PUUIWrapperPayUSDK.h"
 #import "PUSAHelperClass.h"
 #import "iOSDefaultActivityIndicator.h"
+#import "PUVAOptionsVC.h"
+
+static NSString * const verifyAPIStoryBoard = @"PUVAMainStoryBoard";
 
 @interface PUSAStartScreenVC ()
+
+{
+    BOOL _isVerifyAPIBtnTapped, _isStartBtnTapped;
+}
 
 // IBOutlets
 @property (weak, nonatomic) IBOutlet UITextField *textFieldKey;
@@ -82,7 +89,7 @@
     self.switchForSalt = (UISwitch *)[self.startScreenScrollView viewWithTag:18];
     self.switchForOneTap = (UISwitch *)[self.startScreenScrollView viewWithTag:19];
     
-    self.paymentParam.key = @"0MQaQP";//@"gtKFFx";//@"0MQaQP";
+//    self.paymentParam.key = @"0MQaQP";//@"gtKFFx";//@"0MQaQP";
     self.paymentParam.amount = @"10.0";
     self.paymentParam.productInfo = @"Nokia";
     self.paymentParam.firstName = @"Ram";
@@ -96,10 +103,20 @@
     self.paymentParam.udf3 = @"u3";
     self.paymentParam.udf4 = @"u4";
     self.paymentParam.udf5 = @"u5";
-    self.paymentParam.environment = ENVIRONMENT_PRODUCTION;
-    self.paymentParam.offerKey = @"test123@6622";
+//    self.paymentParam.environment = ENVIRONMENT_PRODUCTION;
+    [self setEnvironment:ENVIRONMENT_PRODUCTION];
+    self.paymentParam.offerKey = @"test123@6622"; //bins@8427,srioffer@8428,cc2@8429,gtkffx@7236
     
     [self addPaymentResponseNotofication];
+}
+
+- (void)setEnvironment:(NSString*)env {
+    self.paymentParam.environment = env;
+    if ([env isEqualToString:ENVIRONMENT_PRODUCTION]) {
+        self.paymentParam.key = @"0MQaQP";
+    } else {
+        self.paymentParam.key = @"gtKFFx";
+    }
 }
 
 -(void)initialSetupForViewWillAppear{
@@ -140,7 +157,7 @@
         NSLog(@"%@",JSON);
         PAYUALERT([JSON objectForKey:@"status"], strConvertedRespone);
         if ([[JSON objectForKey:@"status"] isEqual:@"success"]) {
-            NSString *merchant_hash = [JSON valueForKey:@"merchant_hash"];
+            NSString *merchant_hash = [JSON objectForKey:@"merchant_hash"];
             if ([[JSON objectForKey:@"card_token"] length] >1 && merchant_hash.length >1 && self.paymentParam) {
                 NSLog(@"Saving merchant hash---->");
                 [PUSAHelperClass saveOneTapTokenForMerchantKey:self.paymentParam.key withCardToken:[JSON objectForKey:@"card_token"] withUserCredential:self.paymentParam.userCredentials andMerchantHash:merchant_hash withCompletionBlock:^(NSString *message, NSString *errorString) {
@@ -154,10 +171,21 @@
             }
         }
     }
+    else{
+        PAYUALERT(@"Response", strConvertedRespone);
+    }
 }
 
 - (IBAction)clickedBtnStart:(id)sender {
-    
+    _isStartBtnTapped = YES;
+    [self setPaymentParamAndStartProcess];
+}
+- (IBAction)btnClickedVerifyAPI:(id)sender {
+    _isVerifyAPIBtnTapped = YES;
+    [self setPaymentParamAndStartProcess];
+}
+
+-(void)setPaymentParamAndStartProcess{
     self.paymentParam.key = self.textFieldKey.text;
     self.paymentParam.transactionID = self.textFieldTransactionID.text;
     self.paymentParam.amount = self.textFieldAmount.text;
@@ -222,7 +250,6 @@
     
     self.paymentParam.OneTapTokenDictionary = oneTapDict;
     PayUWebServiceResponse *respo = [PayUWebServiceResponse new];
-    [respo callVASForMobileSDKWithPaymentParam:self.paymentParam];        //FORVAS1
     self.webServiceResponse = [PayUWebServiceResponse new];
     [self.webServiceResponse getPayUPaymentRelatedDetailForMobileSDK:self.paymentParam withCompletionBlock:^(PayUModelPaymentRelatedDetail *paymentRelatedDetails, NSString *errorMessage, id extraParam) {
         [self.defaultActivityIndicator stopAnimatingActivityIndicator];
@@ -230,11 +257,27 @@
             PAYUALERT(@"Error", errorMessage);
         }
         else{
-            PUUIPaymentOptionVC * paymentOptionVC = [self.storyboard instantiateViewControllerWithIdentifier:VC_IDENTIFIER_PAYMENT_OPTION];
-            paymentOptionVC.paymentParam = self.paymentParam;
-            paymentOptionVC.paymentRelatedDetail = paymentRelatedDetails;
-            [self.navigationController pushViewController:paymentOptionVC animated:true];
-            
+            if (_isStartBtnTapped) {
+                [respo callVASForMobileSDKWithPaymentParam:self.paymentParam];        //FORVAS
+                PUUIPaymentOptionVC * paymentOptionVC = [self.storyboard instantiateViewControllerWithIdentifier:VC_IDENTIFIER_PAYMENT_OPTION];
+                paymentOptionVC.paymentParam = self.paymentParam;
+                paymentOptionVC.paymentRelatedDetail = paymentRelatedDetails;
+                _isStartBtnTapped = FALSE;
+                [self.navigationController pushViewController:paymentOptionVC animated:true];
+            }
+            else if (_isVerifyAPIBtnTapped){
+                UIStoryboard *stryBrd = [UIStoryboard storyboardWithName:verifyAPIStoryBoard bundle:nil];
+                PUVAOptionsVC *verifyAPIOptionsTVC = [stryBrd instantiateViewControllerWithIdentifier:NSStringFromClass([PUVAOptionsVC class])];
+                verifyAPIOptionsTVC.paymentParam = [PayUModelPaymentParams new];
+                verifyAPIOptionsTVC.paymentParam.key = self.paymentParam.key;
+                verifyAPIOptionsTVC.paymentParam.environment = self.paymentParam.environment;
+                verifyAPIOptionsTVC.paymentParam.userCredentials = self.paymentParam.userCredentials;
+                verifyAPIOptionsTVC.paymentParam.hashes.VASForMobileSDKHash = self.paymentParam.hashes.VASForMobileSDKHash;
+                verifyAPIOptionsTVC.paymentRelatedDetail = paymentRelatedDetails;
+                _isVerifyAPIBtnTapped = FALSE;
+                [respo callVASForMobileSDKWithPaymentParam:verifyAPIOptionsTVC.paymentParam];        //FORVAS
+                [self.navigationController pushViewController:verifyAPIOptionsTVC animated:true];
+            }
         }
     }];
 }

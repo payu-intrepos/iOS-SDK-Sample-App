@@ -131,7 +131,7 @@
 
 #pragma mark - Back Button Handling
 
--(BOOL) navigationShouldPopOnBackButton
+-(BOOL) shouldRemoveVCOnBackPress
 {
     backbtnAlertView = [[UIAlertView alloc]initWithTitle:@"Confirmation" message:@"Do you want to cancel this transaction?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
     backbtnAlertView.tag = 502;

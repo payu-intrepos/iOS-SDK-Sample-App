@@ -15,17 +15,19 @@
 #import "PUUIStoredCardVC.h"
 #import "PUUIWebViewVC.h"
 #import "PUUIConstants.h"
+#import "PUCBWebVC.h"
+#import "PayU_iOS_CoreSDK.h"
 #import "PUUIStoredCardCarouselVC.h"
 #import "PUUIPayUMoneyVC.h"
 
-@interface PUUIPaymentOptionVC () <KHTabPagerDataSource, KHTabPagerDelegate>
+@interface PUUIPaymentOptionVC () <KHTabPagerDataSource, KHTabPagerDelegate, PUCBWebVCDelegate>
 {
     PayUModelPaymentParams *paymentParam2;
     NSInteger currentIndex;
     NSArray *supportedPaymentOption;
     NSMutableArray *actualPaymentOption;
     NSMutableArray *arrStoredCards;
-    
+    BOOL isSimplifiedCB, withCustomisations, withPostParam, shouldPresentVC;
 }
 
 - (IBAction)btnClickedPayNow:(id)sender;
@@ -41,13 +43,17 @@
     [self subscribeToNotifications];
     [self customInitialization];
     [self reloadData];
+    isSimplifiedCB = YES;
+    withCustomisations = YES;
+    withPostParam = NO;
+    shouldPresentVC = NO;
 }
 -(void)dealloc{
     [self unsubscribeFromNotifications];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
-    [super viewWillDisappear:TRUE];
+    [super viewWillDisappear:animated];
 }
 
 - (void)subscribeToNotifications {
@@ -223,6 +229,8 @@
     currentIndex = index;
 }
 
+#pragma mark - Pay Now Related Methods
+
 - (IBAction)btnClickedPayNow:(id)sender {
     [self payNow];
 }
@@ -244,10 +252,52 @@
             PAYUALERT(@"Error", error);
         }
         else{
-            PUUIWebViewVC *WVVC = [self.storyboard instantiateViewControllerWithIdentifier:VC_IDENTIFIER_WEBVIEW];
-            WVVC.request = request;
-            WVVC.paymentParam = paymentParam2;
-            [self.navigationController pushViewController:WVVC animated:true];
+            NSError *err = nil;
+            if (isSimplifiedCB) {
+                PUCBWebVC *webVC;
+                
+                if (withPostParam) {
+                    webVC = [[PUCBWebVC alloc] initWithPostParam:postParam
+                                                             url:request.URL
+                                                     merchantKey:self.paymentParam.key
+                                                           error:&err];
+                }
+                else{
+                    webVC = [[PUCBWebVC alloc] initWithNSURLRequest:request
+                                                        merchantKey:self.paymentParam.key
+                                                              error:&err];
+                }
+                
+                if (err) {
+                    PAYUALERT(@"Error creating PUCBWebVC", err.description);
+                    return;
+                }
+                
+                
+                if (withCustomisations) {
+                    webVC.cbWebVCDelegate = self;
+                    PUCBConfiguration *cbConfig = [PUCBConfiguration getSingletonInstance];
+                    
+                    cbConfig.shouldShowPayULoader = YES;
+                    cbConfig.isMagicRetry = YES;
+                    cbConfig.isAutoOTPSelect = NO;
+                    cbConfig.transactionId = self.paymentParam.transactionID;
+                }
+                
+                if (shouldPresentVC) {
+                    [self presentViewController:webVC animated:true completion:nil];
+                }
+                else{
+                    [self.navigationController pushViewController:webVC animated:true];
+                }
+            }
+            else{
+                PUUIWebViewVC *WVVC;
+                WVVC = [self.storyboard instantiateViewControllerWithIdentifier:VC_IDENTIFIER_WEBVIEW];
+                WVVC.request = request;
+                WVVC.paymentParam = paymentParam2;
+                [self.navigationController pushViewController:WVVC animated:true];
+            }
         }
     }];
 }
@@ -257,7 +307,7 @@
         paymentParam2 = (PayUModelPaymentParams *)[noti object];
         self.btnPayNow.userInteractionEnabled = YES;
         [self.btnPayNow setBackgroundColor:[UIColor payNowEnableColor]];
-        if ([noti.userInfo valueForKey:kPUUIPayNow]) {
+        if ([noti.userInfo objectForKey:kPUUIPayNow]) {
             [self payNow];
         }
     }
@@ -266,6 +316,69 @@
         self.btnPayNow.userInteractionEnabled = NO;
         [self.btnPayNow setBackgroundColor:[UIColor payNowDisableColor]];
 //        self.btnPayNow.alpha = ALPHA_HALF;
+    }
+}
+
+- (NSURLRequest*)getNSURLRequestWithPaymentParams:(PayUModelPaymentParams*)paymentParams andPaymentType:(NSString*)paymentType {
+    PayUCreateRequest *createRequest = [[PayUCreateRequest alloc] init];
+    __block NSURLRequest *resultingRequest = nil;
+    
+    [createRequest createRequestWithPaymentParam:paymentParam2 forPaymentType:paymentType withCompletionBlock:^(NSMutableURLRequest *request, NSString *postParam, NSString *error) {
+        if (error) {
+            PAYUALERT(@"Error", error);
+        }
+        else{
+            resultingRequest = (NSURLRequest*)request;
+        }
+    }];
+    
+    return resultingRequest;
+}
+
+-(void)PayUSuccessResponse:(id)response{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kPUUINotiPaymentResponse object:[NSMutableData dataWithData:response ]];
+}
+
+
+-(void)PayUFailureResponse:(id)response{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kPUUINotiPaymentResponse object:[NSMutableData dataWithData:response ]];
+}
+
+- (void)PayUConnectionError:(NSDictionary *)notification {
+//    PAYUALERT(@"Response", notification.description);
+}
+
+- (void)PayUTransactionCancel {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - Back Button Handling
+
+-(BOOL) shouldDismissVCOnBackPress
+{
+    UIAlertView *backbtnAlertView = [[UIAlertView alloc]initWithTitle:@"Overridden" message:@"Do you want to cancel this transaction?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    backbtnAlertView.tag = 512;
+    [backbtnAlertView show];
+    return NO;
+}
+
+- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if((buttonIndex==1 && alertView.tag ==512 )) {
+        [self removeViewController];
+    }
+}
+
+/*!
+ * Removed current view controller from screen
+ */
+- (void) removeViewController {
+    if (shouldPresentVC) {
+        [self dismissViewControllerAnimated:NO completion:nil];
+    } else {
+        if (self.navigationController) {
+            [self.navigationController popToRootViewControllerAnimated:NO];
+        }
     }
 }
 @end

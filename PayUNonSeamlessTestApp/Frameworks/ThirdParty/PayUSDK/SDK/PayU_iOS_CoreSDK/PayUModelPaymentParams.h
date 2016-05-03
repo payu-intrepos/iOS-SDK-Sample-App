@@ -105,6 +105,9 @@
 // Param for OneTap
 @property (strong, nonatomic) NSDictionary *OneTapTokenDictionary;
 
-// Param for offer details
-@property (strong, nonatomic) NSString * paymentType;
+
+//This param is for GetTransactionInfo API
+@property (strong, nonatomic) NSString *startTime;
+@property (strong, nonatomic) NSString *endTime;
+
 @end

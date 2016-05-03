@@ -21,7 +21,12 @@
 @property (strong, nonatomic) NSString * saveUserCardHash;
 @property (strong, nonatomic) NSString * getUserCardHash;
 @property (strong, nonatomic) NSString * offerHash;
-@property (strong, nonatomic) NSString *offerDetailsHash;
+@property (strong, nonatomic) NSString * offerDetailsHash;
+@property (strong, nonatomic) NSString * EMIDetailsHash;
+@property (strong, nonatomic) NSString * verifyTransactionHash;
+@property (strong, nonatomic) NSString * deleteOneTapTokenHash;
+@property (strong, nonatomic) NSString * checkIsDomesticHash;
+@property (strong, nonatomic) NSString * getTransactionInfoHash;
 
 /*
  

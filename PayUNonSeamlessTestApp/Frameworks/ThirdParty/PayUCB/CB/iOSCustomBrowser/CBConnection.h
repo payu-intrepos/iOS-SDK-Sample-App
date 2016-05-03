@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CBCustomActivityIndicator.h"
+#import "PUCBLoader.h"
 #import "CBConnectionHandler.h"
-#import "CBAllPaymentOption.h"
+#import "PUCBAllPaymentOption.h"
+#import "CBConstant.h"
+
+#define kNavBarHeight 64.0
 
 /*!
  * This protocol defines methods to get callback for transaction status.
@@ -20,19 +23,19 @@
  * This method gets called when transaction is successfull. It logs txn_success event.
  * @param [response]            [id type]
  */
--(void)PayUSuccessResponse:(id)response;
+- (void)PayUSuccessResponse:(id)response;
 
 /*!
  * This method gets called when transaction fails. It logs txn_fail event.
  * @param [response]            [id type]
  */
--(void)PayUFailureResponse:(id)response;
+- (void)PayUFailureResponse:(id)response;
 
 /*!
  * This method gets called in case of network error
  * @param [notification]            [NSDictionary type]
  */
--(void)PayUConnectionError:(NSDictionary *)notification;
+- (void)PayUConnectionError:(NSDictionary *)notification;
 
 @end
 
@@ -49,7 +52,12 @@
 @property (nonatomic, copy) NSString *merchantKey;
 @property (weak, nonatomic) id <PayUCBWebViewResponseDelegate> cbWebViewResponseDelegate;
 @property (nonatomic, assign) BOOL isAutoOTPSelect;
-//@property (nonatomic, assign) BOOL isAutoApproveClick;
+
+/*!
+ * calling init on this class is not allowed
+ */
+- (instancetype) init ATTRIBUTE_INIT;
+- (instancetype) new ATTRIBUTE_NEW;
 
 /*!
  * This method is called from Merchant's App to initialize CB.
@@ -60,14 +68,14 @@
 - (instancetype)init:(UIView *)view webView:(UIWebView *) webView;
 
 /*!
- * This method is used to show the payUActivityIndicator.
- */
-- (void)payUActivityIndicator;
-
-/*!
  * This method initializes the required properties of CBConnection and setUp the CB to run.
  */
 - (void)initialSetup;
+
+/*!
+ * This method is used to show the payUActivityIndicator.
+ */
+- (void)payUActivityIndicator;
 
 /*!
  * This method must be called from UIWebView delegate method from Merchant's App.

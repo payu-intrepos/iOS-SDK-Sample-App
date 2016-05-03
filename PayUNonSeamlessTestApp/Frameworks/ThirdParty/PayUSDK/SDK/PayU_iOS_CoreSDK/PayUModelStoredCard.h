@@ -43,6 +43,11 @@
  */
 +(instancetype)prepareStoredCardFromEachStoredCardDetail:(NSDictionary *) dict;
 
+
++(NSDictionary *)prepareStoredCardDictFromGetUserCardResponse:(id)JSON;
+
++(instancetype)prepareStoredCardForEditSaveUserCardFromJSON:(NSDictionary *)JSON;
+
 @end
 
 /*

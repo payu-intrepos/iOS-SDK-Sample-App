@@ -14,7 +14,9 @@
 #import "PayUModelPaymentRelatedDetail.h"
 #import "PayUModelOfferStatus.h"
 #import "PayUModelStoredCard.h"
+#import "PayUModelVerifyPayment.h"
 #import "PayUDontUseThisClass.h"
 #import "PayUWebViewResponse.h"
+#import "PayUModelGetTxnInfo.h"
 
 

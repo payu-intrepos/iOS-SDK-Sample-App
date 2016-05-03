@@ -169,19 +169,6 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pnf-2S-JiJ">
-                                                <rect key="frame" x="260" y="756" width="80" height="30"/>
-                                                <animations/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="NFI-O5-Qhe"/>
-                                                    <constraint firstAttribute="height" constant="30" id="uyM-qs-0Dl"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                <state key="normal" title="Start"/>
-                                                <connections>
-                                                    <action selector="clickedBtnStart:" destination="v41-gI-INr" eventType="touchUpInside" id="BKz-ke-TZH"/>
-                                                </connections>
-                                            </button>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="C2P-8V-iNE">
                                                 <rect key="frame" x="196" y="8" width="110" height="30"/>
                                                 <animations/>
@@ -365,13 +352,33 @@
                                                     <action selector="switchButtonForNil:" destination="v41-gI-INr" eventType="valueChanged" id="h5C-Js-xvE"/>
                                                 </connections>
                                             </switch>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pnf-2S-JiJ">
+                                                <rect key="frame" x="511" y="740" width="59" height="46"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                <state key="normal" title="Start"/>
+                                                <connections>
+                                                    <action selector="clickedBtnStart:" destination="v41-gI-INr" eventType="touchUpInside" id="BKz-ke-TZH"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1tR-cV-Wlp">
+                                                <rect key="frame" x="30" y="740" width="120" height="46"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                <state key="normal" title="Verify API"/>
+                                                <connections>
+                                                    <action selector="btnClickedVerifyAPI:" destination="v41-gI-INr" eventType="touchUpInside" id="hXz-Gr-M8h"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <animations/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="Pnf-2S-JiJ" secondAttribute="bottom" constant="14" id="Eyk-Dp-lfs"/>
+                                            <constraint firstAttribute="bottom" secondItem="1tR-cV-Wlp" secondAttribute="bottom" constant="14" id="7jC-pE-bV2"/>
                                             <constraint firstAttribute="height" constant="800" id="Vs0-xs-6dK"/>
-                                            <constraint firstItem="Pnf-2S-JiJ" firstAttribute="centerX" secondItem="VCa-nN-e1p" secondAttribute="centerX" id="iPT-Z9-gXb"/>
+                                            <constraint firstAttribute="trailing" secondItem="Pnf-2S-JiJ" secondAttribute="trailing" constant="30" id="fnA-ho-OpX"/>
+                                            <constraint firstItem="1tR-cV-Wlp" firstAttribute="leading" secondItem="VCa-nN-e1p" secondAttribute="leading" constant="30" id="o3h-Jn-sQE"/>
+                                            <constraint firstAttribute="bottom" secondItem="Pnf-2S-JiJ" secondAttribute="bottom" constant="14" id="vzg-es-K0c"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1326,9 +1333,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Card" width="128" height="128"/>
-        <image name="UncheckedBox" width="64" height="64"/>
-        <image name="lock" width="128" height="128"/>
-        <image name="trash" width="199" height="256"/>
+        <image name="Card" width="30" height="30"/>
+        <image name="UncheckedBox" width="20" height="20"/>
+        <image name="lock" width="30" height="30"/>
+        <image name="trash" width="30" height="30"/>
     </resources>
 </document>

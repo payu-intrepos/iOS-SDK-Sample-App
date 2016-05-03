@@ -7,10 +7,35 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CBCustomActivityIndicator.h"
+#import "PUCBLoader.h"
 #import "CBConnectionHandler.h"
-#import "CBAllPaymentOption.h"
+#import "PUCBAllPaymentOption.h"
 #import <WebKit/WebKit.h>
+
+/*!
+ * This protocol defines methods to get callback for transaction status.
+ */
+@protocol PayUCBWebViewResponseDelegate <NSObject>
+
+/*!
+ * This method gets called when transaction is successfull. It logs txn_success event.
+ * @param [response]            [id type]
+ */
+- (void)PayUSuccessResponse:(id)response;
+
+/*!
+ * This method gets called when transaction fails. It logs txn_fail event.
+ * @param [response]            [id type]
+ */
+- (void)PayUFailureResponse:(id)response;
+
+/*!
+ * This method gets called in case of network error
+ * @param [notification]            [NSDictionary type]
+ */
+- (void)PayUConnectionError:(NSDictionary *)notification;
+
+@end
 
 @interface CBWKConnection : NSObject
 
@@ -22,6 +47,7 @@
 @property (nonatomic,copy) NSString *cbServerID;
 @property (nonatomic,copy) NSString *analyticsServerID;
 @property (nonatomic,strong) UIViewController *wkVC;
+@property (weak, nonatomic) id <PayUCBWebViewResponseDelegate> cbWebViewResponseDelegate;
 @property (nonatomic,copy) NSString *merchantKey;
 
 -(instancetype)init:(UIView *)view webView:(WKWebView *)webView;
@@ -40,11 +66,11 @@
 - (void)payUwebView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error;
 
 /*
-- (void)payUwebView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)())completionHandler;
-
-- (void)payUwebView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL result))completionHandler;
-
-- (void)payUwebView:(WKWebView *)webView runJavaScriptTextInputPanelWithPrompt:(NSString *)prompt defaultText:(NSString *)defaultText initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(NSString *result))completionHandler;
-*/
+ - (void)payUwebView:(WKWebView *)webView runJavaScriptAlertPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)())completionHandler;
+ 
+ - (void)payUwebView:(WKWebView *)webView runJavaScriptConfirmPanelWithMessage:(NSString *)message initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(BOOL result))completionHandler;
+ 
+ - (void)payUwebView:(WKWebView *)webView runJavaScriptTextInputPanelWithPrompt:(NSString *)prompt defaultText:(NSString *)defaultText initiatedByFrame:(WKFrameInfo *)frame completionHandler:(void (^)(NSString *result))completionHandler;
+ */
 
 @end

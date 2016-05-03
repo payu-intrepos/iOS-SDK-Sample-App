@@ -18,6 +18,8 @@
 #import "PayUModelOfferStatus.h"
 #import "PayUConstants.h"
 #import "PayUSharedDataManager.h"
+#import "PayUModelEMIDetails.h"
+#import "PayUModelGetTxnInfo.h"
 
 @interface PayUWebServiceResponse : NSObject
 
@@ -30,6 +32,15 @@ typedef void (^completionBlockForOfferDetails)(PayUModelOfferDetails *offerDetai
 typedef void (^completionBlockForDeleteStoredCard)(NSString * deleteStoredCardStatus, NSString * deleteStoredCardMessage ,NSString *errorMessage, id extraParam);
 
 typedef void (^completionBlockForGetVASStatusForCardBinOrBankCode)(id ResponseMessage ,NSString *errorMessage, id extraParam);
+
+typedef void (^completionBlockForGetEMIAmountAccordingToInterest)(NSDictionary *dictEMIDetails ,NSString *errorMessage, id extraParam);
+
+typedef void (^completionBlockForGetUserCards)(NSDictionary *dictStoredCard ,NSString *errorMessage, id extraParam);
+typedef void (^completionBlockForVerifyPayment)(NSDictionary *dictVerifyPayment ,NSString *errorMessage, id extraParam);
+typedef void (^completionBlockForDeleteOneTapToken)(NSString *deleteOneTapTokenMsg ,NSString *errorMessage, id extraParam);
+typedef void (^completionBlockForCheckIsDomestic)(PayUModelCheckIsDomestic *checkIsDomestic , NSString *errorMessage, id extraParam);
+typedef void (^completionBlockForGetTransactionInfo)(NSArray *arrOfGetTxnInfo , NSString *errorMessage, id extraParam);
+typedef void (^completionBlockForSaveUserCard)(PayUModelStoredCard *objStoredCard , NSString *errorMessage, id extraParam);
 
 /*!
  * This method gives webService response callback for MobileSDK.
@@ -67,7 +78,7 @@ typedef void (^completionBlockForGetVASStatusForCardBinOrBankCode)(id ResponseMe
  * @param [block]
  * @see   [createRequestWithPaymentParam - PayUCreateRequest]
  * @see   [getWebServiceResponse - PayUUtils]
- * @see   [JSONParserForDeleteStoredCard - PayUJSONParser]   
+ * @see   [JSONParserForDeleteStoredCard - PayUJSONParser]
  */
 -(void)deleteStoredCard:(PayUModelPaymentParams *) paymentParam withCompletionBlock:(completionBlockForDeleteStoredCard) paramCompletionBlock;
 
@@ -76,7 +87,7 @@ typedef void (^completionBlockForGetVASStatusForCardBinOrBankCode)(id ResponseMe
  * @param [paymentParam]                                        [PayUModelPaymentParams type]
  * @param [block]
  * @see   [createRequestWithPaymentParam - PayUCreateRequest]
- * @see   [getWebServiceResponse - PayUUtils]                           
+ * @see   [getWebServiceResponse - PayUUtils]
  */
 -(void)callVASForMobileSDKWithPaymentParam:(PayUModelPaymentParams *) paymentParam;
 
@@ -84,14 +95,64 @@ typedef void (^completionBlockForGetVASStatusForCardBinOrBankCode)(id ResponseMe
  * This method gives response callback for VAS status for passed cardBin or bankCode. All information has stored in "PayUSharedDataManager" class.
  * @param [cardBinOrBankCode]                               [NSString type]
  * @param [block]
- * @see   [isNumeric  -PayUValidations]                                       
- * @see   [getIssuerOfCardNumber - PayUValidations]                           
+ * @see   [isNumeric  -PayUValidations]
+ * @see   [getIssuerOfCardNumber - PayUValidations]
  */
 -(void)getVASStatusForCardBinOrBankCode:(NSString *) cardBinOrBankCode withCompletionBlock:(completionBlockForGetVASStatusForCardBinOrBankCode) paramCompletionBlock;
+/*!
+ * This method gives webService response callback for EMIAmountAccordingToInterest API.
+ * @param [paymentParam]                                                    [PayUModelPaymentParams type]
+ * @param [block]
+ * @see   [createRequestWithPaymentParam - PayUCreateRequest]
+ * @see   [getWebServiceResponse - PayUUtils]
+ * @see   [JSONParserForGetEMIAmountAccordingToInterest - PayUJSONParser]
+ */
+-(void)getEMIAmountAccordingToInterest:(PayUModelPaymentParams *) paymentParam withCompletionBlock:(completionBlockForGetEMIAmountAccordingToInterest) paramCompletionBlock;
 
-@property (nonatomic, strong) PayUValidations *validations;
-@property (nonatomic, strong) PayUCreatePostParam *createPostParam;
-@property (nonatomic, strong) PayUUtils *utils;
-@property (nonatomic, strong) PayUJSONParser *JSONParser;
+/*!
+ * This method gives webService response callback for getUserCards API.
+ * @param [paymentParam]                                                    [PayUModelPaymentParams type]
+ * @param [block]
+ * @see   [createRequestWithPaymentParam - PayUCreateRequest]
+ * @see   [getWebServiceResponse - PayUUtils]
+ * @see   [JSONParserForGetUserCards - PayUJSONParser]
+ */
+-(void)getUserCards:(PayUModelPaymentParams *) paymentParam withCompletionBlock:(completionBlockForGetUserCards) paramCompletionBlock;
+
+/*!
+ * This method gives webService response callback for verifyPayment API.
+ * @param [paymentParam]                                                    [PayUModelPaymentParams type]
+ * @param [block]
+ * @see   [createRequestWithPaymentParam - PayUCreateRequest]
+ * @see   [getWebServiceResponse - PayUUtils]
+ * @see   [JSONParserForVerifyPayment - PayUJSONParser]
+ */
+-(void)verifyPayment:(PayUModelPaymentParams *) paymentParam withCompletionBlock:(completionBlockForVerifyPayment) paramCompletionBlock;
+
+/*!
+ * This method gives webService response callback for EditUserCard API.
+ * @param [paymentParam]                                                    [PayUModelPaymentParams type]
+ * @param [block]
+ * @see   [createRequestWithPaymentParam - PayUCreateRequest]
+ * @see   [getWebServiceResponse - PayUUtils]
+ * @see   [JSONParserForEditUserCard - PayUJSONParser]
+ */
+-(void)editUserCard:(PayUModelPaymentParams *) paymentParam withCompletionBlock:(completionBlockForSaveUserCard) paramCompletionBlock;
+
+/*!
+ * This method gives webService response callback for DeleteOneTapToken API.
+ * @param [paymentParam]                                                    [PayUModelPaymentParams type]
+ * @param [block]
+ * @see   [createRequestWithPaymentParam - PayUCreateRequest]
+ * @see   [getWebServiceResponse - PayUUtils]
+ * @see   [JSONParserForEditUserCard - PayUJSONParser]
+ */
+-(void)deleteOneTapToken:(PayUModelPaymentParams *) paymentParam withCompletionBlock:(completionBlockForDeleteOneTapToken) paramCompletionBlock;
+
+-(void)checkIsDomestic:(PayUModelPaymentParams *) paymentParam withCompletionBlock:(completionBlockForCheckIsDomestic) paramCompletionBlock;
+
+-(void)getTransactionInfo:(PayUModelPaymentParams *) paymentParam withCompletionBlock:(completionBlockForGetTransactionInfo) paramCompletionBlock;
+
+-(void)saveUserCard:(PayUModelPaymentParams *) paymentParam withCompletionBlock:(completionBlockForSaveUserCard) paramCompletionBlock;
 
 @end

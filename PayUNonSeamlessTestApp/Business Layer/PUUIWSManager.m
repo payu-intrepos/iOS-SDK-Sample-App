@@ -27,9 +27,7 @@
 +(void)getWebServiceResponse:(NSMutableURLRequest *) webServiceRequest withCompletionBlock:(completionBlockForWebServiceResponse) completionBlock{
     void(^callBackForWebServiceResponse)(id JSON ,NSString *errorMessage, id extraParam) = completionBlock;
     
-    NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration:defaultConfigObject delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
-    
+    NSURLSession *defaultSession = [NSURLSession sharedSession];
     NSURLSessionDataTask *dataTask = [defaultSession dataTaskWithRequest:webServiceRequest completionHandler:^(NSData * data, NSURLResponse * response, NSError * error) {
         if (error == nil) {
             NSError *parseError = nil;

@@ -29,6 +29,7 @@ typedef void (^completionBlockForgetPayUHashesWithPaymentParam)(PayUModelHashes 
  */
 -(void)getPayUHashesWithPaymentParam:(PayUModelPaymentParams *) paymentParam merchantSalt:(NSString *) salt withCompletionBlock:(completionBlockForgetPayUHashesWithPaymentParam) completionBlock;
 
+- (NSString *) getHash:(NSString *)input;
 
 
 @end
