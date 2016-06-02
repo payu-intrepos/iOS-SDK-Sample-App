@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PayUbiz</title>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+        <meta name="language" content="EN"/>
+        <meta name="distribution" content="global"/>
+        <meta name="rating" content="general"/>
+        <meta name="keywords" content="Payment Gateway India, Payment Gateway Provider, PayU Payment Gateway, PayUbiz" />
+        <meta name="description" content="PayUbiz is the best Payment gateway provider in India. Earlier known as PayU, it enables merchants to collect payments online with best in calss features ad technology." />
+        <link rel="icon" type="image/png" href="favicon.png" />
+        <link rel="stylesheet" type="text/css" href="css/bank.css" />
+    </head>
+    <body>
+    	<header>
+    		<div class="container text-center">
+    			<a href="javascript:void(0);" class="logo"></a>
+    		</div>
+    	</header>
+    	<section>
+    		<div class="container">
+
+    			<form action="response.html" id="ResponseForm" method="POST">
+
+
+    			</form>
+    			<div class="box">
+    				<div class="amount text-center">
+    					<h1 class="gray-text">RS <strong class="dark-text">100.00</strong></h1>
+    					<p class="gray-text">#1234567abcd</p>
+    				</div>
+    			</div>
+    			<div class="box">
+    				<ul class="tabs">
+    					<li><a href="javascript:void(0);" class="active" id="IpinTab" data-target="#IpinPanel">IPIN</a></li><!--  
+    					--><li><a href="javascript:void(0);" id="OtpTab" data-target="#OtpPanel">OTP</a></li>
+    				</ul>
+    				
+    				<div class="panel" id="IpinPanel">
+    					<div class="form">
+    						<div class="form-row">
+    							<label>Please enter your IPIN</label>
+    							<input type="password" placeholder="Enter IPIN" id="IpinInput"/>
+    							<a href="javascript:void(0);">Forgot IPIN?</a>
+    						</div>
+    						<div class="form-row">
+    							<button class="btn uppercase" id="SubmitIpinForm">Submit IPIN</button>
+    						</div>
+    					</div>
+    				</div>
+    				<div class="panel" id="OtpPanel" style="display:none;">
+    					<div class="form">
+    						<div class="form-row">
+    							<label>Please enter OTP</label>
+    							<input type="password" placeholder="Enter OTP" id="OtpInput" maxlength="7"/>
+    							<a href="javascript:void(0);">Resend OTP</a>
+    						</div>
+    						<div class="form-row">
+    							<button class="btn uppercase" id="SubmitOtpForm">Submit OTP</button>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+
+
+    		</div>
+    	</section>
+
+    	<footer>
+            <div id = "merchant_link" style = "height:100px;" class="container text-center" onclick="success()">
+                <p>Go back to <a href="javascript:void(0);">Merchant</a></p>
+    		</div>
+    	</footer>
+
+    	<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function(){
+			PayU.reInit();
+			//alert('hello');
+		});
+		var success = function(){
+			$('#merchant_link')[0].innerText="Redirecting to Merchant..."
+			PayU.onPayuSuccess('{"status":"success","data":"test"}');
+		}
+		</script>
+		<script type="text/javascript" src="js/bank.js"></script>
+
+
+    </body>
+</html>
