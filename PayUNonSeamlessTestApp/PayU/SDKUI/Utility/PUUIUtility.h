@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "PUUIWrapperPayUSDK.h"
+#import "PayU_iOS_CoreSDK.h"
 #import "PUUIImageConstants.h"
 
 

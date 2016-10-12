@@ -7,7 +7,7 @@
 //
 
 #import "PUUIUtility.h"
-#import "AppDelegate.h"
+//#import "AppDelegate.h"
 #import "PUUIConstants.h"
 
 

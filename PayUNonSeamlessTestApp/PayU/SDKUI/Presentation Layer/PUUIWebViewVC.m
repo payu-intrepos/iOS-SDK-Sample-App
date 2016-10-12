@@ -7,12 +7,13 @@
 //
 
 #import "PUUIWebViewVC.h"
-#import "PUUIWrapperPayUCB.h"
+#import "PayU_CB_SDK.h"
 
 @interface PUUIWebViewVC () <PayUSDKWebViewResponseDelegate, PayUCBWebViewResponseDelegate>
 {
     UIAlertView *backbtnAlertView;
     BOOL checkReachabilityByApp;
+    
 }
 @property(strong, nonatomic) PayUWebViewResponse *webViewResponse;
 @property (strong, nonatomic) CBConnection *CBC;
@@ -34,6 +35,12 @@
 -(void)initialSetup{
     [self configureWebView];
     [self configureCB];
+    [self configureBackButton];
+}
+
+-(void)configureBackButton{
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc]initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:self action:@selector(removeVCOnBackPress)];
+    self.navigationItem.leftBarButtonItem = backButton;
 }
 
 -(void)configureWebView{
@@ -43,9 +50,6 @@
 
 -(void)configureCB{
     _CBC = [[CBConnection alloc]init:self.view webView:_vwWebView];
-    
-    _CBC.cbServerID = CB_ENVIRONMENT_PRODUCTION;
-    _CBC.analyticsServerID = CB_ENVIRONMENT_PRODUCTION;
     
     // Please provide the transaction ID and Key
     _CBC.txnID = self.paymentParam.transactionID;
@@ -95,7 +99,7 @@
     [_CBC payUwebViewDidFinishLoad:webView];
 }
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error{
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
     if (checkReachabilityByApp) {
         if(error.code == NSURLErrorNotConnectedToInternet) {
             [self noInternetConnection];
@@ -131,12 +135,11 @@
 
 #pragma mark - Back Button Handling
 
--(BOOL) shouldRemoveVCOnBackPress
+-(void)removeVCOnBackPress
 {
     backbtnAlertView = [[UIAlertView alloc]initWithTitle:@"Confirmation" message:@"Do you want to cancel this transaction?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
     backbtnAlertView.tag = 502;
     [backbtnAlertView show];
-    return NO;
 }
 
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
@@ -145,7 +148,5 @@
         [self.navigationController popToRootViewControllerAnimated:NO];
     }
 }
-
-
 
 @end

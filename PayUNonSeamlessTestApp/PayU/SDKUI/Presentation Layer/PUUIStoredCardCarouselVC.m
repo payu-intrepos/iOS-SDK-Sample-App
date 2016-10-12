@@ -40,6 +40,7 @@ static int const kMaxIphoneScreenWidth = 414;
 {
     [super viewDidLoad];
     [self initialSetup];
+    [self dismissKeyboardOnTapOutsideTextField];
     [self addKeyboardNotifications];
 }
 

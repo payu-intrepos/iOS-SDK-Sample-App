@@ -7,7 +7,7 @@
 //
 
 #import "PUVAConfiguration.h"
-#import "PUUIWrapperPayUSDK.h"
+#import "PayU_iOS_CoreSDK.h"
 
 @implementation PUVAConfiguration
 

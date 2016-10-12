@@ -188,12 +188,15 @@ static NSString * const UnwindCardOptionSegueIdentifier = @"UnwindCardOptionSegu
     //    [PUUIUtility setCardIndex:crtIndexPath.row];
     if([self.delegate respondsToSelector:@selector(cardOptionSelectedWithIndex:)])
     {
-        if (crtIndexPath) {
-            [self.delegate cardOptionSelectedWithIndex:crtIndexPath.row];
-        }
-        else{
-            [self.delegate cardOptionSelectedWithIndex:self.cardIndex];
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (crtIndexPath) {
+                [self.delegate cardOptionSelectedWithIndex:crtIndexPath.row];
+            }
+            else{
+                [self.delegate cardOptionSelectedWithIndex:self.cardIndex];
+            }
+        });
+        
     }
 }
 

@@ -7,7 +7,7 @@
 //
 
 #import "PUUIWrapperKHTabPagerVC.h"
-#import "PUUIWrapperPayUSDK.h"
+#import "PayU_iOS_CoreSDK.h"
 
 @interface PUUIPaymentOptionVC : PUUIWrapperKHTabPagerVC
 

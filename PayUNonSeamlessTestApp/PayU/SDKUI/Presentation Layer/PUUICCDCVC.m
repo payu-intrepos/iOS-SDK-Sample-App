@@ -8,7 +8,7 @@
 
 #import "PUUICCDCVC.h"
 #import "PUUIUtility.h"
-#import "AppDelegate.h"
+//#import "AppDelegate.h"
 
 #pragma mark - Macros
 
@@ -18,7 +18,7 @@
 
 {
     NSString * cardIssuer;
-    BOOL validCardNumber, validCVV, validIssuer, saveCardFlag, isPickerShown,isCVVEditingBegin, OneTapFlag, isSMAE;
+    BOOL validIssuer, saveCardFlag, isPickerShown,isCVVEditingBegin, OneTapFlag, isSMAE;
     PayUValidations *SDKValidations;
     NSMutableArray *arrMonth, *arrYear;
     NSString *selectedYear, * selectedMonth, *currentYear, * currentMonth;
@@ -62,6 +62,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblVerticalLine;
 
 @property (strong, nonatomic) UIView *grayView;
+
+@property (weak, nonatomic) UIViewController *currentVC;
+
 @end
 
 @implementation PUUICCDCVC
@@ -221,7 +224,6 @@
     self.paymentParam.expiryMonth = self.txtFieldMonth.text;
     self.paymentParam.expiryYear = self.txtFieldYear.text;
     [self enableDisablePayNowButton];
-    
 }
 
 
@@ -255,14 +257,12 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField{
     if (textField == self.txtFieldCardNumber) {
-        if (!validCardNumber && ![textField.text isEqual:@""]) {
+        if (![self validateCardNumber:textField.text] && ![textField.text isEqual:@""]) {
             self.imgVwCardIssuer.image = [UIImage imageNamed:imgErrorIcon];
         }
     }
     
     [self enableDisablePayNowButton];
-    
-    
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
@@ -384,23 +384,25 @@ andPreserveCursorPosition:&targetCursorPosition];
     NSLog(@"Trimmed text %@",trimmedText);
     
     if (textField == self.txtFieldCardNumber) {
+        [self setCardImageIconForCardNumber:trimmedText];
+        
         previousTextFieldContent = textField.text;
         previousSelection = textField.selectedTextRange;
-        trimmedText =[trimmedText stringByReplacingOccurrencesOfString:@" " withString:@""];
-        NSLog(@"Trimmed text %@",trimmedText);
-        
-        if ([self validateCardNumber:trimmedText]) {
-            [self validateCVV:self.txtFieldCVV.text];
-        }
-        else{
+
+        NSString *actualCardNumber = [trimmedText stringByReplacingOccurrencesOfString:@" " withString:@""];
+        if (actualCardNumber.length > [self.cardMaxLength integerValue]) {
             return NO;
         }
     }
     
     if (textField == self.txtFieldCVV) {
-        if (![self validateCVV:trimmedText]) {
-            return NO;
+        if (trimmedText.length > 3) {  //upto 3, cvv is always valid. If length increases, check if we should allow it to increase
+            BOOL isNewCvvValid = [self validateCVV:trimmedText];
+            if (isNewCvvValid == NO) {
+                return NO; //Do not let the new char appear in cvv field
+            }
         }
+        self.paymentParam.CVV = trimmedText;
     }
     
     if (textField == self.txtFieldNameOnCard) {
@@ -410,87 +412,87 @@ andPreserveCursorPosition:&targetCursorPosition];
 }
 
 -(BOOL)validateCVV:(NSString *) CVV{
+    BOOL isValidCVV;
     
     if (CVV.length > [self.cVVMaxLength intValue] || ![SDKValidations isNumeric:CVV]) {
         return NO;
     }
     if (![cardIssuer isEqual:ERROR_CARD_NUMBER_IS_INVALID] && cardIssuer) {
         if ([[SDKValidations validateCVV:CVV withCardNumber:self.paymentParam.cardNumber] isEqual:@""]) {
-            validCVV = YES;
+            isValidCVV = YES;
         }
         else{
-            validCVV = NO;
+            isValidCVV = NO;
         }
     }
     else{
-        validCVV = NO;
+        isValidCVV = NO;
     }
     
-    if (validCVV) {
+    if (isValidCVV) {
         self.imgVwValidCVV.alpha = ALPHA_FULL;
     }
     else{
         self.imgVwValidCVV.alpha = ALPHA_HALF;
     }
     self.paymentParam.CVV = CVV;
-    return YES;
+    return isValidCVV;
 }
 
--(BOOL)validateCardNumber:(NSString *)cardNumber{
+- (void)setCardImageIconForCardNumber:(NSString*)cardNumber {
+    NSString *actualCardNumber = [cardNumber stringByReplacingOccurrencesOfString:@" " withString:@""];
+    BOOL isValidCardNumber = [self validateCardNumber:actualCardNumber];
+    
+    if (actualCardNumber.length < 6){
+        self.imgVwCardIssuer.image = [UIImage imageNamed:imgCard];
+    } else if (actualCardNumber.length == [self.cardMaxLength integerValue] && isValidCardNumber == NO ){
+        self.imgVwCardIssuer.image = [UIImage imageNamed:imgErrorIcon];
+    } else {
+        self.imgVwCardIssuer.image = [UIImage imageNamed:[PUUIUtility getNameOfImageForCardIssuer:cardIssuer]];
+    }
+}
+
+-(BOOL)validateCardNumber:(NSString *)cardNum{
+    NSString *cardNumber = [cardNum stringByReplacingOccurrencesOfString:@" " withString:@""];
     cardIssuer = [SDKValidations getIssuerOfCardNumber:cardNumber];
+    BOOL isValidCardNumber;
+    
     if (cardNumber.length > [self.cardMaxLength intValue] || ![SDKValidations isNumeric:cardNumber]) {
         return NO;
     }
-    if ([cardNumber isEqual:@""]) {
-        [self clearTFMonthYearCVV];
-    }
     if ([cardIssuer isEqual:ERROR_CARD_NUMBER_IS_INVALID]) {
         validIssuer = NO;
-        validCardNumber = NO;
-        if (cardNumber.length < 6){
-            self.imgVwCardIssuer.image = [UIImage imageNamed:imgCard];
-        }
-        else{
-            self.imgVwCardIssuer.image = [UIImage imageNamed:imgErrorIcon];
-        }
+        isValidCardNumber = NO;
     }
     else{
         validIssuer = TRUE;
         if ([[SDKValidations validateCardNumber:cardNumber] isEqual:@""]) {
-            validCardNumber = YES;
+            isValidCardNumber = YES;
         }
         else{
-            validCardNumber = NO;
+            isValidCardNumber = NO;
         }
-        if ((cardNumber.length == [self.cardMaxLength intValue]) && !validCardNumber) {
-            self.imgVwCardIssuer.image = [UIImage imageNamed:imgErrorIcon];
-        }
-        else{
-            self.imgVwCardIssuer.image = [UIImage imageNamed:[PUUIUtility getNameOfImageForCardIssuer:cardIssuer]];
-        }
+        
 
     }
     if ([cardIssuer isEqual:ISSUER_SMAE]) {
         isSMAE = YES;
+        if (self.txtFieldCVV.text.length <=0 ) {
+            self.paymentParam.CVV = @"";  //If no CVV is entered by user, send at least an empty string in CVV for SBI Maestro
+        }
+        
     }
     else{
         isSMAE = NO;
     }
     self.paymentParam.cardNumber = cardNumber;
-    return TRUE;
+    return isValidCardNumber;
 }
 
 -(void)hideTFMonthYearCVV:(BOOL) flag{
     self.txtFieldMonth.hidden = flag;
     self.txtFieldYear.hidden = flag;
     self.txtFieldCVV.hidden = flag;
-}
-
--(void)clearTFMonthYearCVV{
-    self.txtFieldMonth.text = @"";
-    self.txtFieldYear.text = @"";
-    self.txtFieldCVV.text = @"";
-    validCVV = NO;
 }
 
 
@@ -535,7 +537,6 @@ andPreserveCursorPosition:&targetCursorPosition];
         [self.btnOneTap setImage:[UIImage imageNamed:imgCheckedBox] forState:UIControlStateNormal];
     }
     OneTapFlag = !OneTapFlag;
-    [self enableDisablePayNowButton];
 }
 
 -(void)enableDisablePayNowButton{
@@ -552,7 +553,14 @@ andPreserveCursorPosition:&targetCursorPosition];
     else{
         self.paymentParam.isOneTap = FALSE;
     }
-    if (isSMAE || (validCardNumber && validCVV)) {
+    
+    BOOL isYearSelected = self.txtFieldYear.text.length > 0;
+    BOOL isMonthSelected = self.txtFieldMonth.text.length > 0;
+    
+    if (isSMAE || ([self validateCardNumber:self.txtFieldCardNumber.text] &&
+                   [self validateCVV:self.txtFieldCVV.text] &&
+                   isYearSelected &&
+                   isMonthSelected)) {
         [[NSNotificationCenter defaultCenter] postNotificationName:kPUUINotiEnablePayNow object:self.paymentParam];
     }
     else{
@@ -575,6 +583,7 @@ andPreserveCursorPosition:&targetCursorPosition];
 
 -(void)doneBarButtonTapped{
     [self dismissKeyboard];
+//    [self enableDisablePayNowButton];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -588,9 +597,11 @@ andPreserveCursorPosition:&targetCursorPosition];
     {
         if(!isKBOnScreen)
         {
-            CGRect rect = APP_DELEGATE.paymentOptionVC.view.frame;
+            self.currentVC = self.parentViewController.parentViewController;
+//            currentVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+            CGRect rect = self.currentVC.view.frame;
             rect.origin.y -= 100;
-            APP_DELEGATE.paymentOptionVC.view.frame = rect;
+            self.currentVC.view.frame = rect;
             isKBOnScreen = YES;
         }
     }
@@ -603,9 +614,9 @@ andPreserveCursorPosition:&targetCursorPosition];
 {
     if(IS_IPHONE4 && isKBOnScreen)
     {
-        CGRect rect = APP_DELEGATE.paymentOptionVC.view.frame;
+        CGRect rect = self.currentVC.view.frame;
         rect.origin.y += 100;
-        APP_DELEGATE.paymentOptionVC.view.frame = rect;
+        self.currentVC.view.frame = rect;
         isKBOnScreen = NO;
     }
     [super keyboardWillBeHidden:aNotification];

@@ -9,24 +9,35 @@
 #import "PUUIPaymentOptionVC.h"
 #import "UIColor+PUUIColor.h"
 #import "PUUITabBarTopView.h"
-#import "AppDelegate.h"
+//#import "AppDelegate.h"
 #import "PUUICCDCVC.h"
 #import "PUUINBVC.h"
 #import "PUUIWebViewVC.h"
 #import "PUUIConstants.h"
 #import "PUCBWebVC.h"
-#import "PUUIWrapperPayUSDK.h"
+#import "PayU_iOS_CoreSDK.h"
 #import "PUUIStoredCardCarouselVC.h"
 #import "PUUIPayUMoneyVC.h"
+
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+
+
+typedef NS_ENUM(NSUInteger, VCDisplayMode) {
+    VCDisplayPush,
+    VCDisplayPresent
+};
+
 
 #define KEY_REQUEST     @"Request"
 @interface PUUIPaymentOptionVC () <KHTabPagerDataSource, KHTabPagerDelegate, PUCBWebVCDelegate>
 {
     PayUModelPaymentParams *paymentParam2;
-    NSInteger currentIndex, bankSimulatorType;
+    NSInteger currentIndex;
+    PUCBBankSimulator bankSimulatorType;
     NSMutableArray *actualPaymentOption;
     NSMutableArray *arrStoredCards;
-    BOOL isSimplifiedCB, withCustomisations, withPostParam, shouldPresentVC;
+    BOOL isSimplifiedCB, withCustomisations, withPostParam, shouldPresentVC, shouldEnableWKWebview;
+    NSString *paymentType;
     
 }
 
@@ -49,8 +60,10 @@
     withCustomisations = YES;
     withPostParam = NO;
     shouldPresentVC = NO;
-//    bankSimulatorType = PUCBBankSimulatorLocal;
+    shouldEnableWKWebview = NO;
+    bankSimulatorType = PUCBDefault;
 }
+
 -(void)dealloc{
     [self unsubscribeFromNotifications];
 }
@@ -75,7 +88,7 @@
 {
     [self setDataSource:self];
     [self setDelegate:self];
-    APP_DELEGATE.paymentOptionVC = self;
+    //    APP_DELEGATE.paymentOptionVC = self;
     
     //Modify available options recieved
     [self modifyAvailablePaymentOptions];
@@ -97,7 +110,7 @@
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"cardName" ascending:YES];
     NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
     arrStoredCards = [NSMutableArray arrayWithArray:[arrObj sortedArrayUsingDescriptors:sortDescriptors]];
-//    NSLog(@"sortedArray-----%@", sortedArray);    
+    //    NSLog(@"sortedArray-----%@", sortedArray);
     
     [self enablePayNow:nil];
 }
@@ -111,7 +124,7 @@
     NSString *storedCardPaymentOption = PAYMENT_PG_STOREDCARD;
     if ([self.paymentRelatedDetail.availablePaymentOptionsArray containsObject:oneTapPaymentOption]) {
         [self.paymentRelatedDetail.availablePaymentOptionsArray removeObject:oneTapPaymentOption];
-
+        
         //As we have deleted one tap payment method, we should make sure that stored card payment method is present
         if (![self.paymentRelatedDetail.availablePaymentOptionsArray containsObject:storedCardPaymentOption]) {
             [self.paymentRelatedDetail.availablePaymentOptionsArray addObject:storedCardPaymentOption];
@@ -231,7 +244,6 @@
     [self payNow];
 }
 -(void)payNow{
-    NSString *paymentType;
     paymentType = [actualPaymentOption objectAtIndex:currentIndex];
     if ([paymentType  isEqual: PAYMENT_PG_STOREDCARD ]) {
         for (PayUModelStoredCard *modelStoredcard in self.paymentRelatedDetail.oneTapStoredCardArray) {
@@ -252,11 +264,14 @@
             request = (NSMutableURLRequest *)[className performSelector:@selector(getNSURLRequestForLocalBankSimulator)];
         }
         
-#pragma clang diagnostic pop
     }
+    PUCBConfiguration *cbConfig = [PUCBConfiguration getSingletonInstance];
+    cbConfig.enableWKWebView = shouldEnableWKWebview;
+    cbConfig.bankSimulatorType = [self getBankSimulatorType];
+#pragma clang diagnostic pop
     
     if (!request) {
-        bankSimulatorType = PUCBDefault;
+        //        bankSimulatorType = PUCBDefault;
         NSDictionary *dict = [self getNSURLRequestWithPaymentParams:paymentParam2 andPaymentType:paymentType];
         request = [dict objectForKey:KEY_REQUEST];
         postParam = [dict objectForKey:KEY_POST_PARAM];
@@ -288,20 +303,17 @@
             
             if (withCustomisations) {
                 webVC.cbWebVCDelegate = self;
-                PUCBConfiguration *cbConfig = [PUCBConfiguration getSingletonInstance];
-                
                 cbConfig.shouldShowPayULoader = YES;
                 cbConfig.isMagicRetry = YES;
                 cbConfig.isAutoOTPSelect = NO;
                 cbConfig.transactionId = self.paymentParam.transactionID;
-                cbConfig.bankSimulatorType = bankSimulatorType;
             }
             
             if (shouldPresentVC) {
-                [self presentViewController:webVC animated:true completion:nil];
+                [self showVC:webVC withMode:VCDisplayPresent];
             }
             else{
-                [self.navigationController pushViewController:webVC animated:true];
+                [self showVC:webVC withMode:VCDisplayPush];
             }
         }
         else{
@@ -309,13 +321,29 @@
             WVVC = [self.storyboard instantiateViewControllerWithIdentifier:VC_IDENTIFIER_WEBVIEW];
             WVVC.request = request;
             WVVC.paymentParam = paymentParam2;
-            WVVC.bankSimulatorType = bankSimulatorType;
-            [self.navigationController pushViewController:WVVC animated:true];
+            WVVC.bankSimulatorType = [self getBankSimulatorType];
+            [self showVC:WVVC withMode:VCDisplayPush];
         }
     }
     else{
         
     }
+}
+
+- (void)showVC:(UIViewController*)vc withMode:(VCDisplayMode)mode {
+    if (mode == VCDisplayPush) {
+        [self.navigationController pushViewController:vc animated:true];
+    } else {
+        [self presentViewController:vc animated:true completion:nil];
+    }
+}
+
+- (PUCBBankSimulator)getBankSimulatorType {
+    PUCBBankSimulator bankSimulator = PUCBDefault;
+    if ([paymentType isEqual:PAYMENT_PG_STOREDCARD] || [paymentType isEqual:PAYMENT_PG_ONE_TAP_STOREDCARD] || [paymentType isEqual:PAYMENT_PG_CCDC]) {
+        bankSimulator = bankSimulatorType;
+    }
+    return bankSimulator;
 }
 
 -(void)enablePayNow:(NSNotification *) noti{
@@ -331,15 +359,15 @@
         paymentParam2 = nil;
         self.btnPayNow.userInteractionEnabled = NO;
         [self.btnPayNow setBackgroundColor:[UIColor payNowDisableColor]];
-//        self.btnPayNow.alpha = ALPHA_HALF;
+        //        self.btnPayNow.alpha = ALPHA_HALF;
     }
 }
 
-- (NSDictionary*)getNSURLRequestWithPaymentParams:(PayUModelPaymentParams*)paymentParams andPaymentType:(NSString*)paymentType {
+- (NSDictionary*)getNSURLRequestWithPaymentParams:(PayUModelPaymentParams*)paymentParams andPaymentType:(NSString*)pymtType {
     PayUCreateRequest *createRequest = [[PayUCreateRequest alloc] init];
     __block NSURLRequest *resultingRequest = nil;
     __block NSString *resultingPostParam;
-    [createRequest createRequestWithPaymentParam:paymentParam2 forPaymentType:paymentType withCompletionBlock:^(NSMutableURLRequest *request, NSString *postParam, NSString *error) {
+    [createRequest createRequestWithPaymentParam:paymentParams forPaymentType:pymtType withCompletionBlock:^(NSMutableURLRequest *request, NSString *postParam, NSString *error) {
         if (error) {
             PAYUALERT(@"Error", error);
         }
@@ -362,7 +390,7 @@
 }
 
 - (void)PayUConnectionError:(NSDictionary *)notification {
-//    PAYUALERT(@"Response", notification.description);
+    //    PAYUALERT(@"Response", notification.description);
 }
 
 - (void)PayUTransactionCancel {
@@ -371,12 +399,11 @@
 
 #pragma mark - Back Button Handling
 
--(BOOL) shouldDismissVCOnBackPress
+- (void) shouldDismissVCOnBackPress
 {
     UIAlertView *backbtnAlertView = [[UIAlertView alloc]initWithTitle:@"Overridden" message:@"Do you want to cancel this transaction?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
     backbtnAlertView.tag = 512;
     [backbtnAlertView show];
-    return NO;
 }
 
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
@@ -400,10 +427,10 @@
 
 -(NSArray *)paymentOption{
     NSOrderedSet *setSupportedPaymentOption = [[NSOrderedSet alloc] initWithArray:[NSArray arrayWithObjects:
-                                                                            PAYMENT_PG_STOREDCARD,
-                                                                            PAYMENT_PG_CCDC,
-                                                                            PAYMENT_PG_NET_BANKING,
-                                                                            PAYMENT_PG_PAYU_MONEY, nil]];
+                                                                                   PAYMENT_PG_STOREDCARD,
+                                                                                   PAYMENT_PG_CCDC,
+                                                                                   PAYMENT_PG_NET_BANKING,
+                                                                                   PAYMENT_PG_PAYU_MONEY, nil]];
     NSArray *arr;
     if ([_paymentOption count]) {
         NSMutableOrderedSet *setGivenPaymentOption = [[NSMutableOrderedSet alloc] initWithArray:_paymentOption];

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PUUIConstants.h"
-#import "PUUIWrapperPayUSDK.h"
+#import "PayU_iOS_CoreSDK.h"
 #import "UIColor+PUUIColor.h"
 #import "PUUIReachability.h"
 

@@ -38,11 +38,32 @@
 			return false;
 		},
 		submitFinal:function(){
-			$form = $("#ResponseForm");
-			//$form.find('#authDecision').val('success');
-			console.log("hello");
-			PayU.onPayuSuccess('{"status":"success","data":"test"}');
-			$form.submit();
+        $form = $("#ResponseForm");
+        //$form.find('#authDecision').val('success');
+        console.log("hello");
+
+        //For WKWebView
+         var responseObj = {
+            response: "success"
+        };
+ 
+ try {
+    window.webkit.messageHandlers.observe.postMessage({"onPayuSuccess":responseObj});
+ }
+ catch (err) {
+    console.log("Error occured :", err);
+ }
+ 
+
+ 
+//For UI WebView
+ try {
+    PayU.onPayuSuccess('{"status":"success","data":"test"}');
+ } catch (err) {
+    console.log("Error occured :", err);
+ }
+
+        $form.submit();
 		},
 		check:function($input){
 			var val = $input.val();

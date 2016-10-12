@@ -7,7 +7,7 @@
 //
 
 #import "PUUIBaseVC.h"
-#import "AppDelegate.h"
+//#import "AppDelegate.h"
 
 @interface PUUIBaseVC ()
 
@@ -25,9 +25,9 @@
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:true];
-    CGRect rect = APP_DELEGATE.paymentOptionVC.view.frame;
-    rect.origin.y = 64;
-    APP_DELEGATE.paymentOptionVC.view.frame = rect;
+//    CGRect rect = APP_DELEGATE.paymentOptionVC.view.frame;
+//    rect.origin.y = 64;
+//    APP_DELEGATE.paymentOptionVC.view.frame = rect;
 }
 -(BOOL)isInternetAvailable{
     NetworkStatus currentStatus = [self.internetReachability currentReachabilityStatus];
