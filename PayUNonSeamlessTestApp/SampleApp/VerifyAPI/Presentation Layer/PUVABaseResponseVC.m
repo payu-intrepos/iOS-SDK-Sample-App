@@ -8,7 +8,6 @@
 
 #import "PUVABaseResponseVC.h"
 #import "iOSDefaultActivityIndicator.h"
-#import "PUVAConfiguration.h"
 #import "PUVATableVC.h"
 
 static NSString * const segueIdentiiferVar1 = @"ResponseToTableBtnVar1";
@@ -26,7 +25,6 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
     iOSDefaultActivityIndicator *_defaultActivityIndicator;
     PayUWebServiceResponse *_webServiceResponse;
     PayUDontUseThisClass *_hashes;
-    PUVAConfiguration *_vAConfig;
     PUVATableVC *_tableVC;
     // for offer details
     NSArray *_arrPaymentType;
@@ -132,7 +130,6 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
     _defaultActivityIndicator = [[iOSDefaultActivityIndicator alloc]init];
     _webServiceResponse = [PayUWebServiceResponse new];
     _hashes = [PayUDontUseThisClass new];
-    _vAConfig = [PUVAConfiguration new];
     [self dismissKeyboardOnTapOutsideTextField];
     [self addKeyboardNotifications];
     self.scrollView = self.vwScrollView;
@@ -558,7 +555,7 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
                 for (NSString *txnID in [dictVerifyPayment allKeys]) {
                     [responseMessage appendFormat:@"\n\n%@\n",txnID];
                     PayUModelVerifyPayment *objVerifyPayment = [dictVerifyPayment objectForKey:txnID];
-                    [responseMessage appendFormat:@"Merchant_UTR = %@, PG_Type = %@, settled_at = %@, addedOn = %@, additionalCharges = %@, amt = %@, bank_ref_num = %@, bankCode = %@, card_no = %@, card_type = %@, disc = %@, error_Message = %@, error_code = %@,  field9 = %@, firstname = %@,  mihpayid = %@, mode = %@, name_on_card = %@, net_amount_debit = %@, productinfo = %@, request_id = %@,  status = %@, transaction_amount = %@, txnid = %@, udf1 = %@,  udf2 = %@,  udf3 = %@,  udf4 = %@,  udf5 = %@,  unmappedstatus = %@, ",objVerifyPayment.MerchantUTR,objVerifyPayment.PGType,objVerifyPayment.SettledAt,objVerifyPayment.AddedOn,objVerifyPayment.AdditionalCharges,objVerifyPayment.Amt,objVerifyPayment.BankRefNum,objVerifyPayment.BankCode,objVerifyPayment.CardNo,objVerifyPayment.CardType,objVerifyPayment.Disc,objVerifyPayment.ErrorMessage,objVerifyPayment.ErrorCode,objVerifyPayment.Field9,objVerifyPayment.FirstName,objVerifyPayment.MihpayID,objVerifyPayment.Mode,objVerifyPayment.NameOnCard,objVerifyPayment.NetAmountDebit,objVerifyPayment.ProductInfo,objVerifyPayment.RequestId,objVerifyPayment.Status,objVerifyPayment.TransactionAmount,objVerifyPayment.TxnID,objVerifyPayment.Udf1,objVerifyPayment.Udf2,objVerifyPayment.Udf3,objVerifyPayment.Udf4,objVerifyPayment.Udf5,objVerifyPayment.UnmappedStatus];
+                    [responseMessage appendFormat:@"Merchant_UTR = %@, PG_Type = %@, settled_at = %@, addedOn = %@, additionalCharges = %@, amt = %@, bank_ref_num = %@, bankCode = %@, card_no = %@, card_type = %@, disc = %@, error_Message = %@, error_code = %@,  field9 = %@, firstname = %@,  mihpayid = %@, mode = %@, name_on_card = %@, net_amount_debit = %@, productinfo = %@, request_id = %@,  status = %@, transaction_amount = %@, txnid = %@, udf1 = %@,  udf2 = %@,  udf3 = %@,  udf4 = %@,  udf5 = %@,  unmappedstatus = %@, merchant_subvention_amount = %@",objVerifyPayment.MerchantUTR,objVerifyPayment.PGType,objVerifyPayment.SettledAt,objVerifyPayment.AddedOn,objVerifyPayment.AdditionalCharges,objVerifyPayment.Amt,objVerifyPayment.BankRefNum,objVerifyPayment.BankCode,objVerifyPayment.CardNo,objVerifyPayment.CardType,objVerifyPayment.Disc,objVerifyPayment.ErrorMessage,objVerifyPayment.ErrorCode,objVerifyPayment.Field9,objVerifyPayment.FirstName,objVerifyPayment.MihpayID,objVerifyPayment.Mode,objVerifyPayment.NameOnCard,objVerifyPayment.NetAmountDebit,objVerifyPayment.ProductInfo,objVerifyPayment.RequestId,objVerifyPayment.Status,objVerifyPayment.TransactionAmount,objVerifyPayment.TxnID,objVerifyPayment.Udf1,objVerifyPayment.Udf2,objVerifyPayment.Udf3,objVerifyPayment.Udf4,objVerifyPayment.Udf5,objVerifyPayment.UnmappedStatus,objVerifyPayment.merchantSubventionAmount];
                 }
                 PAYUALERT(@"Response", responseMessage);
             }
@@ -770,8 +767,8 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
                     for (PayUModelGetTxnInfo *objGetTxnInfo in arrOfGetTxnInfo) {
                         [responseMsg appendFormat:@"----Details----\n"];
                         [responseMsgDisplay appendFormat:@"----Details----\n"];
-                        [responseMsg appendFormat:@"action = %@\naddedon = %@\nAdditionalCharges = %@\namount = %@\nbankName = %@\nbankRefNo = %@\ncardNo = %@\ncardType = %@\ndiscount = %@\nemail = %@\nerrorCode = %@\nfailureReason = %@\nfield2 = %@\nfirstname = %@\nibiboCode = %@\nthisid = %@\nip = %@\nissuingBank = %@\nmerchantKey = %@\nlastname = %@\nmerServiceFee = %@\nmerServiceTax = %@\nmerchantName = %@\nmode = %@\nofferKey = %@\nofferType = %@\npaymentGateway = %@\npgMID = %@\nphone = %@\nproductInfo = %@\nstatus = %@\ntransactionFee = %@\ntxnID = %@\nudf1 = %@",objGetTxnInfo.action,objGetTxnInfo.addedon,objGetTxnInfo.additionalCharges,objGetTxnInfo.amount,objGetTxnInfo.bankName,objGetTxnInfo.bankRefNo,objGetTxnInfo.cardNo,objGetTxnInfo.cardType,objGetTxnInfo.discount,objGetTxnInfo.email,objGetTxnInfo.errorCode,objGetTxnInfo.failureReason,objGetTxnInfo.field2,objGetTxnInfo.firstname,objGetTxnInfo.ibiboCode,objGetTxnInfo.thisid,objGetTxnInfo.ip,objGetTxnInfo.issuingBank,objGetTxnInfo.merchantKey,objGetTxnInfo.lastname,objGetTxnInfo.merServiceFee,objGetTxnInfo.merServiceTax,objGetTxnInfo.merchantName,objGetTxnInfo.mode,objGetTxnInfo.offerKey,objGetTxnInfo.offerType,objGetTxnInfo.paymentGateway,objGetTxnInfo.pgMID,objGetTxnInfo.phone,objGetTxnInfo.productInfo,objGetTxnInfo.status,objGetTxnInfo.transactionFee,objGetTxnInfo.txnID,objGetTxnInfo.udf1];
-                        [responseMsgDisplay appendFormat:@"id = %@\nip = %@\nissuingBank = %@\nmerchantKey = %@\nstatus = %@\ntransactionFee = %@\ntxnID = %@",objGetTxnInfo.thisid,objGetTxnInfo.ip,objGetTxnInfo.issuingBank,objGetTxnInfo.merchantKey,objGetTxnInfo.status,objGetTxnInfo.transactionFee,objGetTxnInfo.txnID];
+                        [responseMsg appendFormat:@"action = %@\naddedon = %@\nAdditionalCharges = %@\namount = %@\nbankName = %@\nbankRefNo = %@\ncardNo = %@\ncardType = %@\ndiscount = %@\nemail = %@\nerrorCode = %@\nfailureReason = %@\nfield2 = %@\nfirstname = %@\nibiboCode = %@\nthisid = %@\nip = %@\nissuingBank = %@\nmerchantKey = %@\nlastname = %@\nmerServiceFee = %@\nmerServiceTax = %@\nmerchantName = %@\nmode = %@\nofferKey = %@\nofferType = %@\npaymentGateway = %@\npgMID = %@\nphone = %@\nproductInfo = %@\nstatus = %@\ntransactionFee = %@\ntxnID = %@\nudf1 = %@\nmerchant_subvention_amount = %@",objGetTxnInfo.action,objGetTxnInfo.addedon,objGetTxnInfo.additionalCharges,objGetTxnInfo.amount,objGetTxnInfo.bankName,objGetTxnInfo.bankRefNo,objGetTxnInfo.cardNo,objGetTxnInfo.cardType,objGetTxnInfo.discount,objGetTxnInfo.email,objGetTxnInfo.errorCode,objGetTxnInfo.failureReason,objGetTxnInfo.field2,objGetTxnInfo.firstname,objGetTxnInfo.ibiboCode,objGetTxnInfo.thisid,objGetTxnInfo.ip,objGetTxnInfo.issuingBank,objGetTxnInfo.merchantKey,objGetTxnInfo.lastname,objGetTxnInfo.merServiceFee,objGetTxnInfo.merServiceTax,objGetTxnInfo.merchantName,objGetTxnInfo.mode,objGetTxnInfo.offerKey,objGetTxnInfo.offerType,objGetTxnInfo.paymentGateway,objGetTxnInfo.pgMID,objGetTxnInfo.phone,objGetTxnInfo.productInfo,objGetTxnInfo.status,objGetTxnInfo.transactionFee,objGetTxnInfo.txnID,objGetTxnInfo.udf1,objGetTxnInfo.merchantSubventionAmount];
+                        [responseMsgDisplay appendFormat:@"id = %@\nip = %@\nissuingBank = %@\nmerchantKey = %@\nstatus = %@\ntransactionFee = %@\ntxnID = %@\nmerchant_subvention_amount = %@",objGetTxnInfo.thisid,objGetTxnInfo.ip,objGetTxnInfo.issuingBank,objGetTxnInfo.merchantKey,objGetTxnInfo.status,objGetTxnInfo.transactionFee,objGetTxnInfo.txnID,objGetTxnInfo.merchantSubventionAmount];
                         [responseMsgDisplay appendFormat:@"\n--------END--------\n\n"];
                         [responseMsg appendFormat:@"\n--------END--------\n\n"];
                     }

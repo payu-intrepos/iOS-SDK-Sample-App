@@ -24,6 +24,7 @@ static NSString * const cellVerifyAPIIdentifier = @"cellVerifyAPI";
 - (void)viewDidLoad {
     [super viewDidLoad];
     _verifyAPIConfig = [[PUVAConfiguration alloc] init];
+    _verifyAPIConfig.salt = self.salt;
     self.navigationItem.title = @"Verify API";
 }
 
@@ -52,6 +53,7 @@ static NSString * const cellVerifyAPIIdentifier = @"cellVerifyAPI";
     PUVABaseResponseVC *responseVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([PUVABaseResponseVC class])];
     responseVC.paymentParam = [self.paymentParam copy];
     responseVC.paymentRelatedDetail = self.paymentRelatedDetail;
+    responseVC.vAConfig = _verifyAPIConfig;
     switch (indexPath.row) {
         case 0:{
             responseVC.responseVCType = COMMAND_CHECK_OFFER_DETAILS;

@@ -11,6 +11,6 @@
 @interface PUVAConfiguration : NSObject
 
 @property NSArray *arrAPIName;
-@property NSString *salt;
+@property (strong, nonatomic) NSString *salt;
 
 @end

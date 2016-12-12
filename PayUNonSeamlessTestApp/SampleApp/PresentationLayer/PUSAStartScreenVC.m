@@ -40,12 +40,15 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
 @property (weak, nonatomic) IBOutlet UITextField *textFieldUDF5;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldUserCredential;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldSalt;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldSVAmount;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldSVEligibility;
 @property (weak, nonatomic) IBOutlet UIScrollView *startScreenScrollView;
 - (IBAction)switchButtonForNil:(id)sender;
 - (IBAction)clickedBtnStart:(id)sender;
 
-
-
+@property (weak, nonatomic) IBOutlet UISwitch *switchBtnSVAmount;
+@property (weak, nonatomic) IBOutlet UISwitch *switchBtnSVEligibility;
+@property (weak, nonatomic) IBOutlet UISwitch *switchBtnOfferKey;
 
 @property (strong, nonatomic) UISwitch *switchForSalt;
 @property (strong, nonatomic) UISwitch *switchForOneTap;
@@ -89,7 +92,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
     self.switchForOneTap = (UISwitch *)[self.startScreenScrollView viewWithTag:19];
     
 //    self.paymentParam.key = @"0MQaQP";//@"gtKFFx";//@"0MQaQP";
-    self.paymentParam.amount = @"10.0";
+    self.paymentParam.amount = @"10000";
     self.paymentParam.productInfo = @"Nokia";
     self.paymentParam.firstName = @"Ram";
     self.paymentParam.email = @"email@testsdk1.com";
@@ -103,7 +106,8 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
     self.paymentParam.udf4 = @"u4";
     self.paymentParam.udf5 = @"u5";
 //    self.paymentParam.environment = ENVIRONMENT_PRODUCTION;
-    [self setEnvironment:ENVIRONMENT_PRODUCTION];
+    [self setEnvironment:ENVIRONMENT_MOBILEDEV];
+    [self setSalt:@"bleC4Eq1"];
     self.paymentParam.offerKey = @"test123@6622"; //bins@8427,srioffer@8428,cc2@8429,gtkffx@7236
     
     [self initialSetupForViewInput];
@@ -115,8 +119,16 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
     if ([env isEqualToString:ENVIRONMENT_PRODUCTION]) {
         self.paymentParam.key = @"0MQaQP";
     } else {
-        self.paymentParam.key = @"gtKFFx";
+        self.paymentParam.key = @"6Te2QS";
     }
+}
+
+-(void)setSalt:(NSString *) salt{
+    [self.switchForSalt setOn:YES];
+    self.textFieldSalt.hidden = false;
+
+    self.textFieldSalt.text = salt;
+
 }
 
 -(void)initialSetupForViewInput{
@@ -204,6 +216,9 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
     self.paymentParam.udf5 = self.textFieldUDF5.text;
     self.paymentParam.userCredentials = self.textFieldUserCredential.text;
     
+    [self setSubventionParamter];
+    [self setOfferKey];
+    
     [self dismissKeyboard];
     [self.defaultActivityIndicator startAnimatingActivityIndicatorWithSelfView:self.view];
     self.view.userInteractionEnabled = NO;
@@ -267,17 +282,24 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
                 [self.navigationController pushViewController:paymentOptionVC animated:true];
             }
             else if (_isVerifyAPIBtnTapped){
-                UIStoryboard *stryBrd = [UIStoryboard storyboardWithName:verifyAPIStoryBoard bundle:nil];
-                PUVAOptionsVC *verifyAPIOptionsTVC = [stryBrd instantiateViewControllerWithIdentifier:NSStringFromClass([PUVAOptionsVC class])];
-                verifyAPIOptionsTVC.paymentParam = [PayUModelPaymentParams new];
-                verifyAPIOptionsTVC.paymentParam.key = self.paymentParam.key;
-                verifyAPIOptionsTVC.paymentParam.environment = self.paymentParam.environment;
-                verifyAPIOptionsTVC.paymentParam.userCredentials = self.paymentParam.userCredentials;
-                verifyAPIOptionsTVC.paymentParam.hashes.VASForMobileSDKHash = self.paymentParam.hashes.VASForMobileSDKHash;
-                verifyAPIOptionsTVC.paymentRelatedDetail = paymentRelatedDetails;
-                _isVerifyAPIBtnTapped = FALSE;
-                [respo callVASForMobileSDKWithPaymentParam:verifyAPIOptionsTVC.paymentParam];        //FORVAS
-                [self.navigationController pushViewController:verifyAPIOptionsTVC animated:true];
+                if (self.switchForSalt.on) {
+                    UIStoryboard *stryBrd = [UIStoryboard storyboardWithName:verifyAPIStoryBoard bundle:nil];
+                    PUVAOptionsVC *verifyAPIOptionsTVC = [stryBrd instantiateViewControllerWithIdentifier:NSStringFromClass([PUVAOptionsVC class])];
+                    verifyAPIOptionsTVC.paymentParam = [PayUModelPaymentParams new];
+                    verifyAPIOptionsTVC.paymentParam.key = self.paymentParam.key;
+                    verifyAPIOptionsTVC.paymentParam.environment = self.paymentParam.environment;
+                    verifyAPIOptionsTVC.paymentParam.userCredentials = self.paymentParam.userCredentials;
+                    verifyAPIOptionsTVC.paymentParam.hashes.VASForMobileSDKHash = self.paymentParam.hashes.VASForMobileSDKHash;
+                    verifyAPIOptionsTVC.paymentRelatedDetail = paymentRelatedDetails;
+                    verifyAPIOptionsTVC.salt = self.textFieldSalt.text;
+                    _isVerifyAPIBtnTapped = FALSE;
+                    [respo callVASForMobileSDKWithPaymentParam:verifyAPIOptionsTVC.paymentParam];        //FORVAS
+                    [self.navigationController pushViewController:verifyAPIOptionsTVC animated:true];
+                    
+                }
+                else{
+                    PAYUALERT(@"Error", @"For Verify API Salt is mandatory field");
+                }
             }
         }
     }];
@@ -295,6 +317,73 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
         [self.view endEditing:YES];
     }
 }
+
+-(IBAction)switchBtnClickedSVAmount:(id)sender{
+    UISwitch *switchbtn = (UISwitch *)sender;
+    if (switchbtn.on) {
+        // It means user has switched on the button
+        // and we need to show textFieldSVAmount
+        self.textFieldSVAmount.hidden = NO;
+    }
+    else{
+        // we need to hide textFieldSVAmount
+        self.textFieldSVAmount.hidden = YES;
+    }
+}
+
+-(IBAction)switchBtnClickedSVEligibility:(id)sender{
+    UISwitch *switchbtn = (UISwitch *)sender;
+    if (switchbtn.on) {
+        // It means user has switched on the button
+        // and we need to show textFieldSVEligibility
+        self.textFieldSVEligibility.hidden = NO;
+    }
+    else{
+        // we need to hide textFieldSVEligibility
+        self.textFieldSVEligibility.hidden = YES;
+    }
+}
+
+-(void)setSubventionParamter{
+    // set SVAmount and SVEligibility if switch is on
+    
+    if (self.switchBtnSVAmount.on) {
+        self.paymentParam.subventionAmount = self.textFieldSVAmount.text;
+    }
+    else{
+        self.paymentParam.subventionAmount = nil;
+    }
+    
+    if (self.switchBtnSVEligibility.on) {
+        self.paymentParam.subventionEligibility = self.textFieldSVEligibility.text;
+    }
+    else{
+        self.paymentParam.subventionEligibility = nil;
+    }
+}
+
+- (IBAction)switchBtnClickedOfferKey:(id)sender {
+    UISwitch *switchbtn = (UISwitch *)sender;
+    if (switchbtn.on) {
+        // It means user has switched on the button
+        // and we need to show textFieldOfferKey
+        self.textFieldOfferKey.hidden = NO;
+    }
+    else{
+        // we need to hide textFieldOfferKey
+        self.textFieldOfferKey.hidden = YES;
+    }
+}
+
+-(void)setOfferKey{
+    if (self.switchBtnOfferKey.on) {
+        self.paymentParam.offerKey = self.textFieldOfferKey.text;
+    }
+    else{
+        self.paymentParam.offerKey = nil;
+    }
+}
+
 
 #pragma UITextField delegate methods
 

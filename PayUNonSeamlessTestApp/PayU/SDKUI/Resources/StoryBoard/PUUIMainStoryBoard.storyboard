@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -160,6 +160,13 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5e-fG-a3n">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J5F-eq-Muf">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="0.0"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" id="pVq-7V-YUZ"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jyJ-IW-MWy">
                                         <rect key="frame" x="20" y="20" width="560" height="290"/>
                                         <subviews>
@@ -546,9 +553,18 @@
                                     <constraint firstItem="jyJ-IW-MWy" firstAttribute="width" secondItem="O5e-fG-a3n" secondAttribute="width" constant="-40" id="9bf-H8-Lhe"/>
                                     <constraint firstItem="jyJ-IW-MWy" firstAttribute="top" secondItem="O5e-fG-a3n" secondAttribute="top" constant="20" id="A05-7Q-WIM"/>
                                     <constraint firstAttribute="trailing" secondItem="jyJ-IW-MWy" secondAttribute="trailing" constant="20" id="HdO-W3-CSn"/>
+                                    <constraint firstAttribute="trailing" secondItem="J5F-eq-Muf" secondAttribute="trailing" id="Mny-LS-PtK"/>
                                     <constraint firstItem="jyJ-IW-MWy" firstAttribute="leading" secondItem="O5e-fG-a3n" secondAttribute="leading" constant="20" id="gH6-lg-UXY"/>
+                                    <constraint firstItem="J5F-eq-Muf" firstAttribute="leading" secondItem="O5e-fG-a3n" secondAttribute="leading" id="jJY-gf-367"/>
+                                    <constraint firstItem="J5F-eq-Muf" firstAttribute="top" secondItem="O5e-fG-a3n" secondAttribute="top" id="nKu-B1-WOQ"/>
                                     <constraint firstAttribute="bottom" secondItem="jyJ-IW-MWy" secondAttribute="bottom" id="vG7-cv-PZQ"/>
+                                    <constraint firstItem="jyJ-IW-MWy" firstAttribute="top" secondItem="J5F-eq-Muf" secondAttribute="bottom" constant="20" id="wdf-kx-ytv"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="A05-7Q-WIM"/>
+                                    </mask>
+                                </variation>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -568,6 +584,7 @@
                     <connections>
                         <outlet property="btnOneTap" destination="dM9-T4-Bmg" id="2B1-Pt-cat"/>
                         <outlet property="btnSaveCard" destination="k3h-7P-Kqv" id="Y8l-Nm-fjh"/>
+                        <outlet property="constraintHEMITopVw" destination="pVq-7V-YUZ" id="hJf-XQ-3hv"/>
                         <outlet property="imgVwCardIssuer" destination="6t3-ex-wPN" id="RAp-b4-lN6"/>
                         <outlet property="imgVwValidCVV" destination="I9s-9w-ZYp" id="jK6-wg-3Jc"/>
                         <outlet property="lblForVASMessage" destination="jJn-2Q-weI" id="nNG-ii-l8L"/>
@@ -583,6 +600,7 @@
                         <outlet property="txtFieldStoreCardName" destination="ECS-O9-Jf3" id="m4i-93-0Lg"/>
                         <outlet property="txtFieldYear" destination="uf0-Xl-LXX" id="bPm-Eb-cdh"/>
                         <outlet property="viewCardDetail" destination="Yna-hq-ALE" id="rOE-kp-DBU"/>
+                        <outlet property="vwEMISection" destination="J5F-eq-Muf" id="oZh-Fr-jJU"/>
                         <outlet property="vwOneTapSection" destination="NID-dn-fLF" id="QoH-Cw-tfA"/>
                         <outlet property="vwStoredCardNameSection" destination="xzh-y8-IcD" id="Iz3-O4-Xk9"/>
                         <outlet property="vwStoredCardTapSection" destination="BAh-mi-838" id="CPe-vZ-7rO"/>
@@ -780,7 +798,7 @@
         <!--Navigation Controller-->
         <scene sceneID="PyB-93-yjy">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="98F-Bw-Oz9" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavSC" automaticallyAdjustsScrollViewInsets="NO" id="98F-Bw-Oz9" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kV3-GW-sei">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -798,7 +816,7 @@
         <!--Card OptionVC-->
         <scene sceneID="UgP-eO-Dcg">
             <objects>
-                <tableViewController id="dky-nE-TYe" customClass="PUUICardOptionVC" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PUUICardOptionVC" id="dky-nE-TYe" customClass="PUUICardOptionVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="p7W-ev-Ld8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
