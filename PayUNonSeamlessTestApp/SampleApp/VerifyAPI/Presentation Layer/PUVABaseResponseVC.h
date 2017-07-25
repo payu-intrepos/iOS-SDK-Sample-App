@@ -7,9 +7,12 @@
 //
 
 #import "PUUIBaseVC.h"
+#import "PUVAConfiguration.h"
 
 @interface PUVABaseResponseVC : PUUIBaseVC
 
 @property (weak, nonatomic) NSString * responseVCType;
+@property PUVAConfiguration *vAConfig;
+
 
 @end

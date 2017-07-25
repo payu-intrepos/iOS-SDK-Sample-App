@@ -60,8 +60,11 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
     withCustomisations = YES;
     withPostParam = NO;
     shouldPresentVC = NO;
-    shouldEnableWKWebview = NO;
+    shouldEnableWKWebview = YES;
     bankSimulatorType = PUCBDefault;
+    
+    
+    
 }
 
 -(void)dealloc{
@@ -157,6 +160,7 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
         PUUICCDCVC * CCDCVC = [self.storyboard instantiateViewControllerWithIdentifier:VC_IDENTIFIER_CCDC];
         CCDCVC.paymentParam = [self.paymentParam copy];
         CCDCVC.paymentRelatedDetail = self.paymentRelatedDetail;
+        CCDCVC.paymentType = PAYMENT_PG_CCDC;
         return CCDCVC;
     }
     else if ([[actualPaymentOption objectAtIndex:index] isEqual:PAYMENT_PG_NET_BANKING]) {
@@ -169,6 +173,20 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
         PUUIPayUMoneyVC *payUMoney = [self.storyboard instantiateViewControllerWithIdentifier:VC_IDENTIFIER_PAYU_MONEY];
         payUMoney.paymentParam = self.paymentParam;
         return payUMoney;
+    }
+    else if ([[actualPaymentOption objectAtIndex:index] isEqual:PAYMENT_PG_EMI]) {
+        PUUICCDCVC * CCDCVC = [self.storyboard instantiateViewControllerWithIdentifier:VC_IDENTIFIER_CCDC];
+        CCDCVC.paymentParam = [self.paymentParam copy];
+        CCDCVC.paymentRelatedDetail = self.paymentRelatedDetail;
+        CCDCVC.paymentType = PAYMENT_PG_EMI;
+        return CCDCVC;
+    }
+    else if ([[actualPaymentOption objectAtIndex:index] isEqual:PAYMENT_PG_NO_COST_EMI]) {
+        PUUICCDCVC * CCDCVC = [self.storyboard instantiateViewControllerWithIdentifier:VC_IDENTIFIER_CCDC];
+        CCDCVC.paymentParam = [self.paymentParam copy];
+        CCDCVC.paymentRelatedDetail = self.paymentRelatedDetail;
+        CCDCVC.paymentType = PAYMENT_PG_NO_COST_EMI;
+        return CCDCVC;
     }
     else{
         UIViewController *vc = [PUUIBaseVC new];
@@ -265,9 +283,34 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
         }
         
     }
+    
+    
+    
+    
     PUCBConfiguration *cbConfig = [PUCBConfiguration getSingletonInstance];
     cbConfig.enableWKWebView = shouldEnableWKWebview;
     cbConfig.bankSimulatorType = [self getBankSimulatorType];
+    
+    NSMutableArray *myArray = [[NSMutableArray alloc]init];
+    
+    [myArray addObject:[NSDictionary dictionaryWithObject:@"abc123" forKey:@"Booking-ID"]];
+    [myArray addObject:[NSDictionary dictionaryWithObject:@"July 24th'17 " forKey:@"Date"]];
+    [myArray addObject:[NSDictionary dictionaryWithObject:@"Gurgaon" forKey:@"Place"]];
+    
+    NSError *err;
+    PUCBReviewOrderConfig *reviewOrderConfig = [[PUCBReviewOrderConfig alloc] initWithArrForReviewOrder:myArray error:&err];
+    
+    if (err) {
+        NSLog(@"%@",err.description);
+        
+        
+    }
+    
+    cbConfig.reviewOrderConfig = reviewOrderConfig;
+
+    
+    
+    
 #pragma clang diagnostic pop
     
     if (!request) {
@@ -279,6 +322,9 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
     
     if (request) {
         NSError *err = nil;
+        
+        
+        
         
         if (isSimplifiedCB) {
             PUCBWebVC *webVC;
@@ -307,6 +353,9 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
                 cbConfig.isMagicRetry = YES;
                 cbConfig.isAutoOTPSelect = NO;
                 cbConfig.transactionId = self.paymentParam.transactionID;
+                cbConfig.surePayCount = 3;
+                cbConfig.paymentPostParam = postParam;
+                cbConfig.paymentURL = [request.URL absoluteString];
             }
             
             if (shouldPresentVC) {
@@ -430,7 +479,9 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
                                                                                    PAYMENT_PG_STOREDCARD,
                                                                                    PAYMENT_PG_CCDC,
                                                                                    PAYMENT_PG_NET_BANKING,
-                                                                                   PAYMENT_PG_PAYU_MONEY, nil]];
+                                                                                   PAYMENT_PG_PAYU_MONEY,
+                                                                                   PAYMENT_PG_EMI,
+                                                                                   PAYMENT_PG_NO_COST_EMI,nil]];
     NSArray *arr;
     if ([_paymentOption count]) {
         NSMutableOrderedSet *setGivenPaymentOption = [[NSMutableOrderedSet alloc] initWithArray:_paymentOption];
@@ -440,7 +491,6 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
     else{
         arr = (NSArray *)setSupportedPaymentOption;
     }
-    
     return arr;
 }
 @end

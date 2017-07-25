@@ -91,6 +91,10 @@ static NSString * const UnwindCardOptionSegueIdentifier = @"UnwindCardOptionSegu
         cell.detailTextLabel.text = modelStoredCard.cardName;
         
     }
+    else if ((self.tableViewType == TableViewTypeEMIBank)||(self.tableViewType == TableViewTypeEMIDuration)){
+        cell.textLabel.text = [self.arrStoredCards objectAtIndex:indexPath.row];
+        cell.detailTextLabel.text = @"";
+    }
     else{
         modelNB = [self.arrStoredCards objectAtIndex:indexPath.row];
         

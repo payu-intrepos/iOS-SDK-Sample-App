@@ -18,7 +18,9 @@ extern NSString * const kPUUINotiEnablePayNow, * const kPUUIPaymentRequest, * co
 
 typedef NS_ENUM(NSInteger, TableViewType) {
     TableViewTypeNB,
-    TableViewTypeSC
+    TableViewTypeSC,
+    TableViewTypeEMIBank,
+    TableViewTypeEMIDuration
 };
 
 

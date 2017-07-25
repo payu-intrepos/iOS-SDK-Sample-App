@@ -10,6 +10,6 @@
 
 @interface PUUICCDCVC : PUUIBaseVC <UITextFieldDelegate>
 
-
+@property (nonatomic, strong) NSString *paymentType;
 
 @end
