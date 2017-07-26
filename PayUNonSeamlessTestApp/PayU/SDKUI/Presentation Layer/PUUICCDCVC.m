@@ -9,6 +9,7 @@
 #import "PUUICCDCVC.h"
 #import "PUUIUtility.h"
 //#import "AppDelegate.h"
+#import "PUUIEMITopView.h"
 
 #pragma mark - Macros
 
@@ -62,7 +63,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lblVerticalLine;
 
 @property (strong, nonatomic) UIView *grayView;
-
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *constraintHEMITopVw;
+@property (weak, nonatomic) IBOutlet UIView *vwEMISection;
 @property (weak, nonatomic) UIViewController *currentVC;
 
 @end
@@ -122,9 +124,19 @@
     [self.lblHorizontalLine3 setBackgroundColor:[UIColor payUViewBorderColor]];
     [self.lblVerticalLine setBackgroundColor:[UIColor payUViewBorderColor]];
     
-    if (![PUUIUtility isUserCredentialValid:self.paymentParam.userCredentials]) {
-        [self hideSaveCardSection];
+    if ([self.paymentType isEqual:PAYMENT_PG_CCDC]) {
+        if (![PUUIUtility isUserCredentialValid:self.paymentParam.userCredentials]) {
+            [self hideSaveCardSection];
+        }
+        self.constraintHEMITopVw.constant = 0;
     }
+    else if ([self.paymentType isEqual:PAYMENT_PG_EMI]) {
+        [self setupEMIView];
+    }
+    else if ([self.paymentType isEqual:PAYMENT_PG_NO_COST_EMI]) {
+        [self setupNoCostEMIView];
+    }
+    
 }
 
 -(void)hideVASMessageSection:(BOOL) flag{
@@ -645,6 +657,33 @@ andPreserveCursorPosition:&targetCursorPosition];
         cVVLength = [NSNumber numberWithInt:3];
     }
     return cVVLength;
+}
+
+
+#pragma mark - EMI Related methods
+
+-(void)setupEMIView{
+    
+//    self.paymentParam.bankCode = @"EMIA6";
+    [self hideSaveCardSection];
+    PUUIEMITopView *vwEMITop = [[PUUIEMITopView alloc] initWithPaymentType:self.paymentType parentVC:self];
+    [vwEMITop showSubViewOnView:self.vwEMISection];
+    self.constraintHEMITopVw.constant = CGRectGetMaxY(vwEMITop.vwBottom.frame);
+}
+
+-(void)setupNoCostEMIView{
+    
+    //    self.paymentParam.bankCode = @"EMIA6";
+    [self hideSaveCardSection];
+    PUUIEMITopView *vwEMITop = [[PUUIEMITopView alloc] initWithPaymentType:self.paymentType parentVC:self];
+    [vwEMITop showSubViewOnView:self.vwEMISection];
+    self.constraintHEMITopVw.constant = CGRectGetMaxY(vwEMITop.vwBottom.frame);
+}
+
+- (IBAction)unwindToStoredCardVC:(UIStoryboardSegue *)segue
+{
+//    if ([segue.sourceViewController isKindOfClass:[PUUICardOptionVC class]]) {
+//    }
 }
 
 @end

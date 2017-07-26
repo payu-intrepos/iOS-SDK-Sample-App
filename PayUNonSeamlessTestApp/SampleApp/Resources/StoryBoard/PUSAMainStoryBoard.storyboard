@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gkh-KH-37f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gkh-KH-37f">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -39,7 +39,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4yo-42-xvg">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="860"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fil-uA-p1h">
                                                 <rect key="frame" x="8" y="11" width="130" height="21"/>
@@ -144,7 +144,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Salt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaZ-HY-SAL">
-                                                <rect key="frame" x="8" y="641" width="130" height="21"/>
+                                                <rect key="frame" x="8" y="715" width="130" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -229,7 +229,7 @@
                                                     <outlet property="delegate" destination="e5E-55-FGB" id="bK9-Ez-Xuw"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RPN-Ls-soX">
+                                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RPN-Ls-soX">
                                                 <rect key="frame" x="196" y="378" width="110" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -285,8 +285,36 @@
                                                     <outlet property="delegate" destination="e5E-55-FGB" id="7bk-rO-962"/>
                                                 </connections>
                                             </textField>
-                                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XX1-3B-M3X">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SV Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cXJ-AW-yaL">
+                                                <rect key="frame" x="8" y="640" width="86" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3y4-y4-SzY">
                                                 <rect key="frame" x="196" y="637" width="110" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="e5E-55-FGB" id="Qdo-3Y-4yq"/>
+                                                </connections>
+                                            </textField>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SV Eligibility" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZy-ct-TpE">
+                                                <rect key="frame" x="8" y="677" width="94" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dVD-YN-v1E">
+                                                <rect key="frame" x="196" y="674" width="110" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="e5E-55-FGB" id="DK2-u7-WoE"/>
+                                                </connections>
+                                            </textField>
+                                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XX1-3B-M3X">
+                                                <rect key="frame" x="196" y="711" width="110" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                                 <connections>
@@ -294,25 +322,25 @@
                                                 </connections>
                                             </textField>
                                             <switch opaque="NO" tag="18" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="orX-Xy-wDd">
-                                                <rect key="frame" x="136" y="636" width="51" height="31"/>
+                                                <rect key="frame" x="136" y="710" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="switchButtonForNil:" destination="e5E-55-FGB" eventType="valueChanged" id="FqY-T6-meI"/>
                                                 </connections>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EnableOneTap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDd-eb-r75">
-                                                <rect key="frame" x="8" y="679" width="130" height="21"/>
+                                                <rect key="frame" x="8" y="753" width="130" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" tag="19" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fPG-n8-WHC">
-                                                <rect key="frame" x="136" y="674" width="51" height="31"/>
+                                                <rect key="frame" x="136" y="748" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="switchButtonForNil:" destination="e5E-55-FGB" eventType="valueChanged" id="Nay-Fn-YT9"/>
                                                 </connections>
                                             </switch>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lno-Jh-ivK">
-                                                <rect key="frame" x="511" y="740" width="59" height="46"/>
+                                                <rect key="frame" x="511" y="800" width="59" height="46"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                 <state key="normal" title="Start"/>
                                                 <connections>
@@ -320,13 +348,31 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EX9-sQ-QVE">
-                                                <rect key="frame" x="30" y="740" width="120" height="46"/>
+                                                <rect key="frame" x="30" y="800" width="120" height="46"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                 <state key="normal" title="Verify API"/>
                                                 <connections>
                                                     <action selector="btnClickedVerifyAPI:" destination="e5E-55-FGB" eventType="touchUpInside" id="RTt-WJ-Rdk"/>
                                                 </connections>
                                             </button>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gdw-MK-Hmh">
+                                                <rect key="frame" x="136" y="635" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="switchBtnClickedSVAmount:" destination="e5E-55-FGB" eventType="valueChanged" id="8hp-Z5-Q2Q"/>
+                                                </connections>
+                                            </switch>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gVS-Jc-6uz">
+                                                <rect key="frame" x="136" y="672" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="switchBtnClickedSVEligibility:" destination="e5E-55-FGB" eventType="valueChanged" id="2Rk-Eb-bZa"/>
+                                                </connections>
+                                            </switch>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PZa-z8-sFf">
+                                                <rect key="frame" x="136" y="376" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="switchBtnClickedOfferKey:" destination="e5E-55-FGB" eventType="valueChanged" id="Xk4-hc-UBE"/>
+                                                </connections>
+                                            </switch>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -334,7 +380,7 @@
                                             <constraint firstItem="EX9-sQ-QVE" firstAttribute="leading" secondItem="4yo-42-xvg" secondAttribute="leading" constant="30" id="bLf-Vb-YVp"/>
                                             <constraint firstAttribute="bottom" secondItem="Lno-Jh-ivK" secondAttribute="bottom" constant="14" id="k6P-bK-G74"/>
                                             <constraint firstAttribute="bottom" secondItem="EX9-sQ-QVE" secondAttribute="bottom" constant="14" id="lhA-EA-1up"/>
-                                            <constraint firstAttribute="height" constant="800" id="mj1-1f-sVc"/>
+                                            <constraint firstAttribute="height" constant="860" id="mj1-1f-sVc"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -358,6 +404,9 @@
                     <navigationItem key="navigationItem" id="YTV-be-Tah"/>
                     <connections>
                         <outlet property="startScreenScrollView" destination="P7U-AO-lMw" id="2E3-FX-tVp"/>
+                        <outlet property="switchBtnOfferKey" destination="PZa-z8-sFf" id="FTL-ae-5DB"/>
+                        <outlet property="switchBtnSVAmount" destination="gdw-MK-Hmh" id="Khr-Gp-dAk"/>
+                        <outlet property="switchBtnSVEligibility" destination="gVS-Jc-6uz" id="WZG-2i-1cB"/>
                         <outlet property="textFieldAmount" destination="7a6-0h-jY7" id="KjX-94-SDj"/>
                         <outlet property="textFieldEmail" destination="slB-Vm-JwA" id="tbf-2v-YoU"/>
                         <outlet property="textFieldEnvironment" destination="rQs-Lc-5kC" id="94A-Zi-Y0Q"/>
@@ -368,6 +417,8 @@
                         <outlet property="textFieldPhone" destination="8Mg-ct-Xjj" id="93K-YJ-WhB"/>
                         <outlet property="textFieldProductInfo" destination="eQm-BN-I0i" id="ima-64-qwM"/>
                         <outlet property="textFieldSURL" destination="uRE-7k-fsA" id="2k2-ft-1bG"/>
+                        <outlet property="textFieldSVAmount" destination="3y4-y4-SzY" id="ddh-nN-C0Q"/>
+                        <outlet property="textFieldSVEligibility" destination="dVD-YN-v1E" id="qu9-P3-rSF"/>
                         <outlet property="textFieldSalt" destination="XX1-3B-M3X" id="xHf-Yp-ZoT"/>
                         <outlet property="textFieldTransactionID" destination="oNr-VO-DKO" id="tmW-AK-djn"/>
                         <outlet property="textFieldUDF1" destination="65a-pT-0Kt" id="KLG-Be-rvD"/>
