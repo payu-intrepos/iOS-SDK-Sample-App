@@ -215,7 +215,11 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
     self.paymentParam.udf4 = self.textFieldUDF4.text;
     self.paymentParam.udf5 = self.textFieldUDF5.text;
     self.paymentParam.userCredentials = self.textFieldUserCredential.text;
-    
+  
+    // set notify URL if you want to pay through Lazy Pay
+    self.paymentParam.notifyURL= @"https://notifyURL.com";
+ 
+  
     [self setSubventionParamter];
     [self setOfferKey];
     

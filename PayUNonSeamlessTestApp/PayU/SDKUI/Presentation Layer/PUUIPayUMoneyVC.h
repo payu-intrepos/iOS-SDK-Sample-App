@@ -9,5 +9,8 @@
 #import "PUUIBaseVC.h"
 
 @interface PUUIPayUMoneyVC : PUUIBaseVC
+@property (weak, nonatomic) IBOutlet UILabel *lblMessage;
+@property(nonatomic,strong) NSString * messageString;
+
 
 @end

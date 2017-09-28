@@ -16,6 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+  
+  self.lblMessage.text = self.messageString;
+  
 }
 
 -(void)viewDidAppear:(BOOL)animated{

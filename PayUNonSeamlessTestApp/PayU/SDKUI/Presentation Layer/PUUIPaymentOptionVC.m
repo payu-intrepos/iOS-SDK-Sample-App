@@ -171,7 +171,11 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
     }
     else if ([[actualPaymentOption objectAtIndex:index] isEqual:PAYMENT_PG_PAYU_MONEY]) {
         PUUIPayUMoneyVC *payUMoney = [self.storyboard instantiateViewControllerWithIdentifier:VC_IDENTIFIER_PAYU_MONEY];
+      
+        payUMoney.messageString = @"Click PAYNOW to pay through PayUMoney";
         payUMoney.paymentParam = self.paymentParam;
+      
+      
         return payUMoney;
     }
     else if ([[actualPaymentOption objectAtIndex:index] isEqual:PAYMENT_PG_EMI]) {
@@ -188,6 +192,20 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
         CCDCVC.paymentType = PAYMENT_PG_NO_COST_EMI;
         return CCDCVC;
     }
+  
+    else if ([[actualPaymentOption objectAtIndex:index] isEqual:PAYMENT_PG_LAZYPAY]) {
+      
+      PUUIPayUMoneyVC *lazyPay = [self.storyboard instantiateViewControllerWithIdentifier:VC_IDENTIFIER_PAYU_MONEY];
+      
+      lazyPay.messageString = @"Click PAYNOW to pay through Lazy Pay";
+      
+      
+      lazyPay.paymentParam = self.paymentParam;
+
+      
+      return lazyPay;
+    }
+  
     else{
         UIViewController *vc = [PUUIBaseVC new];
         [[vc view] setBackgroundColor:[UIColor whiteColor]];
@@ -262,6 +280,8 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
     [self payNow];
 }
 -(void)payNow{
+  
+  
     paymentType = [actualPaymentOption objectAtIndex:currentIndex];
     if ([paymentType  isEqual: PAYMENT_PG_STOREDCARD ]) {
         for (PayUModelStoredCard *modelStoredcard in self.paymentRelatedDetail.oneTapStoredCardArray) {
@@ -293,8 +313,8 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
     
     NSMutableArray *myArray = [[NSMutableArray alloc]init];
     
-    [myArray addObject:[NSDictionary dictionaryWithObject:@"abc123" forKey:@"Booking-ID"]];
-    [myArray addObject:[NSDictionary dictionaryWithObject:@"July 24th'17 " forKey:@"Date"]];
+    [myArray addObject:[NSDictionary dictionaryWithObject:@"abc123" forKey:@"Booking- Through Lazy Pay"]];
+    [myArray addObject:[NSDictionary dictionaryWithObject:@"Sept 28th'17 " forKey:@"Date"]];
     [myArray addObject:[NSDictionary dictionaryWithObject:@"Gurgaon" forKey:@"Place"]];
     
     NSError *err;
@@ -481,7 +501,9 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
                                                                                    PAYMENT_PG_NET_BANKING,
                                                                                    PAYMENT_PG_PAYU_MONEY,
                                                                                    PAYMENT_PG_EMI,
-                                                                                   PAYMENT_PG_NO_COST_EMI,nil]];
+                                                                                   PAYMENT_PG_NO_COST_EMI,
+                                                                                   
+                                                                  PAYMENT_PG_LAZYPAY,                 nil]];
     NSArray *arr;
     if ([_paymentOption count]) {
         NSMutableOrderedSet *setGivenPaymentOption = [[NSMutableOrderedSet alloc] initWithArray:_paymentOption];
