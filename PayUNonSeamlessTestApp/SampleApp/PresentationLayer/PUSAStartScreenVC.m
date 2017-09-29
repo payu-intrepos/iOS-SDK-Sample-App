@@ -107,7 +107,11 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
     self.paymentParam.udf5 = @"u5";
 //    self.paymentParam.environment = ENVIRONMENT_PRODUCTION;
     [self setEnvironment:ENVIRONMENT_PRODUCTION];
-    [self setSalt:@""];
+    //It is a security vulnerability to keep salt in the app.
+    //We are using here for demonstration purpose only. Never do that.
+    //Keep salt on your server.
+    [self setSalt:@"1b1b0"];
+    
     self.paymentParam.offerKey = @"test123@6622"; //bins@8427,srioffer@8428,cc2@8429,gtkffx@7236
     
     [self initialSetupForViewInput];
@@ -117,14 +121,14 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
 - (void)setEnvironment:(NSString*)env {
     self.paymentParam.environment = env;
     if ([env isEqualToString:ENVIRONMENT_PRODUCTION]) {
-        self.paymentParam.key = @"0MQaQP";
+        self.paymentParam.key = @"smsplus";
     } else {
-        self.paymentParam.key = @"6Te2QS";
+        self.paymentParam.key = @"gtKFFx";
     }
 }
 
 -(void)setSalt:(NSString *) salt{
-    [self.switchForSalt setOn:NO];
+    [self.switchForSalt setOn:YES];
     self.textFieldSalt.hidden = false;
 
     self.textFieldSalt.text = salt;
