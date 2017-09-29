@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3EC27F461DFEDDE3007E4217 /* libPayU_iOS_CoreSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EC27EA51DFEDDE3007E4217 /* libPayU_iOS_CoreSDK.a */; };
-		3EC27F471DFEDDE3007E4217 /* PayUSDKInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3EC27EBD1DFEDDE3007E4217 /* PayUSDKInfo.plist */; };
+		3E3E2D131F7E6407000D10E7 /* libPayU_iOS_CoreSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E3E2CF41F7E6407000D10E7 /* libPayU_iOS_CoreSDK.a */; };
+		3E3E2D141F7E6407000D10E7 /* PayUSDKInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E3E2D0C1F7E6407000D10E7 /* PayUSDKInfo.plist */; };
 		3EC27F481DFEDDE3007E4217 /* iOSDefaultActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC27EC71DFEDDE3007E4217 /* iOSDefaultActivityIndicator.m */; };
 		3EC27F491DFEDDE3007E4217 /* PUUIEMITopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EC27ECA1DFEDDE3007E4217 /* PUUIEMITopView.m */; };
 		3EC27F4A1DFEDDE3007E4217 /* PUUIEMITopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3EC27ECB1DFEDDE3007E4217 /* PUUIEMITopView.xib */; };
@@ -84,36 +84,36 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3EC27EA51DFEDDE3007E4217 /* libPayU_iOS_CoreSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPayU_iOS_CoreSDK.a; sourceTree = "<group>"; };
-		3EC27EA71DFEDDE3007E4217 /* CoreTelephony.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTelephony.h; sourceTree = "<group>"; };
-		3EC27EA81DFEDDE3007E4217 /* PayU_iOS_CoreSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayU_iOS_CoreSDK.h; sourceTree = "<group>"; };
-		3EC27EA91DFEDDE3007E4217 /* PayUConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUConstants.h; sourceTree = "<group>"; };
-		3EC27EAA1DFEDDE3007E4217 /* PayUCreatePostParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUCreatePostParam.h; sourceTree = "<group>"; };
-		3EC27EAB1DFEDDE3007E4217 /* PayUCreateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUCreateRequest.h; sourceTree = "<group>"; };
-		3EC27EAC1DFEDDE3007E4217 /* PayUDontUseThisClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUDontUseThisClass.h; sourceTree = "<group>"; };
-		3EC27EAD1DFEDDE3007E4217 /* PayUFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUFileManager.h; sourceTree = "<group>"; };
-		3EC27EAE1DFEDDE3007E4217 /* PayUJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUJSONParser.h; sourceTree = "<group>"; };
-		3EC27EAF1DFEDDE3007E4217 /* PayUModelCashCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelCashCard.h; sourceTree = "<group>"; };
-		3EC27EB01DFEDDE3007E4217 /* PayUModelCheckIsDomestic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelCheckIsDomestic.h; sourceTree = "<group>"; };
-		3EC27EB11DFEDDE3007E4217 /* PayUModelEMI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelEMI.h; sourceTree = "<group>"; };
-		3EC27EB21DFEDDE3007E4217 /* PayUModelEMIDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelEMIDetails.h; sourceTree = "<group>"; };
-		3EC27EB31DFEDDE3007E4217 /* PayUModelGetTxnInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelGetTxnInfo.h; sourceTree = "<group>"; };
-		3EC27EB41DFEDDE3007E4217 /* PayUModelHashes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelHashes.h; sourceTree = "<group>"; };
-		3EC27EB51DFEDDE3007E4217 /* PayUModelNetBanking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelNetBanking.h; sourceTree = "<group>"; };
-		3EC27EB61DFEDDE3007E4217 /* PayUModelOfferDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelOfferDetails.h; sourceTree = "<group>"; };
-		3EC27EB71DFEDDE3007E4217 /* PayUModelOfferStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelOfferStatus.h; sourceTree = "<group>"; };
-		3EC27EB81DFEDDE3007E4217 /* PayUModelPaymentParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelPaymentParams.h; sourceTree = "<group>"; };
-		3EC27EB91DFEDDE3007E4217 /* PayUModelPaymentRelatedDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelPaymentRelatedDetail.h; sourceTree = "<group>"; };
-		3EC27EBA1DFEDDE3007E4217 /* PayUModelStoredCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelStoredCard.h; sourceTree = "<group>"; };
-		3EC27EBB1DFEDDE3007E4217 /* PayUModelVerifyPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelVerifyPayment.h; sourceTree = "<group>"; };
-		3EC27EBC1DFEDDE3007E4217 /* PayUReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUReachability.h; sourceTree = "<group>"; };
-		3EC27EBD1DFEDDE3007E4217 /* PayUSDKInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PayUSDKInfo.plist; sourceTree = "<group>"; };
-		3EC27EBE1DFEDDE3007E4217 /* PayUSharedDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUSharedDataManager.h; sourceTree = "<group>"; };
-		3EC27EBF1DFEDDE3007E4217 /* PayUUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUUtils.h; sourceTree = "<group>"; };
-		3EC27EC01DFEDDE3007E4217 /* PayUValidations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUValidations.h; sourceTree = "<group>"; };
-		3EC27EC11DFEDDE3007E4217 /* PayUWebServiceResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUWebServiceResponse.h; sourceTree = "<group>"; };
-		3EC27EC21DFEDDE3007E4217 /* PayUWebViewResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUWebViewResponse.h; sourceTree = "<group>"; };
-		3EC27EC31DFEDDE3007E4217 /* PayUWSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUWSManager.h; sourceTree = "<group>"; };
+		3E3E2CF41F7E6407000D10E7 /* libPayU_iOS_CoreSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPayU_iOS_CoreSDK.a; sourceTree = "<group>"; };
+		3E3E2CF61F7E6407000D10E7 /* CoreTelephony.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreTelephony.h; sourceTree = "<group>"; };
+		3E3E2CF71F7E6407000D10E7 /* PayU_iOS_CoreSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayU_iOS_CoreSDK.h; sourceTree = "<group>"; };
+		3E3E2CF81F7E6407000D10E7 /* PayUConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUConstants.h; sourceTree = "<group>"; };
+		3E3E2CF91F7E6407000D10E7 /* PayUCreatePostParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUCreatePostParam.h; sourceTree = "<group>"; };
+		3E3E2CFA1F7E6407000D10E7 /* PayUCreateRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUCreateRequest.h; sourceTree = "<group>"; };
+		3E3E2CFB1F7E6407000D10E7 /* PayUDontUseThisClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUDontUseThisClass.h; sourceTree = "<group>"; };
+		3E3E2CFC1F7E6407000D10E7 /* PayUFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUFileManager.h; sourceTree = "<group>"; };
+		3E3E2CFD1F7E6407000D10E7 /* PayUJSONParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUJSONParser.h; sourceTree = "<group>"; };
+		3E3E2CFE1F7E6407000D10E7 /* PayUModelCashCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelCashCard.h; sourceTree = "<group>"; };
+		3E3E2CFF1F7E6407000D10E7 /* PayUModelCheckIsDomestic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelCheckIsDomestic.h; sourceTree = "<group>"; };
+		3E3E2D001F7E6407000D10E7 /* PayUModelEMI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelEMI.h; sourceTree = "<group>"; };
+		3E3E2D011F7E6407000D10E7 /* PayUModelEMIDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelEMIDetails.h; sourceTree = "<group>"; };
+		3E3E2D021F7E6407000D10E7 /* PayUModelGetTxnInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelGetTxnInfo.h; sourceTree = "<group>"; };
+		3E3E2D031F7E6407000D10E7 /* PayUModelHashes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelHashes.h; sourceTree = "<group>"; };
+		3E3E2D041F7E6407000D10E7 /* PayUModelNetBanking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelNetBanking.h; sourceTree = "<group>"; };
+		3E3E2D051F7E6407000D10E7 /* PayUModelOfferDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelOfferDetails.h; sourceTree = "<group>"; };
+		3E3E2D061F7E6407000D10E7 /* PayUModelOfferStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelOfferStatus.h; sourceTree = "<group>"; };
+		3E3E2D071F7E6407000D10E7 /* PayUModelPaymentParams.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelPaymentParams.h; sourceTree = "<group>"; };
+		3E3E2D081F7E6407000D10E7 /* PayUModelPaymentRelatedDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelPaymentRelatedDetail.h; sourceTree = "<group>"; };
+		3E3E2D091F7E6407000D10E7 /* PayUModelStoredCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelStoredCard.h; sourceTree = "<group>"; };
+		3E3E2D0A1F7E6407000D10E7 /* PayUModelVerifyPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelVerifyPayment.h; sourceTree = "<group>"; };
+		3E3E2D0B1F7E6407000D10E7 /* PayUReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUReachability.h; sourceTree = "<group>"; };
+		3E3E2D0C1F7E6407000D10E7 /* PayUSDKInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PayUSDKInfo.plist; sourceTree = "<group>"; };
+		3E3E2D0D1F7E6407000D10E7 /* PayUSharedDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUSharedDataManager.h; sourceTree = "<group>"; };
+		3E3E2D0E1F7E6407000D10E7 /* PayUUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUUtils.h; sourceTree = "<group>"; };
+		3E3E2D0F1F7E6407000D10E7 /* PayUValidations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUValidations.h; sourceTree = "<group>"; };
+		3E3E2D101F7E6407000D10E7 /* PayUWebServiceResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUWebServiceResponse.h; sourceTree = "<group>"; };
+		3E3E2D111F7E6407000D10E7 /* PayUWebViewResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUWebViewResponse.h; sourceTree = "<group>"; };
+		3E3E2D121F7E6407000D10E7 /* PayUWSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUWSManager.h; sourceTree = "<group>"; };
 		3EC27EC61DFEDDE3007E4217 /* iOSDefaultActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iOSDefaultActivityIndicator.h; sourceTree = "<group>"; };
 		3EC27EC71DFEDDE3007E4217 /* iOSDefaultActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iOSDefaultActivityIndicator.m; sourceTree = "<group>"; };
 		3EC27EC91DFEDDE3007E4217 /* PUUIEMITopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PUUIEMITopView.h; sourceTree = "<group>"; };
@@ -236,7 +236,7 @@
 			files = (
 				3EE358EB1F25EC6200F5CD86 /* libiOSCustomBrowser.a in Frameworks */,
 				DDA8C8E41D1A5DD400B5AFFC /* WebKit.framework in Frameworks */,
-				3EC27F461DFEDDE3007E4217 /* libPayU_iOS_CoreSDK.a in Frameworks */,
+				3E3E2D131F7E6407000D10E7 /* libPayU_iOS_CoreSDK.a in Frameworks */,
 				DD284EFE1CE306EC008CDE79 /* libz.tbd in Frameworks */,
 				DD284EFC1CE306E4008CDE79 /* SystemConfiguration.framework in Frameworks */,
 			);
@@ -245,6 +245,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E3E2CF51F7E6407000D10E7 /* PayU_iOS_CoreSDK */ = {
+			isa = PBXGroup;
+			children = (
+				3E3E2CF61F7E6407000D10E7 /* CoreTelephony.h */,
+				3E3E2CF71F7E6407000D10E7 /* PayU_iOS_CoreSDK.h */,
+				3E3E2CF81F7E6407000D10E7 /* PayUConstants.h */,
+				3E3E2CF91F7E6407000D10E7 /* PayUCreatePostParam.h */,
+				3E3E2CFA1F7E6407000D10E7 /* PayUCreateRequest.h */,
+				3E3E2CFB1F7E6407000D10E7 /* PayUDontUseThisClass.h */,
+				3E3E2CFC1F7E6407000D10E7 /* PayUFileManager.h */,
+				3E3E2CFD1F7E6407000D10E7 /* PayUJSONParser.h */,
+				3E3E2CFE1F7E6407000D10E7 /* PayUModelCashCard.h */,
+				3E3E2CFF1F7E6407000D10E7 /* PayUModelCheckIsDomestic.h */,
+				3E3E2D001F7E6407000D10E7 /* PayUModelEMI.h */,
+				3E3E2D011F7E6407000D10E7 /* PayUModelEMIDetails.h */,
+				3E3E2D021F7E6407000D10E7 /* PayUModelGetTxnInfo.h */,
+				3E3E2D031F7E6407000D10E7 /* PayUModelHashes.h */,
+				3E3E2D041F7E6407000D10E7 /* PayUModelNetBanking.h */,
+				3E3E2D051F7E6407000D10E7 /* PayUModelOfferDetails.h */,
+				3E3E2D061F7E6407000D10E7 /* PayUModelOfferStatus.h */,
+				3E3E2D071F7E6407000D10E7 /* PayUModelPaymentParams.h */,
+				3E3E2D081F7E6407000D10E7 /* PayUModelPaymentRelatedDetail.h */,
+				3E3E2D091F7E6407000D10E7 /* PayUModelStoredCard.h */,
+				3E3E2D0A1F7E6407000D10E7 /* PayUModelVerifyPayment.h */,
+				3E3E2D0B1F7E6407000D10E7 /* PayUReachability.h */,
+				3E3E2D0C1F7E6407000D10E7 /* PayUSDKInfo.plist */,
+				3E3E2D0D1F7E6407000D10E7 /* PayUSharedDataManager.h */,
+				3E3E2D0E1F7E6407000D10E7 /* PayUUtils.h */,
+				3E3E2D0F1F7E6407000D10E7 /* PayUValidations.h */,
+				3E3E2D101F7E6407000D10E7 /* PayUWebServiceResponse.h */,
+				3E3E2D111F7E6407000D10E7 /* PayUWebViewResponse.h */,
+				3E3E2D121F7E6407000D10E7 /* PayUWSManager.h */,
+			);
+			path = PayU_iOS_CoreSDK;
+			sourceTree = "<group>";
+		};
 		3EC27E8A1DFEDDE3007E4217 /* PayU */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,46 +303,10 @@
 		3EC27EA41DFEDDE3007E4217 /* SDK */ = {
 			isa = PBXGroup;
 			children = (
-				3EC27EA51DFEDDE3007E4217 /* libPayU_iOS_CoreSDK.a */,
-				3EC27EA61DFEDDE3007E4217 /* PayU_iOS_CoreSDK */,
+				3E3E2CF41F7E6407000D10E7 /* libPayU_iOS_CoreSDK.a */,
+				3E3E2CF51F7E6407000D10E7 /* PayU_iOS_CoreSDK */,
 			);
 			path = SDK;
-			sourceTree = "<group>";
-		};
-		3EC27EA61DFEDDE3007E4217 /* PayU_iOS_CoreSDK */ = {
-			isa = PBXGroup;
-			children = (
-				3EC27EA71DFEDDE3007E4217 /* CoreTelephony.h */,
-				3EC27EA81DFEDDE3007E4217 /* PayU_iOS_CoreSDK.h */,
-				3EC27EA91DFEDDE3007E4217 /* PayUConstants.h */,
-				3EC27EAA1DFEDDE3007E4217 /* PayUCreatePostParam.h */,
-				3EC27EAB1DFEDDE3007E4217 /* PayUCreateRequest.h */,
-				3EC27EAC1DFEDDE3007E4217 /* PayUDontUseThisClass.h */,
-				3EC27EAD1DFEDDE3007E4217 /* PayUFileManager.h */,
-				3EC27EAE1DFEDDE3007E4217 /* PayUJSONParser.h */,
-				3EC27EAF1DFEDDE3007E4217 /* PayUModelCashCard.h */,
-				3EC27EB01DFEDDE3007E4217 /* PayUModelCheckIsDomestic.h */,
-				3EC27EB11DFEDDE3007E4217 /* PayUModelEMI.h */,
-				3EC27EB21DFEDDE3007E4217 /* PayUModelEMIDetails.h */,
-				3EC27EB31DFEDDE3007E4217 /* PayUModelGetTxnInfo.h */,
-				3EC27EB41DFEDDE3007E4217 /* PayUModelHashes.h */,
-				3EC27EB51DFEDDE3007E4217 /* PayUModelNetBanking.h */,
-				3EC27EB61DFEDDE3007E4217 /* PayUModelOfferDetails.h */,
-				3EC27EB71DFEDDE3007E4217 /* PayUModelOfferStatus.h */,
-				3EC27EB81DFEDDE3007E4217 /* PayUModelPaymentParams.h */,
-				3EC27EB91DFEDDE3007E4217 /* PayUModelPaymentRelatedDetail.h */,
-				3EC27EBA1DFEDDE3007E4217 /* PayUModelStoredCard.h */,
-				3EC27EBB1DFEDDE3007E4217 /* PayUModelVerifyPayment.h */,
-				3EC27EBC1DFEDDE3007E4217 /* PayUReachability.h */,
-				3EC27EBD1DFEDDE3007E4217 /* PayUSDKInfo.plist */,
-				3EC27EBE1DFEDDE3007E4217 /* PayUSharedDataManager.h */,
-				3EC27EBF1DFEDDE3007E4217 /* PayUUtils.h */,
-				3EC27EC01DFEDDE3007E4217 /* PayUValidations.h */,
-				3EC27EC11DFEDDE3007E4217 /* PayUWebServiceResponse.h */,
-				3EC27EC21DFEDDE3007E4217 /* PayUWebViewResponse.h */,
-				3EC27EC31DFEDDE3007E4217 /* PayUWSManager.h */,
-			);
-			path = PayU_iOS_CoreSDK;
 			sourceTree = "<group>";
 		};
 		3EC27EC41DFEDDE3007E4217 /* SDKUI */ = {
@@ -769,7 +769,6 @@
 				3EC27F6B1DFEDDE3007E4217 /* jquery.min.js in Resources */,
 				3EC27F6D1DFEDDE3007E4217 /* LaunchScreen.storyboard in Resources */,
 				3EE358DA1F25EC6200F5CD86 /* PayUCBInfo.plist in Resources */,
-				3EC27F471DFEDDE3007E4217 /* PayUSDKInfo.plist in Resources */,
 				3EC27F7A1DFEDDE3007E4217 /* PUVAMainStoryBoard.storyboard in Resources */,
 				3EC27F6A1DFEDDE3007E4217 /* bank.js in Resources */,
 				3EE358DB1F25EC6200F5CD86 /* PUCBAllPaymentOption.xib in Resources */,
@@ -787,6 +786,7 @@
 				3EE358E21F25EC6200F5CD86 /* PUCBPassowrdWithIncorrectOTPView.xib in Resources */,
 				3EC27F671DFEDDE3007E4217 /* logo-black.png in Resources */,
 				3EC27F641DFEDDE3007E4217 /* bank.html in Resources */,
+				3E3E2D141F7E6407000D10E7 /* PayUSDKInfo.plist in Resources */,
 				3EC27F6C1DFEDDE3007E4217 /* response.html in Resources */,
 				3EE358E81F25EC6200F5CD86 /* PUCBSurePay.xib in Resources */,
 				3EE358EA1F25EC6200F5CD86 /* PUCBWKTest.html in Resources */,
