@@ -14,10 +14,10 @@
 #import "PUUINBVC.h"
 #import "PUUIWebViewVC.h"
 #import "PUUIConstants.h"
-#import "PUCBWebVC.h"
 #import "PayU_iOS_CoreSDK.h"
 #import "PUUIStoredCardCarouselVC.h"
 #import "PUUIPayUMoneyVC.h"
+#import <PayUCustomBrowser/PUCBWebVC.h>
 
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 
@@ -60,7 +60,7 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
     withCustomisations = YES;
     withPostParam = NO;
     shouldPresentVC = NO;
-    shouldEnableWKWebview = YES;
+    shouldEnableWKWebview = NO;
     bankSimulatorType = PUCBDefault;
     
     

@@ -7,7 +7,7 @@
 //
 
 #import "PUUIWebViewVC.h"
-#import "PayU_CB_SDK.h"
+#import <PayUCustomBrowser/PayU_CB_SDK.h>
 
 @interface PUUIWebViewVC () <PayUSDKWebViewResponseDelegate, PayUCBWebViewResponseDelegate>
 {
