@@ -68,13 +68,13 @@
 		3E79507C1FC32B4800A543C1 /* PUSAGenerateHashes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PUSAGenerateHashes.swift; sourceTree = "<group>"; };
 		3E79507E1FC32B4800A543C1 /* shackyClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shackyClass.swift; sourceTree = "<group>"; };
 		3E86CE2220067DC2001294FC /* PUSAUPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PUSAUPI.swift; sourceTree = "<group>"; };
-		3EC228891FC324D20044FDBC /* PayU_SampleApp_Swift1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayU_SampleApp_Swift1.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EC228891FC324D20044FDBC /* PayU_SampleApp_Swift1.1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayU_SampleApp_Swift1.1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EC228961FC324D20044FDBC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3EC228981FC324D20044FDBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3EC2289D1FC324D20044FDBC /* PayU_SampleApp_Swift1.0Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PayU_SampleApp_Swift1.0Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EC2289D1FC324D20044FDBC /* PayU_SampleApp_Swift1.1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PayU_SampleApp_Swift1.1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EC228A11FC324D20044FDBC /* PayU_SampleApp_Swift1_0Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayU_SampleApp_Swift1_0Tests.swift; sourceTree = "<group>"; };
 		3EC228A31FC324D20044FDBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3EC228A81FC324D20044FDBC /* PayU_SampleApp_Swift1.0UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PayU_SampleApp_Swift1.0UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3EC228A81FC324D20044FDBC /* PayU_SampleApp_Swift1.1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PayU_SampleApp_Swift1.1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EC228AC1FC324D20044FDBC /* PayU_SampleApp_Swift1_0UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayU_SampleApp_Swift1_0UITests.swift; sourceTree = "<group>"; };
 		3EC228AE1FC324D20044FDBC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EC228BC1FC325D20044FDBC /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -164,9 +164,9 @@
 		3EC2288A1FC324D20044FDBC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3EC228891FC324D20044FDBC /* PayU_SampleApp_Swift1.0.app */,
-				3EC2289D1FC324D20044FDBC /* PayU_SampleApp_Swift1.0Tests.xctest */,
-				3EC228A81FC324D20044FDBC /* PayU_SampleApp_Swift1.0UITests.xctest */,
+				3EC228891FC324D20044FDBC /* PayU_SampleApp_Swift1.1.app */,
+				3EC2289D1FC324D20044FDBC /* PayU_SampleApp_Swift1.1Tests.xctest */,
+				3EC228A81FC324D20044FDBC /* PayU_SampleApp_Swift1.1UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -232,9 +232,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3EC228881FC324D20044FDBC /* PayU_SampleApp_Swift1.0 */ = {
+		3EC228881FC324D20044FDBC /* PayU_SampleApp_Swift1.1 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3EC228B11FC324D20044FDBC /* Build configuration list for PBXNativeTarget "PayU_SampleApp_Swift1.0" */;
+			buildConfigurationList = 3EC228B11FC324D20044FDBC /* Build configuration list for PBXNativeTarget "PayU_SampleApp_Swift1.1" */;
 			buildPhases = (
 				3EC228851FC324D20044FDBC /* Sources */,
 				3EC228861FC324D20044FDBC /* Frameworks */,
@@ -245,14 +245,14 @@
 			);
 			dependencies = (
 			);
-			name = PayU_SampleApp_Swift1.0;
+			name = PayU_SampleApp_Swift1.1;
 			productName = PayU_SampleApp_Swift1.0;
-			productReference = 3EC228891FC324D20044FDBC /* PayU_SampleApp_Swift1.0.app */;
+			productReference = 3EC228891FC324D20044FDBC /* PayU_SampleApp_Swift1.1.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3EC2289C1FC324D20044FDBC /* PayU_SampleApp_Swift1.0Tests */ = {
+		3EC2289C1FC324D20044FDBC /* PayU_SampleApp_Swift1.1Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3EC228B41FC324D20044FDBC /* Build configuration list for PBXNativeTarget "PayU_SampleApp_Swift1.0Tests" */;
+			buildConfigurationList = 3EC228B41FC324D20044FDBC /* Build configuration list for PBXNativeTarget "PayU_SampleApp_Swift1.1Tests" */;
 			buildPhases = (
 				3EC228991FC324D20044FDBC /* Sources */,
 				3EC2289A1FC324D20044FDBC /* Frameworks */,
@@ -263,14 +263,14 @@
 			dependencies = (
 				3EC2289F1FC324D20044FDBC /* PBXTargetDependency */,
 			);
-			name = PayU_SampleApp_Swift1.0Tests;
+			name = PayU_SampleApp_Swift1.1Tests;
 			productName = PayU_SampleApp_Swift1.0Tests;
-			productReference = 3EC2289D1FC324D20044FDBC /* PayU_SampleApp_Swift1.0Tests.xctest */;
+			productReference = 3EC2289D1FC324D20044FDBC /* PayU_SampleApp_Swift1.1Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3EC228A71FC324D20044FDBC /* PayU_SampleApp_Swift1.0UITests */ = {
+		3EC228A71FC324D20044FDBC /* PayU_SampleApp_Swift1.1UITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3EC228B71FC324D20044FDBC /* Build configuration list for PBXNativeTarget "PayU_SampleApp_Swift1.0UITests" */;
+			buildConfigurationList = 3EC228B71FC324D20044FDBC /* Build configuration list for PBXNativeTarget "PayU_SampleApp_Swift1.1UITests" */;
 			buildPhases = (
 				3EC228A41FC324D20044FDBC /* Sources */,
 				3EC228A51FC324D20044FDBC /* Frameworks */,
@@ -281,9 +281,9 @@
 			dependencies = (
 				3EC228AA1FC324D20044FDBC /* PBXTargetDependency */,
 			);
-			name = PayU_SampleApp_Swift1.0UITests;
+			name = PayU_SampleApp_Swift1.1UITests;
 			productName = PayU_SampleApp_Swift1.0UITests;
-			productReference = 3EC228A81FC324D20044FDBC /* PayU_SampleApp_Swift1.0UITests.xctest */;
+			productReference = 3EC228A81FC324D20044FDBC /* PayU_SampleApp_Swift1.1UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -317,7 +317,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3EC228841FC324D20044FDBC /* Build configuration list for PBXProject "PayU_SampleApp_Swift1.0" */;
+			buildConfigurationList = 3EC228841FC324D20044FDBC /* Build configuration list for PBXProject "PayU_SampleApp_Swift1.1" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -331,9 +331,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3EC228881FC324D20044FDBC /* PayU_SampleApp_Swift1.0 */,
-				3EC2289C1FC324D20044FDBC /* PayU_SampleApp_Swift1.0Tests */,
-				3EC228A71FC324D20044FDBC /* PayU_SampleApp_Swift1.0UITests */,
+				3EC228881FC324D20044FDBC /* PayU_SampleApp_Swift1.1 */,
+				3EC2289C1FC324D20044FDBC /* PayU_SampleApp_Swift1.1Tests */,
+				3EC228A71FC324D20044FDBC /* PayU_SampleApp_Swift1.1UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -407,12 +407,12 @@
 /* Begin PBXTargetDependency section */
 		3EC2289F1FC324D20044FDBC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3EC228881FC324D20044FDBC /* PayU_SampleApp_Swift1.0 */;
+			target = 3EC228881FC324D20044FDBC /* PayU_SampleApp_Swift1.1 */;
 			targetProxy = 3EC2289E1FC324D20044FDBC /* PBXContainerItemProxy */;
 		};
 		3EC228AA1FC324D20044FDBC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3EC228881FC324D20044FDBC /* PayU_SampleApp_Swift1.0 */;
+			target = 3EC228881FC324D20044FDBC /* PayU_SampleApp_Swift1.1 */;
 			targetProxy = 3EC228A91FC324D20044FDBC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -585,7 +585,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "PayU_SampleApp_Swift1.0Tests/PayU_SampleApp_Swift1.0Tests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PayU_SampleApp_Swift1.0.app/PayU_SampleApp_Swift1.0";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PayU_SampleApp_Swift1.1.app/PayU_SampleApp_Swift1.1";
 			};
 			name = Debug;
 		};
@@ -602,7 +602,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PayU_SampleApp_Swift1.0Tests/PayU_SampleApp_Swift1.0Tests-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PayU_SampleApp_Swift1.0.app/PayU_SampleApp_Swift1.0";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PayU_SampleApp_Swift1.1.app/PayU_SampleApp_Swift1.1";
 			};
 			name = Release;
 		};
@@ -637,7 +637,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3EC228841FC324D20044FDBC /* Build configuration list for PBXProject "PayU_SampleApp_Swift1.0" */ = {
+		3EC228841FC324D20044FDBC /* Build configuration list for PBXProject "PayU_SampleApp_Swift1.1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3EC228AF1FC324D20044FDBC /* Debug */,
@@ -646,7 +646,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3EC228B11FC324D20044FDBC /* Build configuration list for PBXNativeTarget "PayU_SampleApp_Swift1.0" */ = {
+		3EC228B11FC324D20044FDBC /* Build configuration list for PBXNativeTarget "PayU_SampleApp_Swift1.1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3EC228B21FC324D20044FDBC /* Debug */,
@@ -655,7 +655,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3EC228B41FC324D20044FDBC /* Build configuration list for PBXNativeTarget "PayU_SampleApp_Swift1.0Tests" */ = {
+		3EC228B41FC324D20044FDBC /* Build configuration list for PBXNativeTarget "PayU_SampleApp_Swift1.1Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3EC228B51FC324D20044FDBC /* Debug */,
@@ -664,7 +664,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3EC228B71FC324D20044FDBC /* Build configuration list for PBXNativeTarget "PayU_SampleApp_Swift1.0UITests" */ = {
+		3EC228B71FC324D20044FDBC /* Build configuration list for PBXNativeTarget "PayU_SampleApp_Swift1.1UITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3EC228B81FC324D20044FDBC /* Debug */,
