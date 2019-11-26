@@ -12,7 +12,6 @@
 //#import "AppDelegate.h"
 #import "PUUICCDCVC.h"
 #import "PUUINBVC.h"
-#import "PUUIWebViewVC.h"
 #import "PUUIConstants.h"
 #import "PayU_iOS_CoreSDK.h"
 #import "PUUIStoredCardCarouselVC.h"
@@ -33,10 +32,9 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
 {
     PayUModelPaymentParams *paymentParam2;
     NSInteger currentIndex;
-    PUCBBankSimulator bankSimulatorType;
     NSMutableArray *actualPaymentOption;
     NSMutableArray *arrStoredCards;
-    BOOL isSimplifiedCB, withCustomisations, withPostParam, shouldPresentVC, shouldEnableWKWebview;
+    BOOL withCustomisations, withPostParam, shouldPresentVC, shouldEnableWKWebview;
     NSString *paymentType;
     
 }
@@ -56,12 +54,10 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
     [self subscribeToNotifications];
     [self customInitialization];
     [self reloadData];
-    isSimplifiedCB = YES;
     withCustomisations = YES;
     withPostParam = NO;
     shouldPresentVC = NO;
     shouldEnableWKWebview = NO;
-    bankSimulatorType = PUCBDefault;
     
     
     
@@ -293,16 +289,6 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
     }
     NSURLRequest *request;
     NSString *postParam;
-    if (bankSimulatorType == PUCBBankSimulatorLocal && ([paymentType isEqual:PAYMENT_PG_STOREDCARD] || [paymentType isEqual:PAYMENT_PG_ONE_TAP_STOREDCARD] || [paymentType isEqual:PAYMENT_PG_CCDC])) {
-        NSBundle *bundle = [NSBundle mainBundle];
-        id className = [bundle classNamed:@"PUSAUtils"];
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wundeclared-selector"
-        if (className && [className respondsToSelector:@selector(getNSURLRequestForLocalBankSimulator)]) {
-            request = (NSMutableURLRequest *)[className performSelector:@selector(getNSURLRequestForLocalBankSimulator)];
-        }
-        
-    }
     
     
     
@@ -346,7 +332,6 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
         
         
         
-        if (isSimplifiedCB) {
             PUCBWebVC *webVC;
             
             if (withPostParam) {
@@ -384,15 +369,7 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
             else{
                 [self showVC:webVC withMode:VCDisplayPush];
             }
-        }
-        else{
-            PUUIWebViewVC *WVVC;
-            WVVC = [self.storyboard instantiateViewControllerWithIdentifier:VC_IDENTIFIER_WEBVIEW];
-            WVVC.request = request;
-            WVVC.paymentParam = paymentParam2;
-            WVVC.bankSimulatorType = [self getBankSimulatorType];
-            [self showVC:WVVC withMode:VCDisplayPush];
-        }
+        
     }
     else{
         
