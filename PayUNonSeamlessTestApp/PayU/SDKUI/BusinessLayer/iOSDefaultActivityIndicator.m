@@ -26,7 +26,7 @@
 }
 
 -(void)initActivityIndicatorWithSuperView:(UIView *) superView{
-    self.grayView = [[UIView alloc]initWithFrame:superView.frame];
+    self.grayView = [[UIView alloc]initWithFrame:superView.bounds];
     self.grayView.backgroundColor = [UIColor grayColor];
     self.grayView.alpha = 0.5f;
     self.grayView.opaque = NO;

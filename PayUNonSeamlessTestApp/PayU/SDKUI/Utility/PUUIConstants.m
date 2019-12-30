@@ -15,6 +15,8 @@ NSString * const kPUUIPayNow = @"PayNow";
 NSString * const kPUUIPaymentRequest = @"PaymentRequest";
 NSString * const kPUUIEnablePayNowFlag = @"EnablePayNowFlag";
 NSString * const kPUUINotiPaymentResponse = @"paymentResponse";
+NSString * const kPUUIPayUResponse = @"payUResponse";
+NSString * const kPUUIMerchantResponse = @"merchantResponse";
 
 NSString * const kICICI = @"ICICI";
 NSString * const kHDFC = @"HDFC";

@@ -140,7 +140,7 @@ NSString *const URLStoreMerchantHash = @"https://payu.herokuapp.com/store_mercha
 +(void)saveOneTapTokenForMerchantKey:(NSString *) key withCardToken:(NSString *) cardToken withUserCredential:(NSString *) userCred andMerchantHash:(NSString *) merchantHash withCompletionBlock: (completionBlockForSaveOneTapToken) completionBlock{
     void(^callBackForSaveOneTapToken)(NSString *message, NSString *errorString) = completionBlock;
     
-    NSString *postParam = [NSString stringWithFormat:@"merchant_key=%@&user_credentials=%@&card_token=%@&merchant_hash=%@)",key,userCred,cardToken,merchantHash];
+    NSString *postParam = [NSString stringWithFormat:@"merchant_key=%@&user_credentials=%@&card_token=%@&merchant_hash=%@",key,userCred,cardToken,merchantHash];
     
     NSLog(@"PostParam for saveOneTapTokenDictionary %@",postParam);
     

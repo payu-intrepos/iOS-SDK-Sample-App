@@ -15,4 +15,9 @@
 @property (nonatomic, strong) PayUModelPaymentRelatedDetail *paymentRelatedDetail;
 
 @property (nonatomic, strong) NSArray *paymentOption;
+
+
+//Strictly part of Sample App
+@property (nonatomic, assign) NSInteger surePayCount;
+@property (nonatomic, assign) BOOL shouldEnableWKWebview;
 @end

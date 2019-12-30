@@ -14,7 +14,7 @@
 #define ALPHA_HALF   0.5
 #define ALPHA_FULL   1.0
 
-extern NSString * const kPUUINotiEnablePayNow, * const kPUUIPaymentRequest, * const kPUUIEnablePayNowFlag, * const kPUUINotiPaymentResponse, * const kPUUIPayNow;
+extern NSString * const kPUUINotiEnablePayNow, * const kPUUIPaymentRequest, * const kPUUIEnablePayNowFlag, * const kPUUINotiPaymentResponse, * const kPUUIPayNow, * const kPUUIPayUResponse, * const kPUUIMerchantResponse;
 
 typedef NS_ENUM(NSInteger, TableViewType) {
     TableViewTypeNB,
@@ -34,6 +34,7 @@ typedef NS_ENUM(NSInteger, TableViewType) {
 #define     VC_IDENTIFIER_CASHCARD                      @"PUUICashCardVC"
 #define     VC_IDENTIFIER_EMI                           @"PUUI_EMI_VC"
 #define     VC_IDENTIFIER_PAYU_MONEY                    @"PUUIPayUMoneyVC"
+
 
 //#define     NAVIGATION_CONTROLLER_IDENTIFIER                    @"PayUNavigationController"
 //

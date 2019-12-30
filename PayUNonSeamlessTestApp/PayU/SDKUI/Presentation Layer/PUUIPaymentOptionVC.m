@@ -9,14 +9,17 @@
 #import "PUUIPaymentOptionVC.h"
 #import "UIColor+PUUIColor.h"
 #import "PUUITabBarTopView.h"
-//#import "AppDelegate.h"
 #import "PUUICCDCVC.h"
 #import "PUUINBVC.h"
+#import "PUUIWebViewVC.h"
 #import "PUUIConstants.h"
+#import <PayUCustomBrowser/PayUCustomBrowser.h>
 #import "PayU_iOS_CoreSDK.h"
 #import "PUUIStoredCardCarouselVC.h"
 #import "PUUIPayUMoneyVC.h"
-#import <PayUCustomBrowser/PUCBWebVC.h>
+#import "test.h"
+#import "PUSAWSManager.h"
+#import "iOSDefaultActivityIndicator.h"
 
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 
@@ -34,14 +37,15 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
     NSInteger currentIndex;
     NSMutableArray *actualPaymentOption;
     NSMutableArray *arrStoredCards;
-    BOOL withCustomisations, withPostParam, shouldPresentVC, shouldEnableWKWebview;
+    BOOL isSimplifiedCB, withCustomisations, withPostParam, shouldPresentVC, isReviewOrderBuild ,isDefaultReviewOrderView;
     NSString *paymentType;
-    
+    BOOL _shouldWebViewStartWithLocalHTML;
 }
 
 - (IBAction)btnClickedPayNow:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIButton *btnPayNow;
+@property (strong, nonatomic) iOSDefaultActivityIndicator *defaultActivityIndicator;
 
 @end
 
@@ -54,13 +58,13 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
     [self subscribeToNotifications];
     [self customInitialization];
     [self reloadData];
+    isSimplifiedCB = YES;
     withCustomisations = YES;
-    withPostParam = NO;
+    withPostParam = YES;
     shouldPresentVC = NO;
-    shouldEnableWKWebview = NO;
-    
-    
-    
+    isReviewOrderBuild = YES;
+    isDefaultReviewOrderView = YES;
+//    _shouldWebViewStartWithLocalHTML =YES;
 }
 
 -(void)dealloc{
@@ -129,6 +133,40 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
             [self.paymentRelatedDetail.availablePaymentOptionsArray addObject:storedCardPaymentOption];
         }
     }
+}
+
+#pragma mark - Loading HTML data into CB
+
+-(void)getHTMLDataForPostParams:(NSString*)params
+                        fromURL:(NSURL*)url
+            withCompletionBlock:(void (^)(NSString *htmlData, NSString *errorMessage))completion{
+    
+    //Append requied parameter in params to get HTML data
+    NSString *paramsForHTMLData = [NSString stringWithFormat:@"%@&txn_s2s_flow=1",params];
+    
+    NSMutableURLRequest *urlRequest = [PUSAWSManager getURLRequestWithPostParam:paramsForHTMLData withURL:url];
+    
+    [PUSAWSManager getWebServiceResponse:urlRequest
+                     withCompletionBlock:^(id JSON, NSString *errorMessage, id extraParam) {
+                         if (JSON && JSON[@"result"]) {
+                             NSString *postData = [[JSON objectForKey:@"result"] objectForKey:@"post_data"];
+                             
+                             if (postData) {
+                                 NSString *htmlData = [self getBase64DecodedStringFromString:postData];
+                                 completion(htmlData, nil);
+                             }
+                         }
+                         else if (JSON && JSON[@"error"]){
+                             completion(nil ,JSON[@"error"]);
+                         }
+                     }];
+}
+
+- (NSString*)getBase64DecodedStringFromString:(NSString*)str {
+    NSData *decodedData = [[NSData alloc] initWithBase64EncodedString:str options:0];
+    NSString *decodedString = [[NSString alloc] initWithData:decodedData encoding:NSUTF8StringEncoding];
+    NSLog(@"Decode String Value: %@", decodedString);
+    return decodedString;
 }
 
 #pragma mark - KHTabPagerDataSource
@@ -276,8 +314,6 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
     [self payNow];
 }
 -(void)payNow{
-  
-  
     paymentType = [actualPaymentOption objectAtIndex:currentIndex];
     if ([paymentType  isEqual: PAYMENT_PG_STOREDCARD ]) {
         for (PayUModelStoredCard *modelStoredcard in self.paymentRelatedDetail.oneTapStoredCardArray) {
@@ -290,106 +326,118 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
     NSURLRequest *request;
     NSString *postParam;
     
-    
-    
-    
-    PUCBConfiguration *cbConfig = [PUCBConfiguration getSingletonInstance];
-    cbConfig.enableWKWebView = shouldEnableWKWebview;
-    cbConfig.bankSimulatorType = [self getBankSimulatorType];
-    
-    NSMutableArray *myArray = [[NSMutableArray alloc]init];
-    
-    [myArray addObject:[NSDictionary dictionaryWithObject:@"abc123" forKey:@"Booking- Through Lazy Pay"]];
-    [myArray addObject:[NSDictionary dictionaryWithObject:@"Sept 28th'17 " forKey:@"Date"]];
-    [myArray addObject:[NSDictionary dictionaryWithObject:@"Gurgaon" forKey:@"Place"]];
-    
-    NSError *err;
-    PUCBReviewOrderConfig *reviewOrderConfig = [[PUCBReviewOrderConfig alloc] initWithArrForReviewOrder:myArray error:&err];
-    
-    if (err) {
-        NSLog(@"%@",err.description);
-        
-        
-    }
-    
-    cbConfig.reviewOrderConfig = reviewOrderConfig;
-
-    
-    
-    
-#pragma clang diagnostic pop
-    
     if (!request) {
-        //        bankSimulatorType = PUCBDefault;
         NSDictionary *dict = [self getNSURLRequestWithPaymentParams:paymentParam2 andPaymentType:paymentType];
         request = [dict objectForKey:KEY_REQUEST];
         postParam = [dict objectForKey:KEY_POST_PARAM];
     }
     
-    if (request) {
-        NSError *err = nil;
+    //Statement to support HTML Load support in CB
+    //Begin
+    if (_shouldWebViewStartWithLocalHTML) { //Wait to receive HTMLData from API
+        self.defaultActivityIndicator = [iOSDefaultActivityIndicator new];
+        [self.defaultActivityIndicator startAnimatingActivityIndicatorWithSelfView:self.view];
+        self.view.userInteractionEnabled = NO;
         
-        
-        
-        
-            PUCBWebVC *webVC;
+        [self getHTMLDataForPostParams:postParam
+                               fromURL:request.URL
+                   withCompletionBlock:^(NSString *htmlData, NSString *errorMessage) {
+                       if (htmlData) {
+                           [self.defaultActivityIndicator stopAnimatingActivityIndicator];
+                           
+                           [self startWebViewWithRequest:request
+                                                htmlData:htmlData
+                                           andPostparams:postParam];
+                       }
+                   }];
+    }
+    //End
+    else { //Straight away start loading webview
+        [self startWebViewWithRequest:request
+                             htmlData:nil
+                        andPostparams:postParam];
+    }
+}
+
+- (void)startWebViewWithRequest:(NSURLRequest*)request
+                       htmlData:(NSString*)htmlData
+                  andPostparams:(NSString*)postParam {
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        //Setting Custom Browser's configuration
+        PUCBConfiguration *cbConfig = [PUCBConfiguration getSingletonInstance];
+        cbConfig.enableWKWebView = self.shouldEnableWKWebview;
+        cbConfig.surePayCount = self.surePayCount;
+        cbConfig.htmlData = htmlData;
+//        cbConfig.merchantResponseTimeout = 10.000;
+        if (request) {
+            NSError *err = nil;
             
-            if (withPostParam) {
-                webVC = [[PUCBWebVC alloc] initWithPostParam:postParam
-                                                         url:request.URL
-                                                 merchantKey:self.paymentParam.key
-                                                       error:&err];
+            if (isSimplifiedCB) {
+                PUCBWebVC *webVC;
+                
+                if (withPostParam) {
+                    webVC = [[PUCBWebVC alloc] initWithPostParam:postParam
+                                                             url:request.URL
+                                                     merchantKey:self.paymentParam.key
+                                                           error:&err];
+                }
+                else{
+                    webVC = [[PUCBWebVC alloc] initWithNSURLRequest:request
+                                                        merchantKey:self.paymentParam.key
+                                                              error:&err];
+                }
+                
+                if (err) {
+                    PAYUALERT(@"Error creating PUCBWebVC", err.description);
+                    return;
+                }
+                
+                
+                if (withCustomisations) {
+                    webVC.cbWebVCDelegate = self;
+                    cbConfig.shouldShowPayULoader = YES;
+                    cbConfig.isAutoOTPSelect = NO;
+                    cbConfig.transactionId = self.paymentParam.transactionID;
+                    
+                    cbConfig.paymentURL = [request.URL absoluteString];
+                    cbConfig.paymentPostParam = postParam;
+                    
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+                    [cbConfig performSelector:@selector(setCbServerType:) withObject:@"CBStatic"];
+                    [cbConfig performSelector:@selector(setCbAnalyticsServerType:) withObject:@"CBStatic"];
+#pragma clang diagnostic pop
+                    [self setReviewOrderView];
+                }
+                
+                if (shouldPresentVC) {
+                    [self showVC:webVC withMode:VCDisplayPresent];
+                }
+                else{
+                    [self showVC:webVC withMode:VCDisplayPush];
+                }
             }
             else{
-                webVC = [[PUCBWebVC alloc] initWithNSURLRequest:request
-                                                    merchantKey:self.paymentParam.key
-                                                          error:&err];
+                PUUIWebViewVC *WVVC;
+                WVVC = [self.storyboard instantiateViewControllerWithIdentifier:VC_IDENTIFIER_WEBVIEW];
+                WVVC.request = request;
+                WVVC.paymentParam = paymentParam2;
+                WVVC.htmlData = htmlData;
+                [self showVC:WVVC withMode:VCDisplayPush];
             }
-            
-            if (err) {
-                PAYUALERT(@"Error creating PUCBWebVC", err.description);
-                return;
-            }
-            
-            
-            if (withCustomisations) {
-                webVC.cbWebVCDelegate = self;
-                cbConfig.shouldShowPayULoader = YES;
-                cbConfig.isMagicRetry = YES;
-                cbConfig.isAutoOTPSelect = NO;
-                cbConfig.transactionId = self.paymentParam.transactionID;
-                cbConfig.surePayCount = 3;
-                cbConfig.paymentPostParam = postParam;
-                cbConfig.paymentURL = [request.URL absoluteString];
-            }
-            
-            if (shouldPresentVC) {
-                [self showVC:webVC withMode:VCDisplayPresent];
-            }
-            else{
-                [self showVC:webVC withMode:VCDisplayPush];
-            }
-        
-    }
-    else{
-        
-    }
+        }
+    });
+    
 }
 
 - (void)showVC:(UIViewController*)vc withMode:(VCDisplayMode)mode {
     if (mode == VCDisplayPush) {
         [self.navigationController pushViewController:vc animated:true];
     } else {
-        [self presentViewController:vc animated:true completion:nil];
+        UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+        [self presentViewController:nvc animated:YES completion:nil];
     }
-}
-
-- (PUCBBankSimulator)getBankSimulatorType {
-    PUCBBankSimulator bankSimulator = PUCBDefault;
-    if ([paymentType isEqual:PAYMENT_PG_STOREDCARD] || [paymentType isEqual:PAYMENT_PG_ONE_TAP_STOREDCARD] || [paymentType isEqual:PAYMENT_PG_CCDC]) {
-        bankSimulator = bankSimulatorType;
-    }
-    return bankSimulator;
 }
 
 -(void)enablePayNow:(NSNotification *) noti{
@@ -427,12 +475,35 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
 }
 
 -(void)PayUSuccessResponse:(id)response{
-    [[NSNotificationCenter defaultCenter] postNotificationName:kPUUINotiPaymentResponse object:[NSMutableData dataWithData:response ]];
+    
 }
 
 
 -(void)PayUFailureResponse:(id)response{
-    [[NSNotificationCenter defaultCenter] postNotificationName:kPUUINotiPaymentResponse object:[NSMutableData dataWithData:response ]];
+    
+}
+
+- (void)PayUSuccessResponse:(id)payUResponse SURLResponse:(id)surlResponse{
+    [self removeViewController];
+    NSError *serializationError;
+    id payUResponseInJSON = payUResponse;
+    if (![payUResponse isKindOfClass:[NSDictionary class]]) {
+        payUResponseInJSON = [NSJSONSerialization JSONObjectWithData:[payUResponse dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&serializationError];
+    }
+
+    NSDictionary *responseDict = [NSDictionary dictionaryWithObjectsAndKeys:payUResponseInJSON,kPUUIPayUResponse, surlResponse, kPUUIMerchantResponse, nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kPUUINotiPaymentResponse object:responseDict];
+
+
+}
+
+- (void)PayUFailureResponse:(id)payUResponse FURLResponse:(id)furlResponse{
+    [self removeViewController];
+    NSError *serializationError;
+    id payUResponseInJSON = [NSJSONSerialization JSONObjectWithData:[payUResponse dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&serializationError];
+    
+    NSDictionary *responseDict = [NSDictionary dictionaryWithObjectsAndKeys:payUResponseInJSON,kPUUIPayUResponse, furlResponse, kPUUIMerchantResponse, nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kPUUINotiPaymentResponse object:responseDict];
 }
 
 - (void)PayUConnectionError:(NSDictionary *)notification {
@@ -440,14 +511,22 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
 }
 
 - (void)PayUTransactionCancel {
+    [self removeViewController];
     [[NSNotificationCenter defaultCenter] postNotificationName:kPUUINotiPaymentResponse object:nil];
 }
+
+- (void)PayUTerminateTransaction {
+    [self removeViewController];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kPUUINotiPaymentResponse object:nil];
+}
+
+
 
 #pragma mark - Back Button Handling
 
 - (void) shouldDismissVCOnBackPress
 {
-    UIAlertView *backbtnAlertView = [[UIAlertView alloc]initWithTitle:@"Overridden" message:@"Do you want to cancel this transaction?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    UIAlertView *backbtnAlertView = [[UIAlertView alloc]initWithTitle:@"Cancel Transaction?" message:@"Do you want to cancel this transaction?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
     backbtnAlertView.tag = 512;
     [backbtnAlertView show];
 }
@@ -466,9 +545,8 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
     if (shouldPresentVC) {
         [self dismissViewControllerAnimated:NO completion:nil];
     }
-    else if (self.navigationController) {
-        [self.navigationController popToRootViewControllerAnimated:NO];
-    }
+
+    [self.navigationController popToRootViewControllerAnimated:NO];
 }
 
 -(NSArray *)paymentOption{
@@ -491,5 +569,59 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
         arr = (NSArray *)setSupportedPaymentOption;
     }
     return arr;
+}
+
+-(void)setReviewOrderView{
+    NSError *err;
+    PUCBReviewOrderConfig *reviewOrderConfig;
+    if (isReviewOrderBuild) {
+        PUCBConfiguration *cbConfig = [PUCBConfiguration getSingletonInstance];
+        NSMutableArray *arrOfDictForReviewOrder;
+        if (isDefaultReviewOrderView) {
+            arrOfDictForReviewOrder = [[NSMutableArray alloc] init];
+            [arrOfDictForReviewOrder addObject:[NSDictionary dictionaryWithObjectsAndKeys:self.paymentParam.amount,@"Amount", nil]];
+            //            [arrOfDictForReviewOrder addObject:[NSDictionary dictionaryWithObjectsAndKeys:self.paymentParam.productInfo,@"Product Info", nil]];
+            [arrOfDictForReviewOrder addObject:[NSDictionary dictionaryWithObjectsAndKeys:self.paymentParam.phoneNumber,@"Mobile", nil]];
+            [arrOfDictForReviewOrder addObject:[NSDictionary dictionaryWithObjectsAndKeys:self.paymentParam.email,@"Email", nil]];
+            [arrOfDictForReviewOrder addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"GET10",@"Coupon Code", nil]];
+            [arrOfDictForReviewOrder addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"10% cashback",@"Coupon Detail", nil]];
+            
+            [arrOfDictForReviewOrder addObject:[NSDictionary dictionaryWithObjectsAndKeys:self.paymentParam.transactionID,@"Txn ID", nil]];
+            
+            [arrOfDictForReviewOrder addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"Airtel",@"Operator", nil]];
+            
+            [arrOfDictForReviewOrder addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"Full TT",@"Recharge Type", nil]];
+            [arrOfDictForReviewOrder addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"Full Talktime Rs. 154 - Roaming Incoming calls free - Roaming Outgoing\nLocal @ Rs. 0.80/min - Roaming Outgoing STD @ Rs. 1.15/min\nValidity: 14 Days",@"Detail", nil]];
+            
+            [arrOfDictForReviewOrder addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"Sample Value1",@"Sample Key1", nil]];
+            
+            [arrOfDictForReviewOrder addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"Sample Value2",@"Sample Key2", nil]];
+            
+            [arrOfDictForReviewOrder addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"Sample Value3",@"Sample Key3", nil]];
+            
+            [arrOfDictForReviewOrder addObject:[NSDictionary dictionaryWithObjectsAndKeys:@"Sample Value4",@"Sample Key4", nil]];
+            reviewOrderConfig = [[PUCBReviewOrderConfig alloc] initWithArrForReviewOrder:arrOfDictForReviewOrder error:&err];
+        }
+        else{
+            //                        UIView *vwRO = [[UIView alloc] initWithFrame:CGRectMake(30, 50, 3000, 3000)];
+            //                        [vwRO setBackgroundColor:[UIColor redColor]];
+            //                        reviewOrderConfig = [[PUCBReviewOrderConfig alloc] initWithCustomView:vwRO error:&err];
+            
+            test *vwRO = [[test alloc] init];
+            reviewOrderConfig = [[PUCBReviewOrderConfig alloc] initWithCustomView:vwRO error:&err];
+        }
+        if (err) {
+            NSLog(@"%@",err.description);
+        }
+        cbConfig.reviewOrderConfig = reviewOrderConfig;
+        //        Set ReviewOrder Btn Text,Header Text, backgroundColor and textColor
+        //        cbConfig.reviewOrderConfig.btnText = @"Umang";
+        //        cbConfig.reviewOrderConfig.btnBGColor = [UIColor greenColor];
+        //        cbConfig.reviewOrderConfig.btnTxtColor = [UIColor yellowColor];
+        //        cbConfig.reviewOrderConfig.ReviewOrderHeaderForDefaultView = @"test";
+    }
+    else{
+        // We are not going to do anything related to ReviewOrder Stuff
+    }
 }
 @end
