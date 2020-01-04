@@ -361,7 +361,6 @@ class PUSAEMIVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITe
     self.paymentParams.cardNumber = self.txtCardNumber.text
     
     self.paymentParams.CVV = self.txtCVV.text
-    self.paymentParams.total_subventionAmount = "10000"
     
     let createRequest = PayUCreateRequest()
     self.paymentParams.enableVerbose = true
