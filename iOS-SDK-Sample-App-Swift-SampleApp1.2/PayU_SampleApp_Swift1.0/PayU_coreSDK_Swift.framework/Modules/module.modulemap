@@ -1,0 +1,11 @@
+framework module PayU_coreSDK_Swift {
+  umbrella header "PayU_coreSDK_Swift.h"
+
+  export *
+  module * { export * }
+}
+
+module PayU_coreSDK_Swift.Swift {
+    header "PayU_coreSDK_Swift-Swift.h"
+    requires objc
+}

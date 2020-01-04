@@ -1,0 +1,186 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.1.3 (swiftlang-1100.0.282.1 clang-1100.0.33.15)
+// swift-module-flags: -target arm64-apple-ios8.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PayU_coreSDK_Swift
+import CoreTelephony
+import Darwin
+import Foundation
+@_exported import PayU_coreSDK_Swift
+import Swift
+import SystemConfiguration
+import UIKit
+@objc @objcMembers public class PayUModelHashes : ObjectiveC.NSObject {
+  @objc public var paymentHash: Swift.Optional<Swift.String>
+  @objc public var paymentRelatedDetailsHash: Swift.Optional<Swift.String>
+  @objc public var VASForMobileSDKHash: Swift.Optional<Swift.String>
+  @objc public var deleteUserCardHash: Swift.Optional<Swift.String>
+  @objc public var editUserCardHash: Swift.Optional<Swift.String>
+  @objc public var saveUserCardHash: Swift.Optional<Swift.String>
+  @objc public var getUserCardHash: Swift.Optional<Swift.String>
+  @objc public var offerHash: Swift.Optional<Swift.String>
+  @objc public var checkIsDomesticHash: Swift.Optional<Swift.String>
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class PUExtended : ObjectiveC.NSObject {
+  public var bankID: Swift.String
+  public var pgID: Swift.String
+  public var ptPriority: Swift.String
+  public var title: Swift.String
+  public var bankCode: Swift.String
+  public var showForm: Swift.String
+  public var emiBankName: Swift.String
+  public var cardBin: Swift.String
+  public var cardBrand: Swift.String
+  public var oneTapFlag: Swift.String
+  public var cardMode: Swift.String
+  public var cardName: Swift.String
+  public var cardNo: Swift.String
+  public var cardToken: Swift.String
+  public var cardType: Swift.String
+  public var expiryMonth: Swift.String
+  public var expiryYear: Swift.String
+  public var isDomestic: Swift.String
+  public var isExpired: Swift.String
+  public var issuingBank: Swift.String
+  public var nameOnCard: Swift.String
+  public var card_cvv: Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc public class PUOffer : ObjectiveC.NSObject {
+  public var category: Swift.String
+  public var discount: Swift.String
+  public var errorCode: Swift.String
+  public var msg: Swift.String
+  public var offerAvailedCount: Swift.String
+  public var OfferKey: Swift.String
+  public var OfferRemainingCount: Swift.String
+  public var OfferType: Swift.String
+  public var status: Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @objcMembers public class PayUModelPaymentParams : ObjectiveC.NSObject {
+  @objc public var key: Swift.Optional<Swift.String>
+  @objc public var amount: Swift.Optional<Swift.String>
+  @objc public var txnId: Swift.Optional<Swift.String>
+  @objc public var firstName: Swift.Optional<Swift.String>
+  @objc public var email: Swift.Optional<Swift.String>
+  @objc public var productInfo: Swift.Optional<Swift.String>
+  @objc public var surl: Swift.Optional<Swift.String>
+  @objc public var furl: Swift.Optional<Swift.String>
+  @objc public var environment: Swift.Optional<Swift.String>
+  @objc public var userCredentials: Swift.Optional<Swift.String>
+  @objc public var cardNumber: Swift.Optional<Swift.String>
+  @objc public var expiryMonth: Swift.Optional<Swift.String>
+  @objc public var expiryYear: Swift.Optional<Swift.String>
+  @objc public var CVV: Swift.Optional<Swift.String>
+  @objc public var nameOnCard: Swift.Optional<Swift.String>
+  @objc public var storeCardName: Swift.Optional<Swift.String>
+  @objc public var bankCode: Swift.Optional<Swift.String>
+  @objc public var cardBin: Swift.Optional<Swift.String>
+  @objc public var cardBrand: Swift.Optional<Swift.String>
+  @objc public var cardCVV: Swift.Optional<Swift.String>
+  @objc public var cardMode: Swift.Optional<Swift.String>
+  @objc public var cardName: Swift.Optional<Swift.String>
+  @objc public var cardNo: Swift.Optional<Swift.String>
+  @objc public var cardToken: Swift.Optional<Swift.String>
+  @objc public var cardType: Swift.Optional<Swift.String>
+  @objc public var isDomestic: Swift.Optional<Swift.String>
+  @objc public var isExpired: Swift.Optional<Swift.String>
+  @objc public var issueingBank: Swift.Optional<Swift.String>
+  @objc public var enableVerbose: Swift.Bool
+  @objc public var phoneNumber: Swift.Optional<Swift.String>
+  @objc public var address1: Swift.Optional<Swift.String>
+  @objc public var address2: Swift.Optional<Swift.String>
+  @objc public var city: Swift.Optional<Swift.String>
+  @objc public var state: Swift.Optional<Swift.String>
+  @objc public var country: Swift.Optional<Swift.String>
+  @objc public var zipcode: Swift.Optional<Swift.String>
+  @objc public var udf1: Swift.Optional<Swift.String>
+  @objc public var udf2: Swift.Optional<Swift.String>
+  @objc public var udf3: Swift.Optional<Swift.String>
+  @objc public var udf4: Swift.Optional<Swift.String>
+  @objc public var udf5: Swift.Optional<Swift.String>
+  @objc public var CURL: Swift.Optional<Swift.String>
+  @objc public var CODURL: Swift.Optional<Swift.String>
+  @objc public var dropCategory: Swift.Optional<Swift.String>
+  @objc public var enforcePayMethod: Swift.Optional<Swift.String>
+  @objc public var customNote: Swift.Optional<Swift.String>
+  @objc public var noteCategory: Swift.Optional<Swift.String>
+  @objc public var apiVersion: Swift.Optional<Swift.String>
+  @objc public var shippingFirstname: Swift.Optional<Swift.String>
+  @objc public var shippingLastname: Swift.Optional<Swift.String>
+  @objc public var shippingAddress1: Swift.Optional<Swift.String>
+  @objc public var shippingAddress2: Swift.Optional<Swift.String>
+  @objc public var shippingCity: Swift.Optional<Swift.String>
+  @objc public var shippingState: Swift.Optional<Swift.String>
+  @objc public var shippingCountry: Swift.Optional<Swift.String>
+  @objc public var shippingZipcode: Swift.Optional<Swift.String>
+  @objc public var shippingPhone: Swift.Optional<Swift.String>
+  @objc public var total_subventionAmount: Swift.Optional<Swift.String>
+  @objc public var total_subventionEligibility: Swift.Optional<Swift.String>
+  @objc public var isOneTap: Swift.Bool
+  @objc public var payThroughOneTap: Swift.Bool
+  @objc public var enforcedCashCardParam: Swift.Optional<Swift.String>
+  @objc public var OneTapTokenDictionary: [Swift.String : Swift.String]
+  @objc public var standingInstruction: Swift.Bool
+  @objc public var vpa: Swift.Optional<Swift.String>
+  @objc public var sodexo_sourceId: Swift.Optional<Swift.String>
+  @objc public var offerKey: Swift.Optional<Swift.String>
+  @objc public var hashes: PayU_coreSDK_Swift.PayUModelHashes
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @objcMembers public class PayUCreateRequest : ObjectiveC.NSObject {
+  public typealias completionBlockForCreateRequestWithPaymentParam = (Foundation.NSMutableURLRequest, Foundation.NSString) -> Swift.Void
+  @objc public func createRequest(withPaymentParam paymentParam: PayU_coreSDK_Swift.PayUModelPaymentParams, forPaymentType paymentType: Swift.String, withCompletionBlock paramCompletionBlock: @escaping PayU_coreSDK_Swift.PayUCreateRequest.completionBlockForCreateRequestWithPaymentParam)
+  @objc override dynamic public init()
+  @objc deinit
+}
+public typealias completionBlockAfterFetchingPaymentOptions = (PayU_coreSDK_Swift.PUPaymentRelatedDetails, Swift.String) -> Swift.Void
+public typealias completionBlockAfterCallingVAS = (Any, Swift.String) -> Swift.Void
+public typealias comletionBlockAfterGettingOfferDetails = (PayU_coreSDK_Swift.PUOffer, Swift.String) -> Swift.Void
+public typealias completionBlockAfterDeletingSavedCard = (Swift.String, Swift.String) -> Swift.Void
+public typealias completionBlockAfterGettingCardType = ([Swift.String : Swift.String], Swift.String) -> Swift.Void
+@objc @objcMembers public class PayUWebService : ObjectiveC.NSObject {
+  @objc public func fetchPayUPaymentOptions(paymentParamsToFetchPaymentOptions: PayU_coreSDK_Swift.PayUModelPaymentParams, completionBlockForPaymentOptions: @escaping PayU_coreSDK_Swift.completionBlockAfterFetchingPaymentOptions)
+  @objc public func callVAS(paymentParamsforVas: PayU_coreSDK_Swift.PayUModelPaymentParams)
+  @objc public func getVASStatus(bankCodeOrCardBin: Swift.String, completionBlockForVAS: @escaping PayU_coreSDK_Swift.completionBlockAfterCallingVAS)
+  @objc public func getOfferStatus(paymentParamsForOfferAPI: PayU_coreSDK_Swift.PayUModelPaymentParams, completionBlockForOfferStatus: @escaping PayU_coreSDK_Swift.comletionBlockAfterGettingOfferDetails)
+  @objc public func deleteSavedCard(paymentParamsForDeletingSavedCard: PayU_coreSDK_Swift.PayUModelPaymentParams, completionBlockForDeletingSavedCard: @escaping PayU_coreSDK_Swift.completionBlockAfterDeletingSavedCard)
+  @objc public func getCardTypeDetails(cardBin: PayU_coreSDK_Swift.PayUModelPaymentParams, completionBlockForGettingCardData: @escaping PayU_coreSDK_Swift.completionBlockAfterGettingCardType)
+  @objc override dynamic public init()
+  @objc deinit
+}
+public let ENVIRONMENT_PRODUCTION: Swift.String
+public let ENVIRONMENT_TEST: Swift.String
+public let PAYMENT_PG_ONE_TAP_STOREDCARD: Swift.String
+public let PAYMENT_PG_NET_BANKING: Swift.String
+public let PAYMENT_PG_CCDC: Swift.String
+public let PAYMENT_PG_STOREDCARD: Swift.String
+public let PAYMENT_PG_EMI: Swift.String
+public let PAYMENT_PG_CASHCARD: Swift.String
+public let PAYMENT_PG_PAYU_MONEY: Swift.String
+public let PAYMENT_PG_SODEXO: Swift.String
+public let PAYMENT_PG_UPI: Swift.String
+public let PAYMENT_PG_INVALID: Swift.String
+public let COMMAND_PAYMENT_RELATED_DETAILS_FOR_MOBILE_SDK: Swift.String
+public let COMMAND_CHECK_OFFER_STATUS: Swift.String
+public let COMMAND_DELETE_USER_CARD: Swift.String
+public let COMMAND_VAS_FOR_MOBILE_SDK: Swift.String
+public let COMMAND_EDIT_USER_CARD: Swift.String
+public let COMMAND_SAVE_USER_CARD: Swift.String
+public let COMMAND_GET_USER_CARD: Swift.String
+public let COMMAND_GET_CARD_DETAILS: Swift.String
+public var isCBExists: Swift.Bool
+public var enforcementPaymentCode: Swift.Bool
+@objc public class PUPaymentRelatedDetails : ObjectiveC.NSObject {
+  public var availablePaymentOptions: Foundation.NSMutableArray
+  public var availableNetBanking: [Swift.AnyObject]
+  public var availableCashCard: [Swift.AnyObject]
+  public var availableEMI: [Swift.AnyObject]
+  public var availableSavedCards: [Swift.AnyObject]
+  public var forcedPaymentOptions: Foundation.NSMutableArray
+  @objc deinit
+}
