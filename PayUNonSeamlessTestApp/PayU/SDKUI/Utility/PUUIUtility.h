@@ -22,8 +22,8 @@
  */
 + (NSString*)getNameOfImageForCardBank:(NSString*) issuingBankName;
 
-+ (UIPickerView *)showPickerViewWithDelegate:(id)delegate;
-+ (void)hidePickerView;
++ (UIPickerView *)showPickerViewWithDelegate:(id)delegate onWindow:(UIView *) window;
++ (void)hidePickerViewFromWindow:(UIView *) window;
 +(BOOL)isUserCredentialValid:(NSString *) userCredential;
 +(NSNumber *)getCardLengthForCardIssuer:(NSString *) cardIssuer;
 +(NSNumber *)getCVVLengthForCardIssuer:(NSString *) cardIssuer;

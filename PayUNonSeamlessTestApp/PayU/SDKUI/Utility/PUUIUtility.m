@@ -13,16 +13,16 @@
 
 @implementation PUUIUtility
 
-+ (UIPickerView *)showPickerViewWithDelegate:(id)delegate
++ (UIPickerView *)showPickerViewWithDelegate:(id)delegate onWindow:(UIView *) window
 {
-    UIView *viewActivity = [APP_DELEGATE.window viewWithTag:502];
+    UIView *viewActivity = [window viewWithTag:502];
     UIPickerView *cityPickerView = nil;
     
     if(!viewActivity) {
-        viewActivity = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(APP_DELEGATE.window.frame)- (162 + 44), CGRectGetWidth(APP_DELEGATE.window.frame), (162+44))];
+        viewActivity = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(window.frame)- (162 + 44), CGRectGetWidth(window.frame), (162+44))];
         viewActivity.tag = 502;
         viewActivity.backgroundColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:0.0f];
-        [APP_DELEGATE.window addSubview:viewActivity];
+        [window addSubview:viewActivity];
         
         cityPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(viewActivity.frame)- 162, CGRectGetWidth(viewActivity.frame), 162)];
         cityPickerView.tag = 503;
@@ -67,9 +67,9 @@
      */
 }
 
-+ (void)hidePickerView
++ (void)hidePickerViewFromWindow:(UIView *) window
 {
-    UIView *viewActivity = [APP_DELEGATE.window viewWithTag:502];
+    UIView *viewActivity = [window viewWithTag:502];
     
     if(viewActivity)
         [viewActivity removeFromSuperview];

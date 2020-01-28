@@ -166,7 +166,7 @@
     
     NSLog(@"Year Index%lu",(unsigned long)[arrYear indexOfObject:currentYear]);
     
-    MonthYearPickerView = [PUUIUtility showPickerViewWithDelegate:self];
+    MonthYearPickerView = [PUUIUtility showPickerViewWithDelegate:self onWindow:self.view.window];
     
     // By default it should select current Month and Yaer
     [MonthYearPickerView selectRow:(unsigned long)[arrMonth indexOfObject:currentMonth] inComponent:0 animated:true];
@@ -244,10 +244,11 @@
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
     if (textField == self.txtFieldMonth || textField == self.txtFieldYear) {
         if (!self.grayView) {
-            self.grayView = [[UIView alloc] initWithFrame:APP_DELEGATE.window.frame];
+            self.grayView = [[UIView alloc] initWithFrame:self.view.window.frame];
+
             self.grayView.alpha = .5;
             self.grayView.backgroundColor = [UIColor grayColor];
-            [APP_DELEGATE.window addSubview:self.grayView];
+            [self.view.window addSubview:self.grayView];
         }
         else{
             [self.grayView setHidden:NO];
@@ -643,7 +644,7 @@ andPreserveCursorPosition:&targetCursorPosition];
     if (self.grayView) {
         [self.grayView setHidden:TRUE];
     }
-    [PUUIUtility hidePickerView];
+    [PUUIUtility hidePickerViewFromWindow:self.view.window];
 }
 
 #pragma mark - Getter method of card/CVV max length
