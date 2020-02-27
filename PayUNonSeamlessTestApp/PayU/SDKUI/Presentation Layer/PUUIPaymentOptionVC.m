@@ -17,8 +17,6 @@
 #import "PayU_iOS_CoreSDK.h"
 #import "PUUIStoredCardCarouselVC.h"
 #import "PUUIPayUMoneyVC.h"
-#import "test.h"
-#import "PUSAWSManager.h"
 #import "iOSDefaultActivityIndicator.h"
 
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
@@ -144,22 +142,22 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
     //Append requied parameter in params to get HTML data
     NSString *paramsForHTMLData = [NSString stringWithFormat:@"%@&txn_s2s_flow=1",params];
     
-    NSMutableURLRequest *urlRequest = [PUSAWSManager getURLRequestWithPostParam:paramsForHTMLData withURL:url];
+    NSMutableURLRequest *urlRequest = [[PayUUtils new] getURLRequestWithPostParam:paramsForHTMLData withURL:url httpHeaderField:nil httpMethod:HTTP_METHOD_POST];
     
-    [PUSAWSManager getWebServiceResponse:urlRequest
-                     withCompletionBlock:^(id JSON, NSString *errorMessage, id extraParam) {
-                         if (JSON && JSON[@"result"]) {
-                             NSString *postData = [[JSON objectForKey:@"result"] objectForKey:@"post_data"];
-                             
-                             if (postData) {
-                                 NSString *htmlData = [self getBase64DecodedStringFromString:postData];
-                                 completion(htmlData, nil);
-                             }
-                         }
-                         else if (JSON && JSON[@"error"]){
-                             completion(nil ,JSON[@"error"]);
-                         }
-                     }];
+    [[PayUUtils new] getWebServiceResponse:urlRequest withCompletionBlock:^(id JSON, NSString *errorMessage, id extraParam) {
+        if (JSON && JSON[@"result"]) {
+            NSString *postData = [[JSON objectForKey:@"result"] objectForKey:@"post_data"];
+            
+            if (postData) {
+                NSString *htmlData = [self getBase64DecodedStringFromString:postData];
+                completion(htmlData, nil);
+            }
+        }
+        else if (JSON && JSON[@"error"]){
+            completion(nil ,JSON[@"error"]);
+        }
+    }];
+    
 }
 
 - (NSString*)getBase64DecodedStringFromString:(NSString*)str {
@@ -607,8 +605,7 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
             //                        [vwRO setBackgroundColor:[UIColor redColor]];
             //                        reviewOrderConfig = [[PUCBReviewOrderConfig alloc] initWithCustomView:vwRO error:&err];
             
-            test *vwRO = [[test alloc] init];
-            reviewOrderConfig = [[PUCBReviewOrderConfig alloc] initWithCustomView:vwRO error:&err];
+            reviewOrderConfig = [[PUCBReviewOrderConfig alloc] initWithCustomView:self.customReviewOrderView error:&err];
         }
         if (err) {
             NSLog(@"%@",err.description);

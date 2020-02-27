@@ -11,6 +11,7 @@
 #import "PUSAHelperClass.h"
 #import "iOSDefaultActivityIndicator.h"
 #import "PUVAOptionsVC.h"
+#import "test.h"
 
 static NSString * const verifyAPIStoryBoard = @"PUVAMainStoryBoard";
 static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
@@ -282,6 +283,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
                 PUUIPaymentOptionVC * paymentOptionVC = [stryBrd instantiateViewControllerWithIdentifier:VC_IDENTIFIER_PAYMENT_OPTION];
                 paymentOptionVC.paymentParam = self.paymentParam;
                 paymentOptionVC.paymentRelatedDetail = paymentRelatedDetails;
+                paymentOptionVC.customReviewOrderView = [[test alloc] init];
                 _isStartBtnTapped = FALSE;
                 [self.navigationController pushViewController:paymentOptionVC animated:true];
             }

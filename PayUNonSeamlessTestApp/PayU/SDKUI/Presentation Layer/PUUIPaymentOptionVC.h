@@ -20,4 +20,5 @@
 //Strictly part of Sample App
 @property (nonatomic, assign) NSInteger surePayCount;
 @property (nonatomic, assign) BOOL shouldEnableWKWebview;
+@property (nonatomic, strong) UIView *customReviewOrderView;
 @end
