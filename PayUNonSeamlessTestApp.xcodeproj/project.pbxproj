@@ -23,7 +23,6 @@
 		DD11F8291CE99E140025D1F0 /* PUUIStoredCardCarouselVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DD11F7F21CE99E140025D1F0 /* PUUIStoredCardCarouselVC.m */; };
 		DD11F82A1CE99E140025D1F0 /* PUUITabBarTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD11F7F41CE99E140025D1F0 /* PUUITabBarTopView.m */; };
 		DD11F82B1CE99E140025D1F0 /* PUUITabBarTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD11F7F51CE99E140025D1F0 /* PUUITabBarTopView.xib */; };
-		DD11F82C1CE99E140025D1F0 /* PUUIWebViewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DD11F7F71CE99E140025D1F0 /* PUUIWebViewVC.m */; };
 		DD11F82D1CE99E140025D1F0 /* PUUIAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD11F7F81CE99E140025D1F0 /* PUUIAssets.xcassets */; };
 		DD11F82E1CE99E140025D1F0 /* PUUIMainStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD11F7FB1CE99E140025D1F0 /* PUUIMainStoryBoard.storyboard */; };
 		DD11F82F1CE99E140025D1F0 /* KHTabPagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD11F7FF1CE99E140025D1F0 /* KHTabPagerViewController.m */; };
@@ -106,8 +105,6 @@
 		DD11F7F31CE99E140025D1F0 /* PUUITabBarTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PUUITabBarTopView.h; sourceTree = "<group>"; };
 		DD11F7F41CE99E140025D1F0 /* PUUITabBarTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PUUITabBarTopView.m; sourceTree = "<group>"; };
 		DD11F7F51CE99E140025D1F0 /* PUUITabBarTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PUUITabBarTopView.xib; sourceTree = "<group>"; };
-		DD11F7F61CE99E140025D1F0 /* PUUIWebViewVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PUUIWebViewVC.h; sourceTree = "<group>"; };
-		DD11F7F71CE99E140025D1F0 /* PUUIWebViewVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PUUIWebViewVC.m; sourceTree = "<group>"; };
 		DD11F7F81CE99E140025D1F0 /* PUUIAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PUUIAssets.xcassets; sourceTree = "<group>"; };
 		DD11F7FB1CE99E140025D1F0 /* PUUIMainStoryBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PUUIMainStoryBoard.storyboard; sourceTree = "<group>"; };
 		DD11F7FE1CE99E140025D1F0 /* KHTabPagerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHTabPagerViewController.h; sourceTree = "<group>"; };
@@ -154,7 +151,6 @@
 		DDA8C8E31D1A5DD400B5AFFC /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		DDC1935C23BA36A100B230F7 /* libPayU_iOS_CoreSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPayU_iOS_CoreSDK.a; sourceTree = "<group>"; };
 		DDC1935E23BA36A100B230F7 /* PayUCreatePostParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUCreatePostParam.h; sourceTree = "<group>"; };
-		DDC1935F23BA36A100B230F7 /* PayUWebViewResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUWebViewResponse.h; sourceTree = "<group>"; };
 		DDC1936023BA36A100B230F7 /* PayUReachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUReachability.h; sourceTree = "<group>"; };
 		DDC1936123BA36A100B230F7 /* PayUModelGetTxnInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUModelGetTxnInfo.h; sourceTree = "<group>"; };
 		DDC1936223BA36A100B230F7 /* PayUDontUseThisClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayUDontUseThisClass.h; sourceTree = "<group>"; };
@@ -328,8 +324,6 @@
 				DD11F7F31CE99E140025D1F0 /* PUUITabBarTopView.h */,
 				DD11F7F41CE99E140025D1F0 /* PUUITabBarTopView.m */,
 				DD11F7F51CE99E140025D1F0 /* PUUITabBarTopView.xib */,
-				DD11F7F61CE99E140025D1F0 /* PUUIWebViewVC.h */,
-				DD11F7F71CE99E140025D1F0 /* PUUIWebViewVC.m */,
 			);
 			path = "Presentation Layer";
 			sourceTree = "<group>";
@@ -565,7 +559,6 @@
 			isa = PBXGroup;
 			children = (
 				DDC1935E23BA36A100B230F7 /* PayUCreatePostParam.h */,
-				DDC1935F23BA36A100B230F7 /* PayUWebViewResponse.h */,
 				DDC1936023BA36A100B230F7 /* PayUReachability.h */,
 				DDC1936123BA36A100B230F7 /* PayUModelGetTxnInfo.h */,
 				DDC1936223BA36A100B230F7 /* PayUDontUseThisClass.h */,
@@ -708,7 +701,6 @@
 				DD11F81F1CE99E140025D1F0 /* PUUIStoredCardView.m in Sources */,
 				DD11F8251CE99E140025D1F0 /* PUUICCDCVC.m in Sources */,
 				DD44D40F1CE45EF400088C84 /* main.m in Sources */,
-				DD11F82C1CE99E140025D1F0 /* PUUIWebViewVC.m in Sources */,
 				DD11F8241CE99E140025D1F0 /* PUUICardOptionVC.m in Sources */,
 				DD284EDD1CE30684008CDE79 /* PUVABaseResponseVC.m in Sources */,
 				DD11F81D1CE99E140025D1F0 /* iOSDefaultActivityIndicator.m in Sources */,

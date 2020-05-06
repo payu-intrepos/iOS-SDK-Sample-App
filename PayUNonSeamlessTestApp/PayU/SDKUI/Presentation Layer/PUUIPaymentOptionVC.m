@@ -11,7 +11,6 @@
 #import "PUUITabBarTopView.h"
 #import "PUUICCDCVC.h"
 #import "PUUINBVC.h"
-#import "PUUIWebViewVC.h"
 #import "PUUIConstants.h"
 #import <PayUCustomBrowser/PayUCustomBrowser.h>
 #import "PayU_iOS_CoreSDK.h"
@@ -35,7 +34,7 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
     NSInteger currentIndex;
     NSMutableArray *actualPaymentOption;
     NSMutableArray *arrStoredCards;
-    BOOL isSimplifiedCB, withCustomisations, withPostParam, shouldPresentVC, isReviewOrderBuild ,isDefaultReviewOrderView;
+    BOOL withCustomisations, withPostParam, shouldPresentVC, isReviewOrderBuild ,isDefaultReviewOrderView;
     NSString *paymentType;
     BOOL _shouldWebViewStartWithLocalHTML;
 }
@@ -56,7 +55,6 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
     [self subscribeToNotifications];
     [self customInitialization];
     [self reloadData];
-    isSimplifiedCB = YES;
     withCustomisations = YES;
     withPostParam = YES;
     shouldPresentVC = NO;
@@ -364,65 +362,54 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
     dispatch_async(dispatch_get_main_queue(), ^{
         //Setting Custom Browser's configuration
         PUCBConfiguration *cbConfig = [PUCBConfiguration getSingletonInstance];
-        cbConfig.enableWKWebView = self.shouldEnableWKWebview;
         cbConfig.surePayCount = self.surePayCount;
         cbConfig.htmlData = htmlData;
 //        cbConfig.merchantResponseTimeout = 10.000;
         if (request) {
             NSError *err = nil;
             
-            if (isSimplifiedCB) {
-                PUCBWebVC *webVC;
-                
-                if (withPostParam) {
-                    webVC = [[PUCBWebVC alloc] initWithPostParam:postParam
-                                                             url:request.URL
-                                                     merchantKey:self.paymentParam.key
-                                                           error:&err];
-                }
-                else{
-                    webVC = [[PUCBWebVC alloc] initWithNSURLRequest:request
-                                                        merchantKey:self.paymentParam.key
-                                                              error:&err];
-                }
-                
-                if (err) {
-                    PAYUALERT(@"Error creating PUCBWebVC", err.description);
-                    return;
-                }
-                
-                
-                if (withCustomisations) {
-                    webVC.cbWebVCDelegate = self;
-                    cbConfig.shouldShowPayULoader = YES;
-                    cbConfig.isAutoOTPSelect = NO;
-                    cbConfig.transactionId = self.paymentParam.transactionID;
-                    
-                    cbConfig.paymentURL = [request.URL absoluteString];
-                    cbConfig.paymentPostParam = postParam;
-                    
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wundeclared-selector"
-                    [cbConfig performSelector:@selector(setCbServerType:) withObject:@"CBStatic"];
-                    [cbConfig performSelector:@selector(setCbAnalyticsServerType:) withObject:@"CBStatic"];
-#pragma clang diagnostic pop
-                    [self setReviewOrderView];
-                }
-                
-                if (shouldPresentVC) {
-                    [self showVC:webVC withMode:VCDisplayPresent];
-                }
-                else{
-                    [self showVC:webVC withMode:VCDisplayPush];
-                }
+            PUCBWebVC *webVC;
+            
+            if (withPostParam) {
+                webVC = [[PUCBWebVC alloc] initWithPostParam:postParam
+                                                         url:request.URL
+                                                 merchantKey:self.paymentParam.key
+                                                       error:&err];
             }
             else{
-                PUUIWebViewVC *WVVC;
-                WVVC = [self.storyboard instantiateViewControllerWithIdentifier:VC_IDENTIFIER_WEBVIEW];
-                WVVC.request = request;
-                WVVC.paymentParam = paymentParam2;
-                WVVC.htmlData = htmlData;
-                [self showVC:WVVC withMode:VCDisplayPush];
+                webVC = [[PUCBWebVC alloc] initWithNSURLRequest:request
+                                                    merchantKey:self.paymentParam.key
+                                                          error:&err];
+            }
+            
+            if (err) {
+                PAYUALERT(@"Error creating PUCBWebVC", err.description);
+                return;
+            }
+            
+            
+            if (withCustomisations) {
+                webVC.cbWebVCDelegate = self;
+                cbConfig.shouldShowPayULoader = YES;
+                cbConfig.isAutoOTPSelect = NO;
+                cbConfig.transactionId = self.paymentParam.transactionID;
+                
+                cbConfig.paymentURL = [request.URL absoluteString];
+                cbConfig.paymentPostParam = postParam;
+                
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
+                [cbConfig performSelector:@selector(setCbServerType:) withObject:@"CBStatic"];
+                [cbConfig performSelector:@selector(setCbAnalyticsServerType:) withObject:@"CBStatic"];
+#pragma clang diagnostic pop
+                [self setReviewOrderView];
+            }
+            
+            if (shouldPresentVC) {
+                [self showVC:webVC withMode:VCDisplayPresent];
+            }
+            else{
+                [self showVC:webVC withMode:VCDisplayPush];
             }
         }
     });

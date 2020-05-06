@@ -24,7 +24,6 @@ typedef NS_ENUM(NSInteger, TableViewType) {
 };
 
 
-#define     VC_IDENTIFIER_WEBVIEW                       @"PUUIWebViewVC"
 #define     VC_IDENTIFIER_PAYMENT_OPTION                @"PUUIPaymentOptionVC"
 
 #define     VC_IDENTIFIER_STORED_CARD                   @"PUUIStoredCardVC"

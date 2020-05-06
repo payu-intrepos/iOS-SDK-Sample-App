@@ -37,7 +37,6 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
 @property (strong, nonatomic) UISwitch *switchForSalt;
 @property (strong, nonatomic) iOSDefaultActivityIndicator *defaultActivityIndicator;
 @property (strong, nonatomic) PayUWebServiceResponse *webServiceResponse;
-@property (weak, nonatomic) IBOutlet UISwitch *switchForWK;
 
 
 
@@ -238,7 +237,6 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
                 PUUIPaymentOptionVC * paymentOptionVC = [stryBrd instantiateViewControllerWithIdentifier:VC_IDENTIFIER_PAYMENT_OPTION];
                 paymentOptionVC.paymentParam = self.paymentParam;
                 paymentOptionVC.paymentRelatedDetail = paymentRelatedDetails;
-                paymentOptionVC.shouldEnableWKWebview = self.switchForWK.on;
                 NSInteger count = [self getSurePayCount];
                 paymentOptionVC.surePayCount = count;
                 _isStartBtnTapped = FALSE;

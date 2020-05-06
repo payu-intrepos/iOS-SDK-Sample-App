@@ -650,17 +650,6 @@
                                                     <outlet property="delegate" destination="emL-vg-a2x" id="drn-nT-vHq"/>
                                                 </connections>
                                             </textField>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="9P6-SC-XxW">
-                                                <rect key="frame" x="118" y="307" width="51" height="31"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </switch>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EnableWK" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gjK-dF-x5T">
-                                                <rect key="frame" x="9" y="318" width="130" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -693,7 +682,6 @@
                     <navigationItem key="navigationItem" id="GJV-87-0gF"/>
                     <connections>
                         <outlet property="startScreenScrollView" destination="Ev4-qQ-GOs" id="qkl-zP-ApC"/>
-                        <outlet property="switchForWK" destination="9P6-SC-XxW" id="5iu-Al-Bah"/>
                         <outlet property="textFieldAmount" destination="yDF-VH-cln" id="G4x-QS-uFp"/>
                         <outlet property="textFieldEmail" destination="Le6-CC-J5S" id="vus-iF-3zH"/>
                         <outlet property="textFieldEnvironment" destination="vIX-zO-Gr8" id="X9e-9P-jxb"/>
