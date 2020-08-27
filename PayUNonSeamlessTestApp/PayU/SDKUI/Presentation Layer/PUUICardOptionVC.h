@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PayU_iOS_CoreSDK.h"
+#import <PayUBizCoreSDK/PayUBizCoreSDK.h>
 
 @protocol CardOptionDelegate <NSObject>
 
