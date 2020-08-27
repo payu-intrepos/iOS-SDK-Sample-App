@@ -119,6 +119,7 @@ static NSString * const NBSegueIdentifier = @"NBSegue";
         PayUModelNetBanking *modelNetBanking = [self.paymentRelatedDetail.netBankingArray objectAtIndex:indexCard];
         [self.btnBankName setTitle:modelNetBanking.netBankingTitle forState:UIControlStateNormal];
         self.paymentParam.bankCode = modelNetBanking.bankCode;
+        [self enableDisablePayNowWithUserInfo:nil];
     }
 }
 

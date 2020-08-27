@@ -17,6 +17,7 @@
 #import "PUUIStoredCardCarouselVC.h"
 #import "PUUIPayUMoneyVC.h"
 #import "iOSDefaultActivityIndicator.h"
+#import "PUUIPayUUPIVC.h"
 
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 
@@ -235,7 +236,11 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
       
       return lazyPay;
     }
-  
+    else if ([[actualPaymentOption objectAtIndex:index] isEqual:PAYMENT_PG_UPI]) {
+        PUUIPayUUPIVC *upi = [self.storyboard instantiateViewControllerWithIdentifier:VC_IDENTIFIER_PAYU_UPI];
+        upi.paymentParam = [self.paymentParam copy];
+        return upi;
+    }
     else{
         UIViewController *vc = [PUUIBaseVC new];
         [[vc view] setBackgroundColor:[UIColor whiteColor]];
@@ -539,11 +544,12 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
                                                                                    PAYMENT_PG_STOREDCARD,
                                                                                    PAYMENT_PG_CCDC,
                                                                                    PAYMENT_PG_NET_BANKING,
+                                                                                   PAYMENT_PG_UPI,
                                                                                    PAYMENT_PG_PAYU_MONEY,
                                                                                    PAYMENT_PG_EMI,
                                                                                    PAYMENT_PG_NO_COST_EMI,
-                                                                                   
-                                                                  PAYMENT_PG_LAZYPAY,                 nil]];
+                                                                                   PAYMENT_PG_LAZYPAY,
+                                                                                   nil]];
     NSArray *arr;
     if ([_paymentOption count]) {
         NSMutableOrderedSet *setGivenPaymentOption = [[NSMutableOrderedSet alloc] initWithArray:_paymentOption];

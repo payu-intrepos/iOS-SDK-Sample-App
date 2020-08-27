@@ -34,6 +34,7 @@
 		DD11F8351CE99E140025D1F0 /* UIColor+PUUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = DD11F80C1CE99E140025D1F0 /* UIColor+PUUIColor.m */; };
 		DD14F92224F78405009308A4 /* PayUBizCoreSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD14F92024F783FB009308A4 /* PayUBizCoreSDK.framework */; };
 		DD14F92324F78405009308A4 /* PayUBizCoreSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD14F92024F783FB009308A4 /* PayUBizCoreSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DD14F92624F78D65009308A4 /* PUUIPayUUPIVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DD14F92524F78D64009308A4 /* PUUIPayUUPIVC.m */; };
 		DD284EC71CE30684008CDE79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD284E2A1CE30684008CDE79 /* AppDelegate.m */; };
 		DD284ED21CE30684008CDE79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD284E391CE30684008CDE79 /* LaunchScreen.storyboard */; };
 		DD284EDB1CE30684008CDE79 /* PUVAConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = DD284E501CE30684008CDE79 /* PUVAConfiguration.m */; };
@@ -123,6 +124,8 @@
 		DD11F80B1CE99E140025D1F0 /* UIColor+PUUIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+PUUIColor.h"; sourceTree = "<group>"; };
 		DD11F80C1CE99E140025D1F0 /* UIColor+PUUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+PUUIColor.m"; sourceTree = "<group>"; };
 		DD14F92024F783FB009308A4 /* PayUBizCoreSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PayUBizCoreSDK.framework; sourceTree = "<group>"; };
+		DD14F92424F78D64009308A4 /* PUUIPayUUPIVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PUUIPayUUPIVC.h; sourceTree = "<group>"; };
+		DD14F92524F78D64009308A4 /* PUUIPayUUPIVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PUUIPayUUPIVC.m; sourceTree = "<group>"; };
 		DD284E291CE30684008CDE79 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DD284E2A1CE30684008CDE79 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		DD284E3A1CE30684008CDE79 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -280,6 +283,8 @@
 		DD11F7E11CE99E140025D1F0 /* Presentation Layer */ = {
 			isa = PBXGroup;
 			children = (
+				DD14F92424F78D64009308A4 /* PUUIPayUUPIVC.h */,
+				DD14F92524F78D64009308A4 /* PUUIPayUUPIVC.m */,
 				DD11F7E21CE99E140025D1F0 /* Base ViewController */,
 				DD11F7E71CE99E140025D1F0 /* PUUICardOptionVC.h */,
 				DD11F7E81CE99E140025D1F0 /* PUUICardOptionVC.m */,
@@ -625,6 +630,7 @@
 				DD11F8301CE99E140025D1F0 /* KHTabScrollView.m in Sources */,
 				DD44D4D31CE4876900088C84 /* PUSAWSManager.m in Sources */,
 				DD11F8281CE99E140025D1F0 /* PUUIPayUMoneyVC.m in Sources */,
+				DD14F92624F78D65009308A4 /* PUUIPayUUPIVC.m in Sources */,
 				DD44D4D21CE4876900088C84 /* PUSAHelperClass.m in Sources */,
 				DD11F8221CE99E140025D1F0 /* PUUIBaseVC.m in Sources */,
 				DD44D4D81CE4878300088C84 /* PUSAStartScreenVC.m in Sources */,

@@ -33,6 +33,7 @@ typedef NS_ENUM(NSInteger, TableViewType) {
 #define     VC_IDENTIFIER_CASHCARD                      @"PUUICashCardVC"
 #define     VC_IDENTIFIER_EMI                           @"PUUI_EMI_VC"
 #define     VC_IDENTIFIER_PAYU_MONEY                    @"PUUIPayUMoneyVC"
+#define     VC_IDENTIFIER_PAYU_UPI                      @"PUUIPayUUPIVC"
 
 
 //#define     NAVIGATION_CONTROLLER_IDENTIFIER                    @"PayUNavigationController"
