@@ -43,6 +43,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
 @property (weak, nonatomic) IBOutlet UITextField *textFieldSalt;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldSVAmount;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldSVEligibility;
+@property (weak, nonatomic) IBOutlet UITextField *textFieldBeneficiaryAccountNumber;
 @property (weak, nonatomic) IBOutlet UIScrollView *startScreenScrollView;
 - (IBAction)switchButtonForNil:(id)sender;
 - (IBAction)clickedBtnStart:(id)sender;
@@ -93,7 +94,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
     self.switchForOneTap = (UISwitch *)[self.startScreenScrollView viewWithTag:19];
     
 //    self.paymentParam.key = @"0MQaQP";//@"gtKFFx";//@"0MQaQP";
-    self.paymentParam.amount = @"10.00";
+    self.paymentParam.amount = @"1.00";
     self.paymentParam.productInfo = @"Nokia";
     self.paymentParam.firstName = @"Ram";
     self.paymentParam.email = @"email@testsdk1.com";
@@ -106,6 +107,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
     self.paymentParam.udf3 = @"u3";
     self.paymentParam.udf4 = @"u4";
     self.paymentParam.udf5 = @"u5";
+    self.paymentParam.beneficiaryAccountNumbers = @"4535665647";
 //    self.paymentParam.environment = ENVIRONMENT_PRODUCTION;
     [self setEnvironment:ENVIRONMENT_PRODUCTION];
     [self setSalt:@"1b1b0"];
@@ -150,7 +152,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
     self.textFieldUDF5.text = self.paymentParam.udf5;
     self.textFieldEnvironment.text = self.paymentParam.environment;
     self.textFieldOfferKey.text = self.paymentParam.offerKey;
-    
+    self.textFieldBeneficiaryAccountNumber.text = self.paymentParam.beneficiaryAccountNumbers;
 }
 
 -(void)addPaymentResponseNotofication{
@@ -216,6 +218,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
     self.paymentParam.udf4 = self.textFieldUDF4.text;
     self.paymentParam.udf5 = self.textFieldUDF5.text;
     self.paymentParam.userCredentials = self.textFieldUserCredential.text;
+    self.paymentParam.beneficiaryAccountNumbers = self.textFieldBeneficiaryAccountNumber.text;
   
     // set notify URL if you want to pay through Lazy Pay
     self.paymentParam.notifyURL= @"https://notifyURL.com";

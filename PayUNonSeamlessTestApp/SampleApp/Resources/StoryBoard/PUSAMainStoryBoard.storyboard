@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gkh-KH-37f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gkh-KH-37f">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -363,6 +363,15 @@
                                                     <outlet property="delegate" destination="e5E-55-FGB" id="wBe-ao-ouj"/>
                                                 </connections>
                                             </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OiB-iY-NgH">
+                                                <rect key="frame" x="196" y="748" width="110" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="e5E-55-FGB" id="NaW-Hr-b5W"/>
+                                                </connections>
+                                            </textField>
                                             <switch opaque="NO" tag="18" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="orX-Xy-wDd">
                                                 <rect key="frame" x="136" y="710" width="51" height="31"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -370,20 +379,13 @@
                                                     <action selector="switchButtonForNil:" destination="e5E-55-FGB" eventType="valueChanged" id="FqY-T6-meI"/>
                                                 </connections>
                                             </switch>
-                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="EnableOneTap" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDd-eb-r75">
-                                                <rect key="frame" x="8" y="753" width="130" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BeneficiaryAccount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qDd-eb-r75">
+                                                <rect key="frame" x="8" y="753" width="148" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch hidden="YES" opaque="NO" tag="19" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fPG-n8-WHC">
-                                                <rect key="frame" x="136" y="748" width="51" height="31"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <connections>
-                                                    <action selector="switchButtonForNil:" destination="e5E-55-FGB" eventType="valueChanged" id="Nay-Fn-YT9"/>
-                                                </connections>
-                                            </switch>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lno-Jh-ivK">
                                                 <rect key="frame" x="286" y="800" width="59" height="46"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
@@ -456,6 +458,7 @@
                         <outlet property="switchBtnSVAmount" destination="gdw-MK-Hmh" id="Khr-Gp-dAk"/>
                         <outlet property="switchBtnSVEligibility" destination="gVS-Jc-6uz" id="WZG-2i-1cB"/>
                         <outlet property="textFieldAmount" destination="7a6-0h-jY7" id="KjX-94-SDj"/>
+                        <outlet property="textFieldBeneficiaryAccountNumber" destination="OiB-iY-NgH" id="wx2-PU-eQM"/>
                         <outlet property="textFieldEmail" destination="slB-Vm-JwA" id="tbf-2v-YoU"/>
                         <outlet property="textFieldEnvironment" destination="rQs-Lc-5kC" id="94A-Zi-Y0Q"/>
                         <outlet property="textFieldFURL" destination="Oz9-KV-c7R" id="IA1-jR-iCU"/>
