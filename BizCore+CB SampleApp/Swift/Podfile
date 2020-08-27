@@ -1,0 +1,5 @@
+target 'SwiftSampleApp' do
+	use_frameworks!
+	pod 'PayUIndia-PG-SDK'
+	pod 'PayUIndia-Custom-Browser'
+end
