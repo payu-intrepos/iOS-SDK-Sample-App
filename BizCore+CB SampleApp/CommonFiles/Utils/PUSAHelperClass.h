@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <PayUBizCoreSDK/PayUBizCoreSDK.h>
+#import <PayUBizCoreKit/PayUBizCoreKit.h>
 #import "PUSAWSManager.h"
 
 typedef void (^hashRequestCompletionBlock)(PayUModelHashes *hashes, NSString *errorString);

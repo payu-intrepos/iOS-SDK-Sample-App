@@ -54,75 +54,7 @@ static NSString * const cellVerifyAPIIdentifier = @"cellVerifyAPI";
     responseVC.paymentParam = [self.paymentParam copy];
     responseVC.paymentRelatedDetail = self.paymentRelatedDetail;
     responseVC.vAConfig = _verifyAPIConfig;
-    switch (indexPath.row) {
-        case 0:{
-            responseVC.responseVCType = COMMAND_CHECK_OFFER_DETAILS;
-            break;
-        }            
-        case 1:
-        {
-            responseVC.responseVCType = COMMAND_CHECK_OFFER_STATUS;
-            responseVC.paymentParam.userCredentials = nil;
-            break;
-        }
-        case 2:
-        {
-            responseVC.responseVCType = COMMAND_DELETE_USER_CARD;
-            break;
-        }
-        case 3:
-        {
-            responseVC.responseVCType = COMMAND_GET_EMI_AMOUNT_ACCORDING_TO_INTEREST;
-            responseVC.paymentParam.userCredentials = nil;
-            break;
-        }
-            case 4:
-        {
-            responseVC.responseVCType = COMMAND_VAS_FOR_MOBILE_SDK;
-            responseVC.paymentParam.userCredentials = nil;
-            break;
-        }
-        case 5:
-        {
-            responseVC.responseVCType = COMMAND_GET_USER_CARDS;
-            break;
-        }
-        case 6:
-        {
-            responseVC.responseVCType = COMMAND_VERIFY_PAYMENT;
-            responseVC.paymentParam.userCredentials = nil;
-            break;
-        }
-        case 7:
-        {
-            responseVC.responseVCType = COMMAND_EDIT_USER_CARD;
-            break;
-        }
-        case 8:
-        {
-            responseVC.responseVCType = COMMAND_DELETE_ONE_TAP_TOKEN;
-            break;
-        }
-        case 9:
-        {
-            responseVC.responseVCType = COMMAND_CHECK_IS_DOMESTIC;
-            responseVC.paymentParam.userCredentials = nil;
-            break;
-        }
-        case 10:
-        {
-            responseVC.responseVCType = COMMAND_GET_TRANSACTION_INFO;
-            responseVC.paymentParam.userCredentials = nil;
-            break;
-        }
-        case 11:
-        {
-            responseVC.responseVCType = COMMAND_SAVE_USER_CARD;
-            break;
-        }
-        default:
-            break;
-    }
+    responseVC.responseVCType = [_verifyAPIConfig.arrAPIName objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:responseVC animated:TRUE];
 
 }

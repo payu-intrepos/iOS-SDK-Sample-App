@@ -120,6 +120,9 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
     else if ([self.responseVCType isEqual:COMMAND_SAVE_USER_CARD]){
         [self setupForSaveUserCard];
     }
+    else if ([self.responseVCType isEqual:COMMAND_ELIGIBLE_BINS_FOR_EMI]){
+        [self setupForEligibleBinForEMI];
+    }
 }
 
 -(void)dealloc{
@@ -245,6 +248,9 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
     }
     else if ([self.responseVCType isEqual:COMMAND_SAVE_USER_CARD]){
         [self btnClickedSaveUserCard];
+    }
+    else if ([self.responseVCType isEqual:COMMAND_ELIGIBLE_BINS_FOR_EMI]){
+        [self btnClickedEligibleBinForEMI];
     }
 }
 
@@ -842,6 +848,42 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
                 PAYUALERT(@"Error", errorMessage);
             }
         }];
+    }
+}
+
+#pragma mark - eligibleBinForEMI Methods
+
+-(void)setupForEligibleBinForEMI{
+    self.vwView1.hidden = FALSE;
+    self.vwView2.hidden = FALSE;
+    
+    self.lblVar1.text = @"Card Bin";
+    self.lblVar2.text = @"Bank Name";
+    
+    self.txtFieldVar1.placeholder = @"512345";
+    self.txtFieldVar2.placeholder = @"HDFC";
+}
+
+-(void)btnClickedEligibleBinForEMI{
+    self.paymentParam.cardNumber = self.txtFieldVar1.text;
+    self.paymentParam.issuingBank = self.txtFieldVar2.text;
+    
+    if ([self setHashes]) {
+        [self startActivityIndicator];
+        [_webServiceResponse eligibleBinsForEMI:self.paymentParam
+                            withCompletionBlock:^(NSArray<PayUModelEMIDetails *> *arrEMIDetails, NSString *errorMessage, id extraParam) {
+                                [_defaultActivityIndicator stopAnimatingActivityIndicator];
+                                if (!errorMessage) {
+                                    NSMutableString *message = [[NSMutableString alloc]init];
+                                    for (PayUModelEMIDetails *emiDetails in arrEMIDetails) {
+                                        [message appendFormat:@"BankName : %@\nSupportedBin : %@\nMinAmount : %@\nisEligible : %d\n------\n", emiDetails.bankReference ,emiDetails.supportedCardBins ,emiDetails.minTxnAmount,emiDetails.isEligible];
+                                    }
+                                    PAYUALERT(@"Response", message);
+                                }
+                                else{
+                                    PAYUALERT(@"Error", errorMessage);
+                                }
+                            }];
     }
 }
 

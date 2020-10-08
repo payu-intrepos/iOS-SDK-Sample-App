@@ -7,7 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PUUIPayUUPIVC.h"
-#import <PayUBizCoreSDK/PayUBizCoreSDK.h>
+#import <PayUBizCoreKit/PayUBizCoreKit.h>
 
 @interface PUUIPayUUPIVC ()
 

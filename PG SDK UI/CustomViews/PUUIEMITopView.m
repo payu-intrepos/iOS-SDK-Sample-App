@@ -7,7 +7,7 @@
 //
 
 #import "PUUIEMITopView.h"
-#import <PayUBizCoreSDK/PayUBizCoreSDK.h>
+#import <PayUBizCoreKit/PayUBizCoreKit.h>
 #import "PUUICardOptionVC.h"
 #import "PUUIConstants.h"
 

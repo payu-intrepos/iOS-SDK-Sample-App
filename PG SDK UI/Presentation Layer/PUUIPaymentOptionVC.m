@@ -13,7 +13,7 @@
 #import "PUUINBVC.h"
 #import "PUUIConstants.h"
 #import <PayUCustomBrowser/PayUCustomBrowser.h>
-#import <PayUBizCoreSDK/PayUBizCoreSDK.h>
+#import <PayUBizCoreKit/PayUBizCoreKit.h>
 #import "PUUIStoredCardCarouselVC.h"
 #import "PUUIPayUMoneyVC.h"
 #import "iOSDefaultActivityIndicator.h"
