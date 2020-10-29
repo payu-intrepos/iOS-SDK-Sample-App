@@ -18,6 +18,7 @@
 #import "PUUIPayUMoneyVC.h"
 #import "iOSDefaultActivityIndicator.h"
 #import "PUUIPayUUPIVC.h"
+#import "PUUIUtility.h"
 
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 
@@ -35,7 +36,7 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
     NSInteger currentIndex;
     NSMutableArray *actualPaymentOption;
     NSMutableArray *arrStoredCards;
-    BOOL withCustomisations, withPostParam, shouldPresentVC, isReviewOrderBuild ,isDefaultReviewOrderView;
+    BOOL withCustomisations, withPostParam, shouldPresentVC, isReviewOrderBuild ,isDefaultReviewOrderView, presentVCOnFullScreen;
     NSString *paymentType;
     BOOL _shouldWebViewStartWithLocalHTML;
 }
@@ -44,7 +45,7 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
 
 @property (weak, nonatomic) IBOutlet UIButton *btnPayNow;
 @property (strong, nonatomic) iOSDefaultActivityIndicator *defaultActivityIndicator;
-
+@property (strong, nonatomic) PUCBWebVC *webVC;
 @end
 
 @implementation PUUIPaymentOptionVC
@@ -58,9 +59,10 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
     [self reloadData];
     withCustomisations = YES;
     withPostParam = YES;
-    shouldPresentVC = NO;
-    isReviewOrderBuild = YES;
+    shouldPresentVC = self.presentCB;
+    isReviewOrderBuild = self.showRO;
     isDefaultReviewOrderView = YES;
+    presentVCOnFullScreen = self.presentCBFullscreen;
 //    _shouldWebViewStartWithLocalHTML =YES;
 }
 
@@ -198,6 +200,7 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
         PUUINBVC *NBVC = [self.storyboard instantiateViewControllerWithIdentifier:VC_IDENTIFIER_NET_BANKING];
         NBVC.paymentParam = [self.paymentParam copy];
         NBVC.paymentRelatedDetail = self.paymentRelatedDetail;
+        NBVC.paymentType = PAYMENT_PG_NET_BANKING;
         return NBVC;
     }
     else if ([[actualPaymentOption objectAtIndex:index] isEqual:PAYMENT_PG_PAYU_MONEY]) {
@@ -223,7 +226,6 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
         CCDCVC.paymentType = PAYMENT_PG_NO_COST_EMI;
         return CCDCVC;
     }
-  
     else if ([[actualPaymentOption objectAtIndex:index] isEqual:PAYMENT_PG_LAZYPAY]) {
       
       PUUIPayUMoneyVC *lazyPay = [self.storyboard instantiateViewControllerWithIdentifier:VC_IDENTIFIER_PAYU_MONEY];
@@ -373,28 +375,26 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
         if (request) {
             NSError *err = nil;
             
-            PUCBWebVC *webVC;
-            
             if (withPostParam) {
-                webVC = [[PUCBWebVC alloc] initWithPostParam:postParam
+                self.webVC = [[PUCBWebVC alloc] initWithPostParam:postParam
                                                          url:request.URL
                                                  merchantKey:self.paymentParam.key
                                                        error:&err];
             }
             else{
-                webVC = [[PUCBWebVC alloc] initWithNSURLRequest:request
+                self.webVC = [[PUCBWebVC alloc] initWithNSURLRequest:request
                                                     merchantKey:self.paymentParam.key
                                                           error:&err];
             }
             
             if (err) {
-                PAYUALERT(@"Error creating PUCBWebVC", err.description);
+                [PUUIUtility showAlertWithTitle:@"Error creating PUCBWebVC" message:err.description viewController:self];
                 return;
             }
             
             
             if (withCustomisations) {
-                webVC.cbWebVCDelegate = self;
+                self.webVC.cbWebVCDelegate = self;
                 cbConfig.shouldShowPayULoader = YES;
                 cbConfig.isAutoOTPSelect = NO;
                 cbConfig.transactionId = self.paymentParam.transactionID;
@@ -411,10 +411,10 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
             }
             
             if (shouldPresentVC) {
-                [self showVC:webVC withMode:VCDisplayPresent];
+                [self showVC:self.webVC withMode:VCDisplayPresent];
             }
             else{
-                [self showVC:webVC withMode:VCDisplayPush];
+                [self showVC:self.webVC withMode:VCDisplayPush];
             }
         }
     });
@@ -425,8 +425,10 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
     if (mode == VCDisplayPush) {
         [self.navigationController pushViewController:vc animated:true];
     } else {
-        UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
-        [self presentViewController:nvc animated:YES completion:nil];
+        if (presentVCOnFullScreen) {
+            vc.modalPresentationStyle = UIModalPresentationFullScreen;
+        }
+        [self presentViewController:vc animated:YES completion:nil];
     }
 }
 
@@ -453,11 +455,12 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
     __block NSString *resultingPostParam;
     [createRequest createRequestWithPaymentParam:paymentParams forPaymentType:pymtType withCompletionBlock:^(NSMutableURLRequest *request, NSString *postParam, NSString *error) {
         if (error) {
-            PAYUALERT(@"Error", error);
+            [PUUIUtility showAlertWithTitle:@"Error" message:error viewController:self];
         }
         else{
             resultingRequest = (NSURLRequest*)request;
             resultingPostParam = postParam;
+            NSLog(@"PostParams: %@",postParam);
         }
     }];
     
@@ -516,16 +519,15 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
 
 - (void) shouldDismissVCOnBackPress
 {
-    UIAlertView *backbtnAlertView = [[UIAlertView alloc]initWithTitle:@"Cancel Transaction?" message:@"Do you want to cancel this transaction?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
-    backbtnAlertView.tag = 512;
-    [backbtnAlertView show];
-}
-
-- (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
-{
-    if((buttonIndex==1 && alertView.tag ==512 )) {
-        [self removeViewController];
-    }
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"Cancel Transaction?" message:@"Do you want to cancel this transaction?" preferredStyle:UIAlertControllerStyleAlert];
+    __weak PUUIPaymentOptionVC *weakSelf = self;
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [weakSelf.webVC markPayUTxnCancelInDBWithCompletionBlock:^(BOOL success) {
+            [weakSelf removeViewController];
+        }];
+    }]];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:nil]];
+    [self.webVC presentViewController:alertVC animated:true completion:nil];
 }
 
 /*!
@@ -611,6 +613,7 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
         //        cbConfig.reviewOrderConfig.ReviewOrderHeaderForDefaultView = @"test";
     }
     else{
+        [PUCBConfiguration getSingletonInstance].reviewOrderConfig = nil;
         // We are not going to do anything related to ReviewOrder Stuff
     }
 }

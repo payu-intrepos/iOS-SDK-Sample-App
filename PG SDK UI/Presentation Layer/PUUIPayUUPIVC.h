@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *txtFldUPI;
 @property (weak, nonatomic) IBOutlet UIView *textView;
+@property (weak, nonatomic) IBOutlet UITextField *txtFldBankCode;
 
 @end

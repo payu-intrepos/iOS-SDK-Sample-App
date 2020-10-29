@@ -41,7 +41,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4yo-42-xvg">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="860"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="960"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fil-uA-p1h">
                                                 <rect key="frame" x="8" y="11" width="130" height="21"/>
@@ -387,7 +387,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lno-Jh-ivK">
-                                                <rect key="frame" x="286" y="800" width="59" height="46"/>
+                                                <rect key="frame" x="286" y="900" width="59" height="46"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                 <state key="normal" title="Start"/>
                                                 <connections>
@@ -395,7 +395,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EX9-sQ-QVE">
-                                                <rect key="frame" x="30" y="800" width="116" height="46"/>
+                                                <rect key="frame" x="30" y="900" width="116" height="46"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                 <state key="normal" title="Verify API"/>
                                                 <connections>
@@ -423,6 +423,39 @@
                                                     <action selector="switchBtnClickedOfferKey:" destination="e5E-55-FGB" eventType="valueChanged" id="Xk4-hc-UBE"/>
                                                 </connections>
                                             </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Present CB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yk9-nA-xui">
+                                                <rect key="frame" x="8" y="787" width="86" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="7Ns-C5-kQA">
+                                                <rect key="frame" x="136" y="782" width="51" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Present CB Full" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORx-uR-ZaQ">
+                                                <rect key="frame" x="8" y="828" width="117" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wI1-An-Crg">
+                                                <rect key="frame" x="136" y="823" width="51" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show RO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I43-ws-rYa">
+                                                <rect key="frame" x="8" y="867" width="71" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3MG-Ch-U5h">
+                                                <rect key="frame" x="136" y="862" width="51" height="31"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </switch>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -430,7 +463,7 @@
                                             <constraint firstItem="EX9-sQ-QVE" firstAttribute="leading" secondItem="4yo-42-xvg" secondAttribute="leading" constant="30" id="bLf-Vb-YVp"/>
                                             <constraint firstAttribute="bottom" secondItem="Lno-Jh-ivK" secondAttribute="bottom" constant="14" id="k6P-bK-G74"/>
                                             <constraint firstAttribute="bottom" secondItem="EX9-sQ-QVE" secondAttribute="bottom" constant="14" id="lhA-EA-1up"/>
-                                            <constraint firstAttribute="height" constant="860" id="mj1-1f-sVc"/>
+                                            <constraint firstAttribute="height" constant="960" id="mj1-1f-sVc"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -455,8 +488,11 @@
                     <connections>
                         <outlet property="startScreenScrollView" destination="P7U-AO-lMw" id="2E3-FX-tVp"/>
                         <outlet property="switchBtnOfferKey" destination="PZa-z8-sFf" id="FTL-ae-5DB"/>
+                        <outlet property="switchBtnPresentCB" destination="7Ns-C5-kQA" id="KKP-an-47t"/>
+                        <outlet property="switchBtnPresentCBFull" destination="wI1-An-Crg" id="hUd-cg-sS9"/>
                         <outlet property="switchBtnSVAmount" destination="gdw-MK-Hmh" id="Khr-Gp-dAk"/>
                         <outlet property="switchBtnSVEligibility" destination="gVS-Jc-6uz" id="WZG-2i-1cB"/>
+                        <outlet property="switchBtnShowRO" destination="3MG-Ch-U5h" id="SbK-DH-SjP"/>
                         <outlet property="textFieldAmount" destination="7a6-0h-jY7" id="KjX-94-SDj"/>
                         <outlet property="textFieldBeneficiaryAccountNumber" destination="OiB-iY-NgH" id="wx2-PU-eQM"/>
                         <outlet property="textFieldEmail" destination="slB-Vm-JwA" id="tbf-2v-YoU"/>

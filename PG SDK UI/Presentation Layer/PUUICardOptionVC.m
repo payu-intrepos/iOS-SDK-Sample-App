@@ -18,7 +18,6 @@ static NSString * const UnwindCardOptionSegueIdentifier = @"UnwindCardOptionSegu
 @interface PUUICardOptionVC ()
 {
     iOSDefaultActivityIndicator *activityIndicatorObj;
-    PayUModelNetBanking *modelNB;
 }
 
 - (void)removeStoredCard:(NSIndexPath *)indexPath;
@@ -60,7 +59,7 @@ static NSString * const UnwindCardOptionSegueIdentifier = @"UnwindCardOptionSegu
         
         if (errorMessage) {
             [activityIndicatorObj stopAnimatingActivityIndicator];
-            PAYU_ALERT(@"Error", errorMessage);
+            [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
         } else {
             [activityIndicatorObj stopAnimatingActivityIndicator];
             [self.arrStoredCards removeObjectAtIndex:indexPath.row];
@@ -96,9 +95,17 @@ static NSString * const UnwindCardOptionSegueIdentifier = @"UnwindCardOptionSegu
         cell.detailTextLabel.text = @"";
     }
     else{
-        modelNB = [self.arrStoredCards objectAtIndex:indexPath.row];
-        
-        cell.textLabel.text = modelNB.netBankingTitle;
+        @try {
+            PayUModelNetBanking *modelNB = [self.arrStoredCards objectAtIndex:indexPath.row];
+            cell.textLabel.text = modelNB.netBankingTitle;
+        } @catch (NSException *exception) {
+            @try {
+                PayUModelCashCard *cashCard = [self.arrStoredCards objectAtIndex:indexPath.row];
+                cell.textLabel.text = cashCard.cashCardTitle;
+            } @catch (NSException *exception) {
+                NSLog(@"Exception while fetching title in PUUICardOption");
+            }
+        }
         cell.detailTextLabel.text = @"";
     }
     if(self.cardIndex == indexPath.row)

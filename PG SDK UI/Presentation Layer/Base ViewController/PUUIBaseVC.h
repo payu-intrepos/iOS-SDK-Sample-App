@@ -12,7 +12,6 @@
 #import "UIColor+PUUIColor.h"
 #import "PUUIReachability.h"
 
-#define     PAYUALERT(T,M)                                      dispatch_async(dispatch_get_main_queue(), ^{[[[UIAlertView alloc] initWithTitle:T message:M delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];});
 
 @interface PUUIBaseVC : UIViewController
 

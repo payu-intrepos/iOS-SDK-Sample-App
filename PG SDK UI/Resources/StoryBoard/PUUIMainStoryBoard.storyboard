@@ -886,18 +886,30 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <textField hidden="YES" opaque="NO" clipsSubviews="YES" tag="105" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="BankCode" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZuE-xM-fVD">
+                                <rect key="frame" x="44" y="110" width="287" height="18.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="xYp-w4-hDA" id="w7u-xa-4vm"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="wK3-rC-pnO" secondAttribute="trailing" constant="20" id="7Lw-og-I4X"/>
                             <constraint firstItem="wK3-rC-pnO" firstAttribute="leading" secondItem="vCK-kZ-LYG" secondAttribute="leadingMargin" constant="20" id="96b-qn-GAp"/>
                             <constraint firstItem="wK3-rC-pnO" firstAttribute="top" secondItem="l5h-xM-XXT" secondAttribute="bottom" constant="20" id="Bdq-sP-dF4"/>
+                            <constraint firstItem="ZuE-xM-fVD" firstAttribute="trailing" secondItem="gVh-25-fTZ" secondAttribute="trailing" id="KfB-Z7-eKH"/>
                             <constraint firstItem="l5h-xM-XXT" firstAttribute="top" secondItem="2R0-dL-DgB" secondAttribute="bottom" constant="20" id="MQW-Bg-xNG"/>
                             <constraint firstItem="l5h-xM-XXT" firstAttribute="leading" secondItem="vCK-kZ-LYG" secondAttribute="leadingMargin" constant="22" id="gcj-N6-nH8"/>
+                            <constraint firstItem="ZuE-xM-fVD" firstAttribute="top" secondItem="wK3-rC-pnO" secondAttribute="bottom" constant="5" id="oke-w4-716"/>
+                            <constraint firstItem="ZuE-xM-fVD" firstAttribute="leading" secondItem="gVh-25-fTZ" secondAttribute="leading" id="yV0-oC-4P8"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="textView" destination="wK3-rC-pnO" id="8ah-rw-Ink"/>
+                        <outlet property="txtFldBankCode" destination="ZuE-xM-fVD" id="Ou2-0G-dMG"/>
                         <outlet property="txtFldUPI" destination="gVh-25-fTZ" id="Gsl-Jn-lBv"/>
                     </connections>
                 </viewController>

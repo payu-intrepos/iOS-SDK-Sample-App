@@ -190,5 +190,11 @@
     return CVVLength;
 }
 
++ (void)showAlertWithTitle:(NSString *) title message:(NSString *) message viewController:(UIViewController *) vc {
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil]];
+    [vc presentViewController:alertVC animated:true completion:nil];
+}
+
 
 @end

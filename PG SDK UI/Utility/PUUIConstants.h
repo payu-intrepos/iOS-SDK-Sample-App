@@ -45,7 +45,6 @@ typedef NS_ENUM(NSInteger, TableViewType) {
 //#define     CELL_IDENTIFIER_EMI_DURATION                        @"EMIDurationCell"
 
 #define IS_IPHONE4 ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone && [UIScreen mainScreen].bounds.size.height == 480)
-#define     PAYU_ALERT(T,M)                                      dispatch_async(dispatch_get_main_queue(), ^{[[[UIAlertView alloc] initWithTitle:T message:M delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];});
 
 
 // Bank Names Collection

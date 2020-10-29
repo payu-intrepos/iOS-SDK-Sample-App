@@ -298,7 +298,7 @@ static int const kMaxIphoneScreenWidth = 414;
         
         [activityIndicatorObj stopAnimatingActivityIndicator];
         if (errorMessage) {
-            PAYU_ALERT(@"Error", errorMessage);
+            [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
         } else {
             [self setEditing:NO animated:YES];
             _currentStoredCardView = (PUUIStoredCardView*)self.carousel.currentItemView;

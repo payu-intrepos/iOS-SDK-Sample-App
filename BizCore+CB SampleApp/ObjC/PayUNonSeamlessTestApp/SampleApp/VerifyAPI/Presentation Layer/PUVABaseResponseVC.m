@@ -9,6 +9,7 @@
 #import "PUVABaseResponseVC.h"
 #import "iOSDefaultActivityIndicator.h"
 #import "PUVATableVC.h"
+#import "PUUIUtility.h"
 
 static NSString * const segueIdentiiferVar1 = @"ResponseToTableBtnVar1";
 static NSString * const segueIdentiiferVar2 = @"ResponseToTableBtnVar2";
@@ -260,14 +261,14 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
     [respo getVASStatusForCardBinOrBankCode:self.txtFieldVar1.text withCompletionBlock:^(id ResponseMessage, NSString *errorMessage, id extraParam) {
         if (errorMessage == nil) {
             if (ResponseMessage == nil) {
-                PAYUALERT(@"Yeahh", @"Good to Go");
+                [PUUIUtility showAlertWithTitle:@"Yeahh" message:@"Good to Go" viewController:self];
             }
             else{
-                PAYUALERT(@"Down Time Message", (NSString *)ResponseMessage);
+                [PUUIUtility showAlertWithTitle:@"Down Time Message" message:(NSString *)ResponseMessage viewController:self];
             }
         }
         else{
-            PAYUALERT(@"Error", errorMessage);
+            [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
         }
     }];
     
@@ -284,11 +285,10 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
             [_defaultActivityIndicator stopAnimatingActivityIndicator];
             if (errorMessage == nil) {
                 NSString *fullMessage = [NSString stringWithFormat:@"Category = %@\nDiscount = %@\nErrorCode = %@\nMsg = %@\nOfferAvailedCount = %@\nOfferKey = %@\nOfferRemaining Count = %@\nOfferType = %@\nStatus = %@\n",offerStatus.category,offerStatus.discount,offerStatus.errorCode,offerStatus.msg,offerStatus.offerAvailedCount,offerStatus.OfferKey,offerStatus.OfferRemainingCount,offerStatus.OfferType,offerStatus.status];
-                
-                PAYUALERT(@"Discount", fullMessage);
+                [PUUIUtility showAlertWithTitle:@"Discount" message:fullMessage viewController:self];
             }
             else{
-                PAYUALERT(@"Error", errorMessage);
+                [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
             }
         }];
     }
@@ -305,7 +305,7 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
         [_webServiceResponse getEMIAmountAccordingToInterest:self.paymentParam withCompletionBlock:^(NSDictionary *dictEMIDetails, NSString *errorMessage, id extraParam) {
             [_defaultActivityIndicator stopAnimatingActivityIndicator];
             if (errorMessage) {
-                PAYUALERT(@"Error", errorMessage);
+                [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
             }
             else{
                 NSMutableString *message = [[NSMutableString alloc]init];
@@ -325,7 +325,7 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
                         [message appendFormat:@"%@ : %@ : %@\n",emiDetails.bankReference,bankCode,emiDetails.emiValue];
                     }
                 }
-                PAYUALERT(@"Response", message);
+                [PUUIUtility showAlertWithTitle:@"Response" message:message viewController:self];
             }
         }];
     }
@@ -340,7 +340,7 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
         [_webServiceResponse deleteStoredCard:self.paymentParam withCompletionBlock:^(NSString *deleteStoredCardStatus, NSString *deleteStoredCardMessage, NSString *errorMessage, id extraParam) {
             [_defaultActivityIndicator stopAnimatingActivityIndicator];
             if (errorMessage) {
-                PAYU_ALERT(@"Error", errorMessage);
+                [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
             }
             else {
                 NSString *responseMsg =[NSString stringWithFormat:@"Status: %@, Message: %@",deleteStoredCardStatus,deleteStoredCardMessage];
@@ -348,7 +348,7 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
                     [[NSNotificationCenter defaultCenter] postNotificationName:kPUUINotiPaymentResponse object:responseMsg];
                 }
                 else{
-                    PAYUALERT(@"Response", responseMsg);
+                    [PUUIUtility showAlertWithTitle:@"Response" message:responseMsg viewController:self];
                 }
             }
         }];
@@ -368,7 +368,7 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
         [_webServiceResponse getOfferDetails:self.paymentParam forPaymentType:self.txtFieldVar1.text withCompletionBlock:^(PayUModelOfferDetails *offerDetails, NSString *errorMessage, id extraParam) {
             [_defaultActivityIndicator stopAnimatingActivityIndicator];
             if (errorMessage) {
-                PAYUALERT(@"Error", errorMessage);
+                [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
             }
             else{
                 NSMutableString *offerKeyAndDiscount = [[NSMutableString alloc] init];
@@ -382,7 +382,7 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
                         [offerKeyAndDiscount appendFormat:@"%@ : %@ :%@ \n",offerObj.OfferKey,offerObj.discount,offerObj.status];
                     }
                 }
-                PAYUALERT(@"Offer Status", offerKeyAndDiscount);
+                [PUUIUtility showAlertWithTitle:@"Offer Status" message:offerKeyAndDiscount viewController:self];
             }
         }];
     }
@@ -531,10 +531,10 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
                     PayUModelStoredCard *objSC = [dictStoredCard objectForKey:cardtoken];
                     [responseMessage appendFormat:@"card_bin = %@\ncard_brand = %@\ncard_cvv = %@\ncard_mode = %@\ncard_name = %@\ncard_no = %@\ncard_token = %@\ncard_type = %@\nexpiry_month = %@\nexpiry_year = %@\nisDomestic = %@\nis_expired = %@\nissuingBank = %@\nname_on_card = %@\n\n",objSC.cardBin,objSC.cardBrand,objSC.oneTapFlag,objSC.cardMode,objSC.cardName,objSC.cardNo,objSC.cardToken,objSC.cardType,objSC.expiryMonth,objSC.expiryYear,objSC.isDomestic,objSC.isExpired,objSC.issuingBank,objSC.nameOnCard];
                 }
-                PAYUALERT(@"Response",responseMessage);
+                [PUUIUtility showAlertWithTitle:@"Response" message:responseMessage viewController:self];
             }
             else{
-                PAYUALERT(@"Error", errorMessage);
+                [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
             }
         }];
     }
@@ -563,10 +563,10 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
                     PayUModelVerifyPayment *objVerifyPayment = [dictVerifyPayment objectForKey:txnID];
                     [responseMessage appendFormat:@"Merchant_UTR = %@, PG_Type = %@, settled_at = %@, addedOn = %@, additionalCharges = %@, amt = %@, bank_ref_num = %@, bankCode = %@, card_no = %@, card_type = %@, disc = %@, error_Message = %@, error_code = %@,  field9 = %@, firstname = %@,  mihpayid = %@, mode = %@, name_on_card = %@, net_amount_debit = %@, productinfo = %@, request_id = %@,  status = %@, transaction_amount = %@, txnid = %@, udf1 = %@,  udf2 = %@,  udf3 = %@,  udf4 = %@,  udf5 = %@,  unmappedstatus = %@, merchant_subvention_amount = %@",objVerifyPayment.MerchantUTR,objVerifyPayment.PGType,objVerifyPayment.SettledAt,objVerifyPayment.AddedOn,objVerifyPayment.AdditionalCharges,objVerifyPayment.Amt,objVerifyPayment.BankRefNum,objVerifyPayment.BankCode,objVerifyPayment.CardNo,objVerifyPayment.CardType,objVerifyPayment.Disc,objVerifyPayment.ErrorMessage,objVerifyPayment.ErrorCode,objVerifyPayment.Field9,objVerifyPayment.FirstName,objVerifyPayment.MihpayID,objVerifyPayment.Mode,objVerifyPayment.NameOnCard,objVerifyPayment.NetAmountDebit,objVerifyPayment.ProductInfo,objVerifyPayment.RequestId,objVerifyPayment.Status,objVerifyPayment.TransactionAmount,objVerifyPayment.TxnID,objVerifyPayment.Udf1,objVerifyPayment.Udf2,objVerifyPayment.Udf3,objVerifyPayment.Udf4,objVerifyPayment.Udf5,objVerifyPayment.UnmappedStatus,objVerifyPayment.merchantSubventionAmount];
                 }
-                PAYUALERT(@"Response", responseMessage);
+                [PUUIUtility showAlertWithTitle:@"Response" message:responseMessage viewController:self];
             }
             else{
-                PAYUALERT(@"Error", errorMessage);
+                [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
             }
         }];
     }
@@ -631,7 +631,7 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
                 [[NSNotificationCenter defaultCenter] postNotificationName:kPUUINotiPaymentResponse object:responseMsg];
             }
             else{
-                PAYUALERT(@"Error", errorMessage);
+                [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
             }
         }];
     }
@@ -692,7 +692,7 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
                 [[NSNotificationCenter defaultCenter] postNotificationName:kPUUINotiPaymentResponse object:deleteOneTapTokenMsg];
             }
             else{
-                PAYUALERT(@"Error", errorMessage);
+                [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
             }
         }];
     }
@@ -736,10 +736,10 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
             [_defaultActivityIndicator stopAnimatingActivityIndicator];
             if (!errorMessage) {
                 NSString *responseMsg = [NSString stringWithFormat:@"isDomestic = %@\nissuingbank = %@\nCardType = %@\ncardCategory = %@",checkIsDomestic.isDomestic,checkIsDomestic.issuingBank,checkIsDomestic.cardType,checkIsDomestic.cardCategory];
-                PAYUALERT(@"Response", responseMsg);
+                [PUUIUtility showAlertWithTitle:@"Response" message:responseMsg viewController:self];
             }
             else{
-                PAYUALERT(@"Error", errorMessage);
+                [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
             }
         }];
     }
@@ -780,10 +780,10 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
                     }
                     NSLog(@"%@",responseMsg);
                 }
-                PAYUALERT(@"Response", responseMsgDisplay)
+                [PUUIUtility showAlertWithTitle:@"Response" message:responseMsgDisplay viewController:self];
             }
             else{
-                PAYUALERT(@"Error", errorMessage);
+                [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
             }
         }];
     }
@@ -845,7 +845,7 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
                 [[NSNotificationCenter defaultCenter] postNotificationName:kPUUINotiPaymentResponse object:responseMsg];
             }
             else{
-                PAYUALERT(@"Error", errorMessage);
+                [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
             }
         }];
     }
@@ -878,10 +878,10 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
                                     for (PayUModelEMIDetails *emiDetails in arrEMIDetails) {
                                         [message appendFormat:@"BankName : %@\nSupportedBin : %@\nMinAmount : %@\nisEligible : %d\n------\n", emiDetails.bankReference ,emiDetails.supportedCardBins ,emiDetails.minTxnAmount,emiDetails.isEligible];
                                     }
-                                    PAYUALERT(@"Response", message);
+                                    [PUUIUtility showAlertWithTitle:@"Response" message:message viewController:self];
                                 }
                                 else{
-                                    PAYUALERT(@"Error", errorMessage);
+                                    [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
                                 }
                             }];
     }
@@ -898,7 +898,7 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
         }
         else{
             hashGenerated = FALSE;
-            PAYUALERT(@"Error", errorMessage);
+            [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
         }
     }];
     return hashGenerated;

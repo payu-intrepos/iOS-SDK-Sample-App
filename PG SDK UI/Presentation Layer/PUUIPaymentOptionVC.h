@@ -21,4 +21,7 @@
 @property (nonatomic, assign) NSInteger surePayCount;
 @property (nonatomic, assign) BOOL shouldEnableWKWebview;
 @property (nonatomic, strong) UIView *customReviewOrderView;
+@property (nonatomic, assign) BOOL showRO;
+@property (nonatomic, assign) BOOL presentCB;
+@property (nonatomic, assign) BOOL presentCBFullscreen;
 @end

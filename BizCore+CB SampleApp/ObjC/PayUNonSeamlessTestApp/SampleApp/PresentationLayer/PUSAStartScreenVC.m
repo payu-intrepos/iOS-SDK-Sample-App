@@ -12,6 +12,7 @@
 #import "iOSDefaultActivityIndicator.h"
 #import "PUVAOptionsVC.h"
 #import "test.h"
+#import "PUUIUtility.h"
 
 static NSString * const verifyAPIStoryBoard = @"PUVAMainStoryBoard";
 static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
@@ -51,6 +52,10 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
 @property (weak, nonatomic) IBOutlet UISwitch *switchBtnSVAmount;
 @property (weak, nonatomic) IBOutlet UISwitch *switchBtnSVEligibility;
 @property (weak, nonatomic) IBOutlet UISwitch *switchBtnOfferKey;
+
+@property (weak, nonatomic) IBOutlet UISwitch *switchBtnPresentCB;
+@property (weak, nonatomic) IBOutlet UISwitch *switchBtnPresentCBFull;
+@property (weak, nonatomic) IBOutlet UISwitch *switchBtnShowRO;
 
 @property (strong, nonatomic) UISwitch *switchForSalt;
 @property (strong, nonatomic) UISwitch *switchForOneTap;
@@ -170,7 +175,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
     id JSON = [NSJSONSerialization JSONObjectWithData:[strConvertedRespone dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&serializationError];
     if (serializationError == nil && notification.object) {
         NSLog(@"%@",JSON);
-        PAYUALERT([JSON objectForKey:@"status"], strConvertedRespone);
+        [PUUIUtility showAlertWithTitle:[JSON objectForKey:@"status"] message:strConvertedRespone viewController:self];
         if ([[JSON objectForKey:@"status"] isEqual:@"success"]) {
             NSString *merchant_hash = [JSON objectForKey:@"merchant_hash"];
             if ([[JSON objectForKey:@"card_token"] length] >1 && merchant_hash.length >1 && self.paymentParam) {
@@ -187,7 +192,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
         }
     }
     else{
-        PAYUALERT(@"Response", strConvertedRespone);
+        [PUUIUtility showAlertWithTitle:@"Response" message:strConvertedRespone viewController:self];
     }
 }
 
@@ -252,7 +257,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
             [PUSAHelperClass getOneTapTokenDictionaryFromServerWithPaymentParam:self.paymentParam CompletionBlock:^(NSDictionary *CardTokenAndOneTapToken, NSString *errorString) {
                 if (errorMessage) {
                     [self.defaultActivityIndicator stopAnimatingActivityIndicator];
-                    PAYUALERT(@"Error", errorMessage);
+                    [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
                 }
                 else{
                     [self callSDKWithOneTap:CardTokenAndOneTapToken];
@@ -265,7 +270,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
     }
     else{
         [self.defaultActivityIndicator stopAnimatingActivityIndicator];
-        PAYUALERT(@"Error", errorMessage);
+        [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
     }
 }
 
@@ -277,7 +282,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
     [self.webServiceResponse getPayUPaymentRelatedDetailForMobileSDK:self.paymentParam withCompletionBlock:^(PayUModelPaymentRelatedDetail *paymentRelatedDetails, NSString *errorMessage, id extraParam) {
         [self.defaultActivityIndicator stopAnimatingActivityIndicator];
         if (errorMessage) {
-            PAYUALERT(@"Error", errorMessage);
+            [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
         }
         else{
             if (_isStartBtnTapped) {
@@ -287,6 +292,9 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
                 paymentOptionVC.paymentParam = self.paymentParam;
                 paymentOptionVC.paymentRelatedDetail = paymentRelatedDetails;
                 paymentOptionVC.customReviewOrderView = [[test alloc] init];
+                paymentOptionVC.showRO = self.switchBtnShowRO.isOn;
+                paymentOptionVC.presentCB = self.switchBtnPresentCB.isOn;
+                paymentOptionVC.presentCBFullscreen = self.switchBtnPresentCBFull.isOn;
                 _isStartBtnTapped = FALSE;
                 [self.navigationController pushViewController:paymentOptionVC animated:true];
             }
@@ -307,7 +315,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
                     
                 }
                 else{
-                    PAYUALERT(@"Error", @"For Verify API Salt is mandatory field");
+                    [PUUIUtility showAlertWithTitle:@"Error" message:@"For Verify API Salt is mandatory field" viewController:self];
                 }
             }
         }

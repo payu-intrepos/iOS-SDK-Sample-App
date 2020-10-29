@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -40,22 +40,9 @@
 		DD6C8C4624F7B822002090D0 /* KHTabScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6C8C2524F7B822002090D0 /* KHTabScrollView.m */; };
 		DD6C8C4724F7B822002090D0 /* PUUIReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6C8C2A24F7B822002090D0 /* PUUIReachability.m */; };
 		DD6C8C4824F7B822002090D0 /* UIColor+PUUIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6C8C2D24F7B822002090D0 /* UIColor+PUUIColor.m */; };
-		DD6C8C4F24F7B85B002090D0 /* PUSAWSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6C8C4C24F7B85B002090D0 /* PUSAWSManager.m */; };
-		DD6C8C5024F7B85B002090D0 /* PUSAHelperClass.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6C8C4D24F7B85B002090D0 /* PUSAHelperClass.m */; };
+		DDB22478253566CB00DA7EA4 /* PUSAWSManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB22475253566CB00DA7EA4 /* PUSAWSManager.m */; };
+		DDB22479253566CB00DA7EA4 /* PUSAHelperClass.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB22476253566CB00DA7EA4 /* PUSAHelperClass.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		AD1E65C8226DB14100FC5FFE /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AD1E6537226DAB1A00FC5FFE /* SwiftSampleApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftSampleApp-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -116,10 +103,10 @@
 		DD6C8C2B24F7B822002090D0 /* PUUIImageConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PUUIImageConstants.h; sourceTree = "<group>"; };
 		DD6C8C2C24F7B822002090D0 /* PUUIUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PUUIUtility.h; sourceTree = "<group>"; };
 		DD6C8C2D24F7B822002090D0 /* UIColor+PUUIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+PUUIColor.m"; sourceTree = "<group>"; };
-		DD6C8C4B24F7B85B002090D0 /* PUSAHelperClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PUSAHelperClass.h; sourceTree = "<group>"; };
-		DD6C8C4C24F7B85B002090D0 /* PUSAWSManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PUSAWSManager.m; sourceTree = "<group>"; };
-		DD6C8C4D24F7B85B002090D0 /* PUSAHelperClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PUSAHelperClass.m; sourceTree = "<group>"; };
-		DD6C8C4E24F7B85B002090D0 /* PUSAWSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PUSAWSManager.h; sourceTree = "<group>"; };
+		DDB22474253566CB00DA7EA4 /* PUSAHelperClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PUSAHelperClass.h; sourceTree = "<group>"; };
+		DDB22475253566CB00DA7EA4 /* PUSAWSManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PUSAWSManager.m; sourceTree = "<group>"; };
+		DDB22476253566CB00DA7EA4 /* PUSAHelperClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PUSAHelperClass.m; sourceTree = "<group>"; };
+		DDB22477253566CB00DA7EA4 /* PUSAWSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PUSAWSManager.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,16 +147,9 @@
 		AD2EB67B226871A500DB2691 /* SwiftSampleApp */ = {
 			isa = PBXGroup;
 			children = (
-				DD6C8C4924F7B85B002090D0 /* CommonFiles */,
-				DD6C8BF024F7B822002090D0 /* PG SDK UI */,
-				AD2EB67C226871A500DB2691 /* AppDelegate.swift */,
-				AD2EB67E226871A500DB2691 /* OrderPageVC.swift */,
-				AD953076226D9F2C003528BF /* ActivityIndicator.swift */,
-				AD2EB680226871A500DB2691 /* Main.storyboard */,
-				AD2EB683226871A900DB2691 /* Assets.xcassets */,
-				AD2EB685226871A900DB2691 /* LaunchScreen.storyboard */,
-				AD2EB688226871A900DB2691 /* Info.plist */,
 				AD1E6537226DAB1A00FC5FFE /* SwiftSampleApp-Bridging-Header.h */,
+				DDB224712535669C00DA7EA4 /* SampleApp */,
+				DD6C8BF024F7B822002090D0 /* PG SDK UI */,
 			);
 			path = SwiftSampleApp;
 			sourceTree = "<group>";
@@ -327,22 +307,37 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
-		DD6C8C4924F7B85B002090D0 /* CommonFiles */ = {
+		DDB224712535669C00DA7EA4 /* SampleApp */ = {
 			isa = PBXGroup;
 			children = (
-				DD6C8C4A24F7B85B002090D0 /* Utils */,
+				DDB22472253566CB00DA7EA4 /* SwiftObjCCommonFiles */,
+				AD2EB680226871A500DB2691 /* Main.storyboard */,
+				AD2EB683226871A900DB2691 /* Assets.xcassets */,
+				AD2EB685226871A900DB2691 /* LaunchScreen.storyboard */,
+				AD2EB688226871A900DB2691 /* Info.plist */,
+				AD953076226D9F2C003528BF /* ActivityIndicator.swift */,
+				AD2EB67E226871A500DB2691 /* OrderPageVC.swift */,
+				AD2EB67C226871A500DB2691 /* AppDelegate.swift */,
 			);
-			name = CommonFiles;
-			path = ../../CommonFiles;
+			path = SampleApp;
 			sourceTree = "<group>";
 		};
-		DD6C8C4A24F7B85B002090D0 /* Utils */ = {
+		DDB22472253566CB00DA7EA4 /* SwiftObjCCommonFiles */ = {
 			isa = PBXGroup;
 			children = (
-				DD6C8C4B24F7B85B002090D0 /* PUSAHelperClass.h */,
-				DD6C8C4C24F7B85B002090D0 /* PUSAWSManager.m */,
-				DD6C8C4D24F7B85B002090D0 /* PUSAHelperClass.m */,
-				DD6C8C4E24F7B85B002090D0 /* PUSAWSManager.h */,
+				DDB22473253566CB00DA7EA4 /* Utils */,
+			);
+			name = SwiftObjCCommonFiles;
+			path = ../../../SwiftObjCCommonFiles;
+			sourceTree = "<group>";
+		};
+		DDB22473253566CB00DA7EA4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				DDB22474253566CB00DA7EA4 /* PUSAHelperClass.h */,
+				DDB22476253566CB00DA7EA4 /* PUSAHelperClass.m */,
+				DDB22477253566CB00DA7EA4 /* PUSAWSManager.h */,
+				DDB22475253566CB00DA7EA4 /* PUSAWSManager.m */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -357,7 +352,6 @@
 				AD2EB675226871A500DB2691 /* Sources */,
 				AD2EB676226871A500DB2691 /* Frameworks */,
 				AD2EB677226871A500DB2691 /* Resources */,
-				AD1E65C8226DB14100FC5FFE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -438,7 +432,7 @@
 				DD6C8C3324F7B822002090D0 /* PUUIPayUUPIVC.m in Sources */,
 				DD6C8C4524F7B822002090D0 /* KHTabPagerViewController.m in Sources */,
 				DD6C8C3824F7B822002090D0 /* PUUINBVC.m in Sources */,
-				DD6C8C4F24F7B85B002090D0 /* PUSAWSManager.m in Sources */,
+				DDB22478253566CB00DA7EA4 /* PUSAWSManager.m in Sources */,
 				DD6C8C3224F7B822002090D0 /* PUUIWrapperKHTabPagerVC.m in Sources */,
 				DD6C8C2F24F7B822002090D0 /* iOSDefaultActivityIndicator.m in Sources */,
 				DD6C8C3E24F7B822002090D0 /* PUUINBTopView.m in Sources */,
@@ -446,7 +440,7 @@
 				DD6C8C4724F7B822002090D0 /* PUUIReachability.m in Sources */,
 				DD6C8C3F24F7B822002090D0 /* PUUIEMITopView.m in Sources */,
 				AD2EB67D226871A500DB2691 /* AppDelegate.swift in Sources */,
-				DD6C8C5024F7B85B002090D0 /* PUSAHelperClass.m in Sources */,
+				DDB22479253566CB00DA7EA4 /* PUSAHelperClass.m in Sources */,
 				DD6C8C3624F7B822002090D0 /* PUUIPaymentOptionVC.m in Sources */,
 				DD6C8C3024F7B822002090D0 /* PUUICCDCVC.m in Sources */,
 				DD6C8C3424F7B822002090D0 /* PUUITabBarTopView.m in Sources */,
@@ -598,11 +592,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Z6C8E9978;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/SwiftSampleApp/PayU_SDK/CB",
-				);
-				INFOPLIST_FILE = SwiftSampleApp/Info.plist;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "$(SRCROOT)/SwiftSampleApp/SampleApp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -612,7 +603,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SwiftSampleApp/PayU_SDK/SDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vipin.SwiftSampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.payu.SwiftSampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftSampleApp/SwiftSampleApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -626,11 +617,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9Z6C8E9978;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/SwiftSampleApp/PayU_SDK/CB",
-				);
-				INFOPLIST_FILE = SwiftSampleApp/Info.plist;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = "$(SRCROOT)/SwiftSampleApp/SampleApp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -640,7 +628,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/SwiftSampleApp/PayU_SDK/SDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vipin.SwiftSampleApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.payu.SwiftSampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SwiftSampleApp/SwiftSampleApp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;

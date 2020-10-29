@@ -28,4 +28,6 @@
 +(NSNumber *)getCardLengthForCardIssuer:(NSString *) cardIssuer;
 +(NSNumber *)getCVVLengthForCardIssuer:(NSString *) cardIssuer;
 
++ (void)showAlertWithTitle:(NSString *) title message:(NSString *) title viewController:(UIViewController *) vc;
+
 @end

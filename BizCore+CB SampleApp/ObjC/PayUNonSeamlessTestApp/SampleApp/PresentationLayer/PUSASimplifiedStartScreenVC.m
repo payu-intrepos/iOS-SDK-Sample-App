@@ -11,6 +11,7 @@
 #import "PUSAHelperClass.h"
 #import "iOSDefaultActivityIndicator.h"
 #import "PUVAOptionsVC.h"
+#import "PUUIUtility.h"
 
 static NSString * const verifyAPIStoryBoard = @"PUVAMainStoryBoard";
 static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
@@ -140,7 +141,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
     id JSON = [notification.object objectForKey:kPUUIPayUResponse];
     if (notification.object) {
         NSLog(@"%@",JSON);
-        PAYUALERT([JSON objectForKey:@"status"], strConvertedRespone);
+        [PUUIUtility showAlertWithTitle:[JSON objectForKey:@"status"] message:strConvertedRespone viewController:self];
         if ([[JSON objectForKey:@"status"] isEqual:@"success"]) {
             NSString *merchant_hash = [JSON objectForKey:@"merchant_hash"];
             if ([[JSON objectForKey:@"card_token"] length] >1 && merchant_hash.length >1 && self.paymentParam) {
@@ -157,7 +158,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
         }
     }
     else{
-        PAYUALERT(@"Response", strConvertedRespone);
+        [PUUIUtility showAlertWithTitle:@"Response" message:strConvertedRespone viewController:self];
     }
 }
 
@@ -216,7 +217,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
     }
     else{
         [self.defaultActivityIndicator stopAnimatingActivityIndicator];
-        PAYUALERT(@"Error", errorMessage);
+        [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
     }
 }
 
@@ -228,7 +229,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
     [self.webServiceResponse getPayUPaymentRelatedDetailForMobileSDK:self.paymentParam withCompletionBlock:^(PayUModelPaymentRelatedDetail *paymentRelatedDetails, NSString *errorMessage, id extraParam) {
         [self.defaultActivityIndicator stopAnimatingActivityIndicator];
         if (errorMessage) {
-            PAYUALERT(@"Error", errorMessage);
+            [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
         }
         else{
             if (_isStartBtnTapped) {
