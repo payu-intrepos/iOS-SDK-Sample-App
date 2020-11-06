@@ -479,23 +479,26 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
 - (void)PayUSuccessResponse:(id)payUResponse SURLResponse:(id)surlResponse{
     [self removeViewController];
     NSError *serializationError;
-    id payUResponseInJSON = payUResponse;
-    if (![payUResponse isKindOfClass:[NSDictionary class]]) {
+    id payUResponseInJSON = [NSDictionary new];
+    id surlResponseInJSON = surlResponse ? surlResponse : @"";
+    if (payUResponse && [payUResponse isKindOfClass:[NSString class]]) {
         payUResponseInJSON = [NSJSONSerialization JSONObjectWithData:[payUResponse dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&serializationError];
     }
-
-    NSDictionary *responseDict = [NSDictionary dictionaryWithObjectsAndKeys:payUResponseInJSON,kPUUIPayUResponse, surlResponse, kPUUIMerchantResponse, nil];
+    
+    NSDictionary *responseDict = [NSDictionary dictionaryWithObjectsAndKeys:payUResponseInJSON,kPUUIPayUResponse, surlResponseInJSON, kPUUIMerchantResponse, nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:kPUUINotiPaymentResponse object:responseDict];
-
-
 }
 
 - (void)PayUFailureResponse:(id)payUResponse FURLResponse:(id)furlResponse{
     [self removeViewController];
     NSError *serializationError;
-    id payUResponseInJSON = [NSJSONSerialization JSONObjectWithData:[payUResponse dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&serializationError];
+    id payUResponseInJSON = [NSDictionary new];
+    id furlResponseInJSON = furlResponse ? furlResponse : @"";
+    if (payUResponse && [payUResponse isKindOfClass:[NSString class]]) {
+        payUResponseInJSON = [NSJSONSerialization JSONObjectWithData:[payUResponse dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&serializationError];
+    }
     
-    NSDictionary *responseDict = [NSDictionary dictionaryWithObjectsAndKeys:payUResponseInJSON,kPUUIPayUResponse, furlResponse, kPUUIMerchantResponse, nil];
+    NSDictionary *responseDict = [NSDictionary dictionaryWithObjectsAndKeys:payUResponseInJSON,kPUUIPayUResponse, furlResponseInJSON, kPUUIMerchantResponse, nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:kPUUINotiPaymentResponse object:responseDict];
 }
 
@@ -515,20 +518,20 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
 
 
 
-#pragma mark - Back Button Handling
-
-- (void) shouldDismissVCOnBackPress
-{
-    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"Cancel Transaction?" message:@"Do you want to cancel this transaction?" preferredStyle:UIAlertControllerStyleAlert];
-    __weak PUUIPaymentOptionVC *weakSelf = self;
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [weakSelf.webVC markPayUTxnCancelInDBWithCompletionBlock:^(BOOL success) {
-            [weakSelf removeViewController];
-        }];
-    }]];
-    [alertVC addAction:[UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:nil]];
-    [self.webVC presentViewController:alertVC animated:true completion:nil];
-}
+//#pragma mark - Back Button Handling
+//
+//- (void) shouldDismissVCOnBackPress
+//{
+//    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"Cancel Transaction?" message:@"Do you want to cancel this transaction?" preferredStyle:UIAlertControllerStyleAlert];
+//    __weak PUUIPaymentOptionVC *weakSelf = self;
+//    [alertVC addAction:[UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//            [weakSelf.webVC markPayUTxnCancelInDBWithCompletionBlock:^(BOOL success) {
+//                [weakSelf removeViewController];
+//            }];
+//    }]];
+//    [alertVC addAction:[UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:nil]];
+//    [self.webVC presentViewController:alertVC animated:true completion:nil];
+//}
 
 /*!
  * Removed current view controller from screen
