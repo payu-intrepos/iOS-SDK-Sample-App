@@ -18,6 +18,8 @@ static NSString * const UnwindCardOptionSegueIdentifier = @"UnwindCardOptionSegu
 @interface PUUICardOptionVC ()
 {
     iOSDefaultActivityIndicator *activityIndicatorObj;
+    PayUModelNetBanking *modelNB;
+    PayUModelCashCard *modelCashCard;
 }
 
 - (void)removeStoredCard:(NSIndexPath *)indexPath;
@@ -95,16 +97,12 @@ static NSString * const UnwindCardOptionSegueIdentifier = @"UnwindCardOptionSegu
         cell.detailTextLabel.text = @"";
     }
     else{
-        @try {
-            PayUModelNetBanking *modelNB = [self.arrStoredCards objectAtIndex:indexPath.row];
+        if (self.isCashCard) {
+            modelCashCard = [self.arrStoredCards objectAtIndex:indexPath.row];
+            cell.textLabel.text = modelCashCard.cashCardTitle;
+        } else {
+            modelNB = [self.arrStoredCards objectAtIndex:indexPath.row];
             cell.textLabel.text = modelNB.netBankingTitle;
-        } @catch (NSException *exception) {
-            @try {
-                PayUModelCashCard *cashCard = [self.arrStoredCards objectAtIndex:indexPath.row];
-                cell.textLabel.text = cashCard.cashCardTitle;
-            } @catch (NSException *exception) {
-                NSLog(@"Exception while fetching title in PUUICardOption");
-            }
         }
         cell.detailTextLabel.text = @"";
     }

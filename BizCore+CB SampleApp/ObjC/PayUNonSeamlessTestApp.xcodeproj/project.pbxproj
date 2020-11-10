@@ -18,6 +18,7 @@
 		DD44D40F1CE45EF400088C84 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD44D40E1CE45EF400088C84 /* main.m */; };
 		DD44D4C71CE467FD00088C84 /* PUSAAssests.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD44D4C61CE467FD00088C84 /* PUSAAssests.xcassets */; };
 		DD44D4D81CE4878300088C84 /* PUSAStartScreenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DD44D4D71CE4878300088C84 /* PUSAStartScreenVC.m */; };
+		DD6B9E1C255A42DE00733B55 /* PUUIWalletVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6B9E1B255A42DD00733B55 /* PUUIWalletVC.m */; };
 		DD73FD731E1D691C00BB5FC1 /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = DD73FD711E1D691C00BB5FC1 /* test.m */; };
 		DD73FD741E1D691C00BB5FC1 /* test.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD73FD721E1D691C00BB5FC1 /* test.xib */; };
 		DDB2244C2535646600DA7EA4 /* PUUIMainStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDB224112535646600DA7EA4 /* PUUIMainStoryBoard.storyboard */; };
@@ -73,6 +74,8 @@
 		DD44D4C61CE467FD00088C84 /* PUSAAssests.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = PUSAAssests.xcassets; sourceTree = "<group>"; };
 		DD44D4D61CE4878300088C84 /* PUSAStartScreenVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PUSAStartScreenVC.h; sourceTree = "<group>"; };
 		DD44D4D71CE4878300088C84 /* PUSAStartScreenVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PUSAStartScreenVC.m; sourceTree = "<group>"; };
+		DD6B9E1A255A42DD00733B55 /* PUUIWalletVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PUUIWalletVC.h; sourceTree = "<group>"; };
+		DD6B9E1B255A42DD00733B55 /* PUUIWalletVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PUUIWalletVC.m; sourceTree = "<group>"; };
 		DD73FD701E1D691C00BB5FC1 /* test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
 		DD73FD711E1D691C00BB5FC1 /* test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
 		DD73FD721E1D691C00BB5FC1 /* test.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = test.xib; sourceTree = "<group>"; };
@@ -355,6 +358,8 @@
 		DDB224152535646600DA7EA4 /* Presentation Layer */ = {
 			isa = PBXGroup;
 			children = (
+				DD6B9E1A255A42DD00733B55 /* PUUIWalletVC.h */,
+				DD6B9E1B255A42DD00733B55 /* PUUIWalletVC.m */,
 				DDB224162535646600DA7EA4 /* PUUIPaymentOptionVC.h */,
 				DDB224172535646600DA7EA4 /* PUUICardOptionVC.h */,
 				DDB224182535646600DA7EA4 /* PUUICCDCVC.m */,
@@ -576,6 +581,7 @@
 				DDB224652535646600DA7EA4 /* PUUIReachability.m in Sources */,
 				DDB224562535646600DA7EA4 /* PUUINBVC.m in Sources */,
 				DDB224642535646600DA7EA4 /* KHTabScrollView.m in Sources */,
+				DD6B9E1C255A42DE00733B55 /* PUUIWalletVC.m in Sources */,
 				DDB224702535652F00DA7EA4 /* PUSAHelperClass.m in Sources */,
 				DDB224502535646600DA7EA4 /* PUUIWrapperKHTabPagerVC.m in Sources */,
 				DDB2245C2535646600DA7EA4 /* PUUINBTopView.m in Sources */,

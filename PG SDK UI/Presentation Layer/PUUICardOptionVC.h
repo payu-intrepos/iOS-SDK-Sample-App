@@ -24,5 +24,6 @@
 //@property (assign, nonatomic) NSString *paymentMode;
 @property (assign, nonatomic) NSInteger tableViewType;
 @property (assign, nonatomic) id <CardOptionDelegate> delegate;
+@property (assign, nonatomic) BOOL isCashCard;
 
 @end

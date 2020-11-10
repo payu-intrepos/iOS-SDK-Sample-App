@@ -51,7 +51,7 @@ static NSString * const NBSegueIdentifier = @"NBSegue";
 }
 
 -(void)getTop4BankList{
-    for (PayUModelNetBanking *NBList in [self options]) {
+    for (PayUModelNetBanking *NBList in self.paymentRelatedDetail.netBankingArray) {
         if ([dictSupportedTop4Bank.allKeys containsObject:NBList.bankCode]) {
             [dictActualTop4Bank setObject:[dictSupportedTop4Bank objectForKey:NBList.bankCode] forKey:NBList.bankCode];
         }
@@ -90,7 +90,7 @@ static NSString * const NBSegueIdentifier = @"NBSegue";
         UINavigationController *nav = [segue destinationViewController];
         PUUICardOptionVC *cardOptionVC = (PUUICardOptionVC *)[nav topViewController];
         cardOptionVC.paymentParam = self.paymentParam;
-        cardOptionVC.arrStoredCards = (NSMutableArray *)[self options];
+        cardOptionVC.arrStoredCards = (NSMutableArray *)self.paymentRelatedDetail.netBankingArray;
         cardOptionVC.delegate = self;
         if (!self.paymentParam.bankCode) {
             cardOptionVC.cardIndex = -1;
@@ -116,16 +116,9 @@ static NSString * const NBSegueIdentifier = @"NBSegue";
 {
     if (cardIndex >=0) {
         indexCard = cardIndex;
-        if ([self.paymentType  isEqual: PAYMENT_PG_NET_BANKING]) {
-            PayUModelNetBanking *modelNetBanking = [[self options] objectAtIndex:indexCard];
-            [self.btnBankName setTitle:modelNetBanking.netBankingTitle forState:UIControlStateNormal];
-            self.paymentParam.bankCode = modelNetBanking.bankCode;
-        } else {
-            PayUModelCashCard *modelCashCard = [[self options] objectAtIndex:indexCard];
-            [self.btnBankName setTitle:modelCashCard.cashCardTitle forState:UIControlStateNormal];
-            self.paymentParam.bankCode = modelCashCard.bankCode;
-        }
-        [self enableDisablePayNowWithUserInfo:nil];
+        PayUModelNetBanking *modelNetBanking = [self.paymentRelatedDetail.netBankingArray objectAtIndex:indexCard];
+        [self.btnBankName setTitle:modelNetBanking.netBankingTitle forState:UIControlStateNormal];
+        self.paymentParam.bankCode = modelNetBanking.bankCode;
     }
 }
 
@@ -136,14 +129,6 @@ static NSString * const NBSegueIdentifier = @"NBSegue";
     }
     else{
         [[NSNotificationCenter defaultCenter] postNotificationName:kPUUINotiEnablePayNow object:nil userInfo:dict];
-    }
-}
-
--(NSArray *)options {
-    if ([self.paymentType  isEqual: PAYMENT_PG_NET_BANKING]) {
-        return self.paymentRelatedDetail.netBankingArray;
-    } else {
-        return self.paymentRelatedDetail.cashCardArray;
     }
 }
 

@@ -19,6 +19,7 @@
 #import "iOSDefaultActivityIndicator.h"
 #import "PUUIPayUUPIVC.h"
 #import "PUUIUtility.h"
+#import "PUUIWalletVC.h"
 
 #define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
 
@@ -200,7 +201,6 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
         PUUINBVC *NBVC = [self.storyboard instantiateViewControllerWithIdentifier:VC_IDENTIFIER_NET_BANKING];
         NBVC.paymentParam = [self.paymentParam copy];
         NBVC.paymentRelatedDetail = self.paymentRelatedDetail;
-        NBVC.paymentType = PAYMENT_PG_NET_BANKING;
         return NBVC;
     }
     else if ([[actualPaymentOption objectAtIndex:index] isEqual:PAYMENT_PG_PAYU_MONEY]) {
@@ -243,6 +243,16 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
         upi.paymentParam = [self.paymentParam copy];
         return upi;
     }
+    else if ([[actualPaymentOption objectAtIndex:index] isEqual:PAYMENT_PG_CASHCARD]) {
+
+        PUUIWalletVC *wallet = [self.storyboard instantiateViewControllerWithIdentifier:VC_IDENTIFIER_CASHCARD];
+        wallet.paymentParam = [self.paymentParam copy];
+        wallet.paymentRelatedDetail = self.paymentRelatedDetail;
+            //        wallet.paymentType = PAYMENT_PG_CASHCARD
+
+        return wallet;
+    }
+
     else{
         UIViewController *vc = [PUUIBaseVC new];
         [[vc view] setBackgroundColor:[UIColor whiteColor]];
@@ -334,6 +344,8 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
         request = [dict objectForKey:KEY_REQUEST];
         postParam = [dict objectForKey:KEY_POST_PARAM];
     }
+    
+    postParam = [self addAnalyticsParams:postParam];
     
     //Statement to support HTML Load support in CB
     //Begin
@@ -550,6 +562,7 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
                                                                                    PAYMENT_PG_CCDC,
                                                                                    PAYMENT_PG_NET_BANKING,
                                                                                    PAYMENT_PG_UPI,
+                                                                                   PAYMENT_PG_CASHCARD,
                                                                                    PAYMENT_PG_PAYU_MONEY,
                                                                                    PAYMENT_PG_EMI,
                                                                                    PAYMENT_PG_NO_COST_EMI,
@@ -620,4 +633,55 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
         // We are not going to do anything related to ReviewOrder Stuff
     }
 }
+
+-(NSString*)addAnalyticsParams:(NSString*)param {
+    NSArray *arr = [param componentsSeparatedByString:@"&"];
+    NSMutableDictionary *paramDict = [[NSMutableDictionary alloc] init];
+    for (NSString *str in arr) {
+        NSArray *keyValue = [str componentsSeparatedByString:@"="];
+        paramDict[keyValue[0]] = keyValue[1];
+    }
+    if ([[paramDict allKeys] containsObject:@"sdk_platform"]) {
+        paramDict[@"sdk_platform"] = [self addAnalyticsStringValue:paramDict[@"sdk_platform"]];
+    } else {
+        paramDict[@"sdk_platform"] = [NSString stringWithFormat:@"[%@]",[self getAnalyticsStringValue]];
+    }
+
+    NSMutableArray *paramArray = [[NSMutableArray alloc] init];
+    for (NSString* key in paramDict.allKeys) {
+        NSString *value = (NSString *)[paramDict objectForKey:key];
+        [paramArray addObject:[NSString stringWithFormat:@"%@=%@",key,value]];
+    }
+
+    NSString *updatedPostParams = [paramArray componentsJoinedByString:@"&"];
+    return updatedPostParams;
+}
+
+-(NSString*)getAnalyticsStringValue  {
+    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:@"iOS", @"platform",@"react", @"name", @"1.1.3", @"version", nil];
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict
+                                                       options:0
+                                                         error:&error];
+
+    if (! jsonData) {
+        NSLog(@"Got an error: %@", error);
+    } else {
+        return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
+
+    return @"";
+}
+
+
+-(NSString*)addAnalyticsStringValue:(NSString*)string {
+
+    string = [string stringByReplacingOccurrencesOfString:@"[" withString:@""];
+    string = [string stringByReplacingOccurrencesOfString:@"]" withString:@""];
+    NSMutableArray *strArr = [[string componentsSeparatedByString:@","] mutableCopy];
+    [strArr addObject:[self getAnalyticsStringValue]];
+
+    return [NSString stringWithFormat:@"[%@]",[strArr componentsJoinedByString:@","]];
+}
+
 @end

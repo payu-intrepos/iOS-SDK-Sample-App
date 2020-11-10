@@ -10,6 +10,4 @@
 
 @interface PUUINBVC : PUUIBaseVC
 
-@property (nonatomic, strong) NSString *paymentType;
-
 @end
