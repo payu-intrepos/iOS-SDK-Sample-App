@@ -15,6 +15,7 @@
 @property (nonatomic, strong) PayUModelPaymentRelatedDetail *paymentRelatedDetail;
 
 @property (nonatomic, strong) NSArray *paymentOption;
+@property (nonatomic, strong) NSString *subventionPaymentHash;
 
 
 //Strictly part of Sample App

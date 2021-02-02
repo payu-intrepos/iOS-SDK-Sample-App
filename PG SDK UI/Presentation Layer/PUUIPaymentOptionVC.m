@@ -325,6 +325,8 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
                 break;
             }
         }
+    } else if ([paymentType  isEqual: PAYMENT_PG_NO_COST_EMI]) {
+        paymentParam2.hashes.paymentHash = self.subventionPaymentHash;
     }
     NSURLRequest *request;
     NSString *postParam;
@@ -402,11 +404,6 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
                 cbConfig.paymentURL = [request.URL absoluteString];
                 cbConfig.paymentPostParam = postParam;
                 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wundeclared-selector"
-                [cbConfig performSelector:@selector(setCbServerType:) withObject:@"CBStatic"];
-                [cbConfig performSelector:@selector(setCbAnalyticsServerType:) withObject:@"CBStatic"];
-#pragma clang diagnostic pop
                 [self setReviewOrderView];
             }
             
@@ -484,7 +481,6 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
     if (payUResponse && [payUResponse isKindOfClass:[NSString class]]) {
         payUResponseInJSON = [NSJSONSerialization JSONObjectWithData:[payUResponse dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&serializationError];
     }
-    
     NSDictionary *responseDict = [NSDictionary dictionaryWithObjectsAndKeys:payUResponseInJSON,kPUUIPayUResponse, surlResponseInJSON, kPUUIMerchantResponse, nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:kPUUINotiPaymentResponse object:responseDict];
 }
@@ -497,7 +493,6 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
     if (payUResponse && [payUResponse isKindOfClass:[NSString class]]) {
         payUResponseInJSON = [NSJSONSerialization JSONObjectWithData:[payUResponse dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&serializationError];
     }
-    
     NSDictionary *responseDict = [NSDictionary dictionaryWithObjectsAndKeys:payUResponseInJSON,kPUUIPayUResponse, furlResponseInJSON, kPUUIMerchantResponse, nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:kPUUINotiPaymentResponse object:responseDict];
 }
@@ -518,20 +513,20 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
 
 
 
-//#pragma mark - Back Button Handling
-//
-//- (void) shouldDismissVCOnBackPress
-//{
-//    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"Cancel Transaction?" message:@"Do you want to cancel this transaction?" preferredStyle:UIAlertControllerStyleAlert];
-//    __weak PUUIPaymentOptionVC *weakSelf = self;
-//    [alertVC addAction:[UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-//            [weakSelf.webVC markPayUTxnCancelInDBWithCompletionBlock:^(BOOL success) {
-//                [weakSelf removeViewController];
-//            }];
-//    }]];
-//    [alertVC addAction:[UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:nil]];
-//    [self.webVC presentViewController:alertVC animated:true completion:nil];
-//}
+#pragma mark - Back Button Handling
+
+- (void) shouldDismissVCOnBackPress
+{
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:@"Cancel Transaction?" message:@"Do you want to cancel this transaction?" preferredStyle:UIAlertControllerStyleAlert];
+    __weak PUUIPaymentOptionVC *weakSelf = self;
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            [weakSelf.webVC markPayUTxnCancelInDBWithCompletionBlock:^(BOOL success) {
+                [weakSelf removeViewController];
+            }];
+    }]];
+    [alertVC addAction:[UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:nil]];
+    [self.webVC presentViewController:alertVC animated:true completion:nil];
+}
 
 /*!
  * Removed current view controller from screen

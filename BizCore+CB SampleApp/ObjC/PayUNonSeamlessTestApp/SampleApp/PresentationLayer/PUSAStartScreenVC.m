@@ -61,6 +61,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
 @property (strong, nonatomic) UISwitch *switchForOneTap;
 @property (strong, nonatomic) iOSDefaultActivityIndicator *defaultActivityIndicator;
 @property (strong, nonatomic) PayUWebServiceResponse *webServiceResponse;
+@property (strong, nonatomic) NSString *subventionPaymentHash;
 
 
 @end
@@ -239,6 +240,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
     if (self.switchForSalt.on) {
         PayUDontUseThisClass *obj = [PayUDontUseThisClass new];
         [obj getPayUHashesWithPaymentParam:self.paymentParam merchantSalt:self.textFieldSalt.text withCompletionBlock:^(PayUModelHashes *allHashes, PayUModelHashes *hashString, NSString *errorMessage) {
+            self.subventionPaymentHash = [obj subventionPaymentHash];
             [self callSDKWithHashes:allHashes withError:errorMessage];
         }];
     }
@@ -295,6 +297,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
                 paymentOptionVC.showRO = self.switchBtnShowRO.isOn;
                 paymentOptionVC.presentCB = self.switchBtnPresentCB.isOn;
                 paymentOptionVC.presentCBFullscreen = self.switchBtnPresentCBFull.isOn;
+                paymentOptionVC.subventionPaymentHash = self.subventionPaymentHash;
                 _isStartBtnTapped = FALSE;
                 [self.navigationController pushViewController:paymentOptionVC animated:true];
             }
