@@ -49,14 +49,14 @@ class OrderPageVC: UIViewController {
     }
 
     func setupInitialValues() {
-        merchantKey.text = "0MQaQP"
+        merchantKey.text = "3TnMpV"
         email.text = "email@example.com"
         transactionId.text = randomString(length: 6)
         amount.text = "1"
         environment.text = ENVIRONMENT_PRODUCTION
         userCredential.text = "merchantKey:uniqueUserIDAtMerchantEnd"
         surepayCount.text = "2"
-        salt.text = "13p0PXZk"
+        salt.text = "g0nGFe03"
         beneficiaryDetails.text = ""
     }
 
