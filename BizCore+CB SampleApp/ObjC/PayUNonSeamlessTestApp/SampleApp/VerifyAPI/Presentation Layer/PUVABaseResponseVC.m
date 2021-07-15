@@ -97,9 +97,6 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
     else if ([self.responseVCType isEqual:COMMAND_CHECK_OFFER_DETAILS]){
         [self setupForOfferDetails];
     }
-    
-    
-    
     else if ([self.responseVCType isEqual:COMMAND_GET_USER_CARDS]){
         [self setupForGetUserCards];
     }
@@ -124,6 +121,18 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
     else if ([self.responseVCType isEqual:COMMAND_ELIGIBLE_BINS_FOR_EMI]){
         [self setupForEligibleBinForEMI];
     }
+    else if ([self.responseVCType isEqual:COMMAND_MCP_LOOKUP]){
+        [self setupForMCPLookup];
+    }
+}
+
+-(void)setupForMCPLookup{
+    self.vwView1.hidden = FALSE;
+    self.lblVar1.text = @"Access Key";
+    self.txtFieldVar1.text = @"E5ABOXOWAAZNXB6JEF5Z";
+    self.vwView2.hidden = FALSE;
+    self.lblVar2.text = @"Secret";
+    self.txtFieldVar2.text = @"e425e539233044146a2d185a346978794afd7c66";
 }
 
 -(void)dealloc{
@@ -227,8 +236,6 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
     else if ([self.responseVCType isEqual:COMMAND_CHECK_OFFER_DETAILS]){
         [self btnClickedOfferDetails];
     }
-    
-    
     else if ([self.responseVCType isEqual:COMMAND_GET_USER_CARDS]){
         [self btnClickedGetUserCards];
     }
@@ -253,6 +260,34 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
     else if ([self.responseVCType isEqual:COMMAND_ELIGIBLE_BINS_FOR_EMI]){
         [self btnClickedEligibleBinForEMI];
     }
+    else if ([self.responseVCType isEqual:COMMAND_MCP_LOOKUP]){
+        [self btnClickedMCPLookUP];
+    }
+}
+
+-(void)btnClickedMCPLookUP{
+    self.paymentParam.amount = @"1.00";
+    self.paymentParam.merchantAccessKey = self.txtFieldVar1.text;
+    self.paymentParam.lookupRequestId = [[NSUUID UUID] UUIDString];
+    self.paymentParam.hashes.lookupApiHash = [PayUDontUseThisClass hmacsha1:[NSString stringWithFormat:@"%@%@%@",@"INR",self.paymentParam.lookupRequestId,self.paymentParam.amount] secret: self.txtFieldVar2.text];
+    _vAConfig.secret = self.txtFieldVar2.text;
+    if ([self setHashes]) {
+        [self startActivityIndicator];
+        [_webServiceResponse mcpLookup:self.paymentParam
+                            withCompletionBlock:^(PayUModelMultiCurrencyPayment *mcpINfo, NSString *errorMessage, id extraParam) {
+                                [_defaultActivityIndicator stopAnimatingActivityIndicator];
+                                if (!errorMessage) {
+                                    NSMutableString *message = [[NSMutableString alloc]init];
+                                    for (PayUModelMCPConversion *details in mcpINfo.mcpConversionBeans) {
+                                        [message appendFormat:@"OfferAmount : %@\nOfferCurrency : %@\nOfferExchangeRate : %@\n------\n", details.offerAmount ,details.offerCurrency, details.offerExchangeRate];
+                                    }
+                                    [PUUIUtility showAlertWithTitle:@"Response" message:message viewController:self];
+                                }
+                                else{
+                                    [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
+                                }
+                            }];
+    }
 }
 
 -(void)btnClickedVAS{
@@ -275,6 +310,7 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
 }
 
 -(void)btnClickedOfferStatus{
+ 
     self.paymentParam.cardNumber = self.txtFieldVar3.text;
     self.paymentParam.offerKey = self.txtFieldVar1.text;
     self.paymentParam.amount = self.txtFieldVar2.text;
@@ -891,7 +927,7 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
 
 -(BOOL)setHashes{
     __block BOOL hashGenerated;
-    [_hashes getPayUHashesWithPaymentParam:self.paymentParam merchantSalt:_vAConfig.salt withCompletionBlock:^(PayUModelHashes *allHashes, PayUModelHashes *hashString, NSString *errorMessage) {
+    [_hashes getPayUHashesWithPaymentParam:self.paymentParam merchantSalt:_vAConfig.salt merchantSecret: _vAConfig.secret  withCompletionBlock:^(PayUModelHashes *allHashes, PayUModelHashes *hashString, NSString *errorMessage) {
         if (!errorMessage) {
             self.paymentParam.hashes = allHashes;
             hashGenerated = TRUE;

@@ -12,5 +12,6 @@
 
 @property NSArray *arrAPIName;
 @property (strong, nonatomic) NSString *salt;
+@property (strong, nonatomic) NSString *secret;
 
 @end

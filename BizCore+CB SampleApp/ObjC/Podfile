@@ -1,5 +1,5 @@
 target 'PayUNonSeamlessTestApp' do
 	use_frameworks!
-	pod 'PayUIndia-PG-SDK'
+	pod 'PayUIndia-PG-SDK', '6.2.0'
 	pod 'PayUIndia-Custom-Browser'
 end

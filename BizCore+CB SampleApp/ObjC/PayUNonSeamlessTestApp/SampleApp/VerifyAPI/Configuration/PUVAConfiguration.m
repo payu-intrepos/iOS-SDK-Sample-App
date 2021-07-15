@@ -28,6 +28,7 @@
                            COMMAND_GET_TRANSACTION_INFO,
                            COMMAND_GET_EMI_AMOUNT_ACCORDING_TO_INTEREST,
                            COMMAND_ELIGIBLE_BINS_FOR_EMI,
+                           COMMAND_MCP_LOOKUP,
                            nil];
     }
     return self;

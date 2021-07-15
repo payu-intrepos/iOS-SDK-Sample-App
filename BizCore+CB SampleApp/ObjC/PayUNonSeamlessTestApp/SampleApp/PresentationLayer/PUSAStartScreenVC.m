@@ -20,7 +20,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
 @interface PUSAStartScreenVC ()
 
 {
-    BOOL _isVerifyAPIBtnTapped, _isStartBtnTapped;
+    BOOL _isVerifyAPIBtnTapped, _isStartBtnTapped, _isRefundBtnTapped;
 }
 
 // IBOutlets
@@ -104,7 +104,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
     self.paymentParam.productInfo = @"Nokia";
     self.paymentParam.firstName = @"Ram";
     self.paymentParam.email = @"email@testsdk1.com";
-    self.paymentParam.userCredentials = @"ra:ra";
+    self.paymentParam.userCredentials = @"umang:arya123";
     self.paymentParam.phoneNumber = @"1111111111";
     self.paymentParam.SURL = @"https://payu.herokuapp.com/ios_success";
     self.paymentParam.FURL = @"https://payu.herokuapp.com/ios_failure";
@@ -115,8 +115,8 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
     self.paymentParam.udf5 = @"u5";
     self.paymentParam.beneficiaryAccountNumbers = @"";
 //    self.paymentParam.environment = ENVIRONMENT_PRODUCTION;
-    [self setEnvironment:ENVIRONMENT_PRODUCTION];
-    [self setSalt:@"1b1b0"];
+    [self setEnvironment:ENVIRONMENT_TEST];
+    [self setSalt:@"pjVQAWpA"];
     self.paymentParam.offerKey = @"test123@6622"; //bins@8427,srioffer@8428,cc2@8429,gtkffx@7236
     
     [self initialSetupForViewInput];
@@ -126,9 +126,9 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
 - (void)setEnvironment:(NSString*)env {
     self.paymentParam.environment = env;
     if ([env isEqualToString:ENVIRONMENT_PRODUCTION]) {
-        self.paymentParam.key = @"smsplus";
+        self.paymentParam.key = @"3TnMpV";
     } else {
-        self.paymentParam.key = @"6Te2QS";
+        self.paymentParam.key = @"7rnFly";
     }
 }
 
@@ -204,6 +204,29 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
 - (IBAction)btnClickedVerifyAPI:(id)sender {
     _isVerifyAPIBtnTapped = YES;
     [self setPaymentParamAndStartProcess];
+}
+
+- (IBAction)clickedRefundAPI:(id)sender {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:@"Please enter payment id" preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Enter payment id";
+    }];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Refund" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        UITextField *paymentIdTF = alertController.textFields.firstObject;
+        if (![paymentIdTF.text isEqualToString:@""]) {
+            self.paymentParam.paymentId = paymentIdTF.text;
+            _isRefundBtnTapped = YES;
+            [self setPaymentParamAndStartProcess];
+        }
+        else{
+            [self presentViewController:alertController animated:YES completion:nil];
+        }
+    }];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 -(void)setPaymentParamAndStartProcess{
@@ -320,6 +343,15 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
                 else{
                     [PUUIUtility showAlertWithTitle:@"Error" message:@"For Verify API Salt is mandatory field" viewController:self];
                 }
+            }
+            else if (_isRefundBtnTapped){
+                [respo refundTransaction:self.paymentParam withCompletionBlock:^(NSString *message, NSString *errorMessage, id extraParam) {
+                    printf(@"%@", message);
+                    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"" message:message preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:nil];
+                    [alertController addAction:cancelAction];
+                    [self presentViewController:alertController animated:YES completion:nil];
+                }];
             }
         }
     }];
