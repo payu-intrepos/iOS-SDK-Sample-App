@@ -3,3 +3,5 @@ This sample shows integration of our iOS PG Core SDK and Custom Browser
 Core SDK can be found at: https://github.com/payu-intrepos/iOS-SDK
 
 Custom browser can be found at: https://github.com/payu-intrepos/iOS-Custom-Browser
+
+For hash generation testing salt needs to be put in HASH generation method and one set of test creds can be found on gitbook- https://payumobile.gitbook.io/sdk-integration/test-merchant-list
