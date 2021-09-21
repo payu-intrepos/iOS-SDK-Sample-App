@@ -56,7 +56,7 @@ class OrderPageVC: UIViewController {
         environment.text = ENVIRONMENT_PRODUCTION
         userCredential.text = "merchantKey:uniqueUserIDAtMerchantEnd"
         surepayCount.text = "2"
-        salt.text = "g0nGFe03"
+        salt.text = "<Please_add_test_salt_here>"
         beneficiaryDetails.text = ""
     }
 

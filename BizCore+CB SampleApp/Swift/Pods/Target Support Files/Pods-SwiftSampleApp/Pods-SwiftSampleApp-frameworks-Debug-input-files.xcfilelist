@@ -1,0 +1,5 @@
+${PODS_ROOT}/Target Support Files/Pods-SwiftSampleApp/Pods-SwiftSampleApp-frameworks.sh
+${PODS_XCFRAMEWORKS_BUILD_DIR}/PayUCustomBrowser/PayUCustomBrowser.framework/PayUCustomBrowser
+${PODS_XCFRAMEWORKS_BUILD_DIR}/PayUNetworkReachability/PayUNetworkReachability.framework/PayUNetworkReachability
+${PODS_XCFRAMEWORKS_BUILD_DIR}/PayUBizCoreKit/PayUBizCoreKit.framework/PayUBizCoreKit
+${PODS_XCFRAMEWORKS_BUILD_DIR}/PayUParamsKit/PayUParamsKit.framework/PayUParamsKit

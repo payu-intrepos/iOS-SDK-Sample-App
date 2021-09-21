@@ -1,0 +1,109 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
+// swift-module-flags: -target i386-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name PayUParamsKit
+import Foundation
+@_exported import PayUParamsKit
+import Swift
+import UIKit
+@objc @_inheritsConvenienceInitializers @objcMembers open class PayUModelMCPConversion : ObjectiveC.NSObject {
+  @objc public var offerAmount: Foundation.NSNumber?
+  @objc public var offerCurrency: Swift.String?
+  @objc public var offerExchangeRate: Foundation.NSNumber?
+  @objc public var merchantOrderId: Swift.String?
+  @objc public var lookupId: Swift.String?
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc public class PayUBeneficiaryParams : ObjectiveC.NSObject, Foundation.NSCopying {
+  @objc public var beneficiaryName: Swift.String
+  @objc public var beneficiaryAccountNumber: Swift.String
+  @objc public var beneficiaryIFSC: Swift.String
+  @objc public var beneficiaryAccountType: PayUParamsKit.BeneficiaryAccountType
+  @objc public init(beneficiaryName: Swift.String, beneficiaryAccountNumber: Swift.String, beneficiaryIFSC: Swift.String, beneficiaryAccountType: PayUParamsKit.BeneficiaryAccountType)
+  @objc public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc public enum BeneficiaryAccountType : Swift.Int, Swift.CaseIterable {
+  case savings
+  case current
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+  public typealias AllCases = [PayUParamsKit.BeneficiaryAccountType]
+  public static var allCases: [PayUParamsKit.BeneficiaryAccountType] {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @objcMembers open class PayUModelIFSCInfo : ObjectiveC.NSObject {
+  @objc public var bank: Swift.String?
+  @objc public var branch: Swift.String?
+  @objc public var city: Swift.String?
+  @objc public var ifsc: Swift.String?
+  @objc public var micr: Swift.String?
+  @objc public var state: Swift.String?
+  @objc public var office: Swift.String?
+  @objc public var address: Swift.String?
+  @objc public var contact: Swift.String?
+  @objc public var district: Swift.String?
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc @_inheritsConvenienceInitializers @objcMembers open class PayUModelMultiCurrencyPayment : ObjectiveC.NSObject {
+  @objc public var supportedCardSchemes: [Swift.String]?
+  @objc public var mcpConversionBeans: [PayUParamsKit.PayUModelMCPConversion]?
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc public class PayUSIParams : ObjectiveC.NSObject, Foundation.NSCopying {
+  @objc public var billingAmount: Swift.String
+  @objc public var paymentStartDate: Foundation.Date
+  @objc public var paymentEndDate: Foundation.Date
+  @objc public var billingCycle: PayUParamsKit.PayUBillingCycle
+  @objc public var billingInterval: Foundation.NSNumber
+  @objc public var isFreeTrial: Swift.Bool
+  @objc public var remarks: Swift.String?
+  @objc public init(billingAmount: Swift.String, paymentStartDate: Foundation.Date, paymentEndDate: Foundation.Date, billingCycle: PayUParamsKit.PayUBillingCycle, billingInterval: Foundation.NSNumber)
+  @objc public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc public enum PayUBillingCycle : Swift.Int, Swift.CaseIterable {
+  case once
+  case daily
+  case weekly
+  case monthly
+  case yearly
+  case adhoc
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+  public typealias AllCases = [PayUParamsKit.PayUBillingCycle]
+  public static var allCases: [PayUParamsKit.PayUBillingCycle] {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc public class PPKUtils : ObjectiveC.NSObject {
+  @objc public class func billingCycleToString(_ billingCycle: PayUParamsKit.PayUBillingCycle) -> Swift.String
+  @objc public class func beneficiaryAccountTypeToString(_ beneficiaryAccountType: PayUParamsKit.BeneficiaryAccountType) -> Swift.String
+  @objc public class func dateFrom(_ dateString: Swift.String) -> Foundation.Date?
+  @objc public class func dateStringFrom(_ date: Foundation.Date, formater: Swift.String = Constants.yyyyMMdd) -> Swift.String?
+  @objc deinit
+  @objc override dynamic public init()
+}
+@_inheritsConvenienceInitializers @objc public class Constants : ObjectiveC.NSObject {
+  @objc public static var yyyyMMdd: Swift.String
+  @objc public static var ddMMyyyy: Swift.String
+  @objc deinit
+  @objc override dynamic public init()
+}
+extension PayUParamsKit.BeneficiaryAccountType : Swift.Equatable {}
+extension PayUParamsKit.BeneficiaryAccountType : Swift.Hashable {}
+extension PayUParamsKit.BeneficiaryAccountType : Swift.RawRepresentable {}
+extension PayUParamsKit.PayUBillingCycle : Swift.Equatable {}
+extension PayUParamsKit.PayUBillingCycle : Swift.Hashable {}
+extension PayUParamsKit.PayUBillingCycle : Swift.RawRepresentable {}

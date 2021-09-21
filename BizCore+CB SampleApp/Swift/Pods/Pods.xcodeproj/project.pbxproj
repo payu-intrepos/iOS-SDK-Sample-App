@@ -1,0 +1,935 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		3AB04EE2FDE972E0E929B84DA72B25DC /* PayUIndia-PG-SDK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 2EB3C2F9ED43E6BA94280DD2F74C04B4 /* Build configuration list for PBXAggregateTarget "PayUIndia-PG-SDK" */;
+			buildPhases = (
+				28065B3844CCE6763980ACA827081B18 /* [CP] Copy XCFrameworks */,
+			);
+			dependencies = (
+				A1D2B3F584619565C06ADFB305B6BE9C /* PBXTargetDependency */,
+				6B07817652A6E9F654FBA385B26E8451 /* PBXTargetDependency */,
+			);
+			name = "PayUIndia-PG-SDK";
+		};
+		64201F554FB5CE5916A8BB921639CB55 /* PayUIndia-Custom-Browser */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = ECA704569CB51FA3ECEE45BFD5C98909 /* Build configuration list for PBXAggregateTarget "PayUIndia-Custom-Browser" */;
+			buildPhases = (
+				782945F83A05CA39325D05145309957B /* [CP] Copy XCFrameworks */,
+			);
+			dependencies = (
+			);
+			name = "PayUIndia-Custom-Browser";
+		};
+		86F9039C34B354AB031009EF1E7940A0 /* PayUIndia-PayUParams */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 147173FC526071BB4212FDDECDDBFACB /* Build configuration list for PBXAggregateTarget "PayUIndia-PayUParams" */;
+			buildPhases = (
+				89E13E038BCFA98A086E757B8E3410F5 /* [CP] Copy XCFrameworks */,
+			);
+			dependencies = (
+			);
+			name = "PayUIndia-PayUParams";
+		};
+		B6CC575BF0489BB15E6BB1C7E14FD2D4 /* PayUIndia-NetworkReachability */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = DD589AB046B72675B585B7C4550A28FF /* Build configuration list for PBXAggregateTarget "PayUIndia-NetworkReachability" */;
+			buildPhases = (
+				C8D9722B810DE7C1BA2B4EA2327463E5 /* [CP] Copy XCFrameworks */,
+			);
+			dependencies = (
+			);
+			name = "PayUIndia-NetworkReachability";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		48070E50DC275078DBBAF4794E03AE40 /* Pods-SwiftSampleApp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AFF8AA1C66C3F237C994637C31E6486 /* Pods-SwiftSampleApp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7313C1E890A75342923DA3CA6E34D4A1 /* Pods-SwiftSampleApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F746A711390184E884A32183222B02FE /* Pods-SwiftSampleApp-dummy.m */; };
+		9A5D0BCCCC187A7A36A15A011A9FC5E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		186D308205572D2834D42B513AADA400 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 64201F554FB5CE5916A8BB921639CB55;
+			remoteInfo = "PayUIndia-Custom-Browser";
+		};
+		3C6DFEF44F3E3314CDB0BD386CC72316 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 86F9039C34B354AB031009EF1E7940A0;
+			remoteInfo = "PayUIndia-PayUParams";
+		};
+		452B2E1527501355B5D048A3906DE8CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B6CC575BF0489BB15E6BB1C7E14FD2D4;
+			remoteInfo = "PayUIndia-NetworkReachability";
+		};
+		A5A573F500AAFA29056FE0FA04234E56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AB04EE2FDE972E0E929B84DA72B25DC;
+			remoteInfo = "PayUIndia-PG-SDK";
+		};
+		E5FD4730F0225A8ED1CBF489A5DC0522 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 86F9039C34B354AB031009EF1E7940A0;
+			remoteInfo = "PayUIndia-PayUParams";
+		};
+		E6139E92022C20934E5560430373C787 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B6CC575BF0489BB15E6BB1C7E14FD2D4;
+			remoteInfo = "PayUIndia-NetworkReachability";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0A4B6F4445D016E1E1DA73C3BACFDB2C /* PayUIndia-NetworkReachability.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "PayUIndia-NetworkReachability.debug.xcconfig"; sourceTree = "<group>"; };
+		0AFF8AA1C66C3F237C994637C31E6486 /* Pods-SwiftSampleApp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftSampleApp-umbrella.h"; sourceTree = "<group>"; };
+		0BE9BD0058E45BCA81E1601902A68DAC /* Pods-SwiftSampleApp-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftSampleApp-Info.plist"; sourceTree = "<group>"; };
+		183ABF2EBCE4F2DC23323A5797793677 /* PayUBizCoreKit.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = PayUBizCoreKit.xcframework; sourceTree = "<group>"; };
+		1BE8B93AFF043A8FB5F4D042CD0E3627 /* PayUCustomBrowser.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = PayUCustomBrowser.xcframework; sourceTree = "<group>"; };
+		1CAFD73EBB131E1918550A72FDD4C448 /* PayUIndia-Custom-Browser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "PayUIndia-Custom-Browser.debug.xcconfig"; sourceTree = "<group>"; };
+		27E2952C67D91696B3EAA2DF4B672F50 /* PayUIndia-PG-SDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "PayUIndia-PG-SDK.release.xcconfig"; sourceTree = "<group>"; };
+		294C2D0CA386345604BEF6C155CF726C /* Pods-SwiftSampleApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SwiftSampleApp.modulemap"; sourceTree = "<group>"; };
+		2B7E08E5E12DEED298A0C37A8ABEBB3C /* Pods_SwiftSampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SwiftSampleApp.framework; path = "Pods-SwiftSampleApp.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		303EE04B51E6F50E0DC7945F4D4B0EA0 /* PayUIndia-Custom-Browser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "PayUIndia-Custom-Browser.release.xcconfig"; sourceTree = "<group>"; };
+		595EAD6379BDA80F7DAFEA3D7D990594 /* PayUIndia-NetworkReachability-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "PayUIndia-NetworkReachability-xcframeworks.sh"; sourceTree = "<group>"; };
+		59B747DB6D4A05E5966E0B5CC2E501C3 /* Pods-SwiftSampleApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftSampleApp-acknowledgements.markdown"; sourceTree = "<group>"; };
+		69DFE62A4DB6DA8DCC5FCC48009E7498 /* Pods-SwiftSampleApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwiftSampleApp-acknowledgements.plist"; sourceTree = "<group>"; };
+		6CF73F18B79DF7F647DD99BB095F4A6E /* PayUIndia-PayUParams-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "PayUIndia-PayUParams-xcframeworks.sh"; sourceTree = "<group>"; };
+		72835F62CB0B1B4534166FB09962DEE2 /* Pods-SwiftSampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftSampleApp.release.xcconfig"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		9075F3F8A55A2EAC696CB8AC23C6F16F /* Pods-SwiftSampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftSampleApp.debug.xcconfig"; sourceTree = "<group>"; };
+		944D30CB8A627D0C17282D1C54C8AF8A /* PayUIndia-NetworkReachability.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "PayUIndia-NetworkReachability.release.xcconfig"; sourceTree = "<group>"; };
+		9BE089A5175FA130466597D4C6EC6FFD /* PayUNetworkReachability.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; path = PayUNetworkReachability.xcframework; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B5C80D2A31CAC352BD46D1E35C1D83D8 /* PayUIndia-PayUParams.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "PayUIndia-PayUParams.release.xcconfig"; sourceTree = "<group>"; };
+		BDAC2FBC57BC9422DB6FD669FBFBC9DE /* PayUIndia-PayUParams.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "PayUIndia-PayUParams.debug.xcconfig"; sourceTree = "<group>"; };
+		C12A3F70B274C9A9F7D4E8E7610C4E78 /* PayUParamsKit.xcframework */ = {isa = PBXFileReference; includeInIndex = 1; name = PayUParamsKit.xcframework; path = PayUParamsKit/PayUParamsKit.xcframework; sourceTree = "<group>"; };
+		D46A37C2295C3F508D13D9E36B47251A /* PayUIndia-PG-SDK-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "PayUIndia-PG-SDK-xcframeworks.sh"; sourceTree = "<group>"; };
+		DC7E7DFC575BDF708E781277FC129BF4 /* Pods-SwiftSampleApp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftSampleApp-frameworks.sh"; sourceTree = "<group>"; };
+		F5067BA8C5F3B3C3314F7C8C26074919 /* PayUIndia-PG-SDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "PayUIndia-PG-SDK.debug.xcconfig"; sourceTree = "<group>"; };
+		F746A711390184E884A32183222B02FE /* Pods-SwiftSampleApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwiftSampleApp-dummy.m"; sourceTree = "<group>"; };
+		F83224ADDD34E7A3C44C9994B321C329 /* PayUIndia-Custom-Browser-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "PayUIndia-Custom-Browser-xcframeworks.sh"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7C08CB23B11E6311BAA41E81B7F90D0D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A5D0BCCCC187A7A36A15A011A9FC5E7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		012DE869F26892309D0C294FB7A7CC95 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F83224ADDD34E7A3C44C9994B321C329 /* PayUIndia-Custom-Browser-xcframeworks.sh */,
+				1CAFD73EBB131E1918550A72FDD4C448 /* PayUIndia-Custom-Browser.debug.xcconfig */,
+				303EE04B51E6F50E0DC7945F4D4B0EA0 /* PayUIndia-Custom-Browser.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/PayUIndia-Custom-Browser";
+			sourceTree = "<group>";
+		};
+		0476F3A0EE218B382483CB128EBA820D /* Pods-SwiftSampleApp */ = {
+			isa = PBXGroup;
+			children = (
+				294C2D0CA386345604BEF6C155CF726C /* Pods-SwiftSampleApp.modulemap */,
+				59B747DB6D4A05E5966E0B5CC2E501C3 /* Pods-SwiftSampleApp-acknowledgements.markdown */,
+				69DFE62A4DB6DA8DCC5FCC48009E7498 /* Pods-SwiftSampleApp-acknowledgements.plist */,
+				F746A711390184E884A32183222B02FE /* Pods-SwiftSampleApp-dummy.m */,
+				DC7E7DFC575BDF708E781277FC129BF4 /* Pods-SwiftSampleApp-frameworks.sh */,
+				0BE9BD0058E45BCA81E1601902A68DAC /* Pods-SwiftSampleApp-Info.plist */,
+				0AFF8AA1C66C3F237C994637C31E6486 /* Pods-SwiftSampleApp-umbrella.h */,
+				9075F3F8A55A2EAC696CB8AC23C6F16F /* Pods-SwiftSampleApp.debug.xcconfig */,
+				72835F62CB0B1B4534166FB09962DEE2 /* Pods-SwiftSampleApp.release.xcconfig */,
+			);
+			name = "Pods-SwiftSampleApp";
+			path = "Target Support Files/Pods-SwiftSampleApp";
+			sourceTree = "<group>";
+		};
+		105D9E66FB5C85C854F3D994B8572096 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2B7E08E5E12DEED298A0C37A8ABEBB3C /* Pods_SwiftSampleApp.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		249FF8B0685D0B79B58512E2EE443293 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				183ABF2EBCE4F2DC23323A5797793677 /* PayUBizCoreKit.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2691C80505559ADD7A025C0D1D28E0C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C12A3F70B274C9A9F7D4E8E7610C4E78 /* PayUParamsKit.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2EC32CBFB2BF8985BCE2A41A17F2A789 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				6CF73F18B79DF7F647DD99BB095F4A6E /* PayUIndia-PayUParams-xcframeworks.sh */,
+				BDAC2FBC57BC9422DB6FD669FBFBC9DE /* PayUIndia-PayUParams.debug.xcconfig */,
+				B5C80D2A31CAC352BD46D1E35C1D83D8 /* PayUIndia-PayUParams.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/PayUIndia-PayUParams";
+			sourceTree = "<group>";
+		};
+		3BFD84C1C3DB15B0F5338C6FE3329499 /* PayUIndia-PayUParams */ = {
+			isa = PBXGroup;
+			children = (
+				2691C80505559ADD7A025C0D1D28E0C8 /* Frameworks */,
+				2EC32CBFB2BF8985BCE2A41A17F2A789 /* Support Files */,
+			);
+			name = "PayUIndia-PayUParams";
+			path = "PayUIndia-PayUParams";
+			sourceTree = "<group>";
+		};
+		50F3A0FC0F1DBECF02BB1677F3FE9460 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D46A37C2295C3F508D13D9E36B47251A /* PayUIndia-PG-SDK-xcframeworks.sh */,
+				F5067BA8C5F3B3C3314F7C8C26074919 /* PayUIndia-PG-SDK.debug.xcconfig */,
+				27E2952C67D91696B3EAA2DF4B672F50 /* PayUIndia-PG-SDK.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/PayUIndia-PG-SDK";
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		5AE6664A8463B67A54B80F1359B2CBC7 /* PayUIndia-PG-SDK */ = {
+			isa = PBXGroup;
+			children = (
+				249FF8B0685D0B79B58512E2EE443293 /* Frameworks */,
+				50F3A0FC0F1DBECF02BB1677F3FE9460 /* Support Files */,
+			);
+			name = "PayUIndia-PG-SDK";
+			path = "PayUIndia-PG-SDK";
+			sourceTree = "<group>";
+		};
+		6BE4C709D5D1CB8A851446F411B5A144 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1BE8B93AFF043A8FB5F4D042CD0E3627 /* PayUCustomBrowser.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C803B95D91F5C674B913C1F6932BAD73 /* PayUIndia-NetworkReachability */ = {
+			isa = PBXGroup;
+			children = (
+				CC4A53A5E9F284B02B0ED60C0E29AFD5 /* Frameworks */,
+				FE77F9F1D812EB6DB37C228E1545DE6E /* Support Files */,
+			);
+			name = "PayUIndia-NetworkReachability";
+			path = "PayUIndia-NetworkReachability";
+			sourceTree = "<group>";
+		};
+		CC4A53A5E9F284B02B0ED60C0E29AFD5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9BE089A5175FA130466597D4C6EC6FFD /* PayUNetworkReachability.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				E272CC929F94F33A39C0D6AC94BFAC98 /* Pods */,
+				105D9E66FB5C85C854F3D994B8572096 /* Products */,
+				DAE7AE493912849636D25D36924AB3A2 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DAE7AE493912849636D25D36924AB3A2 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0476F3A0EE218B382483CB128EBA820D /* Pods-SwiftSampleApp */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		E272CC929F94F33A39C0D6AC94BFAC98 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EE32EB96A4A6CF8A7AED005D538E1CAC /* PayUIndia-Custom-Browser */,
+				C803B95D91F5C674B913C1F6932BAD73 /* PayUIndia-NetworkReachability */,
+				3BFD84C1C3DB15B0F5338C6FE3329499 /* PayUIndia-PayUParams */,
+				5AE6664A8463B67A54B80F1359B2CBC7 /* PayUIndia-PG-SDK */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EE32EB96A4A6CF8A7AED005D538E1CAC /* PayUIndia-Custom-Browser */ = {
+			isa = PBXGroup;
+			children = (
+				6BE4C709D5D1CB8A851446F411B5A144 /* Frameworks */,
+				012DE869F26892309D0C294FB7A7CC95 /* Support Files */,
+			);
+			name = "PayUIndia-Custom-Browser";
+			path = "PayUIndia-Custom-Browser";
+			sourceTree = "<group>";
+		};
+		FE77F9F1D812EB6DB37C228E1545DE6E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				595EAD6379BDA80F7DAFEA3D7D990594 /* PayUIndia-NetworkReachability-xcframeworks.sh */,
+				0A4B6F4445D016E1E1DA73C3BACFDB2C /* PayUIndia-NetworkReachability.debug.xcconfig */,
+				944D30CB8A627D0C17282D1C54C8AF8A /* PayUIndia-NetworkReachability.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/PayUIndia-NetworkReachability";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		CA0C9F98054220F1F0D159AA66733543 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48070E50DC275078DBBAF4794E03AE40 /* Pods-SwiftSampleApp-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		5D3070D9D6302C90F8BCABE5885F649B /* Pods-SwiftSampleApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B004E26CE51C0376BA99537B733CF12B /* Build configuration list for PBXNativeTarget "Pods-SwiftSampleApp" */;
+			buildPhases = (
+				CA0C9F98054220F1F0D159AA66733543 /* Headers */,
+				93B21F5757A35BA98FBF811CC96AB650 /* Sources */,
+				7C08CB23B11E6311BAA41E81B7F90D0D /* Frameworks */,
+				6B47D63263D5409933BF1460241CA8DE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB55E331ED509EBC32316108379D2AAF /* PBXTargetDependency */,
+				785A393B876CDE675DC9150DD7F05C61 /* PBXTargetDependency */,
+				35ACD6F3EB5A38BAB3F0A019D914D3CE /* PBXTargetDependency */,
+				01C9AA36DE7830000B29F77F8241F2CF /* PBXTargetDependency */,
+			);
+			name = "Pods-SwiftSampleApp";
+			productName = "Pods-SwiftSampleApp";
+			productReference = 2B7E08E5E12DEED298A0C37A8ABEBB3C /* Pods_SwiftSampleApp.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 105D9E66FB5C85C854F3D994B8572096 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				64201F554FB5CE5916A8BB921639CB55 /* PayUIndia-Custom-Browser */,
+				B6CC575BF0489BB15E6BB1C7E14FD2D4 /* PayUIndia-NetworkReachability */,
+				86F9039C34B354AB031009EF1E7940A0 /* PayUIndia-PayUParams */,
+				3AB04EE2FDE972E0E929B84DA72B25DC /* PayUIndia-PG-SDK */,
+				5D3070D9D6302C90F8BCABE5885F649B /* Pods-SwiftSampleApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6B47D63263D5409933BF1460241CA8DE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		28065B3844CCE6763980ACA827081B18 /* [CP] Copy XCFrameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/PayUIndia-PG-SDK/PayUIndia-PG-SDK-xcframeworks-input-files.xcfilelist",
+			);
+			name = "[CP] Copy XCFrameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/PayUIndia-PG-SDK/PayUIndia-PG-SDK-xcframeworks-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/PayUIndia-PG-SDK/PayUIndia-PG-SDK-xcframeworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		782945F83A05CA39325D05145309957B /* [CP] Copy XCFrameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/PayUIndia-Custom-Browser/PayUIndia-Custom-Browser-xcframeworks-input-files.xcfilelist",
+			);
+			name = "[CP] Copy XCFrameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/PayUIndia-Custom-Browser/PayUIndia-Custom-Browser-xcframeworks-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/PayUIndia-Custom-Browser/PayUIndia-Custom-Browser-xcframeworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		89E13E038BCFA98A086E757B8E3410F5 /* [CP] Copy XCFrameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/PayUIndia-PayUParams/PayUIndia-PayUParams-xcframeworks-input-files.xcfilelist",
+			);
+			name = "[CP] Copy XCFrameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/PayUIndia-PayUParams/PayUIndia-PayUParams-xcframeworks-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/PayUIndia-PayUParams/PayUIndia-PayUParams-xcframeworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C8D9722B810DE7C1BA2B4EA2327463E5 /* [CP] Copy XCFrameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/PayUIndia-NetworkReachability/PayUIndia-NetworkReachability-xcframeworks-input-files.xcfilelist",
+			);
+			name = "[CP] Copy XCFrameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/PayUIndia-NetworkReachability/PayUIndia-NetworkReachability-xcframeworks-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/PayUIndia-NetworkReachability/PayUIndia-NetworkReachability-xcframeworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		93B21F5757A35BA98FBF811CC96AB650 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7313C1E890A75342923DA3CA6E34D4A1 /* Pods-SwiftSampleApp-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		01C9AA36DE7830000B29F77F8241F2CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "PayUIndia-PayUParams";
+			target = 86F9039C34B354AB031009EF1E7940A0 /* PayUIndia-PayUParams */;
+			targetProxy = 3C6DFEF44F3E3314CDB0BD386CC72316 /* PBXContainerItemProxy */;
+		};
+		35ACD6F3EB5A38BAB3F0A019D914D3CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "PayUIndia-PG-SDK";
+			target = 3AB04EE2FDE972E0E929B84DA72B25DC /* PayUIndia-PG-SDK */;
+			targetProxy = A5A573F500AAFA29056FE0FA04234E56 /* PBXContainerItemProxy */;
+		};
+		6B07817652A6E9F654FBA385B26E8451 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "PayUIndia-PayUParams";
+			target = 86F9039C34B354AB031009EF1E7940A0 /* PayUIndia-PayUParams */;
+			targetProxy = E5FD4730F0225A8ED1CBF489A5DC0522 /* PBXContainerItemProxy */;
+		};
+		785A393B876CDE675DC9150DD7F05C61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "PayUIndia-NetworkReachability";
+			target = B6CC575BF0489BB15E6BB1C7E14FD2D4 /* PayUIndia-NetworkReachability */;
+			targetProxy = E6139E92022C20934E5560430373C787 /* PBXContainerItemProxy */;
+		};
+		A1D2B3F584619565C06ADFB305B6BE9C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "PayUIndia-NetworkReachability";
+			target = B6CC575BF0489BB15E6BB1C7E14FD2D4 /* PayUIndia-NetworkReachability */;
+			targetProxy = 452B2E1527501355B5D048A3906DE8CE /* PBXContainerItemProxy */;
+		};
+		EB55E331ED509EBC32316108379D2AAF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "PayUIndia-Custom-Browser";
+			target = 64201F554FB5CE5916A8BB921639CB55 /* PayUIndia-Custom-Browser */;
+			targetProxy = 186D308205572D2834D42B513AADA400 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0C402EE286FF5972C388DF781D46CA5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 27E2952C67D91696B3EAA2DF4B672F50 /* PayUIndia-PG-SDK.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		26089AC7513B2479E4EB870CC437A4F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A4B6F4445D016E1E1DA73C3BACFDB2C /* PayUIndia-NetworkReachability.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5C572C26083AE05FDE5539CF10D7F0DA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		60D21ADB6577B2C238A1DC4F13BF1710 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 303EE04B51E6F50E0DC7945F4D4B0EA0 /* PayUIndia-Custom-Browser.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		714178153CA1D28028DE7C84FEE9E903 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5067BA8C5F3B3C3314F7C8C26074919 /* PayUIndia-PG-SDK.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9D4D5455C14B363A7C30591BA609001B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CAFD73EBB131E1918550A72FDD4C448 /* PayUIndia-Custom-Browser.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AB7723E88935A8B6C037717E35D5F25B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 944D30CB8A627D0C17282D1C54C8AF8A /* PayUIndia-NetworkReachability.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B0B871789266B089F807893EED18B0DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		CFD6E5ECF7C066E307AC4B6B120EFD9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72835F62CB0B1B4534166FB09962DEE2 /* Pods-SwiftSampleApp.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftSampleApp/Pods-SwiftSampleApp-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftSampleApp/Pods-SwiftSampleApp.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D9F2A471FDD7733D9C172FC58B5F99BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BDAC2FBC57BC9422DB6FD669FBFBC9DE /* PayUIndia-PayUParams.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DAB70D59A1C471095FAD9458B8E9A68C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5C80D2A31CAC352BD46D1E35C1D83D8 /* PayUIndia-PayUParams.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DF0FE21D099293CE1688600080B5B9C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9075F3F8A55A2EAC696CB8AC23C6F16F /* Pods-SwiftSampleApp.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftSampleApp/Pods-SwiftSampleApp-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftSampleApp/Pods-SwiftSampleApp.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		147173FC526071BB4212FDDECDDBFACB /* Build configuration list for PBXAggregateTarget "PayUIndia-PayUParams" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9F2A471FDD7733D9C172FC58B5F99BD /* Debug */,
+				DAB70D59A1C471095FAD9458B8E9A68C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2EB3C2F9ED43E6BA94280DD2F74C04B4 /* Build configuration list for PBXAggregateTarget "PayUIndia-PG-SDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				714178153CA1D28028DE7C84FEE9E903 /* Debug */,
+				0C402EE286FF5972C388DF781D46CA5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0B871789266B089F807893EED18B0DB /* Debug */,
+				5C572C26083AE05FDE5539CF10D7F0DA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B004E26CE51C0376BA99537B733CF12B /* Build configuration list for PBXNativeTarget "Pods-SwiftSampleApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF0FE21D099293CE1688600080B5B9C6 /* Debug */,
+				CFD6E5ECF7C066E307AC4B6B120EFD9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD589AB046B72675B585B7C4550A28FF /* Build configuration list for PBXAggregateTarget "PayUIndia-NetworkReachability" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26089AC7513B2479E4EB870CC437A4F3 /* Debug */,
+				AB7723E88935A8B6C037717E35D5F25B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ECA704569CB51FA3ECEE45BFD5C98909 /* Build configuration list for PBXAggregateTarget "PayUIndia-Custom-Browser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D4D5455C14B363A7C30591BA609001B /* Debug */,
+				60D21ADB6577B2C238A1DC4F13BF1710 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

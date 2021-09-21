@@ -1,0 +1,24 @@
+PODS:
+  - PayUIndia-Custom-Browser (7.0.0)
+  - PayUIndia-PayUParams (1.2.0)
+  - PayUIndia-PG-SDK (6.2.0):
+    - PayUIndia-PayUParams (~> 1.0)
+
+DEPENDENCIES:
+  - PayUIndia-Custom-Browser
+  - PayUIndia-PG-SDK (= 6.2.0)
+
+SPEC REPOS:
+  trunk:
+    - PayUIndia-Custom-Browser
+    - PayUIndia-PayUParams
+    - PayUIndia-PG-SDK
+
+SPEC CHECKSUMS:
+  PayUIndia-Custom-Browser: ffa6e718d4617d59680cef8364222ecb77e9e1fb
+  PayUIndia-PayUParams: fbd61b156202fc141709d192edd131729cb5b934
+  PayUIndia-PG-SDK: 6aeda561fdf58471485b9abb16291e4256dc8ec9
+
+PODFILE CHECKSUM: 375dbffb3711eb78de3abacef2134a9c8c63ad8b
+
+COCOAPODS: 1.10.2

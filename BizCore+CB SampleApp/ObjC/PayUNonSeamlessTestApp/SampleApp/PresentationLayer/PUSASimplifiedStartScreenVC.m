@@ -91,7 +91,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
     self.paymentParam.udf5 = @"u5";
     //    self.paymentParam.environment = ENVIRONMENT_PRODUCTION;
     [self setEnvironment:ENVIRONMENT_PRODUCTION];
-        [self setSalt:@"1b1b0"];
+        [self setSalt:@"<Please_add_test_salt_here>"];
     self.paymentParam.offerKey = @"test123@6622"; //bins@8427,srioffer@8428,cc2@8429,gtkffx@7236
     
     [self initialSetupForViewInput];
@@ -256,7 +256,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
     }
     else{
         self.textFieldSalt.hidden = true;
-        self.textFieldSalt.text = @"";
+        self.textFieldSalt.text = @"<Please_add_test_salt_here>";
         [self.view endEditing:YES];
     }
 }
