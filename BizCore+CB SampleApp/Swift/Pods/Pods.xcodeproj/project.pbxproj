@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -52,25 +52,25 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		48070E50DC275078DBBAF4794E03AE40 /* Pods-SwiftSampleApp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AFF8AA1C66C3F237C994637C31E6486 /* Pods-SwiftSampleApp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7313C1E890A75342923DA3CA6E34D4A1 /* Pods-SwiftSampleApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F746A711390184E884A32183222B02FE /* Pods-SwiftSampleApp-dummy.m */; };
-		9A5D0BCCCC187A7A36A15A011A9FC5E7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		260830E05094922CDD13BD982625E28D /* Pods-SwiftSampleApp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0AFF8AA1C66C3F237C994637C31E6486 /* Pods-SwiftSampleApp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8A00DF994CECFFAA92D5DF16027DEED1 /* Pods-SwiftSampleApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F746A711390184E884A32183222B02FE /* Pods-SwiftSampleApp-dummy.m */; };
+		F62004EAD0D6F9E9B55D22B6251AD1F0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		186D308205572D2834D42B513AADA400 /* PBXContainerItemProxy */ = {
+		0407262BF4EB95F15EDD0715D69070C4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 64201F554FB5CE5916A8BB921639CB55;
-			remoteInfo = "PayUIndia-Custom-Browser";
+			remoteGlobalIDString = 3AB04EE2FDE972E0E929B84DA72B25DC;
+			remoteInfo = "PayUIndia-PG-SDK";
 		};
-		3C6DFEF44F3E3314CDB0BD386CC72316 /* PBXContainerItemProxy */ = {
+		2988C6F9B38360D67EFEAE2C1DC7A610 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 86F9039C34B354AB031009EF1E7940A0;
-			remoteInfo = "PayUIndia-PayUParams";
+			remoteGlobalIDString = B6CC575BF0489BB15E6BB1C7E14FD2D4;
+			remoteInfo = "PayUIndia-NetworkReachability";
 		};
 		452B2E1527501355B5D048A3906DE8CE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -79,12 +79,12 @@
 			remoteGlobalIDString = B6CC575BF0489BB15E6BB1C7E14FD2D4;
 			remoteInfo = "PayUIndia-NetworkReachability";
 		};
-		A5A573F500AAFA29056FE0FA04234E56 /* PBXContainerItemProxy */ = {
+		6592F553B66827CFFFDABCA8F6925176 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 3AB04EE2FDE972E0E929B84DA72B25DC;
-			remoteInfo = "PayUIndia-PG-SDK";
+			remoteGlobalIDString = 64201F554FB5CE5916A8BB921639CB55;
+			remoteInfo = "PayUIndia-Custom-Browser";
 		};
 		E5FD4730F0225A8ED1CBF489A5DC0522 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -93,12 +93,12 @@
 			remoteGlobalIDString = 86F9039C34B354AB031009EF1E7940A0;
 			remoteInfo = "PayUIndia-PayUParams";
 		};
-		E6139E92022C20934E5560430373C787 /* PBXContainerItemProxy */ = {
+		F9B4B1CC3EE818013B88B331E01DE683 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B6CC575BF0489BB15E6BB1C7E14FD2D4;
-			remoteInfo = "PayUIndia-NetworkReachability";
+			remoteGlobalIDString = 86F9039C34B354AB031009EF1E7940A0;
+			remoteInfo = "PayUIndia-PayUParams";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -111,7 +111,7 @@
 		1CAFD73EBB131E1918550A72FDD4C448 /* PayUIndia-Custom-Browser.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "PayUIndia-Custom-Browser.debug.xcconfig"; sourceTree = "<group>"; };
 		27E2952C67D91696B3EAA2DF4B672F50 /* PayUIndia-PG-SDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "PayUIndia-PG-SDK.release.xcconfig"; sourceTree = "<group>"; };
 		294C2D0CA386345604BEF6C155CF726C /* Pods-SwiftSampleApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SwiftSampleApp.modulemap"; sourceTree = "<group>"; };
-		2B7E08E5E12DEED298A0C37A8ABEBB3C /* Pods_SwiftSampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SwiftSampleApp.framework; path = "Pods-SwiftSampleApp.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B7E08E5E12DEED298A0C37A8ABEBB3C /* Pods-SwiftSampleApp */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-SwiftSampleApp"; path = Pods_SwiftSampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		303EE04B51E6F50E0DC7945F4D4B0EA0 /* PayUIndia-Custom-Browser.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "PayUIndia-Custom-Browser.release.xcconfig"; sourceTree = "<group>"; };
 		595EAD6379BDA80F7DAFEA3D7D990594 /* PayUIndia-NetworkReachability-xcframeworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "PayUIndia-NetworkReachability-xcframeworks.sh"; sourceTree = "<group>"; };
 		59B747DB6D4A05E5966E0B5CC2E501C3 /* Pods-SwiftSampleApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftSampleApp-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -134,11 +134,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7C08CB23B11E6311BAA41E81B7F90D0D /* Frameworks */ = {
+		1828BFE4F882205050119AB4DE9BB4EC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A5D0BCCCC187A7A36A15A011A9FC5E7 /* Foundation.framework in Frameworks */,
+				F62004EAD0D6F9E9B55D22B6251AD1F0 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,14 +173,6 @@
 			path = "Target Support Files/Pods-SwiftSampleApp";
 			sourceTree = "<group>";
 		};
-		105D9E66FB5C85C854F3D994B8572096 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2B7E08E5E12DEED298A0C37A8ABEBB3C /* Pods_SwiftSampleApp.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		249FF8B0685D0B79B58512E2EE443293 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -195,6 +187,14 @@
 				C12A3F70B274C9A9F7D4E8E7610C4E78 /* PayUParamsKit.xcframework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2C1E2F99C8FBB8ED1474874EAEE7F841 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2B7E08E5E12DEED298A0C37A8ABEBB3C /* Pods-SwiftSampleApp */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		2EC32CBFB2BF8985BCE2A41A17F2A789 /* Support Files */ = {
@@ -279,7 +279,7 @@
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				E272CC929F94F33A39C0D6AC94BFAC98 /* Pods */,
-				105D9E66FB5C85C854F3D994B8572096 /* Products */,
+				2C1E2F99C8FBB8ED1474874EAEE7F841 /* Products */,
 				DAE7AE493912849636D25D36924AB3A2 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -335,11 +335,11 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		CA0C9F98054220F1F0D159AA66733543 /* Headers */ = {
+		05B3EDE3E9BFA4C0AA1E934F64A19941 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48070E50DC275078DBBAF4794E03AE40 /* Pods-SwiftSampleApp-umbrella.h in Headers */,
+				260830E05094922CDD13BD982625E28D /* Pods-SwiftSampleApp-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,24 +348,24 @@
 /* Begin PBXNativeTarget section */
 		5D3070D9D6302C90F8BCABE5885F649B /* Pods-SwiftSampleApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B004E26CE51C0376BA99537B733CF12B /* Build configuration list for PBXNativeTarget "Pods-SwiftSampleApp" */;
+			buildConfigurationList = B68D5418DA29B7C41D0B57981BB0BAA2 /* Build configuration list for PBXNativeTarget "Pods-SwiftSampleApp" */;
 			buildPhases = (
-				CA0C9F98054220F1F0D159AA66733543 /* Headers */,
-				93B21F5757A35BA98FBF811CC96AB650 /* Sources */,
-				7C08CB23B11E6311BAA41E81B7F90D0D /* Frameworks */,
-				6B47D63263D5409933BF1460241CA8DE /* Resources */,
+				05B3EDE3E9BFA4C0AA1E934F64A19941 /* Headers */,
+				2853CD3F15B4D3D0F02F57847D476214 /* Sources */,
+				1828BFE4F882205050119AB4DE9BB4EC /* Frameworks */,
+				6FAD6751040DC0800CEE7789329074DA /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				EB55E331ED509EBC32316108379D2AAF /* PBXTargetDependency */,
-				785A393B876CDE675DC9150DD7F05C61 /* PBXTargetDependency */,
-				35ACD6F3EB5A38BAB3F0A019D914D3CE /* PBXTargetDependency */,
-				01C9AA36DE7830000B29F77F8241F2CF /* PBXTargetDependency */,
+				99F864DB2E7755D6BED8EDF9F12C0C64 /* PBXTargetDependency */,
+				6A216C9495FD0BD574407E2FED592549 /* PBXTargetDependency */,
+				8AC580ACF1C854E9148A288F058C9AEA /* PBXTargetDependency */,
+				FCB856150DB3D872C0A11C518AD95BC3 /* PBXTargetDependency */,
 			);
 			name = "Pods-SwiftSampleApp";
-			productName = "Pods-SwiftSampleApp";
-			productReference = 2B7E08E5E12DEED298A0C37A8ABEBB3C /* Pods_SwiftSampleApp.framework */;
+			productName = Pods_SwiftSampleApp;
+			productReference = 2B7E08E5E12DEED298A0C37A8ABEBB3C /* Pods-SwiftSampleApp */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -378,15 +378,15 @@
 				LastUpgradeCheck = 1240;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				en,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 105D9E66FB5C85C854F3D994B8572096 /* Products */;
+			productRefGroup = 2C1E2F99C8FBB8ED1474874EAEE7F841 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -400,7 +400,7 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		6B47D63263D5409933BF1460241CA8DE /* Resources */ = {
+		6FAD6751040DC0800CEE7789329074DA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -481,28 +481,22 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		93B21F5757A35BA98FBF811CC96AB650 /* Sources */ = {
+		2853CD3F15B4D3D0F02F57847D476214 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7313C1E890A75342923DA3CA6E34D4A1 /* Pods-SwiftSampleApp-dummy.m in Sources */,
+				8A00DF994CECFFAA92D5DF16027DEED1 /* Pods-SwiftSampleApp-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		01C9AA36DE7830000B29F77F8241F2CF /* PBXTargetDependency */ = {
+		6A216C9495FD0BD574407E2FED592549 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "PayUIndia-PayUParams";
-			target = 86F9039C34B354AB031009EF1E7940A0 /* PayUIndia-PayUParams */;
-			targetProxy = 3C6DFEF44F3E3314CDB0BD386CC72316 /* PBXContainerItemProxy */;
-		};
-		35ACD6F3EB5A38BAB3F0A019D914D3CE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "PayUIndia-PG-SDK";
-			target = 3AB04EE2FDE972E0E929B84DA72B25DC /* PayUIndia-PG-SDK */;
-			targetProxy = A5A573F500AAFA29056FE0FA04234E56 /* PBXContainerItemProxy */;
+			name = "PayUIndia-NetworkReachability";
+			target = B6CC575BF0489BB15E6BB1C7E14FD2D4 /* PayUIndia-NetworkReachability */;
+			targetProxy = 2988C6F9B38360D67EFEAE2C1DC7A610 /* PBXContainerItemProxy */;
 		};
 		6B07817652A6E9F654FBA385B26E8451 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -510,11 +504,17 @@
 			target = 86F9039C34B354AB031009EF1E7940A0 /* PayUIndia-PayUParams */;
 			targetProxy = E5FD4730F0225A8ED1CBF489A5DC0522 /* PBXContainerItemProxy */;
 		};
-		785A393B876CDE675DC9150DD7F05C61 /* PBXTargetDependency */ = {
+		8AC580ACF1C854E9148A288F058C9AEA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "PayUIndia-NetworkReachability";
-			target = B6CC575BF0489BB15E6BB1C7E14FD2D4 /* PayUIndia-NetworkReachability */;
-			targetProxy = E6139E92022C20934E5560430373C787 /* PBXContainerItemProxy */;
+			name = "PayUIndia-PG-SDK";
+			target = 3AB04EE2FDE972E0E929B84DA72B25DC /* PayUIndia-PG-SDK */;
+			targetProxy = 0407262BF4EB95F15EDD0715D69070C4 /* PBXContainerItemProxy */;
+		};
+		99F864DB2E7755D6BED8EDF9F12C0C64 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "PayUIndia-Custom-Browser";
+			target = 64201F554FB5CE5916A8BB921639CB55 /* PayUIndia-Custom-Browser */;
+			targetProxy = 6592F553B66827CFFFDABCA8F6925176 /* PBXContainerItemProxy */;
 		};
 		A1D2B3F584619565C06ADFB305B6BE9C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -522,11 +522,11 @@
 			target = B6CC575BF0489BB15E6BB1C7E14FD2D4 /* PayUIndia-NetworkReachability */;
 			targetProxy = 452B2E1527501355B5D048A3906DE8CE /* PBXContainerItemProxy */;
 		};
-		EB55E331ED509EBC32316108379D2AAF /* PBXTargetDependency */ = {
+		FCB856150DB3D872C0A11C518AD95BC3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "PayUIndia-Custom-Browser";
-			target = 64201F554FB5CE5916A8BB921639CB55 /* PayUIndia-Custom-Browser */;
-			targetProxy = 186D308205572D2834D42B513AADA400 /* PBXContainerItemProxy */;
+			name = "PayUIndia-PayUParams";
+			target = 86F9039C34B354AB031009EF1E7940A0 /* PayUIndia-PayUParams */;
+			targetProxy = F9B4B1CC3EE818013B88B331E01DE683 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -645,6 +645,43 @@
 			};
 			name = Release;
 		};
+		6FBB6E9B40573698C481B57946876FEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9075F3F8A55A2EAC696CB8AC23C6F16F /* Pods-SwiftSampleApp.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftSampleApp/Pods-SwiftSampleApp-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftSampleApp/Pods-SwiftSampleApp.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 		714178153CA1D28028DE7C84FEE9E903 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F5067BA8C5F3B3C3314F7C8C26074919 /* PayUIndia-PG-SDK.debug.xcconfig */;
@@ -661,6 +698,44 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
+		};
+		80D1E977ABE05EDBB28D0AB8588041C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72835F62CB0B1B4534166FB09962DEE2 /* Pods-SwiftSampleApp.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwiftSampleApp/Pods-SwiftSampleApp-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwiftSampleApp/Pods-SwiftSampleApp.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		9D4D5455C14B363A7C30591BA609001B /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -762,44 +837,6 @@
 			};
 			name = Debug;
 		};
-		CFD6E5ECF7C066E307AC4B6B120EFD9A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 72835F62CB0B1B4534166FB09962DEE2 /* Pods-SwiftSampleApp.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-SwiftSampleApp/Pods-SwiftSampleApp-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SwiftSampleApp/Pods-SwiftSampleApp.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		D9F2A471FDD7733D9C172FC58B5F99BD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BDAC2FBC57BC9422DB6FD669FBFBC9DE /* PayUIndia-PayUParams.debug.xcconfig */;
@@ -835,43 +872,6 @@
 			};
 			name = Release;
 		};
-		DF0FE21D099293CE1688600080B5B9C6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9075F3F8A55A2EAC696CB8AC23C6F16F /* Pods-SwiftSampleApp.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-SwiftSampleApp/Pods-SwiftSampleApp-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-SwiftSampleApp/Pods-SwiftSampleApp.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -902,11 +902,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B004E26CE51C0376BA99537B733CF12B /* Build configuration list for PBXNativeTarget "Pods-SwiftSampleApp" */ = {
+		B68D5418DA29B7C41D0B57981BB0BAA2 /* Build configuration list for PBXNativeTarget "Pods-SwiftSampleApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DF0FE21D099293CE1688600080B5B9C6 /* Debug */,
-				CFD6E5ECF7C066E307AC4B6B120EFD9A /* Release */,
+				6FBB6E9B40573698C481B57946876FEC /* Debug */,
+				80D1E977ABE05EDBB28D0AB8588041C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		65FB1D7D1E653B4559BE5B72 /* Pods_PayUNonSeamlessTestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80ACC700F60C0990EC8CB733 /* Pods_PayUNonSeamlessTestApp.framework */; };
+		AB393B937E01B9A9EBD19D0E /* Pods_PayUNonSeamlessTestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8472466C9F54858A37A7A33 /* Pods_PayUNonSeamlessTestApp.framework */; };
 		ADF48C611EDE817700C46F7C /* PUSASimplifiedStartScreenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ADF48C601EDE817700C46F7C /* PUSASimplifiedStartScreenVC.m */; };
 		DD284EC71CE30684008CDE79 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD284E2A1CE30684008CDE79 /* AppDelegate.m */; };
 		DD284EDB1CE30684008CDE79 /* PUVAConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = DD284E501CE30684008CDE79 /* PUVAConfiguration.m */; };
@@ -54,10 +54,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		51B5E907226C357D863649BE /* Pods-PayUNonSeamlessTestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PayUNonSeamlessTestApp.debug.xcconfig"; path = "Target Support Files/Pods-PayUNonSeamlessTestApp/Pods-PayUNonSeamlessTestApp.debug.xcconfig"; sourceTree = "<group>"; };
 		73317E7C1C2EE2F300D2963D /* PayUNonSeamlessTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayUNonSeamlessTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		80ACC700F60C0990EC8CB733 /* Pods_PayUNonSeamlessTestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PayUNonSeamlessTestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADF48C5F1EDE817700C46F7C /* PUSASimplifiedStartScreenVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PUSASimplifiedStartScreenVC.h; sourceTree = "<group>"; };
 		ADF48C601EDE817700C46F7C /* PUSASimplifiedStartScreenVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PUSASimplifiedStartScreenVC.m; sourceTree = "<group>"; };
+		C7CBB296B34FA37F80FD7954 /* Pods-PayUNonSeamlessTestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PayUNonSeamlessTestApp.release.xcconfig"; path = "Target Support Files/Pods-PayUNonSeamlessTestApp/Pods-PayUNonSeamlessTestApp.release.xcconfig"; sourceTree = "<group>"; };
+		DD0238E3254AA9A500BEA448 /* PayUBizCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PayUBizCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD0238E4254AA9A500BEA448 /* PayUCustomBrowser.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PayUCustomBrowser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD284E291CE30684008CDE79 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DD284E2A1CE30684008CDE79 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		DD284E4F1CE30684008CDE79 /* PUVAConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PUVAConfiguration.h; sourceTree = "<group>"; };
@@ -132,8 +135,10 @@
 		DDB2246C2535652F00DA7EA4 /* PUSAWSManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PUSAWSManager.m; sourceTree = "<group>"; };
 		DDB2246D2535652F00DA7EA4 /* PUSAHelperClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PUSAHelperClass.m; sourceTree = "<group>"; };
 		DDB2246E2535652F00DA7EA4 /* PUSAWSManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PUSAWSManager.h; sourceTree = "<group>"; };
-		E1D94DE37F6B9A24636330A7 /* Pods-PayUNonSeamlessTestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PayUNonSeamlessTestApp.debug.xcconfig"; path = "Target Support Files/Pods-PayUNonSeamlessTestApp/Pods-PayUNonSeamlessTestApp.debug.xcconfig"; sourceTree = "<group>"; };
-		FBDF159EBFD10D987681A964 /* Pods-PayUNonSeamlessTestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PayUNonSeamlessTestApp.release.xcconfig"; path = "Target Support Files/Pods-PayUNonSeamlessTestApp/Pods-PayUNonSeamlessTestApp.release.xcconfig"; sourceTree = "<group>"; };
+		E89A5DE126FCA5ED00F09D8B /* PayUNetworkReachability.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PayUNetworkReachability.xcframework; path = ../../../PayUNetworkReachability.xcframework; sourceTree = "<group>"; };
+		E8E1B13026FB35EB00429C5E /* PayUBizCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PayUBizCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8E1B13126FB35EB00429C5E /* PayUParamsKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PayUParamsKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8472466C9F54858A37A7A33 /* Pods_PayUNonSeamlessTestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PayUNonSeamlessTestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,21 +146,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65FB1D7D1E653B4559BE5B72 /* Pods_PayUNonSeamlessTestApp.framework in Frameworks */,
+				AB393B937E01B9A9EBD19D0E /* Pods_PayUNonSeamlessTestApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		20129D3FBD622C3FCA3BEF28 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				80ACC700F60C0990EC8CB733 /* Pods_PayUNonSeamlessTestApp.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		73317E731C2EE2F300D2963D = {
 			isa = PBXGroup;
 			children = (
@@ -163,7 +160,7 @@
 				73317E7D1C2EE2F300D2963D /* Products */,
 				DDD3827625436F950066E7CC /* Recovered References */,
 				7E64B934AFC1EB728D24F703 /* Pods */,
-				20129D3FBD622C3FCA3BEF28 /* Frameworks */,
+				DD0238E2254AA9A500BEA448 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -187,10 +184,23 @@
 		7E64B934AFC1EB728D24F703 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E1D94DE37F6B9A24636330A7 /* Pods-PayUNonSeamlessTestApp.debug.xcconfig */,
-				FBDF159EBFD10D987681A964 /* Pods-PayUNonSeamlessTestApp.release.xcconfig */,
+				51B5E907226C357D863649BE /* Pods-PayUNonSeamlessTestApp.debug.xcconfig */,
+				C7CBB296B34FA37F80FD7954 /* Pods-PayUNonSeamlessTestApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DD0238E2254AA9A500BEA448 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E89A5DE126FCA5ED00F09D8B /* PayUNetworkReachability.xcframework */,
+				E8E1B13026FB35EB00429C5E /* PayUBizCoreKit.framework */,
+				E8E1B13126FB35EB00429C5E /* PayUParamsKit.framework */,
+				DD0238E3254AA9A500BEA448 /* PayUBizCoreKit.framework */,
+				DD0238E4254AA9A500BEA448 /* PayUCustomBrowser.framework */,
+				F8472466C9F54858A37A7A33 /* Pods_PayUNonSeamlessTestApp.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		DD284E271CE30684008CDE79 /* SampleApp */ = {
@@ -515,11 +525,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 73317E931C2EE2F300D2963D /* Build configuration list for PBXNativeTarget "PayUNonSeamlessTestApp" */;
 			buildPhases = (
-				577083B521467F7F7F69612B /* [CP] Check Pods Manifest.lock */,
+				6564DE3D8DCFDDEDCBF0E0D4 /* [CP] Check Pods Manifest.lock */,
 				73317E781C2EE2F300D2963D /* Sources */,
 				73317E791C2EE2F300D2963D /* Frameworks */,
 				73317E7A1C2EE2F300D2963D /* Resources */,
-				7AC45F0D59FB73E1D28F3DB7 /* [CP] Embed Pods Frameworks */,
+				3A9D10FCAB1B009536907502 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -586,7 +596,31 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		577083B521467F7F7F69612B /* [CP] Check Pods Manifest.lock */ = {
+		3A9D10FCAB1B009536907502 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PayUNonSeamlessTestApp/Pods-PayUNonSeamlessTestApp-frameworks.sh",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/PayUIndia-Custom-Browser/PayUCustomBrowser.framework/PayUCustomBrowser",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/PayUIndia-NetworkReachability/PayUNetworkReachability.framework/PayUNetworkReachability",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/PayUIndia-PG-SDK/PayUBizCoreKit.framework/PayUBizCoreKit",
+				"${PODS_XCFRAMEWORKS_BUILD_DIR}/PayUIndia-PayUParams/PayUParamsKit.framework/PayUParamsKit",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PayUCustomBrowser.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PayUNetworkReachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PayUBizCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PayUParamsKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PayUNonSeamlessTestApp/Pods-PayUNonSeamlessTestApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6564DE3D8DCFDDEDCBF0E0D4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -606,28 +640,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7AC45F0D59FB73E1D28F3DB7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PayUNonSeamlessTestApp/Pods-PayUNonSeamlessTestApp-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/PayUCustomBrowser/PayUCustomBrowser.framework/PayUCustomBrowser",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/PayUBizCoreKit/PayUBizCoreKit.framework/PayUBizCoreKit",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/PayUParamsKit/PayUParamsKit.framework/PayUParamsKit",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PayUCustomBrowser.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PayUBizCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PayUParamsKit.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PayUNonSeamlessTestApp/Pods-PayUNonSeamlessTestApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -760,24 +772,28 @@
 		};
 		73317E941C2EE2F300D2963D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E1D94DE37F6B9A24636330A7 /* Pods-PayUNonSeamlessTestApp.debug.xcconfig */;
+			baseConfigurationReference = 51B5E907226C357D863649BE /* Pods-PayUNonSeamlessTestApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				DEVELOPMENT_TEAM = 3T2M5UN5C5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PayUNonSeamlessTestApp",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/PayUNonSeamlessTestApp/SampleApp/Other/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PayUNonSeamlessTestApp/PayU/CB",
 					"$(PROJECT_DIR)/PayUNonSeamlessTestApp/PayU/SDK",
 				);
+				MARKETING_VERSION = 3.12;
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.payu.testapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.payu.OnePayUSwiftSampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -786,24 +802,28 @@
 		};
 		73317E951C2EE2F300D2963D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FBDF159EBFD10D987681A964 /* Pods-PayUNonSeamlessTestApp.release.xcconfig */;
+			baseConfigurationReference = C7CBB296B34FA37F80FD7954 /* Pods-PayUNonSeamlessTestApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				DEVELOPMENT_TEAM = 3T2M5UN5C5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/PayUNonSeamlessTestApp",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/PayUNonSeamlessTestApp/SampleApp/Other/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/PayUNonSeamlessTestApp/PayU/CB",
 					"$(PROJECT_DIR)/PayUNonSeamlessTestApp/PayU/SDK",
 				);
+				MARKETING_VERSION = 3.12;
 				OTHER_LDFLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.payu.testapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.payu.OnePayUSwiftSampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -29,6 +29,8 @@
                            COMMAND_GET_EMI_AMOUNT_ACCORDING_TO_INTEREST,
                            COMMAND_ELIGIBLE_BINS_FOR_EMI,
                            COMMAND_MCP_LOOKUP,
+                           COMMAND_GET_CHECKOUT_DETAILS,
+
                            nil];
     }
     return self;
@@ -37,5 +39,3 @@
 
 @end
 
-
-//"gtKFFx"=>"eCwWELxi", "smsplus"=>"1b1b0", "0MQaQP"=>"13p0PXZk", "PqvxqV"=>"6SPh4Ulq", "obScKz"=>"Ml7XBCdR", "DXOF8m"=>"2Hl5U0En", "WhccBa"=>"UX5K0KvP", "ukgVCk"=>"DzSugFtI"

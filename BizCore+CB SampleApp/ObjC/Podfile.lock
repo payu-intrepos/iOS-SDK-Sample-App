@@ -1,24 +1,28 @@
 PODS:
   - PayUIndia-Custom-Browser (7.0.0)
-  - PayUIndia-PayUParams (1.2.0)
-  - PayUIndia-PG-SDK (6.2.0):
-    - PayUIndia-PayUParams (~> 1.0)
+  - PayUIndia-NetworkReachability (1.0.1)
+  - PayUIndia-PayUParams (2.0.1)
+  - PayUIndia-PG-SDK (6.3.0):
+    - PayUIndia-NetworkReachability (~> 1.0)
+    - PayUIndia-PayUParams (~> 2.0)
 
 DEPENDENCIES:
   - PayUIndia-Custom-Browser
-  - PayUIndia-PG-SDK (= 6.2.0)
+  - PayUIndia-PG-SDK
 
 SPEC REPOS:
   trunk:
     - PayUIndia-Custom-Browser
+    - PayUIndia-NetworkReachability
     - PayUIndia-PayUParams
     - PayUIndia-PG-SDK
 
 SPEC CHECKSUMS:
   PayUIndia-Custom-Browser: ffa6e718d4617d59680cef8364222ecb77e9e1fb
-  PayUIndia-PayUParams: fbd61b156202fc141709d192edd131729cb5b934
-  PayUIndia-PG-SDK: 6aeda561fdf58471485b9abb16291e4256dc8ec9
+  PayUIndia-NetworkReachability: 99e69781b3be99d7b713075ab7b73e6d73a153e4
+  PayUIndia-PayUParams: 284b80ae30e4f40444fdba7035ab2c0c05fb118b
+  PayUIndia-PG-SDK: 0da37eb31c0cc1b4ef142695744750cfef75bf91
 
-PODFILE CHECKSUM: 375dbffb3711eb78de3abacef2134a9c8c63ad8b
+PODFILE CHECKSUM: b07cc0f8d82531d2f58734d3f241089b945f2ce5
 
-COCOAPODS: 1.10.2
+COCOAPODS: 1.11.2

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gkh-KH-37f">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gkh-KH-37f">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -386,22 +386,36 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lno-Jh-ivK">
-                                                <rect key="frame" x="286" y="900" width="59" height="46"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                <state key="normal" title="Start"/>
-                                                <connections>
-                                                    <action selector="clickedBtnStart:" destination="e5E-55-FGB" eventType="touchUpInside" id="65o-BS-zxJ"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EX9-sQ-QVE">
-                                                <rect key="frame" x="30" y="900" width="116" height="46"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                                <state key="normal" title="Verify API"/>
-                                                <connections>
-                                                    <action selector="btnClickedVerifyAPI:" destination="e5E-55-FGB" eventType="touchUpInside" id="RTt-WJ-Rdk"/>
-                                                </connections>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1JI-mh-i1k">
+                                                <rect key="frame" x="10" y="904" width="355" height="42"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="253" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EX9-sQ-QVE">
+                                                        <rect key="frame" x="0.0" y="0.0" width="151.5" height="42"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                        <state key="normal" title="Verify API"/>
+                                                        <connections>
+                                                            <action selector="btnClickedVerifyAPI:" destination="e5E-55-FGB" eventType="touchUpInside" id="RTt-WJ-Rdk"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" horizontalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yc9-fS-FCs">
+                                                        <rect key="frame" x="156.5" y="0.0" width="113.5" height="42"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                        <state key="normal" title="Refund"/>
+                                                        <connections>
+                                                            <action selector="clickedBtnStart:" destination="e5E-55-FGB" eventType="touchUpInside" id="RzC-0m-7qY"/>
+                                                            <action selector="clickedRefundAPI:" destination="e5E-55-FGB" eventType="touchUpInside" id="hgo-mw-76s"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lno-Jh-ivK">
+                                                        <rect key="frame" x="275" y="0.0" width="80" height="42"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                        <state key="normal" title="Start"/>
+                                                        <connections>
+                                                            <action selector="clickedBtnStart:" destination="e5E-55-FGB" eventType="touchUpInside" id="65o-BS-zxJ"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gdw-MK-Hmh">
                                                 <rect key="frame" x="136" y="635" width="51" height="31"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -459,10 +473,9 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Lno-Jh-ivK" secondAttribute="trailing" constant="30" id="CDL-xK-3L9"/>
-                                            <constraint firstItem="EX9-sQ-QVE" firstAttribute="leading" secondItem="4yo-42-xvg" secondAttribute="leading" constant="30" id="bLf-Vb-YVp"/>
-                                            <constraint firstAttribute="bottom" secondItem="Lno-Jh-ivK" secondAttribute="bottom" constant="14" id="k6P-bK-G74"/>
-                                            <constraint firstAttribute="bottom" secondItem="EX9-sQ-QVE" secondAttribute="bottom" constant="14" id="lhA-EA-1up"/>
+                                            <constraint firstAttribute="bottom" secondItem="1JI-mh-i1k" secondAttribute="bottom" constant="14" id="2ZO-d8-fao"/>
+                                            <constraint firstItem="1JI-mh-i1k" firstAttribute="leading" secondItem="4yo-42-xvg" secondAttribute="leading" constant="10" id="Tw2-cC-zHD"/>
+                                            <constraint firstAttribute="trailing" secondItem="1JI-mh-i1k" secondAttribute="trailing" constant="10" id="gnZ-dK-0qq"/>
                                             <constraint firstAttribute="height" constant="960" id="mj1-1f-sVc"/>
                                         </constraints>
                                     </view>
@@ -532,16 +545,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="St3-r6-GhI">
-                                <rect key="frame" x="290" y="611" width="59" height="46"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="St3-r6-GhI">
+                                <rect key="frame" x="291" y="611" width="58" height="46"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="Start"/>
                                 <connections>
                                     <action selector="clickedBtnStart:" destination="emL-vg-a2x" eventType="touchUpInside" id="tDr-Xs-ImW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kcf-N1-wh1">
-                                <rect key="frame" x="10" y="611" width="116" height="46"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kcf-N1-wh1">
+                                <rect key="frame" x="10" y="611" width="117" height="46"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <state key="normal" title="Verify API"/>
                                 <connections>

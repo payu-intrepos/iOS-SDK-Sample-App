@@ -128,7 +128,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
     if ([env isEqualToString:ENVIRONMENT_PRODUCTION]) {
         self.paymentParam.key = @"3TnMpV";
     } else {
-        self.paymentParam.key = @"7rnFly";
+        self.paymentParam.key = @"gtKFFx";
     }
 }
 
@@ -248,7 +248,10 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
     self.paymentParam.udf5 = self.textFieldUDF5.text;
     self.paymentParam.userCredentials = self.textFieldUserCredential.text;
     self.paymentParam.beneficiaryAccountNumbers = self.textFieldBeneficiaryAccountNumber.text;
-  
+    self.paymentParam.checkCustomerEligibility = true;
+    self.paymentParam.checkAdditionalCharges = true;
+    self.paymentParam.checkDownStatus = true;
+    self.paymentParam.checkTaxSpecification = true;
     // set notify URL if you want to pay through Lazy Pay
     self.paymentParam.notifyURL= @"https://notifyURL.com";
  
@@ -365,7 +368,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
     }
     else{
         self.textFieldSalt.hidden = true;
-        self.textFieldSalt.text = @"<Please_add_test_salt_here>";
+        self.textFieldSalt.text = @"";
         [self.view endEditing:YES];
     }
 }

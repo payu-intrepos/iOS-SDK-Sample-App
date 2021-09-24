@@ -22,7 +22,9 @@
     BOOL validIssuer, saveCardFlag, isPickerShown,isCVVEditingBegin, OneTapFlag, isSMAE;
     PayUValidations *SDKValidations;
     NSMutableArray *arrMonth, *arrYear;
+    NSMutableDictionary *cardlessPayment;
     NSString *selectedYear, * selectedMonth, *currentYear, * currentMonth;
+    NSArray *selectedBankOptions;
     UIPickerView *MonthYearPickerView;
     BOOL isKBOnScreen;
     NSString *previousTextFieldContent;
@@ -32,6 +34,12 @@
 @property (weak,nonatomic) NSNumber *cVVMaxLength;
 
 @property (weak, nonatomic) IBOutlet UILabel *lblForVASMessage;
+@property (weak, nonatomic) IBOutlet UITextField *mobileNumberTf;
+@property (weak, nonatomic) IBOutlet UIView *cardView;
+@property (weak, nonatomic) IBOutlet UIView *cardLessView;
+@property (weak, nonatomic) IBOutlet UITextField *selectBankTF;
+@property (weak, nonatomic) IBOutlet UITextField *selectTennureTf;
+@property (weak, nonatomic) IBOutlet UIButton *cardlessEMIBtn;
 
 @property (weak, nonatomic) IBOutlet UITextField *txtFieldCardNumber;
 @property (weak, nonatomic) IBOutlet UITextField *txtFieldMonth;
@@ -78,6 +86,7 @@
     [self configureTextFieldDelegate];
     [self dismissKeyboardOnTapOutsideTextField];
     [self initialSetup];
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -112,7 +121,8 @@
 -(void)initialSetup{
     self.scrollView = self.scrlVwCCDC;
     [self hideVASMessageSection:TRUE];
-    
+    [_cardLessView setHidden:true];
+    [_cardlessEMIBtn setHidden:true];
     self.vwOneTapSection.hidden = TRUE;
     self.vwStoredCardNameSection.hidden = TRUE;
     self.imgVwValidCVV.alpha = ALPHA_HALF;
@@ -245,7 +255,7 @@
     if (textField == self.txtFieldMonth || textField == self.txtFieldYear) {
         if (!self.grayView) {
             self.grayView = [[UIView alloc] initWithFrame:self.view.window.frame];
-
+            
             self.grayView.alpha = .5;
             self.grayView.backgroundColor = [UIColor grayColor];
             [self.view.window addSubview:self.grayView];
@@ -401,7 +411,7 @@ andPreserveCursorPosition:&targetCursorPosition];
         
         previousTextFieldContent = textField.text;
         previousSelection = textField.selectedTextRange;
-
+        
         NSString *actualCardNumber = [trimmedText stringByReplacingOccurrencesOfString:@" " withString:@""];
         if (actualCardNumber.length > [self.cardMaxLength integerValue]) {
             return NO;
@@ -486,7 +496,7 @@ andPreserveCursorPosition:&targetCursorPosition];
             isValidCardNumber = NO;
         }
         
-
+        
     }
     if ([cardIssuer isEqual:ISSUER_SMAE]) {
         isSMAE = YES;
@@ -596,7 +606,7 @@ andPreserveCursorPosition:&targetCursorPosition];
 
 -(void)doneBarButtonTapped{
     [self dismissKeyboard];
-//    [self enableDisablePayNowButton];
+    //    [self enableDisablePayNowButton];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -611,7 +621,7 @@ andPreserveCursorPosition:&targetCursorPosition];
         if(!isKBOnScreen)
         {
             self.currentVC = self.parentViewController.parentViewController;
-//            currentVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+            //            currentVC = [UIApplication sharedApplication].keyWindow.rootViewController;
             CGRect rect = self.currentVC.view.frame;
             rect.origin.y -= 100;
             self.currentVC.view.frame = rect;
@@ -664,8 +674,8 @@ andPreserveCursorPosition:&targetCursorPosition];
 #pragma mark - EMI Related methods
 
 -(void)setupEMIView{
-    
-//    self.paymentParam.bankCode = @"EMIA6";
+    [_cardlessEMIBtn setHidden:false];
+    //    self.paymentParam.bankCode = @"EMIA6";
     [self hideSaveCardSection];
     PUUIEMITopView *vwEMITop = [[PUUIEMITopView alloc] initWithPaymentType:self.paymentType parentVC:self];
     [vwEMITop showSubViewOnView:self.vwEMISection];
@@ -680,11 +690,115 @@ andPreserveCursorPosition:&targetCursorPosition];
     [vwEMITop showSubViewOnView:self.vwEMISection];
     self.constraintHEMITopVw.constant = CGRectGetMaxY(vwEMITop.vwBottom.frame);
 }
+- (IBAction)cardLessEMISelection:(id)sender {
+    [_cardLessView setHidden:false];
+    [_vwEMISection setHidden:true];
+    [_cardView setHidden:true];
+}
+
+- (IBAction)checkEligibility:(id)sender {
+    PayUWebServiceResponse *webServiceResponse = [PayUWebServiceResponse new];
+    self.paymentParam.phoneNumber = self.mobileNumberTf.text;
+    if ([self setHashes]) {
+        [webServiceResponse getCheckoutDetail:self.paymentParam withCompletionBlock:^(PayUModelPaymentRelatedDetail *paymentRelatedDetails, NSString *errorMessage, id extraParam) {
+            if (!errorMessage) {
+                cardlessPayment = [NSMutableDictionary new];
+                NSString *reason = @"";
+                for (PayUModelEMI *details in paymentRelatedDetails.EMIArray) {
+                    if ([details.paymentType isEqualToString: @"cardless"] && details.eligibility.status) {
+                        NSMutableArray *value = cardlessPayment[details.bankID];
+                        if (!value){
+                            value = [NSMutableArray new];
+                        }
+                        [value addObject:details];
+                        [cardlessPayment setObject:value forKey:details.bankID];
+                    }
+                    else if (details.eligibility.reason){
+                        reason = details.eligibility.reason;
+                    }
+                }
+                if ([cardlessPayment count] == 0) {
+                    [PUUIUtility showAlertWithTitle:@"Error" message:[@"Not Eligible for cardless emi transaction. " stringByAppendingString:reason] viewController:self];
+                }
+            }
+            else{
+                [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
+            }
+        }];
+    }
+}
+
+-(BOOL)setHashes{
+    PayUDontUseThisClass *hashes = [PayUDontUseThisClass new];
+    __block BOOL hashGenerated;
+    [hashes getPayUHashesWithPaymentParam:self.paymentParam merchantSalt:@"<Please_add_test_salt_here>" merchantSecret: @""  withCompletionBlock:^(PayUModelHashes *allHashes, PayUModelHashes *hashString, NSString *errorMessage) {
+        if (!errorMessage) {
+            self.paymentParam.hashes = allHashes;
+            hashGenerated = TRUE;
+        }
+        else{
+            hashGenerated = FALSE;
+            [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
+        }
+    }];
+    return hashGenerated;
+}
+
+- (IBAction)selectBank:(id)sender {
+    if ([cardlessPayment count] == 0) {
+        [PUUIUtility showAlertWithTitle:@"Warn" message:@"Please click Check Eligibility First to get list of eligible bank." viewController:self];
+    }
+    else {
+        UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"Select Bank" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        
+        [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        }]];
+        
+        for (NSString* key in cardlessPayment) {
+            [actionSheet addAction:[UIAlertAction actionWithTitle:key style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                selectedBankOptions = cardlessPayment[key];
+                self.selectBankTF.text = action.title;
+            }]];
+        }
+        UIPopoverPresentationController *popPresenter = [actionSheet popoverPresentationController];
+        popPresenter.sourceView = sender;
+        // Present action sheet.
+        [self presentViewController:actionSheet animated:YES completion:nil];
+    }
+}
+
+- (IBAction)selectTenure:(id)sender {
+    if ([selectedBankOptions count] == 0 ) {
+        [PUUIUtility showAlertWithTitle:@"Warn" message:@"Please select eligible bank first." viewController:self];
+    }
+    else{
+        UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"Select Bank" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        
+        [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        }]];
+        
+        for (PayUModelEMI* emi in selectedBankOptions) {
+            if ([PayUUtils isKindOfNSNumber:emi.tenure]) {
+                [actionSheet addAction:[UIAlertAction actionWithTitle:[emi.tenure stringValue] style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+                    self.selectTennureTf.text = action.title;
+                    self.paymentParam.isCardlessEMI = true;
+                    self.paymentParam.bankCode = emi.bankID;
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kPUUINotiEnablePayNow object:self.paymentParam];
+                }]];
+            }
+        }
+        UIPopoverPresentationController *popPresenter = [actionSheet popoverPresentationController];
+        popPresenter.sourceView = sender;
+        // Present action sheet.
+        [self presentViewController:actionSheet animated:YES completion:nil];
+    }
+}
+
 
 - (IBAction)unwindToStoredCardVC:(UIStoryboardSegue *)segue
 {
-//    if ([segue.sourceViewController isKindOfClass:[PUUICardOptionVC class]]) {
-//    }
+    //    if ([segue.sourceViewController isKindOfClass:[PUUICardOptionVC class]]) {
+    //    }
 }
 
 @end

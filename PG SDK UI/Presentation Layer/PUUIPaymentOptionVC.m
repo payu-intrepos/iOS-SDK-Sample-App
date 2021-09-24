@@ -105,7 +105,6 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
     if (!actualPaymentOption.count) {
         [actualPaymentOption addObject:@"Something went wrong with Parameters"];
     }
-    
     NSMutableArray *arrObj = [NSMutableArray arrayWithArray:self.paymentRelatedDetail.storedCardArray];
     [arrObj addObjectsFromArray:self.paymentRelatedDetail.oneTapStoredCardArray];
     
@@ -187,6 +186,18 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
         SCVC.paymentParam = [self.paymentParam copy];
         SCVC.paymentRelatedDetail = self.paymentRelatedDetail;
         SCVC.arrStoredCards = arrStoredCards;
+        return SCVC;
+    }
+    else if ([[actualPaymentOption objectAtIndex:index] isEqualToString:PAYMENT_PG_CASHCARD]) {
+        //If neither we have stored cards or one tap cards, don't display its tab
+        if (arrStoredCards.count < 1 && self.paymentRelatedDetail.oneTapStoredCardArray.count < 1) {
+            return nil;
+        }
+        
+        PUUIStoredCardCarouselVC *SCVC = [self.storyboard instantiateViewControllerWithIdentifier:VC_IDENTIFIER_STORED_CARD_CAROUSEL];
+        SCVC.paymentParam = [self.paymentParam copy];
+        SCVC.paymentRelatedDetail = self.paymentRelatedDetail;
+        SCVC.arrStoredCards = self.paymentRelatedDetail.cashCardArray;
         return SCVC;
     }
     else if ([[actualPaymentOption objectAtIndex:index] isEqual:PAYMENT_PG_CCDC]) {
@@ -547,8 +558,10 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
                                                                                    PAYMENT_PG_UPI,
                                                                                    PAYMENT_PG_PAYU_MONEY,
                                                                                    PAYMENT_PG_EMI,
+                                                                                   PAYMENT_PG_CASHCARD,
                                                                                    PAYMENT_PG_NO_COST_EMI,
                                                                                    PAYMENT_PG_LAZYPAY,
+                                                                                   PAYMENT_PG_ZESTMONEY,
                                                                                    nil]];
     NSArray *arr;
     if ([_paymentOption count]) {

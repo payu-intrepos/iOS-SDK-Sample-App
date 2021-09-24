@@ -121,12 +121,21 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
     else if ([self.responseVCType isEqual:COMMAND_ELIGIBLE_BINS_FOR_EMI]){
         [self setupForEligibleBinForEMI];
     }
-    else if ([self.responseVCType isEqual:COMMAND_MCP_LOOKUP]){
+    else if ([self.responseVCType isEqual:COMMAND_MCP_LOOKUP]) {
         [self setupForMCPLookup];
+    }
+    else if ([self.responseVCType isEqual:COMMAND_GET_CHECKOUT_DETAILS]) {
+        [self setupForCheckoutDetail];
     }
 }
 
--(void)setupForMCPLookup{
+-(void)setupForCheckoutDetail {
+    self.vwView1.hidden = FALSE;
+    self.lblVar1.text = @"Mobile  Number";
+    self.txtFieldVar1.text = @"";
+}
+
+-(void)setupForMCPLookup {
     self.vwView1.hidden = FALSE;
     self.lblVar1.text = @"Access Key";
     self.txtFieldVar1.text = @"E5ABOXOWAAZNXB6JEF5Z";
@@ -262,6 +271,37 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
     }
     else if ([self.responseVCType isEqual:COMMAND_MCP_LOOKUP]){
         [self btnClickedMCPLookUP];
+    }
+    else if ([self.responseVCType isEqual:COMMAND_GET_CHECKOUT_DETAILS]){
+        [self btnClickedCheckoutDetail];
+    }
+}
+
+
+-(void)btnClickedCheckoutDetail{
+    self.paymentParam.amount = @"1000.00";
+    self.paymentParam.checkCustomerEligibility = true;
+    self.paymentParam.transactionID = [PayUUtils getCurrentTimeMiliSecond];
+    self.paymentParam.phoneNumber = self.txtFieldVar1.text;
+    self.paymentParam.checkAdditionalCharges = true;
+    self.paymentParam.checkDownStatus = true;
+    self.paymentParam.checkTaxSpecification = true;
+    _vAConfig.secret = self.txtFieldVar2.text;
+    if ([self setHashes]) {
+        [self startActivityIndicator];
+        [_webServiceResponse getCheckoutDetail:self.paymentParam withCompletionBlock:^(PayUModelPaymentRelatedDetail *paymentRelatedDetails, NSString *errorMessage, id extraParam) {
+            [_defaultActivityIndicator stopAnimatingActivityIndicator];
+            if (!errorMessage) {
+                NSMutableString *message = [[NSMutableString alloc]init];
+                for (PayUModelEMI *details in paymentRelatedDetails.EMIArray) {
+                    [message appendFormat:@"bankName : %@\nEMICode : %@\nstatus : %@ \nreason : %@ \npaymentType : %@\n------\n", details.bankID, details.bankCode ,details.eligibility.status ? @"YES" : @"NO", details.eligibility.reason, details.paymentType];
+                }
+                [PUUIUtility showAlertWithTitle:@"Response" message:message viewController:self];
+            }
+            else{
+                [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
+            }
+        }];
     }
 }
 
