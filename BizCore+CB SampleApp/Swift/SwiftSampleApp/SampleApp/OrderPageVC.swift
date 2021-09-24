@@ -56,7 +56,7 @@ class OrderPageVC: UIViewController {
         environment.text = ENVIRONMENT_TEST
         userCredential.text = "merchantKey:uniqueUserIDAtMerchantEnd"
         surepayCount.text = "2"
-        salt.text = "<Please_add_test_salt_here"
+        salt.text = "<Please_add_test_salt_here>"
         beneficiaryDetails.text = ""
     }
 
@@ -119,6 +119,10 @@ class OrderPageVC: UIViewController {
         paymentParams.userCredentials = userCredential.text
         paymentParams.surl = "https://payu.herokuapp.com/ios_success"
         paymentParams.furl = "https://payu.herokuapp.com/ios_failure"
+        self.paymentParams.checkAdditionalCharges = true;
+        self.paymentParams.checkDownStatus = true;
+        self.paymentParams.checkTaxSpecification = true;
+        self.paymentParams.checkCustomerEligibility = true;
         paymentParams.beneficiaryAccountNumbers = beneficiaryDetails.text
         paymentParams.productInfo = "iPhoneXS" //Add information about the production for which transaction is being initiated
     }
