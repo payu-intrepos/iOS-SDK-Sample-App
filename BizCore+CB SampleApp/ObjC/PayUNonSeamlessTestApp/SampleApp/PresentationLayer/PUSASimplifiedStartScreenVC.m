@@ -223,7 +223,7 @@ static NSString * const pUUIStoryBoard = @"PUUIMainStoryBoard";
 
 -(void) callSDKWithOneTap:(NSDictionary *)oneTapDict{
     
-    self.paymentParam.OneTapTokenDictionary = oneTapDict;
+//    self.paymentParam.OneTapTokenDictionary = oneTapDict;
     PayUWebServiceResponse *respo = [PayUWebServiceResponse new];
     self.webServiceResponse = [PayUWebServiceResponse new];
     [self.webServiceResponse getPayUPaymentRelatedDetailForMobileSDK:self.paymentParam withCompletionBlock:^(PayUModelPaymentRelatedDetail *paymentRelatedDetails, NSString *errorMessage, id extraParam) {

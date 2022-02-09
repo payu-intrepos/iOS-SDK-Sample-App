@@ -543,12 +543,12 @@ andPreserveCursorPosition:&targetCursorPosition];
     self.vwStoredCardNameSection.hidden = saveCardFlag;
     saveCardFlag = !saveCardFlag;
     self.txtFieldStoreCardName.text = @"";
-    if (self.paymentParam.OneTapTokenDictionary && saveCardFlag) {
-        self.vwOneTapSection.hidden = FALSE;
-    }
-    else{
-        self.vwOneTapSection.hidden = TRUE;
-    }
+//    if (self.paymentParam.OneTapTokenDictionary && saveCardFlag) {
+//        self.vwOneTapSection.hidden = FALSE;
+//    }
+//    else{
+//        self.vwOneTapSection.hidden = TRUE;
+//    }
     [self enableDisablePayNowButton];
 }
 
@@ -570,12 +570,12 @@ andPreserveCursorPosition:&targetCursorPosition];
     else{
         self.paymentParam.storeCardName = self.txtFieldStoreCardName.text;
     }
-    if (OneTapFlag) {
-        self.paymentParam.isOneTap = TRUE;
-    }
-    else{
-        self.paymentParam.isOneTap = FALSE;
-    }
+//    if (OneTapFlag) {
+//        self.paymentParam.isOneTap = TRUE;
+//    }
+//    else{
+//        self.paymentParam.isOneTap = FALSE;
+//    }
     
     BOOL isYearSelected = self.txtFieldYear.text.length > 0;
     BOOL isMonthSelected = self.txtFieldMonth.text.length > 0;
@@ -719,6 +719,9 @@ andPreserveCursorPosition:&targetCursorPosition];
                 }
                 if ([cardlessPayment count] == 0) {
                     [PUUIUtility showAlertWithTitle:@"Error" message:[@"Not Eligible for cardless emi transaction. " stringByAppendingString:reason] viewController:self];
+                }
+                else {
+                    [PUUIUtility showAlertWithTitle:@"Eligible" message:@"You are eligible for cardless transaction. Please select bank."viewController:self];
                 }
             }
             else{

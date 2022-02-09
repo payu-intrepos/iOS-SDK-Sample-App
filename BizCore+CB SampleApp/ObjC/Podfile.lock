@@ -1,10 +1,12 @@
 PODS:
-  - PayUIndia-Custom-Browser (7.0.0)
+  - PayUIndia-CrashReporter (1.0.0)
+  - PayUIndia-Custom-Browser (7.1.0)
   - PayUIndia-NetworkReachability (1.0.1)
-  - PayUIndia-PayUParams (2.0.1)
-  - PayUIndia-PG-SDK (6.3.0):
+  - PayUIndia-PayUParams (3.2.0)
+  - PayUIndia-PG-SDK (8.0.0):
+    - PayUIndia-CrashReporter (~> 1.0)
     - PayUIndia-NetworkReachability (~> 1.0)
-    - PayUIndia-PayUParams (~> 2.0)
+    - PayUIndia-PayUParams (~> 3.2)
 
 DEPENDENCIES:
   - PayUIndia-Custom-Browser
@@ -12,16 +14,18 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - PayUIndia-CrashReporter
     - PayUIndia-Custom-Browser
     - PayUIndia-NetworkReachability
     - PayUIndia-PayUParams
     - PayUIndia-PG-SDK
 
 SPEC CHECKSUMS:
-  PayUIndia-Custom-Browser: ffa6e718d4617d59680cef8364222ecb77e9e1fb
+  PayUIndia-CrashReporter: e4e6a68b2a2f59fb826331db0799f0167f596593
+  PayUIndia-Custom-Browser: 76c64f52125fefb0d5145f9c5f216a3eecbabb2e
   PayUIndia-NetworkReachability: 99e69781b3be99d7b713075ab7b73e6d73a153e4
-  PayUIndia-PayUParams: 284b80ae30e4f40444fdba7035ab2c0c05fb118b
-  PayUIndia-PG-SDK: 0da37eb31c0cc1b4ef142695744750cfef75bf91
+  PayUIndia-PayUParams: 64ddfd59161ec7ff16cab48e002f62d06060bfa3
+  PayUIndia-PG-SDK: f7ed5e632df603765826e09749e5bef1dba1a4e7
 
 PODFILE CHECKSUM: b07cc0f8d82531d2f58734d3f241089b945f2ce5
 

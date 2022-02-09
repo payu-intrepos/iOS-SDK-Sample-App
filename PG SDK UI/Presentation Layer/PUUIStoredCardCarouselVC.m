@@ -29,6 +29,11 @@ static int const kMaxIphoneScreenWidth = 414;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollViewCarousel;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet UIButton *btnDeleteCard;
+@property (weak, nonatomic) IBOutlet UITextField *last4DigitsTF;
+@property (weak, nonatomic) IBOutlet UITextField *tavvTF;
+@property (weak, nonatomic) IBOutlet UITextField *tridTF;
+@property (weak, nonatomic) IBOutlet UITextField *tokenRefNoTF;
+@property (weak, nonatomic) IBOutlet UITextField *storedCardTokenTypeTF;
 
 
 @end
@@ -188,15 +193,15 @@ static int const kMaxIphoneScreenWidth = 414;
         _currentModelStoredCard = [self.arrStoredCards objectAtIndex:_currentCardIndex];
         _isOneTapCard = [self isOneTapCardAtIndex:cardIndex];
         
-        if(!self.paymentParam.OneTapTokenDictionary) { //Do we have atleast one oneTapCard?
+//        if(!self.paymentParam.OneTapTokenDictionary) { //Do we have atleast one oneTapCard?
             [self removeOneClickCheckboxContainer];
-        }
-        else if(_isOneTapCard){ //Is current card a oneTap?
-            [self removeOneClickCheckboxContainer];
-        }
-        else {
-            _currentStoredCardView.viewCheckboxContainer.hidden = NO;
-        }
+//        }
+//        else if(_isOneTapCard){ //Is current card a oneTap?
+//            [self removeOneClickCheckboxContainer];
+//        }
+//        else {
+//            _currentStoredCardView.viewCheckboxContainer.hidden = NO;
+//        }
     }
 }
 
@@ -260,27 +265,32 @@ static int const kMaxIphoneScreenWidth = 414;
 }
 
 -(void) setPaymentParams {
+    // For Tokenised Card
+    self.paymentParam.cardTokenType = _storedCardTokenTypeTF.text;
+    self.paymentParam.additionalInfo = [[AdditionalInfo alloc] initWithLast4Digits:_last4DigitsTF.text tavv:_tavvTF.text trid:_tridTF.text tokenRefNo:_tokenRefNoTF.text];
+
     self.paymentParam.cardToken = _currentModelStoredCard.cardToken;
     self.paymentParam.cardBin = _currentModelStoredCard.cardBin;
     
-    if(self.paymentParam.OneTapTokenDictionary && _isOneTapCard) {
-        self.paymentParam.oneTapFlag = _currentModelStoredCard.oneTapFlag;
-    }
-    else if(self.paymentParam.OneTapTokenDictionary && _currentStoredCardView.btnOneClickCheckout.selected) {
-        self.paymentParam.oneTapFlag = nil;
+
+//    if(self.paymentParam.OneTapTokenDictionary && _isOneTapCard) {
+//        self.paymentParam.oneTapFlag = _currentModelStoredCard.oneTapFlag;
+//    }
+//    else if(self.paymentParam.OneTapTokenDictionary && _currentStoredCardView.btnOneClickCheckout.selected) {
+//        self.paymentParam.oneTapFlag = nil;
+//        self.paymentParam.CVV = _currentStoredCardView.tfCVV.text;
+//        self.paymentParam.isOneTap = YES;
+//    }
+//    else {
+//        self.paymentParam.oneTapFlag = nil;
         self.paymentParam.CVV = _currentStoredCardView.tfCVV.text;
-        self.paymentParam.isOneTap = YES;
-    }
-    else {
-        self.paymentParam.oneTapFlag = nil;
-        self.paymentParam.CVV = _currentStoredCardView.tfCVV.text;
-        self.paymentParam.isOneTap = NO;
-    }
+//        self.paymentParam.isOneTap = NO;
+//    }
 }
 
 //Read the checkbox on card view and set the oneTap property of payment params.
 - (void)setOneTapStatusFromCheckbox {
-    self.paymentParam.isOneTap = _currentStoredCardView.btnOneClickCheckout.selected;
+//    self.paymentParam.isOneTap = _currentStoredCardView.btnOneClickCheckout.selected;
 }
 
 #pragma mark - Action methods
@@ -307,7 +317,7 @@ static int const kMaxIphoneScreenWidth = 414;
             self.pageControl.numberOfPages = self.arrStoredCards.count;
             self.pageControl.currentPage = self.carousel.currentItemIndex;
             [self cardOptionSelectedWithIndex:self.carousel.currentItemIndex];
-            [self enableDisablePayNowButton];            
+            [self enableDisablePayNowButton];
         }}];
 }
 
@@ -338,6 +348,7 @@ static int const kMaxIphoneScreenWidth = 414;
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
+    [self setPaymentParams];
     [self enableDisablePayNowButton];
 }
 
@@ -369,7 +380,7 @@ static int const kMaxIphoneScreenWidth = 414;
 #pragma mark - PUUIStoredCardView delegates
 
 - (void)didSelectOneTapCheckBoxWithSelectionStatus:(BOOL)isSelected {
-    self.paymentParam.isOneTap = isSelected;
+//    self.paymentParam.isOneTap = isSelected;
     [self enableDisablePayNowButton];
 }
 

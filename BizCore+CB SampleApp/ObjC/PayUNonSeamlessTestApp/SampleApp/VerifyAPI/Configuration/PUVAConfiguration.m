@@ -30,7 +30,9 @@
                            COMMAND_ELIGIBLE_BINS_FOR_EMI,
                            COMMAND_MCP_LOOKUP,
                            COMMAND_GET_CHECKOUT_DETAILS,
-
+                           COMMAND_DELETE_PAYMENT_INSTRUMENT,
+                           COMMAND_GET_PAYMENT_INSTRUMENT,
+                           COMMAND_GET_PAYMENT_DETAILS,
                            nil];
     }
     return self;

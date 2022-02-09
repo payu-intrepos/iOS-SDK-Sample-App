@@ -94,10 +94,16 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
     else if ([self.responseVCType isEqual:COMMAND_DELETE_USER_CARD]){
         [self setupForDeleteUserCard];
     }
+    else if ([self.responseVCType isEqual:COMMAND_DELETE_PAYMENT_INSTRUMENT]){
+        [self setupForDeleteTokenizedStoredCard];
+    }
     else if ([self.responseVCType isEqual:COMMAND_CHECK_OFFER_DETAILS]){
         [self setupForOfferDetails];
     }
     else if ([self.responseVCType isEqual:COMMAND_GET_USER_CARDS]){
+        [self setupForGetUserCards];
+    }
+    else if ([self.responseVCType isEqual:COMMAND_GET_PAYMENT_INSTRUMENT]){
         [self setupForGetUserCards];
     }
     else if ([self.responseVCType isEqual:COMMAND_VERIFY_PAYMENT]){
@@ -127,6 +133,31 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
     else if ([self.responseVCType isEqual:COMMAND_GET_CHECKOUT_DETAILS]) {
         [self setupForCheckoutDetail];
     }
+    else if ([self.responseVCType isEqual:COMMAND_GET_PAYMENT_DETAILS]) {
+        [self setupForGetPaymentDetails];
+    }
+}
+
+-(void)setupForGetPaymentDetails {
+    self.vwView1.hidden = FALSE;
+    self.vwView2.hidden = FALSE;
+    self.vwView3.hidden = FALSE;
+    self.vwView4.hidden = FALSE;
+
+    self.lblVar1.text = @"User Credentials";
+    self.lblVar2.text = @"Card Token";
+    self.lblVar3.text = @"Amount";
+    self.lblVar4.text = @"Currency";
+    
+    self.txtFieldVar1.placeholder = @"JQBlG:abc";
+    self.txtFieldVar2.placeholder = @"745d72e2fd9dasd8824fef4e7ed7dac1f";
+    self.txtFieldVar3.placeholder = @"10.00";
+    self.txtFieldVar4.placeholder = @"INR";
+
+    self.txtFieldVar1.text = self.paymentParam.userCredentials;
+    self.txtFieldVar4.text = @"INR";
+    
+    self.btnVar2.hidden = FALSE;
 }
 
 -(void)setupForCheckoutDetail {
@@ -207,6 +238,27 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
     self.txtFieldVar1.text = self.paymentParam.userCredentials;
 }
 
+-(void)setupForDeleteTokenizedStoredCard{
+    self.vwView1.hidden = FALSE;
+    self.vwView2.hidden = FALSE;
+    self.vwView3.hidden = FALSE;
+    self.vwView4.hidden = FALSE;
+
+    self.btnVar2.hidden = FALSE;
+    
+    self.lblVar1.text = @"User Cred";
+    self.lblVar2.text = @"Stored Card";
+    self.lblVar3.text = @"Network Token";
+    self.lblVar4.text = @"Issuer Token";
+
+    self.txtFieldVar1.placeholder = @"merchantKey:customerEmailID";
+    self.txtFieldVar2.placeholder = @"Enter Card Token";
+    self.txtFieldVar3.placeholder = @"Enter Network Token";
+    self.txtFieldVar4.placeholder = @"Enter Issuer Token";
+
+    self.txtFieldVar1.text = self.paymentParam.userCredentials;
+}
+
 -(void)setupForOfferDetails{
     self.vwView1.hidden = FALSE;
     self.vwView2.hidden = FALSE;
@@ -274,6 +326,15 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
     }
     else if ([self.responseVCType isEqual:COMMAND_GET_CHECKOUT_DETAILS]){
         [self btnClickedCheckoutDetail];
+    }
+    else if ([self.responseVCType isEqual:COMMAND_DELETE_PAYMENT_INSTRUMENT]){
+        [self btnClickedDeleteTokenizedStoredCard];
+    }
+    else if ([self.responseVCType isEqual:COMMAND_GET_PAYMENT_INSTRUMENT]){
+        [self btnClickedGetTokenizedStoredCards];
+    }
+    else if ([self.responseVCType isEqual:COMMAND_GET_PAYMENT_DETAILS]){
+        [self btnClickedGetTokenizedPaymentDetails];
     }
 }
 
@@ -431,6 +492,53 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
     }
 }
 
+-(void)btnClickedDeleteTokenizedStoredCard{
+    self.paymentParam.userCredentials = self.txtFieldVar1.text;
+    self.paymentParam.cardToken = self.txtFieldVar2.text;
+    self.paymentParam.networkToken = self.txtFieldVar3.text;
+    self.paymentParam.issuerToken = self.txtFieldVar4.text;
+
+    if ([self setHashes]) {
+        [self startActivityIndicator];
+        [_webServiceResponse deleteTokenizedStoredCard:self.paymentParam withCompletionBlock:^(NSString *deleteStoredCardStatus, NSString *deleteStoredCardMessage, NSString *errorMessage, id extraParam) {
+            [_defaultActivityIndicator stopAnimatingActivityIndicator];
+            if (errorMessage) {
+                [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
+            }
+            else {
+                NSString *responseMsg =[NSString stringWithFormat:@"Status: %@, Message: %@",deleteStoredCardStatus,deleteStoredCardMessage];
+                if ([deleteStoredCardStatus integerValue] == 1) {
+                    [[NSNotificationCenter defaultCenter] postNotificationName:kPUUINotiPaymentResponse object:responseMsg];
+                }
+                else{
+                    [PUUIUtility showAlertWithTitle:@"Response" message:responseMsg viewController:self];
+                }
+            }
+        }];
+    }
+}
+
+-(void)btnClickedGetTokenizedPaymentDetails{
+    self.paymentParam.userCredentials = self.txtFieldVar1.text;
+    self.paymentParam.cardToken = self.txtFieldVar2.text;
+    self.paymentParam.amount = self.txtFieldVar3.text;
+    self.paymentParam.currency = self.txtFieldVar4.text;
+
+    if ([self setHashes]) {
+        [self startActivityIndicator];
+        [_webServiceResponse getTokenizedPaymentDetails:self.paymentParam withCompletionBlock:^(PayUModelTokenizedPaymentDetails *tokenizedPaymentdetails, NSString *errorMessage, id extraParam) {
+            [_defaultActivityIndicator stopAnimatingActivityIndicator];
+            if (errorMessage) {
+                [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
+            } else {
+                NSString *responseMsg =[NSString stringWithFormat:@"cryptogram = %@\ncard_PAR = %@\ncardNo = %@\ncardToken = %@\none_click_status = %@\none_click_flow = %@\none_click_card_alias = %@\nnetworkToken = %@\nnetworkExpiryMonth = %@\nnetworkExpiryYear = %@\ncard_type = %@\ncard_mode = %@\ncard_name = %@\ntoken_refernce_id = %@\ntrid = %@\n\n",tokenizedPaymentdetails.cryptogram, tokenizedPaymentdetails.cardPAR, tokenizedPaymentdetails.cardNo, tokenizedPaymentdetails.cardToken, tokenizedPaymentdetails.oneClickStatus, tokenizedPaymentdetails.oneClickFlow, tokenizedPaymentdetails.oneClickCardAlias, tokenizedPaymentdetails.networkToken.token, tokenizedPaymentdetails.networkToken.expiryMonth, tokenizedPaymentdetails.networkToken.expiryYear, tokenizedPaymentdetails.cardType, tokenizedPaymentdetails.cardMode, tokenizedPaymentdetails.cardName, tokenizedPaymentdetails.tokenReferenceId, tokenizedPaymentdetails.trid];
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:kPUUINotiPaymentResponse object:responseMsg];
+            }
+        }];
+    }
+}
+
 -(void)btnClickedOfferDetails{
     self.paymentParam.offerKey = self.txtFieldVar3.text;
     self.paymentParam.amount = self.txtFieldVar4.text;
@@ -476,6 +584,12 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
     UINavigationController * navigationCntlr = [segue destinationViewController];
     _tableVC = (PUVATableVC *)[navigationCntlr topViewController];
     if ([self.responseVCType isEqual:COMMAND_DELETE_USER_CARD]) {
+        [self prepareForDeleteSCSegue:segue sender:sender];
+    }
+    else if ([self.responseVCType isEqual:COMMAND_DELETE_PAYMENT_INSTRUMENT]) {
+        [self prepareForDeleteSCSegue:segue sender:sender];
+    }
+    else if ([self.responseVCType isEqual:COMMAND_GET_PAYMENT_DETAILS]) {
         [self prepareForDeleteSCSegue:segue sender:sender];
     }
     else if ([self.responseVCType isEqual:COMMAND_CHECK_OFFER_DETAILS]){
@@ -527,6 +641,12 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
 {
     _tableVC = [unwindSegue sourceViewController];
     if ([self.responseVCType isEqual:COMMAND_DELETE_USER_CARD]) {
+        [self unwindToViewControllerForDeleteSC:unwindSegue];
+    }
+    else if ([self.responseVCType isEqual:COMMAND_DELETE_PAYMENT_INSTRUMENT]) {
+        [self unwindToViewControllerForDeleteSC:unwindSegue];
+    }
+    else if ([self.responseVCType isEqual:COMMAND_GET_PAYMENT_DETAILS]) {
         [self unwindToViewControllerForDeleteSC:unwindSegue];
     }
     else if ([self.responseVCType isEqual:COMMAND_CHECK_OFFER_DETAILS]){
@@ -606,6 +726,31 @@ static NSString * const segueIdentiiferVar9 = @"ResponseToTableBtnVar9";
                     [responseMessage appendFormat:@"%@\n",cardtoken];
                     PayUModelStoredCard *objSC = [dictStoredCard objectForKey:cardtoken];
                     [responseMessage appendFormat:@"card_bin = %@\ncard_brand = %@\ncard_cvv = %@\ncard_mode = %@\ncard_name = %@\ncard_no = %@\ncard_token = %@\ncard_type = %@\nexpiry_month = %@\nexpiry_year = %@\nisDomestic = %@\nis_expired = %@\nissuingBank = %@\nname_on_card = %@\n\n",objSC.cardBin,objSC.cardBrand,objSC.oneTapFlag,objSC.cardMode,objSC.cardName,objSC.cardNo,objSC.cardToken,objSC.cardType,objSC.expiryMonth,objSC.expiryYear,objSC.isDomestic,objSC.isExpired,objSC.issuingBank,objSC.nameOnCard];
+                }
+                [PUUIUtility showAlertWithTitle:@"Response" message:responseMessage viewController:self];
+            }
+            else{
+                [PUUIUtility showAlertWithTitle:@"Error" message:errorMessage viewController:self];
+            }
+        }];
+    }
+}
+
+-(void)btnClickedGetTokenizedStoredCards{
+    self.paymentParam.userCredentials = self.txtFieldVar1.text;
+    
+    if ([self setHashes]) {
+        [self startActivityIndicator];
+        [_webServiceResponse getTokenizedStoredCards:self.paymentParam withCompletionBlock:^(NSDictionary *dictStoredCard, NSString *errorMessage, id extraParam) {
+            [_defaultActivityIndicator stopAnimatingActivityIndicator];
+            NSDictionary *dict = [extraParam objectForKey:KEY_POST_PARAM];
+            NSLog(@"%@",dict);
+            if (!errorMessage) {
+                NSMutableString *responseMessage = [[NSMutableString alloc]init];
+                for (NSString *cardtoken in [dictStoredCard allKeys]) {
+                    [responseMessage appendFormat:@"%@\n",cardtoken];
+                    PayUModelTokenizedStoredCard *objSC = [dictStoredCard objectForKey:cardtoken];
+                    [responseMessage appendFormat:@"card_bin = %@\ncard_brand = %@\ncard_mode = %@\ncard_name = %@\ncard_no = %@\ncard_token = %@\ncard_type = %@\nisDomestic = %@\none_click_flow = %@\none_click_status = %@\none_click_card_alias = %@\ncard_PAR = %@\n\n",objSC.cardBin,objSC.cardBrand,objSC.cardMode,objSC.cardName,objSC.cardNo,objSC.cardToken,objSC.cardType,objSC.isDomestic,objSC.oneClickFlow,objSC.oneClickStatus,objSC.oneClickCardAlias,objSC.cardPAR];
                 }
                 [PUUIUtility showAlertWithTitle:@"Response" message:responseMessage viewController:self];
             }
