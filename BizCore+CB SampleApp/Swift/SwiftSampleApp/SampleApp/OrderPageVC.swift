@@ -134,7 +134,7 @@ class OrderPageVC: UIViewController {
         weak var weakSelf = self
         activityIndicator.startActivityIndicatorOn(self.view)
 
-        webserviceResposne.getPayUPaymentRelatedDetail(forMobileSDK: paymentParams) { (paymentRelatedDetails, errorMessage, extraParam) in
+        webserviceResposne?.getPayUPaymentRelatedDetail(forMobileSDK: paymentParams) { (paymentRelatedDetails, errorMessage, extraParam) in
             weakSelf?.activityIndicator.stopActivityIndicator()
             if let wself = weakSelf {
                 if let error = errorMessage {

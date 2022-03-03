@@ -1,9 +1,9 @@
 PODS:
   - PayUIndia-CrashReporter (1.0.0)
-  - PayUIndia-Custom-Browser (7.1.0)
+  - PayUIndia-Custom-Browser (9.0.0)
   - PayUIndia-NetworkReachability (1.0.1)
   - PayUIndia-PayUParams (3.2.0)
-  - PayUIndia-PG-SDK (8.0.0):
+  - PayUIndia-PG-SDK (8.1.0):
     - PayUIndia-CrashReporter (~> 1.0)
     - PayUIndia-NetworkReachability (~> 1.0)
     - PayUIndia-PayUParams (~> 3.2)
@@ -22,10 +22,10 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   PayUIndia-CrashReporter: e4e6a68b2a2f59fb826331db0799f0167f596593
-  PayUIndia-Custom-Browser: 76c64f52125fefb0d5145f9c5f216a3eecbabb2e
+  PayUIndia-Custom-Browser: bdef9f030dbf86f9e144108517f8658803336dc6
   PayUIndia-NetworkReachability: 99e69781b3be99d7b713075ab7b73e6d73a153e4
   PayUIndia-PayUParams: 64ddfd59161ec7ff16cab48e002f62d06060bfa3
-  PayUIndia-PG-SDK: f7ed5e632df603765826e09749e5bef1dba1a4e7
+  PayUIndia-PG-SDK: e4d22355ec372bf9ae3bdb17a2640d76c92b87d6
 
 PODFILE CHECKSUM: b07cc0f8d82531d2f58734d3f241089b945f2ce5
 

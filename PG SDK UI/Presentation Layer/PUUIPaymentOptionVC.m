@@ -410,6 +410,7 @@ typedef NS_ENUM(NSUInteger, VCDisplayMode) {
                 self.webVC.cbWebVCDelegate = self;
                 cbConfig.shouldShowPayULoader = YES;
                 cbConfig.isAutoOTPSelect = NO;
+                cbConfig.isAutoOTPSubmit = YES;
                 cbConfig.transactionId = self.paymentParam.transactionID;
                 
                 cbConfig.paymentURL = [request.URL absoluteString];

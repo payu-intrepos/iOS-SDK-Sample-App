@@ -703,21 +703,6 @@
 			};
 			name = Release;
 		};
-		4B7D966D79C8AA8E6C8DD31C6DDFB0F5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C6D898D3FC4456690FF8B27FC7D9FAA /* PayUIndia-Custom-Browser.debug.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
 		59FE943D2618B63A628DB59C869768D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0CD4CFEADACBDA98C158DD91B711616A /* PayUIndia-CrashReporter.debug.xcconfig */;
@@ -834,22 +819,6 @@
 			};
 			name = Release;
 		};
-		8B25109C278A92125B8DE7EB872442F4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 86EA5B6AF996F5754348C37BC94B74AE /* PayUIndia-Custom-Browser.release.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		903A0004D3E6651EFD5D2E16214D101B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -909,6 +878,22 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		91F2AA533AA1AEF9A09C30BEA850F9F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86EA5B6AF996F5754348C37BC94B74AE /* PayUIndia-Custom-Browser.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -978,6 +963,21 @@
 			};
 			name = Debug;
 		};
+		C7D4194A8B27A1ECF5735CA5F1D29F93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C6D898D3FC4456690FF8B27FC7D9FAA /* PayUIndia-Custom-Browser.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1020,8 +1020,8 @@
 		EEE6F3EF976E945B041570D165B17247 /* Build configuration list for PBXAggregateTarget "PayUIndia-Custom-Browser" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4B7D966D79C8AA8E6C8DD31C6DDFB0F5 /* Debug */,
-				8B25109C278A92125B8DE7EB872442F4 /* Release */,
+				C7D4194A8B27A1ECF5735CA5F1D29F93 /* Debug */,
+				91F2AA533AA1AEF9A09C30BEA850F9F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
