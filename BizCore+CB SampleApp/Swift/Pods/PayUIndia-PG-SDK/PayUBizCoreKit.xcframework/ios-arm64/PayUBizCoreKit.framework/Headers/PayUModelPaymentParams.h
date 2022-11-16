@@ -64,6 +64,8 @@
 @property (strong, nonatomic) NSString * shippingLastname;
 @property (strong, nonatomic) NSString * shippingAddress1;
 @property (strong, nonatomic) NSString * shippingAddress2;
+@property (strong, nonatomic) NSString * splitPaymentDetails;
+
 @property (strong, nonatomic) NSString * shippingCity;
 @property (strong, nonatomic) NSString * shippingState;
 @property (strong, nonatomic) NSString * shippingCountry;
@@ -72,6 +74,9 @@
 @property (strong, nonatomic) NSString * offerKey;
 @property BOOL isSIInfo;
 @property BOOL checkAdditionalCharges;
+@property BOOL getSdkDetails;
+@property BOOL getMerchantDetails;
+@property BOOL getPaymentDetailsWithExtraFields;
 @property BOOL checkDownStatus;
 @property BOOL checkOfferDetails;
 @property BOOL checkTaxSpecification;
@@ -84,7 +89,7 @@
 // Param for Stored card
 @property (nonatomic, strong) NSString * cardBin;
 @property (nonatomic, strong) NSString * cardBrand;
-//@property (nonatomic, strong) NSString * oneTapFlag;
+@property (strong, nonatomic) NSString * cardMask;
 @property (nonatomic, strong) NSString * cardMode;
 @property (nonatomic, strong) NSString * cardName;
 @property (nonatomic, strong) NSString * cardNo;
@@ -102,7 +107,6 @@
 @property (strong, nonatomic) NSString * expiryYear;
 @property (strong, nonatomic) NSString * CVV;
 @property (strong, nonatomic) NSString * nameOnCard;
-//@property  BOOL isOneTap;
 @property  BOOL isNewSodexoCard;
 @property  BOOL shouldSaveCard;
 
@@ -113,10 +117,6 @@
 
 // Param for NetBanking, StoredCard, CashCard, EMI
 @property (strong, nonatomic) NSString * bankCode;
-
-// Param for OneTap
-//@property (strong, nonatomic) NSDictionary *OneTapTokenDictionary;
-
 
 //This param is for GetTransactionInfo API
 @property (strong, nonatomic) NSString *startTime;
@@ -220,6 +220,20 @@
 @property (strong, nonatomic) PayUBeneficiaryParams *beneficiaryParams;
 
 @property (strong, nonatomic) NSString * merchantResponseTimeout;
+@property BOOL isRetryPayment;
+
+// Get Offer Detail Parameters
+@property (strong, nonatomic) NSString * userToken;
+@property (strong, nonatomic) NSString * clientId;
+@property (strong, nonatomic) NSString * paymentCode;
+@property (strong, nonatomic) NSString * platformId;
+@property (strong, nonatomic) NSArray<NSString *>  * offerKeys;
+
+//Ads impression paramters
+@property (strong, nonatomic) NSString * requestId;
+@property (strong, nonatomic) NSString * payUId;
+@property (strong, nonatomic) NSString * phoneOtp;
+@property (strong, nonatomic) NSString * loginUuid;
 
 @end
 

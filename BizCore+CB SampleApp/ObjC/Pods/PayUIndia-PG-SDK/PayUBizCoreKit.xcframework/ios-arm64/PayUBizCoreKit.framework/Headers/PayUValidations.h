@@ -171,7 +171,7 @@
  * @param  [key]               [NSString type]
  * @return [errorString]       [NSString type]
  */
--(NSString *)validateKey:(NSString *) key;
+-(NSString *)validateEmptyString:(NSString *) key withError:(NSString*)error;
 
 /*!
  * This method validates TransactionID.
@@ -371,5 +371,13 @@
 - (NSMutableString *)validateDeleteTokenizedStoredCard: (PayUModelPaymentParams *) paymentParam;
 - (NSMutableString *)validateGetTokenizedStoredCardsParam:(PayUModelPaymentParams *) paymentParam;
 - (NSMutableString *)validateGetTokenizedPaymentDetailParams:(PayUModelPaymentParams *) paymentParam;
-
+- (NSMutableString *)validateGetAllOfferParams:(PayUModelPaymentParams *) paymentParam;
+- (NSMutableString *)validateValidateOfferParams:(PayUModelPaymentParams *) paymentParam;
+- (NSMutableString *)validateGetSDKConfigurationParams:(PayUModelPaymentParams *) paymentParam;
+- (NSMutableString *)validateFetchAssetsParam:(PayUModelPaymentParams *) paymentParam;
+- (NSMutableString *)validateImpressionParam:(PayUModelPaymentParams *) paymentParam;
+- (NSMutableString *)validateUpdatePayUIdParam:(PayUModelPaymentParams *) paymentParam;
+- (NSMutableString *)validatePhoneNumberInParam:(PayUModelPaymentParams *) paymentParam;
+- (NSMutableString *)validateOtpParam:(PayUModelPaymentParams *) paymentParam;
+- (NSMutableString *)validateFetchPaymentOptionInParam:(PayUModelPaymentParams *) paymentParam;
 @end

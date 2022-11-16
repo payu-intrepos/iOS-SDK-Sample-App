@@ -23,9 +23,16 @@
 #import "PayUModelVAS.h"
 #import "PayUModelSodexoCardDetail.h"
 #import "PayUModelTokenizedPaymentDetails.h"
+
 @import PayUParamsKit;
 
 @interface PayUWebServiceResponse : NSObject
+
+typedef void (^completionBlock)(NSDictionary *hashDict);
+
+typedef void (^completionBlockForHashGeneration)(NSDictionary *parameters ,completionBlock completionBlock);
+
+typedef void (^completionBlockForUpdatedPaymentParam)(NSString *paymentType ,NSString *errorMessage, id extraParam);
 
 typedef void (^completionBlockForGetTokenizedPaymentDetails)(PayUModelTokenizedPaymentDetails *tokenizedPaymentdetails ,NSString *errorMessage, id extraParam);
 
@@ -37,7 +44,13 @@ typedef void (^completionBlockForOfferStatus)(PayUModelOfferStatus *offerStatus 
 
 typedef void (^completionBlockForOfferDetails)(PayUModelOfferDetails *offerDetails ,NSString *errorMessage, id extraParam);
 
+typedef void (^completionBlockForAllOfferDetails)(PayUModelAllOfferDetail *offerDetails ,NSString *errorMessage, id extraParam);
+
+typedef void (^completionBlockForValidateOfferDetails)(PayUModelOfferDetail *offerDetails ,NSString *errorMessage, id extraParam);
+
 typedef void (^completionBlockForDeleteStoredCard)(NSString * deleteStoredCardStatus, NSString * deleteStoredCardMessage ,NSString *errorMessage, id extraParam);
+
+typedef void (^completionBlockForGetSDKConfigurations)(NSArray<PayUSDKConfiguration *> *configuration, NSString *errorMessage, id extraParam);
 
 typedef void (^completionBlockForGetVASStatusForCardBinOrBankCode)(id ResponseMessage ,NSString *errorMessage, id extraParam);
 
@@ -59,6 +72,9 @@ typedef void (^completionBlockForSaveUserCard)(PayUModelStoredCard *objStoredCar
 typedef void (^completionBlockForMCPLookup)(PayUModelMultiCurrencyPayment *mcpInfo , NSString *errorMessage, id extraParam);
 typedef void (^completionBlockForIFSC)(PayUModelIFSCInfo *isfcInfo , NSString *errorMessage, id extraParam);
 
+typedef void (^completionBlockForAdsFetch)(PayUModelFetchAssets *assets ,NSString *errorMessage, id extraParam);
+typedef void (^completionBlockForString)(NSString* responseString ,NSString *errorMessage, id extraParam);
+typedef void (^completionBlockForQuickPayOption)(PayUQuickPayOption *otpVerifyModel ,NSString *errorMessage, id extraParam);
 //MARK:- initailizer
 -(id)init;
 //MARK:- This method is to start crash reporting
@@ -215,6 +231,8 @@ typedef void (^completionBlockForIFSC)(PayUModelIFSCInfo *isfcInfo , NSString *e
  */
 -(void)refundTransaction:(PayUModelPaymentParams *) paymentParam withCompletionBlock:(completionBlockForRefund) paramCompletionBlock;
 
+-(void)getSDKConfiguration:(PayUModelPaymentParams *) paymentParam withCompletionBlock:(completionBlockForGetSDKConfigurations) paramCompletionBlock;
+
 -(void)fetchIFSCDetails:(PayUModelPaymentParams *) paymentParam withCompletionBlock:(completionBlockForIFSC) paramCompletionBlock;
 
 -(void)fetchSodexoCardDetails:(PayUModelPaymentParams *) paymentParam
@@ -226,4 +244,38 @@ typedef void (^completionBlockForIFSC)(PayUModelIFSCInfo *isfcInfo , NSString *e
 
 -(void)getTokenizedPaymentDetails:(PayUModelPaymentParams *) paymentParam withCompletionBlock:(completionBlockForGetTokenizedPaymentDetails) paramCompletionBlock;
 
+/*!
+ * This method gives webService response callback for AllOfferDetails.
+ * @param paymentParam PayUModelPaymentParams
+ * @param hashCompletionBlock CompletionBlockForHashGeneration Type
+ * @param responseCompletionBlock CompletionBlockForAllOfferDetails Type
+ * @see   [createRequestWithPaymentParam - PayUCreateRequest]
+ * @see   [getWebServiceResponse - PayUUtils]
+ * @see   [JSONParserforAllOfferDetails - PayUJSONParser]
+ */
+-(void)getAllOfferDetails:(PayUModelPaymentParams *) paymentParam completionBlockForHashGeneration:(completionBlockForHashGeneration) hashCompletionBlock completionBlockForAPIResponse:(completionBlockForAllOfferDetails) responseCompletionBlock;
+
+/*!
+ * This method gives webService response callback for ValidateOfferDetails.
+ * @param paymentParam PayUModelPaymentParams
+ * @param hashCompletionBlock completionBlockForHashGeneration Type
+ * @param responseCompletionBlock completionBlockForValidateOfferDetails Type
+ * @see   [createRequestWithPaymentParam - PayUCreateRequest]
+ * @see   [getWebServiceResponse - PayUUtils]
+ * @see   [JSONParserforValidateOfferDetails - PayUJSONParser]
+ */
+-(void)validateOfferDetails:(PayUModelPaymentParams *) paymentParam completionBlockForHashGeneration:(completionBlockForHashGeneration) hashCompletionBlock completionBlockForAPIResponse:(completionBlockForValidateOfferDetails) responseCompletionBlock;
+
+
+-(void)fetchAdsDetails:(PayUModelPaymentParams *) paymentParam
+   withCompletionBlock:(completionBlockForAdsFetch) responseCompletionBlock;
+
+-(void)postAdsImpressionEvent:(PayUModelPaymentParams *) paymentParam withCompletionBlock:(completionBlockForString) responseCompletionBlock;
+
+-(void)updateAdsPayUId:(PayUModelPaymentParams *) paymentParam withCompletionBlock:(completionBlockForString) responseCompletionBlock;
+
+-(void)sendMobileVerificationCode:(PayUModelPaymentParams *) paymentParam withCompletionBlock:(completionBlockForString) responseCompletionBlock;
+-(void)verifyOtp:(PayUModelPaymentParams *) paymentParam withCompletionBlock:(completionBlockForString) responseCompletionBlock;
+- (void)resendMobileVerificationCode:(PayUModelPaymentParams *)paymentParam withCompletionBlock:(completionBlockForString)responseCompletionBlock;
+- (void)fetchQuickPayOption:(PayUModelPaymentParams *)paymentParam withCompletionBlock:(completionBlockForQuickPayOption)responseCompletionBlock;
 @end

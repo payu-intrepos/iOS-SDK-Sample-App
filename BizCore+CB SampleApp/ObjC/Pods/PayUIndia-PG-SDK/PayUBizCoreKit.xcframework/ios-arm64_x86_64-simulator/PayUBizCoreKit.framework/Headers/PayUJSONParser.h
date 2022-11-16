@@ -21,11 +21,15 @@
 #import "PayUConstants.h"
 #import "PayUModelSodexoCardDetail.h"
 #import "PayUModelTokenizedPaymentDetails.h"
-
 @import PayUParamsKit;
 
 @interface PayUJSONParser : NSObject
-
+typedef void (^completionBlockForJSONParserForFetchAsset)(PayUModelFetchAssets *assets ,NSString *errorMessage, id extraParam);
+typedef void (^completionBlockForJSONParserForAddImpression)(NSString *successMessage,NSString *errorMessage, id extraParam);
+typedef void (^completionBlockForJSONParserForUpdatePayUId)(NSString *successMessage,NSString *errorMessage, id extraParam);
+typedef void (^completionBlockForJSONParserForAllOfferDetails)(PayUModelAllOfferDetail *offerDetails ,NSString *errorMessage, id extraParam);
+typedef void (^completionBlockForJSONParserForValidateOfferDetails)(PayUModelOfferDetail *offerDetails ,NSString *errorMessage, id extraParam);
+typedef void (^completionBlockForJSONParserForGETSDKConfiguration)(NSArray<PayUSDKConfiguration *> *configuration ,NSString *errorMessage, id extraParam);
 typedef void (^completionBlockForJSONParserForGetTokenizedPaymentDetails)(PayUModelTokenizedPaymentDetails *tokenizedPaymentdetails, NSString *errorMessage, id extraParam);
 typedef void (^completionBlockForJSONParserForSodexoCardDetail)(PayUModelSodexoCardDetail *sodexoCardDetail, NSString *errorMessage, id extraParam);
 typedef void (^completionBlockForJSONParserforPaymentRelatedDetailForMobileSDK)(PayUModelPaymentRelatedDetail *paymentRelatedDetails ,NSString *errorMessage, id extraParam);
@@ -78,6 +82,7 @@ typedef void (^completionBlockForJSONParserForVerifyIFSC)(PayUModelIFSCInfo *ifs
 -(void)JSONParserforCheckoutDetails:(id) JSON
                             andOneTapTokenDictionary:(NSDictionary *) oneTapTokenDictionary
                                           apiVersion:(PayUAPIVersion) apiVersion
+                                          isForDynamic:(BOOL) isForDynamic
                 withCompletionBlock:(completionBlockForJSONParserforPaymentRelatedDetailForMobileSDK) paramCompletionBlock;
 
 /*!
@@ -115,10 +120,18 @@ typedef void (^completionBlockForJSONParserForVerifyIFSC)(PayUModelIFSCInfo *ifs
 
 -(void)JSONParserForRefundTransaction:(id) JSON withCompletionBlock:(completionBlockForJSONParserForRefund) paramCompletionBlock;
 
--(void)JSONParserForVerifyIFSC:(id) JSON withCompletionBlock:(completionBlockForJSONParserForVerifyIFSC) paramCompletionBlock;
 
 -(void)JSONParserForSodexoCardDetail:(id) JSON withCompletionBlock:(completionBlockForJSONParserForSodexoCardDetail) paramCompletionBlock;
 
 -(void)JSONParserForGetTokenizedPaymentDetails:(id) JSON withCompletionBlock:(completionBlockForJSONParserForGetTokenizedPaymentDetails) paramCompletionBlock;
 
+-(void)JSONParserforAllOfferDetails:(id) JSON withPaymentType:(NSString *) paymentType andCompletionBlock:(completionBlockForJSONParserForAllOfferDetails) paramCompletionBlock;
+
+-(void)JSONParserforValidateOfferDetails:(id) JSON withPaymentType:(NSString *) paymentType andCompletionBlock:(completionBlockForJSONParserForValidateOfferDetails) paramCompletionBlock;
+
+-(void)JSONParserForGetSDKConfiguration:(id) JSON withCompletionBlock:(completionBlockForJSONParserForGETSDKConfiguration) paramCompletionBlock;
+
+-(void)JSONParserforFetchAssets:(id) JSON withPaymentType:(NSString *) paymentType andCompletionBlock:(completionBlockForJSONParserForFetchAsset) paramCompletionBlock;
+-(void)JSONParserforAdPostImpression:(id) JSON withPaymentType:(NSString *) paymentType andCompletionBlock:(completionBlockForJSONParserForAddImpression) paramCompletionBlock;
+-(void)JSONParserforUpdatePayUId:(id) JSON withPaymentType:(NSString *) paymentType andCompletionBlock:(completionBlockForJSONParserForUpdatePayUId) paramCompletionBlock ;
 @end

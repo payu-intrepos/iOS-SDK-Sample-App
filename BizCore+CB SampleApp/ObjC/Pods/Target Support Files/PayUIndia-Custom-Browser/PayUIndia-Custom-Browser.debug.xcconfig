@@ -1,8 +1,8 @@
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
 CONFIGURATION_BUILD_DIR = ${PODS_CONFIGURATION_BUILD_DIR}/PayUIndia-Custom-Browser
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/PayUIndia-Custom-Browser" "${PODS_XCFRAMEWORKS_BUILD_DIR}/PayUIndia-Custom-Browser"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/PayUIndia-Analytics" "${PODS_ROOT}/PayUIndia-Custom-Browser" "${PODS_ROOT}/PayUIndia-NetworkReachability" "${PODS_XCFRAMEWORKS_BUILD_DIR}/PayUIndia-Analytics" "${PODS_XCFRAMEWORKS_BUILD_DIR}/PayUIndia-Custom-Browser" "${PODS_XCFRAMEWORKS_BUILD_DIR}/PayUIndia-NetworkReachability"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-OTHER_LDFLAGS = $(inherited) -l"ObjC" -l"z" -framework "WebKit"
+OTHER_LDFLAGS = $(inherited) -l"ObjC" -l"z" -framework "PayUAnalytics" -framework "PayUNetworkReachability" -framework "WebKit"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_ROOT = ${SRCROOT}
