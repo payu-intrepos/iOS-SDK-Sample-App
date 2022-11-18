@@ -28,7 +28,7 @@
 }
 
 -(void)enableDisablePayNowButton{
-    self.paymentParam.bankCode = @"UPI";
+    self.paymentParam.bankCode = @"UPI"; /// Use bankCode "UPITPV" for TPV txn.
     if ([[[PayUValidations alloc] init] isValidVPA:self.txtFldUPI.text]) {
         [[NSNotificationCenter defaultCenter] postNotificationName:kPUUINotiEnablePayNow object:self.paymentParam];
     } else {
